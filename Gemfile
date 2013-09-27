@@ -6,7 +6,35 @@ gem 'rails', '3.2.13'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
+gem 'haml-rails'
+gem 'cucumber'
+gem 'cucumber-rails'
+gem 'cucumber-rails-training-wheels'
+gem 'autotest'
+gem 'spork'
+gem 'metric_fu'
+gem 'debugger'
+gem 'timecop', '0.6.1'
+gem 'chronic', '0.9.1'
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'nokogiri'
+gem 'ruby-tmdb', '0.2.1'
+gem 'ruby-graphviz'
+gem 'reek'
+gem 'flog'
+gem 'flay'
 
+group :development, :test do
+  gem 'capybara'
+  gem 'rspec-rails'
+end
+
+group :test do
+  gem 'launchy'
+  gem 'guard-rspec'
+  gem 'faker'
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
