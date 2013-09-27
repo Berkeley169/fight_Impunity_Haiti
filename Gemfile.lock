@@ -35,6 +35,7 @@ GEM
     autotest (4.4.6)
       ZenTest (>= 4.4.1)
     awesome_print (1.2.0)
+    bcrypt-ruby (3.0.1)
     bluff (0.1.0)
     builder (3.0.4)
     cane (2.6.0)
@@ -287,6 +288,7 @@ PLATFORMS
 
 DEPENDENCIES
   autotest
+  bcrypt-ruby (~> 3.0.0)
   capybara
   chronic (= 0.9.1)
   coffee-rails (~> 3.2.1)
