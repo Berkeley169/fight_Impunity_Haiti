@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @document.name
+%p
+  %b Date:
+  = @document.date
+%p
+  %b English:
+  = @document.english
+%p
+  %b French:
+  = @document.french
+%p
+  %b Creole:
+  = @document.creole
+%p
+  %b Spanish:
+  = @document.spanish
+
+= link_to 'Edit', edit_document_path(@document)
+\|
+= link_to 'Back', documents_path

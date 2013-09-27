@@ -1,0 +1,29 @@
+%h1 Listing documents
+
+%table
+  %tr
+    %th Name
+    %th Date
+    %th English
+    %th French
+    %th Creole
+    %th Spanish
+    %th
+    %th
+    %th
+
+  - @documents.each do |document|
+    %tr
+      %td= document.name
+      %td= document.date
+      %td= document.english
+      %td= document.french
+      %td= document.creole
+      %td= document.spanish
+      %td= link_to 'Show', document
+      %td= link_to 'Edit', edit_document_path(document)
+      %td= link_to 'Destroy', document, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Document', new_document_path
