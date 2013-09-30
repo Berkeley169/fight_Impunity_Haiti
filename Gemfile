@@ -34,6 +34,8 @@ group :test do
   gem 'launchy'
   gem 'guard-rspec'
   gem 'faker'
+  gem 'rspec-rails'
+
 end
 
 # Gems used only for assets and not required
