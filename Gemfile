@@ -24,6 +24,7 @@ gem 'ruby-graphviz'
 gem 'reek'
 gem 'flog'
 gem 'flay'
+gem 'paperclip'
 
 group :development, :test do
   gem 'capybara'
