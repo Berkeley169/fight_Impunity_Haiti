@@ -1,8 +1,8 @@
 class CreatePictures < ActiveRecord::Migration
   def change
     create_table :pictures do |t|
-
-      t.timestamps
+    	t.datetime :date
+      	t.timestamps
     end
   end
 end
