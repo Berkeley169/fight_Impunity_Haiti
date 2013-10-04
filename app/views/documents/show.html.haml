@@ -19,6 +19,9 @@
   %b Spanish:
   = @document.spanish
 
+%p
+  = image_tag @document.file.url
+
 = link_to 'Edit', edit_document_path(@document)
 \|
 = link_to 'Back', documents_path
