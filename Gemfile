@@ -7,9 +7,6 @@ gem 'rails', '3.2.13'
 
 gem 'sqlite3'
 gem 'haml-rails'
-gem 'cucumber'
-gem 'cucumber-rails'
-gem 'cucumber-rails-training-wheels'
 gem 'autotest'
 gem 'spork'
 gem 'metric_fu'
@@ -36,6 +33,9 @@ group :test do
   gem 'guard-rspec'
   gem 'faker'
   gem 'rspec-rails'
+  gem 'cucumber'
+  gem 'cucumber-rails'
+  gem 'cucumber-rails-training-wheels'
 
 end
 
