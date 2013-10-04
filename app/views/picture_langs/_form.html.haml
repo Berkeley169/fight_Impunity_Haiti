@@ -1,0 +1,14 @@
+= form_for @picture_lang do |f|
+  - if @picture_lang.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@picture_lang.errors.count, "error")} prohibited this picture_lang from being saved:"
+      %ul
+        - @picture_lang.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :title
+    = f.text_field :title
+
+  .actions
+    = f.submit 'Save'

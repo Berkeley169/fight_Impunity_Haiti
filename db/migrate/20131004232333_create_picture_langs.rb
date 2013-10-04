@@ -4,7 +4,7 @@ class CreatePictureLangs < ActiveRecord::Migration
       t.string :language
       t.string :title
       t.text :description
-
+      t.belongs_to :picture
       t.timestamps
     end
   end

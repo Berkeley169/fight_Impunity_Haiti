@@ -1,0 +1,17 @@
+%h1 Listing picture_langs
+
+%table
+  %tr
+    %th
+    %th
+    %th
+
+  - @picture_langs.each do |picture_lang|
+    %tr
+      %td= link_to 'Show', picture_lang
+      %td= link_to 'Edit', edit_picture_lang_path(picture_lang)
+      %td= link_to 'Destroy', picture_lang, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Picture lang', new_picture_lang_path

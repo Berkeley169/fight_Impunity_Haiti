@@ -1,5 +1,8 @@
 FightImpunityHaiti::Application.routes.draw do
 
+  resources :picture_langs
+
+
   resources :pictures
   resources :documents
 
