@@ -1,3 +1,3 @@
 class SoundLang < ActiveRecord::Base
-  attr_accessible :language
+  attr_accessible :description, :language, :title
 end
