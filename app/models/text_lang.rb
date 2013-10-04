@@ -1,3 +1,3 @@
 class TextLang < ActiveRecord::Base
-  # attr_accessible :title, :body
+  attr_accessible :description, :language, :title
 end
