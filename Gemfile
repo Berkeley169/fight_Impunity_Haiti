@@ -23,6 +23,8 @@ gem 'flog'
 gem 'flay'
 gem 'paperclip'
 
+# get version info for each gem
+
 group :development, :test do
   gem 'capybara'
   gem 'rspec-rails'

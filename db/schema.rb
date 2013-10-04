@@ -11,12 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131004224857) do
+ActiveRecord::Schema.define(:version => 20131004225349) do
 
   create_table "binaries", :force => true do |t|
     t.string   "language"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "binary_langs", :force => true do |t|
+    t.string   "language"
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "documents", :force => true do |t|
@@ -26,8 +34,12 @@ ActiveRecord::Schema.define(:version => 20131004224857) do
     t.boolean  "french"
     t.boolean  "creole"
     t.boolean  "spanish"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
   end
 
   create_table "items", :force => true do |t|

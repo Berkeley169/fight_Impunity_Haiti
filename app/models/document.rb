@@ -1,4 +1,6 @@
 class Document < ActiveRecord::Base
-  attr_accessible :creole, :date, :english, :french, :name, :spanish
+  attr_accessible :creole, :date, :english, :french, :name, :spanish, :file
+  # test class for paperclip
+  has_attached_file :file
 
 end
