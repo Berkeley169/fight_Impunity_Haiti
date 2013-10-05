@@ -36,3 +36,30 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
 end
+
+module ValidModelConstructors
+  def construct_valid_picture(name="ButtPirate")
+    p = Picture.new(:name => name)
+    p.pic_file_name = "file.jpg"
+    p.save!
+  end
+
+  def construct_valid_text()
+    t = Text.new()
+    t.save!
+  end
+  def construct_valid_video()
+    v = Video.new
+    v.save!
+  end
+
+  def construct_valid_sound()
+    s = Sound.new
+    s.save!
+  end
+
+  def construct_valid_binary()
+    b = Binary.new()
+    b.save!
+  end
+end
