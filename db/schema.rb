@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(:version => 20131005202712) do
 
   create_table "binaries", :force => true do |t|
     t.string   "language"
+    t.integer  "item_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -43,6 +44,7 @@ ActiveRecord::Schema.define(:version => 20131005202712) do
   end
 
   create_table "items", :force => true do |t|
+    t.string   "type"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -74,6 +76,7 @@ ActiveRecord::Schema.define(:version => 20131005202712) do
   create_table "pictures", :force => true do |t|
     t.datetime "date"
     t.string   "name"
+    t.integer  "item_id"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
     t.string   "pic_file_name"
@@ -91,6 +94,7 @@ ActiveRecord::Schema.define(:version => 20131005202712) do
   end
 
   create_table "sounds", :force => true do |t|
+    t.integer  "item_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -105,6 +109,7 @@ ActiveRecord::Schema.define(:version => 20131005202712) do
 
   create_table "texts", :force => true do |t|
     t.string   "name"
+    t.integer  "item_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
     t.integer  "text_lang_id"
@@ -120,6 +125,7 @@ ActiveRecord::Schema.define(:version => 20131005202712) do
   end
 
   create_table "videos", :force => true do |t|
+    t.integer  "item_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
