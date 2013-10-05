@@ -6,10 +6,12 @@ class Picture < ActiveRecord::Base
 
   	def get_translations
   		#needs to be implemented
+        PictureLang.where(:picture_id => self.id)
 	end
 
 	def get_language(lang)
 		#needs to be implemented
+        PictureLang.where(:picture_id => self.id, :lang => lang).first
 	end
 
 end

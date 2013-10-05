@@ -29,7 +29,7 @@ describe Picture do
   			pl2 = PictureLang.create! valid_picture_lang_attributes
   			pl1.picture_id = 1
   			pl2.picture_id = 1
-  			pl2.language = :French
+  			pl2.lang = :French
   			pl1.save
   			pl2.save
   			p.get_language("English").should == pl1
