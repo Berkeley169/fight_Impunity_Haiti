@@ -42,18 +42,24 @@ module ValidModelConstructors
     p = Picture.new(:name => name)
     p.pic_file_name = "file.jpg"
     p.save!
-    return p
   end
 
   def construct_valid_text()
     t = Text.new()
     t.save!
-    return t
   end
   def construct_valid_video()
     v = Video.new
     v.save!
-    return v
+  end
 
+  def construct_valid_sound()
+    s = Sound.new
+    s.save!
+  end
+
+  def construct_valid_binary()
+    b = Binary.new()
+    b.save!
   end
 end
