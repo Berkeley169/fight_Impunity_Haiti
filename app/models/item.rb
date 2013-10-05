@@ -1,4 +1,5 @@
 class Item < ActiveRecord::Base
-  # attr_accessible :title, :body
+  attr_accessible :type
   LANGUAGES = [:English, :French, :Creole, :Spanish]
+
 end
