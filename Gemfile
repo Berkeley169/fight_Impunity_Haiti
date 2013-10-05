@@ -34,9 +34,8 @@ group :test do
   gem 'launchy'
   gem 'guard-rspec'
   gem 'faker'
-  gem 'rspec-rails'
   gem 'cucumber'
-  gem 'cucumber-rails'
+  gem 'cucumber-rails', :require => false
   gem 'cucumber-rails-training-wheels'
 
 end

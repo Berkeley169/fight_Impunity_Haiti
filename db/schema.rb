@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(:version => 20131004232333) do
     t.string   "language"
     t.string   "title"
     t.text     "description"
+    t.integer  "picture_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
@@ -74,7 +75,6 @@ ActiveRecord::Schema.define(:version => 20131004232333) do
     t.string   "name"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
-    t.integer  "picture_lang_id"
     t.string   "pic_file_name"
     t.string   "pic_content_type"
     t.integer  "pic_file_size"

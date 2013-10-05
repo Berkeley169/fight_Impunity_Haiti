@@ -1,11 +1,10 @@
 FightImpunityHaiti::Application.routes.draw do
 
   resources :picture_langs
-
-
   resources :pictures
   resources :documents
-
+  match 'pages/contact' => 'pages#contact'
+  match 'pages/about' => 'pages#about'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
