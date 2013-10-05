@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(:version => 20131004232333) do
   end
 
   create_table "picture_langs", :force => true do |t|
-    t.string   "language"
+    t.string   "lang"
     t.string   "title"
     t.text     "description"
     t.integer  "picture_id"

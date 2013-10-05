@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Picture do
 	let(:valid_attributes) { { "name" => "MyString" } }
-	let(:valid_picture_lang_attributes) { {"language" => "English"} }
+	let(:valid_picture_lang_attributes) { {:lang => "English"} }
   	describe "the get_translations method" do
   		it "successfully gets all the children" do
   			p = Picture.create! valid_attributes
@@ -50,6 +50,7 @@ describe Picture do
   			v = valid_attributes
   			Picture.new(v).should_not be_valid
   		end
+
   		it "should workd if everything is valid" do
   			p = Picture.new(valid_attributes)
   			p.pic_file_name = "file.jpg"
