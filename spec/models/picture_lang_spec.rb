@@ -13,5 +13,8 @@ describe PictureLang do
 	  		v[:lang] = nil
 	  		PictureLang.new(v).should_not be_valid
 	  	end
+	  	it "should work with valid valid_attributes" do
+	  		PictureLang.new(valid_attributes).should be_valid
+	  	end
   end
 end

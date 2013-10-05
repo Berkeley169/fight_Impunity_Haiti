@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131004232333) do
+ActiveRecord::Schema.define(:version => 20131005202712) do
 
   create_table "binaries", :force => true do |t|
     t.string   "language"
@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(:version => 20131004232333) do
     t.string   "lang"
     t.string   "title"
     t.text     "description"
+    t.boolean  "published"
     t.integer  "picture_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
@@ -107,6 +108,15 @@ ActiveRecord::Schema.define(:version => 20131004232333) do
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
     t.integer  "text_lang_id"
+  end
+
+  create_table "video_langs", :force => true do |t|
+    t.string   "language"
+    t.string   "title"
+    t.text     "description"
+    t.boolean  "published"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "videos", :force => true do |t|

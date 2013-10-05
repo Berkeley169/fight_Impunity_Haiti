@@ -1,5 +1,9 @@
 require 'spec_helper'
 
 describe Item do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "some basic function tests:" do
+  	it "should be able to get the languages" do
+  		Item::LANGUAGES.sort.should == [:English, :French, :Creole, :Spanish].sort
+  	end
+  end
 end
