@@ -1,5 +1,5 @@
 require 'spec_helper'
-
+include ValidModelConstructors
 
 
 describe PicturesController do
@@ -14,7 +14,7 @@ describe PicturesController do
 
   describe "GET show" do
     it "assigns the requested picture as @picture" do
-      picture = Picture.create! valid_attributes
+      picture = construct_valid_picture
       get :show, {:id => picture.to_param}, valid_session
       assigns(:picture).should eq(picture)
     end
@@ -29,7 +29,7 @@ describe PicturesController do
 
   describe "GET edit" do
     it "assigns the requested picture as @picture" do
-      picture = Picture.create! valid_attributes
+      picture = construct_valid_picture
       get :edit, {:id => picture.to_param}, valid_session
       assigns(:picture).should eq(picture)
     end
@@ -75,7 +75,7 @@ describe "POST create" do
   describe "PUT update" do
     describe "with valid params" do
       it "updates the requested picture" do
-        picture = Picture.create! valid_attributes
+        picture = construct_valid_picture
         # Assuming there are no other pictures in the database, this
         # specifies that the Picture created on the previous line
         # receives the :update_attributes message with whatever params are
@@ -85,13 +85,13 @@ describe "POST create" do
       end
 
       it "assigns the requested picture as @picture" do
-        picture = Picture.create! valid_attributes
+        picture = construct_valid_picture
         put :update, {:id => picture.to_param, :picture => valid_attributes}, valid_session
         assigns(:picture).should eq(picture)
       end
 
       it "redirects to the picture" do
-        picture = Picture.create! valid_attributes
+        picture = construct_valid_picture
         put :update, {:id => picture.to_param, :picture => valid_attributes}, valid_session
         response.should redirect_to(picture)
       end
@@ -99,7 +99,7 @@ describe "POST create" do
 
     describe "with invalid params" do
       it "assigns the picture as @picture" do
-        picture = Picture.create! valid_attributes
+        picture = construct_valid_picture
         # Trigger the behavior that occurs when invalid params are submitted
         Picture.any_instance.stub(:save).and_return(false)
         put :update, {:id => picture.to_param, :picture => { "name" => "invalid value" }}, valid_session
@@ -107,7 +107,7 @@ describe "POST create" do
       end
 
       it "re-renders the 'edit' template" do
-        picture = Picture.create! valid_attributes
+        picture = construct_valid_picture
         # Trigger the behavior that occurs when invalid params are submitted
         Picture.any_instance.stub(:save).and_return(false)
         put :update, {:id => picture.to_param, :picture => { "name" => "invalid value" }}, valid_session
@@ -118,7 +118,7 @@ describe "POST create" do
 
   describe "DELETE destroy" do
     it "destroys the requested picture" do
-      picture = Picture.create! valid_attributes
+      picture = construct_valid_picture
       expect {
         delete :destroy, {:id => picture.to_param}, valid_session
       }.to change(Picture, :count).by(-1)
