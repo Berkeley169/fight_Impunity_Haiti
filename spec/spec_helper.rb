@@ -41,30 +41,30 @@ module ValidModelConstructors
   def construct_valid_picture(name="ButtPirate")
     p = Picture.new(:name => name)
     p.pic_file_name = "file.jpg"
-    p.save!
+    p.save
     return p
   end
 
   def construct_valid_text()
     t = Text.new()
-    t.save!
+    t.save
     return t
   end
   def construct_valid_video()
     v = Video.new
-    v.save!
+    v.save
     return v
   end
 
   def construct_valid_sound()
     s = Sound.new
-    s.save!
+    s.save
     return s
   end
 
   def construct_valid_binary()
     b = Binary.new()
-    b.save!
+    b.save
     return b
   end
 end
