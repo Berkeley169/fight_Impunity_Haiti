@@ -38,7 +38,7 @@ RSpec.configure do |config|
 end
 
 module ValidModelConstructors
-  def construct_valid_picture(name="ButtPirate")
+  def construct_valid_picture(name="TestName")
     p = Picture.new(:name => name)
     p.pic_file_name = "file.jpg"
     p.save
@@ -66,5 +66,11 @@ module ValidModelConstructors
     b = Binary.new()
     b.save
     return b
+  end
+
+  def construct_valid_picture_lang(title="Title", lang="English")
+    pl = PictureLang.new(:title => title, :lang => lang)
+    pl.save
+    return pl
   end
 end
