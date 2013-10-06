@@ -7,8 +7,8 @@ describe Picture do
   		it "successfully gets all the children" do
   			p = construct_valid_picture
   			p.id = 1
-  			pl1 = PictureLang.create! valid_picture_lang_attributes
-  			pl2 = PictureLang.create! valid_picture_lang_attributes
+  			pl1 = construct_valid_picture_lang("pic english")
+  			pl2 = construct_valid_picture_lang("pic french")
   			pl1.picture_id = 1
   			pl2.picture_id = 1
   			p.save
@@ -25,8 +25,8 @@ describe Picture do
   			p = Picture.create! valid_attributes
   			p.id = 1
   			p.save
-  			pl1 = PictureLang.create! valid_picture_lang_attributes
-  			pl2 = PictureLang.create! valid_picture_lang_attributes
+  			pl1 = construct_valid_picture_lang("pic english")
+  			pl2 = construct_valid_picture_lang("pic french")
   			pl1.picture_id = 1
   			pl2.picture_id = 1
   			pl2.lang = :French
