@@ -7,8 +7,8 @@ describe Picture do
   		it "successfully gets all the children" do
   			p = FactoryGirl.create(:picture)
   			p.id = 1
-  			pl1 = construct_valid_picture_lang("pic english")
-  			pl2 = construct_valid_picture_lang("pic french")
+  			pl1 = FactoryGirl.create(:picture_lang, :title => "English pic")
+  			pl2 = FactoryGirl.create(:picture_lang, :title => "French pic")
   			pl1.picture_id = 1
   			pl2.picture_id = 1
   			p.save

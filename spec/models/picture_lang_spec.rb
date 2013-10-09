@@ -4,17 +4,17 @@ describe PictureLang do
 	let(:valid_attributes) { { "title" => "MyTitle", "description" => "This is my description", "lang" => "English" } }
   	describe "testing validation" do
 	  	it "should validate precense of title" do
-	  		v = valid_attributes
-	  		v[:title] = nil
-	  		PictureLang.new(v).should_not be_valid
+	  		pl = FactoryGirl.create(:picture_lang)
+	  		pl.title = nil
+	  		pl.should_not be_valid
 	  	end
 	  	it "should validate precense of language" do
-	  		v = valid_attributes
-	  		v[:lang] = nil
-	  		PictureLang.new(v).should_not be_valid
+	  		pl = FactoryGirl.create(:picture_lang)
+	  		pl.lang = nil
+	  		pl.should_not be_valid
 	  	end
 	  	it "should work with valid valid_attributes" do
-	  		PictureLang.new(valid_attributes).should be_valid
+	  		FactoryGirl.create(:picture_lang).should be_valid
 	  	end
   end
 end
