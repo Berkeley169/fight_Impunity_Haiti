@@ -5,7 +5,7 @@ describe Picture do
 	let(:valid_picture_lang_attributes) { {:lang => "English"} }
   	describe "the get_translations method" do
   		it "successfully gets all the children" do
-  			p = construct_valid_picture
+  			p = FactoryGirl.create(:picture)
   			p.id = 1
   			pl1 = construct_valid_picture_lang("pic english")
   			pl2 = construct_valid_picture_lang("pic french")

@@ -28,6 +28,7 @@ gem 'paperclip'
 group :development, :test do
   gem 'capybara'
   gem 'rspec-rails'
+  gem 'factory_girl_rails'
 end
 
 group :test do
