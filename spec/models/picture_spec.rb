@@ -22,14 +22,13 @@ describe Picture do
 
   	describe "the get_language method" do
   		it "should get the correct language" do
-  			p = construct_valid_picture
+  			p = FactoryGirl.create(:picture)
   			p.id = 1
   			p.save
-  			pl1 = construct_valid_picture_lang("pic english")
-  			pl2 = construct_valid_picture_lang("pic french")
+  			pl1 = FactoryGirl.create(:picture_lang, :title => "English pic")
+  			pl2 = FactoryGirl.create(:picture_lang, :title => "French pic", :lang => :French)
   			pl1.picture_id = 1
   			pl2.picture_id = 1
-  			pl2.lang = :French
   			pl1.save
   			pl2.save
   			p.get_language("English").should == pl1
@@ -39,21 +38,19 @@ describe Picture do
 
   	describe "validating the correct format" do
   		it "should require a name" do
-  			v = valid_attributes
-  			v[:name] = nil
-  			p = Picture.new(v)
-  			p.pic_file_name = "file.jpg"
+        p = FactoryGirl.create(:picture)
+        p.name = nil
   			p.should_not be_valid
   		end
 
   		it "should require a pic attachment" do
-  			v = valid_attributes
-  			Picture.new(v).should_not be_valid
+        p = FactoryGirl.create(:picture)
+        p.pic = nil
+        p.should_not be_valid
   		end
 
   		it "should work if everything is valid" do
-  			p = Picture.new(valid_attributes)
-  			p.pic_file_name = "file.jpg"
+        p = FactoryGirl.create(:picture)
   			p.should be_valid
   		end
 
