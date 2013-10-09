@@ -35,7 +35,7 @@ describe PicturesController do
     end
   end
 
-describe "POST create" do
+describe "POST create", :pending => true do
     describe "with valid params" do
       it "creates a new Picture" do
         expect {

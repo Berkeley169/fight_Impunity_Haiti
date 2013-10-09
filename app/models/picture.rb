@@ -4,7 +4,9 @@ class Picture < ActiveRecord::Base
 	has_attached_file :pic
 	belongs_to :item
 	accepts_nested_attributes_for :picture_lang
-	validates :pic, :name, presence: true
+	validates :name, presence: true
+    validates_attachment :pic, :presence => true,
+                          :content_type => {:content_type => ['image/jpg', 'image/png']}
 
   	def get_translations
   		#needs to be implemented

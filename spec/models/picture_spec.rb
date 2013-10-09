@@ -22,7 +22,7 @@ describe Picture do
 
   	describe "the get_language method" do
   		it "should get the correct language" do
-  			p = Picture.create! valid_attributes
+  			p = construct_valid_picture
   			p.id = 1
   			p.save
   			pl1 = construct_valid_picture_lang("pic english")
@@ -51,10 +51,15 @@ describe Picture do
   			Picture.new(v).should_not be_valid
   		end
 
-  		it "should workd if everything is valid" do
+  		it "should work if everything is valid" do
   			p = Picture.new(valid_attributes)
   			p.pic_file_name = "file.jpg"
   			p.should be_valid
   		end
+
+        it "; the file should be a picture" do
+          p = construct_invalid_picture # uses a PDF, not a picture
+          p.should_not be_valid
+        end
   	end
 end
