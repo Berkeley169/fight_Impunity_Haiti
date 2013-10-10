@@ -6,6 +6,13 @@ describe Text do
   		t = FactoryGirl.create(:text)
   		t.should be_valid
   	end
+
+  	it "should validate the presene of author" do 
+  		t = FactoryGirl.create(:text)
+  		t.author = nil
+  		t.should_not be_valid
+  	end
+
   end
 
   	describe "the get_language method" do
