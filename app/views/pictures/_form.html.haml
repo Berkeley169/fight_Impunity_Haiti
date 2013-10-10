@@ -13,21 +13,23 @@
     = f.label :pic
     = f.file_field :pic
     
+  = f.fields_for :picture_langs do |pl|
+    pl
+    .field
+      = pl.label :title
+      = pl.text_field :title
+    .field
+      = pl.label :lang
+      = pl.text_field :lang
+    .field
+      = pl.label :description
+      = pl.text_field :description, :size => 150
+
+
+
+
   .actions
     = f.submit 'Save'
-
-
-/ = form_for @lang do |f|
-/   - if @lang.errors.any?
-/     #error_explanation
-/       %h2= "#{pluralize(@lang.errors.count, "error")} prohibited this picture_lang from being saved:"
-/       %ul
-/         - @lang.errors.full_messages.each do |msg|
-/           %li= msg
-
-/   .field
-/     = f.label :title
-/     = f.text_field :title
 
 /   .actions
 /     = f.submit 'Save'

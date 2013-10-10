@@ -54,9 +54,9 @@ describe Picture do
   			p.should be_valid
   		end
 
-        it "; the file should be a picture" do
-          p = construct_invalid_picture # uses a PDF, not a picture
-          p.should_not be_valid
-        end
+      it "; the file should be a picture" do
+        p = construct_invalid_picture # uses a PDF, not a picture
+        p.should_not be_valid
+      end
   	end
 end
