@@ -4,10 +4,10 @@ class Text < ActiveRecord::Base
   belongs_to :item
 
     def get_translations
-  		#needs to be implemented
+  		TextLang.where(:text_id => self.id)
 	end
 
 	def get_language(lang)
-		#needs to be implemented
+		TextLang.where(:text_id => self.id, :lang => lang).first
 	end
 end

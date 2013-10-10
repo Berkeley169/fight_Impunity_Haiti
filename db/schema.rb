@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131005202712) do
+ActiveRecord::Schema.define(:version => 20131009235943) do
 
   create_table "binaries", :force => true do |t|
     t.string   "language"
@@ -100,19 +100,26 @@ ActiveRecord::Schema.define(:version => 20131005202712) do
   end
 
   create_table "text_langs", :force => true do |t|
-    t.string   "language"
+    t.string   "lang"
     t.string   "title"
     t.text     "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.integer  "text_id"
+    t.boolean  "published"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.string   "txt_file_name"
+    t.string   "txt_content_type"
+    t.integer  "txt_file_size"
+    t.datetime "txt_updated_at"
   end
 
   create_table "texts", :force => true do |t|
     t.string   "name"
     t.integer  "item_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-    t.integer  "text_lang_id"
+    t.datetime "date"
+    t.string   "author"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "video_langs", :force => true do |t|
