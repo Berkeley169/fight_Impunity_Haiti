@@ -9,9 +9,9 @@ describe Picture do
   			p.id = 1
   			p.save
   			list = p.picture_langs
-            list.count.should == 4
-            list.first.picture_id.should == p.id
-            list.last.picture_id.should == p.id
+        list.count.should == 4
+        list.first.picture_id.should == p.id
+        list.last.picture_id.should == p.id
   		end
   	end
 
@@ -26,8 +26,8 @@ describe Picture do
   			#pl2.picture_id = 1
   			#pl1.save
   			#pl2.save
-  			p.get_language("English").first.lang.should == "English"
-  			p.get_language("French").first.lang.should == "French"	
+  			p.get_language("English").lang.should == "English"
+  			p.get_language("French").lang.should == "French"	
   		end
   	end
 

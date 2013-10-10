@@ -17,7 +17,11 @@ class Picture < ActiveRecord::Base
 	def get_language(lang)
 		#needs to be implemented
         #PictureLang.where(:picture_id => self.id, :lang => lang).first
-        self.picture_langs.where(:lang => lang)
+        if self.picture_langs.where(:lang => lang)
+        	self.picture_langs.where(:lang => lang).first
+        else
+        	return nil
+        end
 	end
 
 end
