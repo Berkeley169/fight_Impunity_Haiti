@@ -46,7 +46,7 @@ module ValidModelConstructors
   end
 
   def construct_invalid_picture(name="TestName")
-    file = File.new('spec/fixtures/documents/pdf-test.pdf')
+    file = File.new('spec/fixtures/documents/Lorem_ipsum.pdf')
     p = Picture.new(:name => name, :pic => file)
     p.save
     return p
