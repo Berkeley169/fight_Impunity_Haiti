@@ -5,6 +5,14 @@
   = @picture.name
 %p
   = image_tag @picture.pic.url
+%p
+  - @picture_langs.each do |pl|
+    %p
+      %b the title:
+      = pl.title
+      %br
+      %b the translation:
+      = pl.lang
 
 = link_to 'Edit', edit_picture_path(@picture)
 \|
