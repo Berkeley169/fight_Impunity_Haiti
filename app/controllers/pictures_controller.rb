@@ -5,11 +5,15 @@ class PicturesController < ApplicationController
 
   def show
     @picture = Picture.find(params[:id])
+    @picture_langs = @picture.get_translations
   end
 
   def new
     @picture = Picture.new
-    @lang = PictureLang.new
+    picture_langs = []
+    Item::LANGUAGES.each do |l|
+      picture_langs.append(@picture.picture_langs.build(:lang => l ))
+    end
   end
 
   def create
