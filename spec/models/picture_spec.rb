@@ -7,16 +7,11 @@ describe Picture do
   		it "successfully gets all the children" do
   			p = FactoryGirl.create(:picture)
   			p.id = 1
-  			pl1 = FactoryGirl.create(:picture_lang, :title => "English pic")
-  			pl2 = FactoryGirl.create(:picture_lang, :title => "French pic")
-  			pl1.picture_id = 1
-  			pl2.picture_id = 1
   			p.save
-  			pl1.save
-  			pl2.save
-  			list = p.get_translations
-  			list.include?(pl1).should be_true
-  			list.include?(pl2).should be_true
+  			list = p.picture_langs
+            list.count.should == 4
+            list.first.picture_id.should == p.id
+            list.last.picture_id.should == p.id
   		end
   	end
 
@@ -25,14 +20,14 @@ describe Picture do
   			p = FactoryGirl.create(:picture)
   			p.id = 1
   			p.save
-  			pl1 = FactoryGirl.create(:picture_lang, :title => "English pic")
-  			pl2 = FactoryGirl.create(:picture_lang, :title => "French pic", :lang => :French)
-  			pl1.picture_id = 1
-  			pl2.picture_id = 1
-  			pl1.save
-  			pl2.save
-  			p.get_language("English").should == pl1
-  			p.get_language("French").should == pl2  			
+  			#pl1 = FactoryGirl.create(:picture_lang, :title => "English pic")
+  			#pl2 = FactoryGirl.create(:picture_lang, :title => "French pic", :lang => :French)
+  			#pl1.picture_id = 1
+  			#pl2.picture_id = 1
+  			#pl1.save
+  			#pl2.save
+  			p.get_language("English").first.lang.should == "English"
+  			p.get_language("French").first.lang.should == "French"	
   		end
   	end
 
