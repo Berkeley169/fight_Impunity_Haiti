@@ -27,7 +27,8 @@ describe Text do
   			tl1.save
   			tl2.save
   			t.get_language("English").should == tl1
-  			t.get_language("French").should == tl2  			
+  			t.get_language("French").should == tl2  
+  			t.get_language("Creole").should be_false			
   		end
   	end
 
