@@ -14,11 +14,11 @@ class Picture < ActiveRecord::Base
 	end
 
 	def get_language(lang)
-    if self.picture_langs.where(:lang => lang)
-    	self.picture_langs.where(:lang => lang).first
-    else
-      return nil
-    end
+	    if self.picture_langs.where(:lang => lang)
+	    	self.picture_langs.where(:lang => lang).first
+	    else
+	      return nil
+	    end
 	end
 
 end

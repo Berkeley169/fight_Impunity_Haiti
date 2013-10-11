@@ -11,21 +11,31 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131009235943) do
+ActiveRecord::Schema.define(:version => 20131010213153) do
 
   create_table "binaries", :force => true do |t|
-    t.string   "language"
+    t.string   "title"
     t.integer  "item_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.string   "bin_file_name"
+    t.string   "bin_content_type"
+    t.integer  "bin_file_size"
+    t.datetime "bin_updated_at"
   end
 
   create_table "binary_langs", :force => true do |t|
-    t.string   "language"
+    t.string   "lang"
     t.string   "title"
     t.text     "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.boolean  "published"
+    t.integer  "binary_id"
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
+    t.string   "bin_lang_file_name"
+    t.string   "bin_lang_content_type"
+    t.integer  "bin_lang_file_size"
+    t.datetime "bin_lang_updated_at"
   end
 
   create_table "documents", :force => true do |t|

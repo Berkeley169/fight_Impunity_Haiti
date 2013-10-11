@@ -5,7 +5,7 @@ class Text < ActiveRecord::Base
   validates :author, presence: true
 
 	def get_translations
-			TextLang.where(:text_id => self.id)
+		TextLang.where(:text_id => self.id)
 	end
 
 	def get_language(lang)
