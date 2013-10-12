@@ -6,6 +6,12 @@ FightImpunityHaiti::Application.routes.draw do
   match 'pages/contact' => 'pages#contact'
   match 'pages/about' => 'pages#about'
 
+  namespace :dashboard do
+    root to: 'dashboard#index'
+    resources :users
+    resources :items, :path => 'documents'
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
