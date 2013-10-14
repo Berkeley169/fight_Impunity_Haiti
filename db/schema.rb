@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131010213153) do
+ActiveRecord::Schema.define(:version => 20131014023403) do
 
   create_table "binaries", :force => true do |t|
     t.string   "title"
@@ -105,6 +105,15 @@ ActiveRecord::Schema.define(:version => 20131010213153) do
 
   create_table "sounds", :force => true do |t|
     t.integer  "item_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "tags", :force => true do |t|
+    t.string   "english"
+    t.string   "french"
+    t.string   "creole"
+    t.string   "spanish"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
