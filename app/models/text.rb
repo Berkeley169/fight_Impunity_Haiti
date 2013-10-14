@@ -3,6 +3,7 @@ class Text < ActiveRecord::Base
   has_many :text_lang, dependent: :destroy
   belongs_to :item
   validates :author, presence: true
+  has_and_belongs_to_many :tags
 
 	def get_translations
 		TextLang.where(:text_id => self.id)
