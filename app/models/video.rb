@@ -1,12 +1,22 @@
 class Video < ActiveRecord::Base
-  # attr_accessible :title, :body
-  has_many :video_lang
+  attr_accessible :name, :vid
+  has_many :video_langs
   belongs_to :item
+  has_and_belongs_to_many :tags
+  accepts_nested_attributes_for :video_langs
+  validates :name,:vid, presence: true
+  
     def get_translations
-  		#needs to be implemented
-	end
+        self.video_langs
+    end
 
 	def get_language(lang)
-		#needs to be implemented
+        if self.video_langs.where(:lang => lang)
+            self.video_langs.where(:lang => lang).first
+        else
+            return nil
+        end
 	end
+
+
 end

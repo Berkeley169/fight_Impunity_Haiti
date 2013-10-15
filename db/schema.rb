@@ -11,22 +11,40 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131009235943) do
+ActiveRecord::Schema.define(:version => 20131014023403) do
 
   create_table "binaries", :force => true do |t|
-    t.string   "language"
+    t.string   "title"
     t.integer  "item_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.string   "bin_file_name"
+    t.string   "bin_content_type"
+    t.integer  "bin_file_size"
+    t.datetime "bin_updated_at"
   end
 
   create_table "binary_langs", :force => true do |t|
-    t.string   "language"
+    t.string   "lang"
     t.string   "title"
     t.text     "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.boolean  "published"
+    t.integer  "binary_id"
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
+    t.string   "bin_lang_file_name"
+    t.string   "bin_lang_content_type"
+    t.integer  "bin_lang_file_size"
+    t.datetime "bin_lang_updated_at"
   end
+
+  create_table "binarys_tags", :id => false, :force => true do |t|
+    t.integer "binary_id"
+    t.integer "tag_id"
+  end
+
+  add_index "binarys_tags", ["binary_id", "tag_id"], :name => "index_binarys_tags_on_binary_id_and_tag_id"
+  add_index "binarys_tags", ["tag_id"], :name => "index_binarys_tags_on_tag_id"
 
   create_table "documents", :force => true do |t|
     t.string   "name"
@@ -85,6 +103,14 @@ ActiveRecord::Schema.define(:version => 20131009235943) do
     t.datetime "pic_updated_at"
   end
 
+  create_table "pictures_tags", :id => false, :force => true do |t|
+    t.integer "picture_id"
+    t.integer "tag_id"
+  end
+
+  add_index "pictures_tags", ["picture_id", "tag_id"], :name => "index_pictures_tags_on_picture_id_and_tag_id"
+  add_index "pictures_tags", ["tag_id"], :name => "index_pictures_tags_on_tag_id"
+
   create_table "sound_langs", :force => true do |t|
     t.string   "language"
     t.string   "title"
@@ -98,6 +124,39 @@ ActiveRecord::Schema.define(:version => 20131009235943) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "sounds_tags", :id => false, :force => true do |t|
+    t.integer "sound_id"
+    t.integer "tag_id"
+  end
+
+  add_index "sounds_tags", ["sound_id", "tag_id"], :name => "index_sounds_tags_on_sound_id_and_tag_id"
+  add_index "sounds_tags", ["tag_id"], :name => "index_sounds_tags_on_tag_id"
+
+  create_table "tags", :force => true do |t|
+    t.string   "english"
+    t.string   "french"
+    t.string   "creole"
+    t.string   "spanish"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "tags_texts", :id => false, :force => true do |t|
+    t.integer "tag_id"
+    t.integer "text_id"
+  end
+
+  add_index "tags_texts", ["tag_id", "text_id"], :name => "index_tags_texts_on_tag_id_and_text_id"
+  add_index "tags_texts", ["text_id"], :name => "index_tags_texts_on_text_id"
+
+  create_table "tags_videos", :id => false, :force => true do |t|
+    t.integer "tag_id"
+    t.integer "video_id"
+  end
+
+  add_index "tags_videos", ["tag_id", "video_id"], :name => "index_tags_videos_on_tag_id_and_video_id"
+  add_index "tags_videos", ["video_id"], :name => "index_tags_videos_on_video_id"
 
   create_table "text_langs", :force => true do |t|
     t.string   "lang"

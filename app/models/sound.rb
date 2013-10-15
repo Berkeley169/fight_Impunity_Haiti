@@ -2,6 +2,7 @@ class Sound < ActiveRecord::Base
   # attr_accessible :title, :body
   has_many :sound_lang
   belongs_to :item
+  has_and_belongs_to_many :tags
 
 	def get_translations
 			#needs to be implemented

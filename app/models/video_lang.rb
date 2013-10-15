@@ -1,3 +1,4 @@
 class VideoLang < ActiveRecord::Base
-  attr_accessible :description, :language, :published, :title
+  attr_accessible :description, :language, :title
+  belongs_to :video
 end
