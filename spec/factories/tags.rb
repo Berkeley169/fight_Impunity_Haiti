@@ -2,9 +2,9 @@
 
 FactoryGirl.define do
   factory :tag do
-    english "MyString"
-    french "MyString"
-    creole "MyString"
-    spanish "MyString"
+    english "English Tag"
+    french "French Tag"
+    creole "Creole Tag"
+    spanish "Spanish Tag"
   end
 end
