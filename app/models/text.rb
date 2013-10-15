@@ -1,5 +1,5 @@
 class Text < ActiveRecord::Base
-  attr_accessible :name
+  attr_accessible :name, :author, :date, :plain_text
   has_many :text_lang, dependent: :destroy
   belongs_to :item
   validates :author, presence: true
