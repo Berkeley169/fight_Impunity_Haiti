@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131014023058) do
+ActiveRecord::Schema.define(:version => 20131014023403) do
 
   create_table "binaries", :force => true do |t|
     t.string   "title"
@@ -37,6 +37,14 @@ ActiveRecord::Schema.define(:version => 20131014023058) do
     t.integer  "bin_lang_file_size"
     t.datetime "bin_lang_updated_at"
   end
+
+  create_table "binarys_tags", :id => false, :force => true do |t|
+    t.integer "binary_id"
+    t.integer "tag_id"
+  end
+
+  add_index "binarys_tags", ["binary_id", "tag_id"], :name => "index_binarys_tags_on_binary_id_and_tag_id"
+  add_index "binarys_tags", ["tag_id"], :name => "index_binarys_tags_on_tag_id"
 
   create_table "documents", :force => true do |t|
     t.string   "name"

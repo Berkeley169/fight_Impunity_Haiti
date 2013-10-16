@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   #validate :proper_lang
 
   ROLES = [:Manager, :Tech, :Editor]
-  LANGS = [:English, :French]
+  LANGS = Item::LANGUAGES
 
   protected
 
