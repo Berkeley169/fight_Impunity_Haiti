@@ -1,3 +1,6 @@
+# This is the sound model used to store audio files
+# this should not have an attachment but each specific
+# language should have one
 class Sound < ActiveRecord::Base
   # attr_accessible :title, :body
   has_many :sound_lang

@@ -1,3 +1,7 @@
+# This is the Tags class
+# It has and belongs to all of the other file classes
+# the tags will need to be translated into four langauges
+# and also have descroptions in all four langauges
 class Tag < ActiveRecord::Base
   attr_accessible :creole, :english, :french, :spanish,
       :enlgish_description, :french_description, :spanish_description,

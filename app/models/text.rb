@@ -1,3 +1,5 @@
+# This is the text model
+# It will not have an attachment but instead it's children will
 class Text < ActiveRecord::Base
   attr_accessible :name, :author, :date, :plain_text
   has_many :text_lang, dependent: :destroy

@@ -1,3 +1,6 @@
+# Video model
+# Contains the information for the video
+# Videos will probably not be translated
 class Video < ActiveRecord::Base
   attr_accessible :name, :vid
   has_many :video_langs

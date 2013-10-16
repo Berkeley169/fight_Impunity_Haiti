@@ -1,3 +1,5 @@
+# This is the binary class which is used to hold all of the other types of attachments we may want to upload
+# When talking to the customer refer to this as "other" rather than "binary"
 class Binary < ActiveRecord::Base
   attr_accessible :title, :binary_langs_attributes
   has_many :binary_langs

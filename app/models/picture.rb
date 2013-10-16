@@ -1,3 +1,6 @@
+# This is the class used to store images
+# In general we will figure things out on this model first
+# and then port to the other models
 class Picture < ActiveRecord::Base
 	attr_accessible :pic, :name, :picture_langs_attributes
 	has_many :picture_langs
