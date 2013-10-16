@@ -1,3 +1,25 @@
 = content_for :title, "Manage users"
 
-%h1 UFNUFNTYUNFTUYNFT
+%div#panel
+  = link_to 'Add User', new_dashboard_user_path, :class => :dashboard_button, :id => :add_user_button
+  %table#user_table
+    %tr
+      %th Username
+      %th Role
+      %th Primary Language
+      %th Date Added
+      %th Last Modified
+      %th
+      %th
+    - @users.each do |user|
+      %tr
+        %td= user.username
+        %td= user.role
+        %td= user.lang
+        %td= user.created_at.to_s(:db)
+        %td= user.updated_at.to_s(:db)
+        %td= link_to 'Edit', edit_dashboard_user_path(user.id), :class => :dashboard_button
+        %td= link_to 'Delete', "users/#{user.id}/delete", :class => :dashboard_button, :confirm => "Are you user you want to delete user #{user.username}?"
+        
+
+

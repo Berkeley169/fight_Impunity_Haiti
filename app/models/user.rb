@@ -1,26 +1,26 @@
 class User < ActiveRecord::Base
-  attr_accessible :username, :password, :hashed_password, :role, :lang
-
-  validates_presence_of :username, :password, :hashed_password, :role
+  attr_accessible :username, :hashed_password, :role, :lang
+  
+  validates_presence_of :username, :hashed_password, :role
   validates_uniqueness_of :username
-  validates_length_of :password, :minimum => 8
-  validate proper_role
-  validate proper_lang
+  validates_length_of :username, :minimum => 6
+  #validate :proper_role
+  #validate :proper_lang
 
-  ROLES = [:manager, :tech, :editor]
-  LANGS = [:english, :french]
+  ROLES = [:Manager, :Tech, :Editor]
+  LANGS = [:English, :French]
 
   protected
 
   def proper_role
-    if !ROLES.include? @role
-      errors.add(:role, "Must be either: manager, editor, or tech")
+    if not ROLES.include? :role
+      errors.add(:role, "must be either: Manager, Editor, or Tech")
     end 
   end
 
   def proper_lang
-    if !LANGS.include? @lang
-      errors.add(:lang, "Must be either: english or french")
+    if not LANGS.include? :lang
+      errors.add(:lang, "must be either: English or French")
     end 
   end
 end

@@ -1,4 +1,5 @@
-class Dashboard::DashboardController < Dashboard::BaseController
+class DashboardController < ApplicationController
+  
   def index
     get_links
     @title = 'Dashboard Home'
