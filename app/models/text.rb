@@ -1,8 +1,11 @@
+# This is the text model
+# It will not have an attachment but instead it's children will
 class Text < ActiveRecord::Base
-  attr_accessible :name
+  attr_accessible :name, :author, :date, :plain_text
   has_many :text_lang, dependent: :destroy
   belongs_to :item
   validates :author, presence: true
+  has_and_belongs_to_many :tags
 
 	def get_translations
 		TextLang.where(:text_id => self.id)

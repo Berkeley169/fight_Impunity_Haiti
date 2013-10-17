@@ -3,6 +3,8 @@ Fight Impunity in Haiti
 
 Berkeley CS 169 project working with a non-profit group to fight impunity in Haiti.
 
-Everyone who is working on the project please contact me if you need access to the organization. My email is NateSHolland@gmail.com.
+Please check out some of these useful pages on the wiki:
+* [Rspec Test Notes](https://github.com/Berkeley169/fight_Impunity_Haiti/wiki/Rspec-Test-Notes)
+* [Maintaining good code](https://github.com/Berkeley169/fight_Impunity_Haiti/wiki/Maintaining-Proper-Style-and-Form)
 
-
+Also please try to make your commits useful as other people should be reviewing your commits. 
