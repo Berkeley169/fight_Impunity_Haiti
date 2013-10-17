@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
 
   protected
 
+
   def proper_role
     if not ROLES.include? :role
       errors.add(:role, "must be either: Manager, Editor, or Tech")
