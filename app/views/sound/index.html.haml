@@ -1,0 +1,16 @@
+%h1 Listing sounds
+
+%table
+  %tr
+    %th Name
+
+  - @sounds.each do |sound|
+    %tr
+      %td= sound.name
+      %td= link_to 'Show', sound
+      %td= link_to 'Edit', edit_sound_path(sound)
+      %td= link_to 'Destroy', sound, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Sound', new_sound_path
