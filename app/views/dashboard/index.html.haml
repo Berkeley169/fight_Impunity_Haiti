@@ -1,0 +1,7 @@
+= content_for :title, @title
+
+/%h1#header= @title
+/%ul#link_column
+/	- @links.keys.each do |name|
+/		%li
+/			= link_to name, @links[name], :id => :dashboard_button

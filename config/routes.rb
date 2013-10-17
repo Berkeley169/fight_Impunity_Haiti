@@ -31,6 +31,16 @@ FightImpunityHaiti::Application.routes.draw do
   resources :documents
   match 'pages/contact' => 'pages#contact'
   match 'pages/about' => 'pages#about'
+  match 'login' => 'sessions'
+  match 'login/sign_out' => 'sessions#sign_out'
+  match 'dashboard' => 'dashboard#index'
+
+  namespace :dashboard do
+    resources :users
+    match 'users/:id/delete' => 'users#destroy'
+    match 'users/:id/update' => 'users#update'
+    resources :items, :path => 'documents'
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

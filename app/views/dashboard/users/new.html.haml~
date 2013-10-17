@@ -1,0 +1,22 @@
+= form_for 'new_user', :url => { :action => :create} do |form|
+  - @fields.each do |field|
+    
+    - if field == :lang
+      %text Language: 
+      %text English
+      = form.radio_button field, :english
+      %text French
+      = form.radio_button field, :french
+    - else
+      %text= field.to_s + ':'
+      - if field == :role
+        %text Editor
+        = form.radio_button field, 'editor'
+        %text Manager
+        = form.radio_button field, 'manager'
+        %text Tech
+        = form.radio_button field, 'tech'
+      - else
+        = form.text_field field
+    %br
+  = form.submit 'Create New User'

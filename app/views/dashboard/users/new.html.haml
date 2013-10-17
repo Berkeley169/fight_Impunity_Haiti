@@ -1,0 +1,20 @@
+= form_for 'new_user', :url => { :action => :create} do |form|
+  - @fields.each do |field|
+    - if field == :lang
+      %text Language: 
+      - Item::LANGUAGES.each do |lang|
+        = lang
+        = form.radio_button field, lang
+    - else
+      %text= field.to_s + ':'
+      - if field == :role
+        - User::ROLES.each do |role|
+          = role
+          = form.radio_button field, role
+      - elsif field =~ /pass/
+        = form.password_field field
+      - else
+        = form.text_field field
+    %br
+  = form.submit 'Create New User'
+
