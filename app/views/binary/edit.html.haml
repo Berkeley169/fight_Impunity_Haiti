@@ -1,2 +1,7 @@
-%h1 Binary#edit
-%p Find me in app/views/binary/edit.html.haml
+%h1 Editing other
+
+= render 'form'
+
+= link_to 'Show', @binary
+\|
+= link_to 'Back', binaries_path

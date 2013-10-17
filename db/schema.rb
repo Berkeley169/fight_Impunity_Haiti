@@ -138,8 +138,13 @@ ActiveRecord::Schema.define(:version => 20131014023403) do
     t.string   "french"
     t.string   "creole"
     t.string   "spanish"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.text     "english_description"
+    t.text     "french_description"
+    t.text     "creole_description"
+    t.text     "spanish_description"
+    t.boolean  "main_category"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
 
   create_table "tags_texts", :id => false, :force => true do |t|
@@ -177,6 +182,7 @@ ActiveRecord::Schema.define(:version => 20131014023403) do
     t.integer  "item_id"
     t.datetime "date"
     t.string   "author"
+    t.text     "plain_text"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
