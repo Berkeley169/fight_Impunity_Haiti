@@ -169,6 +169,7 @@ ActiveRecord::Schema.define(:version => 20131014023403) do
     t.text     "description"
     t.integer  "text_id"
     t.boolean  "published"
+    t.text     "plain_text"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
     t.string   "txt_file_name"
@@ -182,7 +183,6 @@ ActiveRecord::Schema.define(:version => 20131014023403) do
     t.integer  "item_id"
     t.datetime "date"
     t.string   "author"
-    t.text     "plain_text"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

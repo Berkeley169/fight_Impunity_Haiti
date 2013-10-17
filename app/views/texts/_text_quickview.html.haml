@@ -7,6 +7,13 @@
   = text.author
   %br
   =text.date
+  -text.text_langs.each do |tl|
+    - if tl.published
+      %p{:class => "published"}= tl.lang
+    - else
+      %p{:class => "notpublished"}= tl.lang
+
+
   %br
   = link_to 'Show', text
   = link_to 'Edit', edit_text_path(text)

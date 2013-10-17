@@ -5,8 +5,7 @@ class CreateTexts < ActiveRecord::Migration
     	t.belongs_to :item
     	t.datetime :date
     	t.string :author
-        t.text :plain_text, :size => (64.kilobytes + 1)
-      	t.timestamps
+      t.timestamps
     end
   end
 end
