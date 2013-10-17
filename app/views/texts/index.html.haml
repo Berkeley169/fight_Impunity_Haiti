@@ -1,15 +1,12 @@
 %h1 Listing texts
 
-%table
-  %tr
-    %th Name
-
-  - @texts.each do |text|
-    %tr
-      %td= text.name
-      %td= link_to 'Show', text
-      %td= link_to 'Edit', edit_text_path(text)
-      %td= link_to 'Destroy', text, :method => :delete, :data => { :confirm => 'Are you sure?' }
+.content
+  = render :partial => 'text_quickview', :collection => @texts, :as => :text
+/ %tr
+/   %td= text.name
+/   %td= link_to 'Show', text
+/   %td= link_to 'Edit', edit_text_path(text)
+/   %td= link_to 'Destroy', text, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
