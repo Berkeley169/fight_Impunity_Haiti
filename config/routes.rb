@@ -1,5 +1,31 @@
 FightImpunityHaiti::Application.routes.draw do
 
+  get "video/new"
+
+  get "video/edit"
+
+  get "video/show"
+
+  get "sound/new"
+
+  get "sound/edit"
+
+  get "sound/show"
+
+  get "binary/new"
+
+  get "binary/edit"
+
+  get "binary/show"
+
+  get "text/new"
+
+  get "text/create"
+
+  get "text/update"
+
+  get "text/show"
+
   resources :picture_langs
   resources :pictures
   resources :documents
