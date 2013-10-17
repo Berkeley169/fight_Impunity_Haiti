@@ -2,7 +2,7 @@
 # Contains the information for the video
 # Videos will probably not be translated
 class Video < ActiveRecord::Base
-  attr_accessible :name, :vid
+  attr_accessible :name, :vid, :video_langs_attributes
   has_many :video_langs
   belongs_to :item
   has_and_belongs_to_many :tags

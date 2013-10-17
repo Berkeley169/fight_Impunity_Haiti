@@ -197,16 +197,20 @@ ActiveRecord::Schema.define(:version => 20131014023403) do
   end
 
   create_table "video_langs", :force => true do |t|
-    t.string   "language"
+    t.string   "lang"
     t.string   "title"
     t.text     "description"
     t.boolean  "published"
+    t.integer  "video_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
 
   create_table "videos", :force => true do |t|
     t.integer  "item_id"
+    t.datetime "date"
+    t.string   "name"
+    t.string   "vid"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

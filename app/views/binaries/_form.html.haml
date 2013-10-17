@@ -1,0 +1,32 @@
+= form_for @binary do |f|
+  - if @binary.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@binary.errors.count, "error")} prohibited this binary from being saved:"
+      %ul
+        - @binary.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :title
+    = f.text_field :title
+  .field
+    = f.label :bin
+    = f.file_field :bin
+    
+  = f.fields_for :binary_langs do |pl|
+    pl
+    .field
+      = pl.label :title
+      = pl.text_field :title
+    .field
+      = pl.label :lang
+      = pl.text_field :lang, :readonly => true
+    .field
+      = pl.label :description
+      = pl.text_field :description, :size => 150
+
+
+
+
+  .actions
+    = f.submit 'Save'

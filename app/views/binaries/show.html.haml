@@ -1,0 +1,17 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @binary.title
+%p
+  - @binary_langs.each do |pl|
+    %p
+      %b the title:
+      = pl.title
+      %br
+      %b the translation:
+      = pl.lang
+
+= link_to 'Edit', edit_binary_path(@binary)
+\|
+= link_to 'Back', binaries_path

@@ -1,25 +1,26 @@
-= form_for @picture do |f|
-  - if @picture.errors.any?
+= form_for @sound do |f|
+  - if @sound.errors.any?
     #error_explanation
-      %h2= "#{pluralize(@picture.errors.count, "error")} prohibited this picture from being saved:"
+      %h2= "#{pluralize(@sound.errors.count, "error")} prohibited this sound from being saved:"
       %ul
-        - @picture.errors.full_messages.each do |msg|
+        - @sound.errors.full_messages.each do |msg|
           %li= msg
 
   .field
     = f.label :name
     = f.text_field :name
   .field
-    = f.label :pic
-    = f.file_field :pic
+    = f.label :snd
+    = f.file_field :snd
     
-  = f.fields_for :picture_langs do |pl|
+  = f.fields_for :sound_langs do |pl|
+    pl
     .field
       = pl.label :title
       = pl.text_field :title
     .field
       = pl.label :lang
-      = pl.text_field :lang, :readonly => true
+      = pl.text_field :lang, :disabled => true
     .field
       = pl.label :description
       = pl.text_field :description, :size => 150

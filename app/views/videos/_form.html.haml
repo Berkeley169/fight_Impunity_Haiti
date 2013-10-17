@@ -1,19 +1,20 @@
-= form_for @picture do |f|
-  - if @picture.errors.any?
+= form_for @video do |f|
+  - if @video.errors.any?
     #error_explanation
-      %h2= "#{pluralize(@picture.errors.count, "error")} prohibited this picture from being saved:"
+      %h2= "#{pluralize(@video.errors.count, "error")} prohibited this video from being saved:"
       %ul
-        - @picture.errors.full_messages.each do |msg|
+        - @video.errors.full_messages.each do |msg|
           %li= msg
 
   .field
     = f.label :name
     = f.text_field :name
   .field
-    = f.label :pic
-    = f.file_field :pic
+    = f.label :vid
+    = f.text_field :vid
     
-  = f.fields_for :picture_langs do |pl|
+  = f.fields_for :video_langs do |pl|
+    pl
     .field
       = pl.label :title
       = pl.text_field :title
@@ -23,8 +24,6 @@
     .field
       = pl.label :description
       = pl.text_field :description, :size => 150
-
-
 
 
   .actions
