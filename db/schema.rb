@@ -181,6 +181,15 @@ ActiveRecord::Schema.define(:version => 20131014023403) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "users", :force => true do |t|
+    t.string   "username"
+    t.string   "hashed_password"
+    t.string   "role"
+    t.string   "lang"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
   create_table "video_langs", :force => true do |t|
     t.string   "language"
     t.string   "title"

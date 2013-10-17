@@ -1,0 +1,11 @@
+
+%h1 login
+= form_for :login do |f|
+  %text Username:
+  = f.text_field :username
+  %br
+  %text Password:
+  = f.password_field :hashed_pass
+  %br
+  = f.submit 'Login'
+%br

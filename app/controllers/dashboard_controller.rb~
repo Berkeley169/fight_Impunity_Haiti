@@ -1,0 +1,35 @@
+class DashboardController < ApplicationController
+  
+  def index
+    setup_dashboard
+    @title = 'Dashboard Home'
+  end
+
+  def setup_dashboard
+    user = authenticate
+    @flash_notice = flash[:notice]
+    @links = {}
+    @links['Dashboard Home']  = '/dashboard'
+    @links['Published']       = '/dashboard/documents#published'
+    if user.role == 'manager'
+      @links['Editor Reviewed'] = '/dashboard/documents#reviewed'
+    end
+    @links['In Progress']     = '/dashboard/documents#in_progress'
+    @links['All Documents']   = '/dashboard/documents#all'
+    @links['Submit Document'] = '/dashboard/documents#new'
+    #if user.role == 'manager' or user.role == 'tech'
+     @links['Manage Users']    = '/dashboard/users'
+    #end
+  end
+
+   def authenticate
+    if not session[:uid]
+      flash[:notice] = 'You must log in before continuing'
+      redirect_to '/login'
+    else
+      @user = User.find(session[:uid])
+    end
+    
+  end
+  
+end

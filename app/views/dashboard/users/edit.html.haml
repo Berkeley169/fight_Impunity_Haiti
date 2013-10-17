@@ -1,0 +1,21 @@
+= form_for 'edit_user', :url => 'update' do |form|
+  - @fields.each do |field|
+    - if field == :lang
+      %text Language:
+      %text English
+      = form.radio_button field, :English, :checked => @user_to_edit.lang == 'English'
+      %text French
+      = form.radio_button field, :French, :checked => @user_to_edit.lang == 'French'
+    - else
+      %text= field.to_s + ':'
+      - if field == :role
+        %text Editor
+        = form.radio_button field, :Editor, :checked => @user_to_edit.role == 'Editor'
+        %text Manager
+        = form.radio_button field, :Manager, :checked => @user_to_edit.role == 'Manager'
+        %text Tech
+        = form.radio_button field, :Tech,  :checked => @user_to_edit.role == 'Tech'
+      - else
+        = form.text_field field, :value => @user_to_edit.username
+    %br
+  = form.submit 'Modify User'
