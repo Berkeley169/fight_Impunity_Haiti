@@ -1,0 +1,17 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @video.name
+%p
+  - @video_langs.each do |pl|
+    %p
+      %b the title:
+      = pl.title
+      %br
+      %b the translation:
+      = pl.lang
+
+= link_to 'Edit', edit_video_path(@video)
+\|
+= link_to 'Back', videos_path

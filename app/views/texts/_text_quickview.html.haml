@@ -1,0 +1,21 @@
+.text_partial
+  = image_tag '/assets/text_icon.png'
+  / add date time here
+  %h2= text.name
+  %p
+  author:
+  = text.author
+  %br
+  =text.date
+  -text.text_langs.each do |tl|
+    - if tl.published
+      %p{:class => "published"}= tl.lang
+    - else
+      %p{:class => "notpublished"}= tl.lang
+
+
+  %br
+  = link_to 'Show', text
+  = link_to 'Edit', edit_text_path(text)
+  = link_to 'Destroy', text, :method => :delete, :data => { :confirm => 'Are you sure?' }
+  %br

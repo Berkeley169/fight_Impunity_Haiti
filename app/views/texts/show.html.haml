@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @text.name
+  %b Author:
+  = @text.author
+  =@text.date
+%p
+  - @text_langs.each do |pl|
+    %p
+      %b the title:
+      = pl.title
+      %br
+      %b the translation:
+      = pl.lang
+      %br
+      %b plain text:
+      = pl.plain_text
+      %br
+
+= link_to 'Edit', edit_text_path(@text)
+\|
+= link_to 'Back', texts_path

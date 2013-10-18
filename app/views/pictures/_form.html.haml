@@ -14,13 +14,12 @@
     = f.file_field :pic
     
   = f.fields_for :picture_langs do |pl|
-    pl
     .field
       = pl.label :title
       = pl.text_field :title
     .field
       = pl.label :lang
-      = pl.text_field :lang, :disabled => true
+      = pl.text_field :lang
     .field
       = pl.label :description
       = pl.text_field :description, :size => 150

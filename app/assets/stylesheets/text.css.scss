@@ -1,0 +1,25 @@
+// Place all the styles related to the text controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.text_partial{
+	background: #ccc;
+	width:500px;
+	margin:10px;
+	padding:5px;
+}
+
+.text_partial img {
+	float:right;
+	width:50px;
+	padding:0px;
+}
+
+p.published {
+	color: #009900;
+	float:right;
+	padding: 2px;
+}
+p.notpublished {
+	float:right;
+	padding: 2px;
+}

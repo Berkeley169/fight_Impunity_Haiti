@@ -23,6 +23,8 @@ gem 'flog'
 gem 'flay'
 gem 'paperclip'
 
+gem 'devise' # added for password authentication
+
 # get version info for each gem
 
 group :development, :test do
@@ -69,3 +71,4 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
+

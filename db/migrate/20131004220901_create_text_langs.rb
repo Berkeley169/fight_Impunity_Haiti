@@ -6,6 +6,7 @@ class CreateTextLangs < ActiveRecord::Migration
       t.text :description
       t.belongs_to :text
       t.boolean :published
+      t.text :plain_text, :size => (64.kilobytes + 1)
       t.timestamps
     end
   end

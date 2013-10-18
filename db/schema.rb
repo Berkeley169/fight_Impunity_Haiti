@@ -138,8 +138,13 @@ ActiveRecord::Schema.define(:version => 20131014023403) do
     t.string   "french"
     t.string   "creole"
     t.string   "spanish"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.text     "english_description"
+    t.text     "french_description"
+    t.text     "creole_description"
+    t.text     "spanish_description"
+    t.boolean  "main_category"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
 
   create_table "tags_texts", :id => false, :force => true do |t|
@@ -164,6 +169,7 @@ ActiveRecord::Schema.define(:version => 20131014023403) do
     t.text     "description"
     t.integer  "text_id"
     t.boolean  "published"
+    t.text     "plain_text"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
     t.string   "txt_file_name"
@@ -181,17 +187,30 @@ ActiveRecord::Schema.define(:version => 20131014023403) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "users", :force => true do |t|
+    t.string   "username"
+    t.string   "hashed_password"
+    t.string   "role"
+    t.string   "lang"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
   create_table "video_langs", :force => true do |t|
-    t.string   "language"
+    t.string   "lang"
     t.string   "title"
     t.text     "description"
     t.boolean  "published"
+    t.integer  "video_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
 
   create_table "videos", :force => true do |t|
     t.integer  "item_id"
+    t.datetime "date"
+    t.string   "name"
+    t.string   "vid"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
