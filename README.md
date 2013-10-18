@@ -9,4 +9,6 @@ Please check out some of these useful pages on the wiki:
 
 Also please try to make your commits useful as other people should be reviewing your commits. 
 
-[Pivotal Tracker Link](https://www.pivotaltracker.com/s/projects/927210)
+[Pivotal Tracker](https://www.pivotaltracker.com/s/projects/927210)
+<br>
+[Code Climate](https://codeclimate.com/github/Berkeley169/fight_Impunity_Haiti)
