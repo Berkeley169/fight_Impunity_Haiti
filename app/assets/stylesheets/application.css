@@ -50,7 +50,8 @@ padding: 2px 0 0 0;
 }
 
 body {
- 	background-image: url('background.jpg');
+ 	/*background-image: url('background.jpg');*/
+  background: #eeeee6;
 }
 
 
@@ -360,7 +361,7 @@ body {
   font-size: 14px;
   line-height: 1.428571429;
   color: #333333;
-  background-color: #ffffff;
+/*  background-color: #ffffff;*/
 }
 
 input,
