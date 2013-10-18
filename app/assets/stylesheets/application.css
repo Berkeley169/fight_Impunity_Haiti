@@ -11,23 +11,7 @@
  *= require_self
  *= require_tree .
  */
-/*html, body, div, span, applet, object, 
-iframe, h1, h2, h3, h4, h5, h6, p, blockquote, 
-pre, a, abbr, acronym, address, big, 
-cite, code, del, dfn, em, font, img, ins, 
-kbd, q, s, samp, small, strike, strong, sub, 
-sup, tt, var, b, u, i, center, dl, dt, dd, 
-ol, ul, li, fieldset, form, label, legend, 
-table, caption, tbody, tfoot, thead, tr, th, td {
-margin: 0;
-padding: 0;
-outline: 0;
-font-size: 100%;
-vertical-align: baseline;
-background: transparent;
-border: 0;
-}
-*/
+
 #container {
 font-size: 14px;
 width: 945px;
@@ -57,45 +41,14 @@ padding: 2px 0 0 0;
     border-bottom: 1px solid #000;
     margin: 30px 0;
 }
-/*
-.header-content {
-	position: absolute;
-	top: 35%;
-	font-weight: lighter;
-}
-*/
+
 .button-holder {
 	margin-left:auto;
     margin-right:auto;
     width:75px;
     margin-top: 10px;
 }
-/*
-.login-button {
-	width: 75px;
-	text-decoration: none;
-	border-color: rgba(0, 0, 0, 0.56);
-	cursor: pointer;
-	outline: none;
-	color: #111;
-	display: inline-block;
-	vertical-align: top;
-	margin-left: auto;
-	font-size: 12px;
-	font-weight: bold;
-	text-align: center;
-	background-color: #aaa;
-	background: #aaa -moz-linear-gradient(top, rgba(255,255,255,.75), rgba(255,255,255,0));
-	background: #aaa -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(255,255,,.75)), to(rgba(201,201,188,0)));
-	text-shadow: 1px 1px 0 rgba(255,255,255,.67);
-	line-height: 24px;
-	height: 24px;
 
-	padding: 0;
-	-moz-user-select: none;
-	-webkit-user-select: none;
-}
-*/
 body {
  	background-image: url('background.jpg');
 }
@@ -6906,3 +6859,4 @@ td.visible-print {
     display: none !important;
   }
 }
+
