@@ -1,7 +1,3 @@
-Given /I am not signed in/ do
-  visit '/sessions/logout'
-end
-
 Given /I am a manager/ do
   manager = FactoryGirl.create(:manager, 
                                :email => 'manager@gmail.com', 
