@@ -43,10 +43,6 @@ group :test do
   gem 'cucumber-rails', :require => false
   gem 'cucumber-rails-training-wheels'
   gem 'database_cleaner'
-<<<<<<< HEAD
-
-=======
->>>>>>> user_stories
 end
 
 # Gems used only for assets and not required
