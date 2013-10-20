@@ -22,3 +22,8 @@
 
 #ignore all the pictures we upload for testing
 /public/system
+
+# ignore config/databases.yml; everyone is going to have thier own postgresql data setup
+/config/database.yml
+
+/db/schema.rb

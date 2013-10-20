@@ -11,7 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20131019235353) do
+=======
+ActiveRecord::Schema.define(:version => 20131019233801) do
+>>>>>>> 4646f9884f2697866de95b35bc7a477fd377d0b8
 
   create_table "binaries", :force => true do |t|
     t.string   "title"
@@ -112,17 +116,25 @@ ActiveRecord::Schema.define(:version => 20131019235353) do
   add_index "pictures_tags", ["tag_id"], :name => "index_pictures_tags_on_tag_id"
 
   create_table "sound_langs", :force => true do |t|
-    t.string   "language"
+    t.string   "lang"
     t.string   "title"
     t.text     "description"
+    t.boolean  "published"
+    t.integer  "sound_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
 
   create_table "sounds", :force => true do |t|
+    t.datetime "date"
+    t.string   "name"
     t.integer  "item_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.string   "snd_file_name"
+    t.string   "snd_content_type"
+    t.integer  "snd_file_size"
+    t.datetime "snd_updated_at"
   end
 
   create_table "sounds_tags", :id => false, :force => true do |t|

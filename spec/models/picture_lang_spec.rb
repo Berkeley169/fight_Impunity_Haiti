@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe PictureLang do
-	let(:valid_attributes) { { "title" => "MyTitle", "description" => "This is my description", "lang" => "English" } }
   	describe "testing validation" do
 	  	# it "should validate precense of title" do
 	  	# 	pl = FactoryGirl.create(:picture_lang)
