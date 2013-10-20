@@ -17,4 +17,4 @@ Scenario: allow editor to see the edit document page
 Scenario: allow editor to submit the document for manager approval
   Given I am signed in as an editor
   When  I submit a document an edited document
-  Then  I should see the document on the something page
+  Then  I should see the document in the manager approval pool
