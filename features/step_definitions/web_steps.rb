@@ -33,7 +33,11 @@ World(WithinHelpers)
 
 # Single-line step scoper
 When /^(.*) within (.*[^:])$/ do |step, parent|
+<<<<<<< HEAD
   with_scope(parent) { When step }
+=======
+  with_scope(parent) { %Q{#{step}} }
+>>>>>>> user_stories
 end
 
 # Multi-line step scoper
