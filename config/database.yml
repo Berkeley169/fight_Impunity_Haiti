@@ -21,7 +21,7 @@ development:
   database: impunity_dev
   host: localhost
   pool: 5
-  username: fightimpunityhaiti
+  username: postgres
   password: abcd1234
 
 test:
@@ -30,7 +30,7 @@ test:
   database: impunity_test
   host: localhost
   pool: 5
-  username: fightimpunityhaiti
+  username: postgres
   password: abcd1234
 
 production:
