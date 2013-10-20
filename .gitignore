@@ -25,5 +25,5 @@
 
 # ignore config/databases.yml; everyone is going to have thier own postgresql data setup
 /config/database.yml
-
+database.yml
 /db/schema.rb
