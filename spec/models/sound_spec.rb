@@ -1,14 +1,13 @@
 require 'spec_helper'
 
 describe Sound do
-  pending "add some examples to (or delete) #{__FILE__}"
   describe "the get_translations method" do
     it "successfully gets all the children" do
       s = FactoryGirl.create(:sound)
       s.save
       sound_langs = s.sound_langs
-      sound_langs.first.picture_id.should == p.id
-      sound_langs.last.picture_id.should == p.id
+      sound_langs.first.sound_id.should == s.id
+      sound_langs.last.sound_id.should == s.id
     end
   end
 
@@ -24,26 +23,26 @@ describe Sound do
   describe "validating the correct format" do
     it "should be valid if everything is valid" do
       s = FactoryGirl.create(:sound)
-      s.should_be valid
+      s.should be_valid
     end
 
     it "should require a name" do
       s = FactoryGirl.create(:sound)
-      s.should_be valid
+      s.should be_valid
       s.name = nil
       s.should_not be_valid
     end
 
-    it "should require a pic attachment" do
-      p = FactoryGirl.create(:sound)
-      s.should_be valid
+    it "should require a snd attachment" do
+      s = FactoryGirl.create(:sound)
+      s.should be_valid
       s.snd = nil
       s.should_not be_valid
     end
 
     it "should require the file to be a valid audio format" do
       expect{FactoryGirl.create(:sound,
-        :snd => File.new(Rails.root + 'spec/fixtures/pictures/Lorem_ipsum.pdf'))}.to raise error
+        :snd => File.new(Rails.root + 'spec/fixtures/documents/Lorem_ipsum.pdf'))}.to raise_error
     end
   end
 
