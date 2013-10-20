@@ -1,5 +1,6 @@
 # This is the language specific version of a language
 # It should have an attachment for each language
 class SoundLang < ActiveRecord::Base
-  attr_accessible :description, :language, :title
+  attr_accessible :description, :lang, :title
+  belongs_to :sound
 end
