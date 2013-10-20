@@ -11,11 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20131019235353) do
-=======
-ActiveRecord::Schema.define(:version => 20131019233801) do
->>>>>>> 4646f9884f2697866de95b35bc7a477fd377d0b8
 
   create_table "binaries", :force => true do |t|
     t.string   "title"
