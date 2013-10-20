@@ -1,4 +1,4 @@
-class Dashboard::UsersController < DashboardController
+cs class Dashboard::UsersController < DashboardController
 
   def index
     setup_dashboard
@@ -8,15 +8,12 @@ class Dashboard::UsersController < DashboardController
 
   def new
     setup_dashboard
-    @fields = [:username,:password,:'re-enter password',:role,:lang]
+    @fields = [:name,:email,:password,:password_confirmation,:role,:lang]
     @title = 'Manage Users'
   end
 
   def create
-    if params[:new_user] and params[:new_user][:password] == params[:new_user]['re-enter password']
-      params[:new_user].delete('re-enter password')
-      params[:new_user][:hashed_password] = params[:new_user][:password]
-      params[:new_user].delete(:password)
+    if params[:new_user] and params[:new_user][:password] == params[:new_user][:password_confirmation]
       User.create!(params[:new_user])
     end
     redirect_to dashboard_users_path

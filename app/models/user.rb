@@ -1,9 +1,16 @@
 class User < ActiveRecord::Base
-  attr_accessible :username, :hashed_password, :role, :lang
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
+
+  # Setup accessible (or protected) attributes for your model
+  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :role, :lang, :name
   
-  validates_presence_of :username, :hashed_password, :role
-  validates_uniqueness_of :username
-  validates_length_of :username, :minimum => 6
+  validates_presence_of :name, :password, :role, :password_confirmation, :email, :lang
+  validates_uniqueness_of :name, :email
+  validates_length_of :name, :minimum => 6
   #validate :proper_role
   #validate :proper_lang
 

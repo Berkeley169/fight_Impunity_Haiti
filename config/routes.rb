@@ -1,5 +1,11 @@
 FightImpunityHaiti::Application.routes.draw do
 
+  devise_for :users, :path => 'sessions'
+  devise_scope :user do
+    get '/sessions/login', :to  => 'devise/sessions#new'
+    get '/sessions/logout', :to  => 'devise/sessions#destroy'
+  end
+
   resources :picture_langs
   resources :pictures
   resources :documents

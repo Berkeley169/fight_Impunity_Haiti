@@ -1,3 +1,24 @@
+GIT
+  remote: https://github.com/intridea/omniauth-ldap.git
+  revision: 77e842e9bf1eadcad034139456baeb48d6cdcc54
+  specs:
+    omniauth-ldap (1.0.3)
+      net-ldap (~> 0.2.2)
+      omniauth (~> 1.0)
+      pyu-ruby-sasl (~> 0.0.3.1)
+      rubyntlm (~> 0.1.1)
+
+GIT
+  remote: https://github.com/plataformatec/devise.git
+  revision: 520e2845aef33c7e69e9bd052964daf27719aaba
+  specs:
+    devise (3.1.0)
+      bcrypt-ruby (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 3.2.6, < 5)
+      thread_safe (~> 0.1)
+      warden (~> 1.2.3)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -92,12 +113,6 @@ GEM
     debugger-linecache (1.2.0)
     debugger-ruby_core_source (1.2.3)
     deepopenstruct (0.1.2)
-    devise (3.1.1)
-      bcrypt-ruby (~> 3.0)
-      orm_adapter (~> 0.1)
-      railties (>= 3.2.6, < 5)
-      thread_safe (~> 0.1)
-      warden (~> 1.2.3)
     diff-lcs (1.2.4)
     erubis (2.7.0)
     execjs (2.0.1)
@@ -181,6 +196,7 @@ GEM
     mini_portile (0.5.1)
     multi_json (1.8.0)
     multi_test (0.0.2)
+    net-ldap (0.2.2)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
     oauth (0.4.7)
@@ -206,6 +222,7 @@ GEM
       coderay (~> 1.0.5)
       method_source (~> 0.8)
       slop (~> 3.4)
+    pyu-ruby-sasl (0.0.3.3)
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -279,6 +296,7 @@ GEM
       sexp_processor (~> 4.0)
     ruby_parser (3.2.2)
       sexp_processor (~> 4.1)
+    rubyntlm (0.1.1)
     sass (3.2.10)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -323,7 +341,7 @@ DEPENDENCIES
   cucumber-rails
   cucumber-rails-training-wheels
   debugger
-  devise
+  devise!
   factory_girl_rails
   faker
   flay
@@ -335,6 +353,7 @@ DEPENDENCIES
   metric_fu
   nokogiri
   omniauth
+  omniauth-ldap!
   omniauth-twitter
   paperclip
   rails (= 3.2.13)

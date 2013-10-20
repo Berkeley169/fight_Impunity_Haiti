@@ -1,4 +1,6 @@
 class DashboardController < ApplicationController
+
+  before_filter :authenticate_user
   
   def index
     setup_dashboard
@@ -6,7 +8,6 @@ class DashboardController < ApplicationController
   end
 
   def setup_dashboard
-    authenticate
     if @user == 'redirect'
       redirect_to '/login'
     else
@@ -26,9 +27,9 @@ class DashboardController < ApplicationController
     end
   end
   
-  def authenticate
-    if session[:uid]
-      @user = User.find_by_id(session[:uid])
+  def authenticate_user
+    if user_signed_in?
+      @user = current_user
     else
       flash[:notice] = 'You must log in before continuing'
       @user = 'redirect'
