@@ -1,4 +1,4 @@
-cs class Dashboard::UsersController < DashboardController
+class Dashboard::UsersController < DashboardController
 
   def index
     setup_dashboard
