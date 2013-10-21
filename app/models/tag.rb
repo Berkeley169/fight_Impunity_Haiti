@@ -11,4 +11,6 @@ class Tag < ActiveRecord::Base
   has_and_belongs_to_many  :binaries
   has_and_belongs_to_many  :texts
   has_and_belongs_to_many  :sounds
+  belongs_to :parent, :class_name => 'Tag'
+  has_many :children, :class_name => 'Tag', :foreign_key => 'parent_id'
 end
