@@ -26,24 +26,13 @@ describe Sound do
       s.should be_valid
     end
 
-    it "should require a name" do
-      s = FactoryGirl.create(:sound)
-      s.should be_valid
-      s.name = nil
-      s.should_not be_valid
-    end
-
-    it "should require a snd attachment" do
-      s = FactoryGirl.create(:sound)
-      s.should be_valid
-      s.snd = nil
-      s.should_not be_valid
-    end
-
     it "should require the file to be a valid audio format" do
       expect{FactoryGirl.create(:sound,
         :snd => File.new(Rails.root + 'spec/fixtures/documents/Lorem_ipsum.pdf'))}.to raise_error
     end
   end
+
+  it {should validate_presence_of :snd}
+  it {should validate_presence_of :name}
 
 end
