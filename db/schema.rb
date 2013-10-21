@@ -146,11 +146,11 @@ ActiveRecord::Schema.define(:version => 20131019235353) do
     t.string   "french"
     t.string   "creole"
     t.string   "spanish"
+    t.string   "cat"
     t.text     "english_description"
     t.text     "french_description"
     t.text     "creole_description"
     t.text     "spanish_description"
-    t.string   "kind"
     t.integer  "parent_id"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
