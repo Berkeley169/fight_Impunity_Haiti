@@ -40,6 +40,7 @@ group :test do
   gem 'cucumber'
   gem 'cucumber-rails', :require => false
   gem 'cucumber-rails-training-wheels'
+  gem 'shoulda'
 
 end
 

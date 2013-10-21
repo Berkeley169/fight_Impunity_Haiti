@@ -9,7 +9,7 @@ class CreateTags < ActiveRecord::Migration
       t.text :french_description, :size => (64.kilobytes + 1)
       t.text :creole_description, :size => (64.kilobytes + 1)
       t.text :spanish_description, :size => (64.kilobytes + 1)
-      t.string :type
+      t.string :kind
       t.integer :parent_id
       t.timestamps
     end
