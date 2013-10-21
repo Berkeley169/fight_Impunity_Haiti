@@ -1,19 +1,25 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
+  sequence :name do |n|
+    "John #{n} Smith"
+  end
+  sequence :email do |n|
+    "email#{n}@gmail.com"
+  end
   factory :editor, :class => 'user' do |e|
-    e.name "Eddy Tor"
-    e.email "editor@gmail.com"
+    e.email
+    e.name
     e.password "abcd1234"
-    e.password_confirmation "abcd1234"
+    e.password_confirmation { |u| u.password }
     e.role "Editor"
     e.lang "English"
   end
   factory :manager, :class => 'user' do |m|
-    m.name "M. Anna Ger"
-    m.email "manager@gmail.com"
+    m.email
+    m.name
     m.password "abcd1234"
-    m.password_confirmation "abcd1234"
+    m.password_confirmation { |u| u.password }
     m.role "Manager"
     m.lang "English"
   end
