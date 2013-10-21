@@ -5,4 +5,10 @@ class Dashboard::ItemsController < DashboardController
     @title = 'All Documents'
   end
 
+   	
+  def new
+  	setup_dashboard
+  	@title = "New Documents"
+  end
+
 end

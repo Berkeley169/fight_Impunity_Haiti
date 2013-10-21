@@ -5,7 +5,7 @@ gem 'rails', '3.2.13'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+gem 'pg'
 gem 'haml-rails'
 gem 'autotest'
 gem 'spork'
@@ -23,7 +23,9 @@ gem 'flog'
 gem 'flay'
 gem 'paperclip'
 
-gem 'devise' # added for password authentication
+# added for user authentication
+gem 'devise', :git => 'https://github.com/plataformatec/devise.git'
+gem 'omniauth-ldap', :git => 'https://github.com/intridea/omniauth-ldap.git'
 
 # get version info for each gem
 
@@ -41,7 +43,7 @@ group :test do
   gem 'cucumber-rails', :require => false
   gem 'cucumber-rails-training-wheels'
   gem 'shoulda'
-
+  gem 'database_cleaner'
 end
 
 # Gems used only for assets and not required

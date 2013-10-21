@@ -1,7 +1,7 @@
 %div#user_info
-  %text= 'Logged in as: ' + @user.username
+  %text= 'Logged in as: ' + @user.name
   %br
-  = link_to 'Sign out', '/login/sign_out', :id => 'sign_out'
+  = link_to 'Sign out', sessions_logout_path, :id => 'sign_out'
 
 %h1#header= @title
 

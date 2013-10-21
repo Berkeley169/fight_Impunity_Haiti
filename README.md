@@ -8,3 +8,7 @@ Please check out some of these useful pages on the wiki:
 * [Maintaining good code](https://github.com/Berkeley169/fight_Impunity_Haiti/wiki/Maintaining-Proper-Style-and-Form)
 
 Also please try to make your commits useful as other people should be reviewing your commits. 
+
+[Pivotal Tracker](https://www.pivotaltracker.com/s/projects/927210)
+<br>
+[Code Climate](https://codeclimate.com/github/Berkeley169/fight_Impunity_Haiti)
