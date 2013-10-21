@@ -3,7 +3,6 @@ class TagsController < ApplicationController
   # GET /tags.json
   def index
     @tags = Tag.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @tags }
@@ -24,15 +23,20 @@ class TagsController < ApplicationController
   # GET /tags/new
   # GET /tags/new.json
   def new
-    @tag = Tag.new
-    mains = Tag.where(:cat => "main")
-    @main_categories = [["",nil]]
-    mains.each do |m|
-      @main_categories << [m.english, m.id]
-    end
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @tag }
+    if current_user
+      @tag = Tag.new
+      mains = Tag.where(:cat => "main")
+      @main_categories = [["",nil]]
+      mains.each do |m|
+        @main_categories << [m.english, m.id]
+      end
+      respond_to do |format|
+        format.html # new.html.erb
+        format.json { render json: @tag }
+      end
+    else
+      flash[:alert] = "you must be logged in as a manager to make new tags"
+      redirect_to tags_path
     end
   end
 

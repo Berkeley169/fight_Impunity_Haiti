@@ -1,3 +1,5 @@
+-if flash[:alert]
+  %p.alert-danger= flash[:alert]
 %h1 Listing tags
 
 %table
@@ -8,6 +10,8 @@
 
   - @tags.each do |tag|
     %tr
+      %td= tag.english
+      %td= tag.french
       %td= link_to 'Show', tag
       %td= link_to 'Edit', edit_tag_path(tag)
       %td= link_to 'Destroy', tag, :method => :delete, :data => { :confirm => 'Are you sure?' }

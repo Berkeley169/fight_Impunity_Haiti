@@ -1,5 +1,13 @@
 %p#notice= notice
 
+%p
+  %b English:
+  = @tag.english
+  %b French:
+  = @tag.french
+  %b Type:
+  = @tag.cat
+
 
 = link_to 'Edit', edit_tag_path(@tag)
 \|
