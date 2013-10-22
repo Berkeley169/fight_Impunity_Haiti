@@ -9,7 +9,7 @@ class DashboardController < ApplicationController
 
   def setup_dashboard
     if @user == 'redirect'
-      redirect_to '/login'
+      redirect_to '/sessions/login'
     else
       @flash_notice = flash[:notice]
       @links = {}
@@ -33,6 +33,7 @@ class DashboardController < ApplicationController
     else
       flash[:notice] = 'You must log in before continuing'
       @user = 'redirect'
+      redirect_to '/sessions/login'
     end
   end
   
