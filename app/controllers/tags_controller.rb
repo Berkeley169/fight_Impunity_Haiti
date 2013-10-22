@@ -1,6 +1,9 @@
 class TagsController < ApplicationController
   # GET /tags
   # GET /tags.json
+  layout 'dashboard'
+  before_filter :authenticate_user
+
   def index
     @tags = Tag.all
     respond_to do |format|
@@ -43,6 +46,11 @@ class TagsController < ApplicationController
   # GET /tags/1/edit
   def edit
     @tag = Tag.find(params[:id])
+    mains = Tag.where(:cat => "main")
+    @main_categories = [["",nil]]
+    mains.each do |m|
+      @main_categories << [m.english, m.id]
+    end
   end
 
   # POST /tags
