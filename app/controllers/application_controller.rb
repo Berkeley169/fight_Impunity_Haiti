@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
     else
       flash[:notice] = 'You must log in before continuing'
       @user = 'redirect'
-      redirect_to '/session/login'
+      redirect_to '/sessions/login'
     end
   end
   
