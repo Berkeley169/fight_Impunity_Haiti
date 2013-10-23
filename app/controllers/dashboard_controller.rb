@@ -1,15 +1,15 @@
 class DashboardController < ApplicationController
 
-  before_filter :authenticate_user
+  before_filter :setup_dashboard
   
   def index
-    setup_dashboard
     @title = 'Dashboard Home'
   end
 
   def setup_dashboard
-    if @user == 'redirect'
-      redirect_to '/sessions/login'
+    @user = authenticate_user
+    if not @user.is_a? User
+      redirect_to sessions_login_path
     else
       @flash_notice = flash[:notice]
       @links = {}
@@ -29,11 +29,10 @@ class DashboardController < ApplicationController
   
   def authenticate_user
     if user_signed_in?
-      @user = current_user
+      return current_user
     else
       flash[:notice] = 'You must log in before continuing'
-      @user = 'redirect'
-      redirect_to '/sessions/login'
+      return 'redirect'
     end
   end
   

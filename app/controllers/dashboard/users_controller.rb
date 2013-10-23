@@ -1,13 +1,13 @@
 class Dashboard::UsersController < DashboardController
 
+  before_filter :authenticate_manager
+
   def index
-    setup_dashboard
     @users = User.all
     @title = 'Manage Users'
   end
 
   def new
-    setup_dashboard
     @fields = [:name,:email,:password,:password_confirmation,:role,:lang]
     @title = 'Manage Users'
   end
@@ -22,7 +22,7 @@ class Dashboard::UsersController < DashboardController
   def destroy
     if User.exists?(params[:id])
       user = User.find(params[:id])
-      flash[:notice] = user.username + ' was deleted'
+      flash[:notice] = user.name + ' was deleted'
       User.destroy(user.id)
     else
       flash[:notice] = "User doesn't exist"
@@ -31,7 +31,6 @@ class Dashboard::UsersController < DashboardController
   end
 
   def edit
-    setup_dashboard
     @fields = [:username,:role,:lang]
     @user_to_edit = User.find_by_id(params[:id])
   end
@@ -43,11 +42,20 @@ class Dashboard::UsersController < DashboardController
         eval "user.#{field} = params[:edit_user][field]"
       end
       user.save
-      flash[:notice] = user.username + ' was updated'
+      flash[:notice] = user.name + ' was updated'
     else
-      flash[:notice] = user.username + "doesn't exist"
+      flash[:notice] = 'user number ' + params[:id].to_s + " doesn't exist"
     end
     redirect_to dashboard_users_path
+  end
+
+  def authenticate_manager
+    user = authenticate_user
+    if not user.is_a? User
+      redirect_to sessions_login_path
+    elsif user.role.to_sym != :Manager and user.role.to_sym != :Tech
+      redirect_to dashboard_path
+    end
   end
   
 end
