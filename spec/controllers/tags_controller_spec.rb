@@ -19,6 +19,14 @@ require 'spec_helper'
 # that an instance is receiving a specific message.
 
 describe TagsController do
+  include Devise::TestHelpers
+
+  def setup(user = :manager)
+    #@request.env["devise.mapping"] = Devise.mappings[:manager]
+    sign_in FactoryGirl.create(user)
+  end
+
+
 
   # This should return the minimal set of attributes required to create a valid
   # Tag. As you add validations to Tag, be sure to
@@ -30,14 +38,74 @@ describe TagsController do
   # TagsController. Be sure to keep this updated too.
   # let(:valid_session) { {} }
 
-  # describe "GET index" do
-  #   it "assigns all tags as @tags" do
-  #     tag = Tag.create! valid_attributes
-  #     get :index, {}, valid_session
-  #     assigns(:tags).should eq([tag])
-  #   end
-  # end
+  describe "GET index" do
+    it "should work" do
+      setup
+      get :index
+      response.should be_success
+    end
+  end
 
+  describe "GET new" do
+    it "should work if you have a manager" do
+      setup
+      get 'new'
+      response.status.should be(200)
+    end
+
+    it "should not work for an editor" do
+      setup(:editor)
+      get :new
+      response.status.should be(302)
+    end
+
+    it "should not work for an the public" do
+      get :new
+      response.status.should be(302)
+    end
+  end
+
+  describe "GET edit" do
+    t = FactoryGirl.build(:tag)
+    t.save!
+    it "should work if you have a manager" do
+      setup
+      get :edit, {:id => t.to_param}
+      response.status.should be(200)
+    end
+
+    it "should not work for an editor" do
+      setup(:editor)
+      get :edit, {:id => t.to_param}
+      response.status.should be(302)
+    end
+
+    it "should not work for an the public" do
+      get :edit, {:id => t.to_param}
+      response.status.should be(302)
+    end
+  end
+
+  describe "GET show" do
+    t = FactoryGirl.build(:tag)
+    t.save!
+    it "should work if you have a manager" do
+      setup
+      get :show, {:id => t.to_param}
+      response.status.should be(200)
+    end
+
+    it "should work for an editor" do
+      setup(:editor)
+      get :show, {:id => t.to_param}
+      response.status.should be(200)
+    end
+
+    it "should not work for an the public" do
+      get :show, {:id => t.to_param}
+      response.status.should be(302)
+    end
+  end
   # describe "GET show" do
   #   it "assigns the requested tag as @tag" do
   #     tag = Tag.create! valid_attributes
