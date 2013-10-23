@@ -6,5 +6,6 @@ FactoryGirl.define do
     french "French Tag"
     creole "Creole Tag"
     spanish "Spanish Tag"
+    kind "misc"
   end
 end

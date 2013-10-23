@@ -2,7 +2,7 @@
 # It will not have an attachment but instead it's children will
 class Text < ActiveRecord::Base
   attr_accessible :name, :author, :date, :text_langs_attributes
-  has_many :text_langs
+  has_many :text_langs, dependent: :destroy
   belongs_to :item
   validates :author, presence: true
   has_and_belongs_to_many :tags

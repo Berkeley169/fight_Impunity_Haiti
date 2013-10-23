@@ -24,6 +24,14 @@ ActiveRecord::Schema.define(:version => 20131019235353) do
     t.datetime "bin_updated_at"
   end
 
+  create_table "binaries_tags", :id => false, :force => true do |t|
+    t.integer "binary_id"
+    t.integer "tag_id"
+  end
+
+  add_index "binaries_tags", ["binary_id", "tag_id"], :name => "index_binaries_tags_on_binary_id_and_tag_id"
+  add_index "binaries_tags", ["tag_id"], :name => "index_binaries_tags_on_tag_id"
+
   create_table "binary_langs", :force => true do |t|
     t.string   "lang"
     t.string   "title"
@@ -37,14 +45,6 @@ ActiveRecord::Schema.define(:version => 20131019235353) do
     t.integer  "bin_lang_file_size"
     t.datetime "bin_lang_updated_at"
   end
-
-  create_table "binarys_tags", :id => false, :force => true do |t|
-    t.integer "binary_id"
-    t.integer "tag_id"
-  end
-
-  add_index "binarys_tags", ["binary_id", "tag_id"], :name => "index_binarys_tags_on_binary_id_and_tag_id"
-  add_index "binarys_tags", ["tag_id"], :name => "index_binarys_tags_on_tag_id"
 
   create_table "documents", :force => true do |t|
     t.string   "name"
@@ -146,11 +146,12 @@ ActiveRecord::Schema.define(:version => 20131019235353) do
     t.string   "french"
     t.string   "creole"
     t.string   "spanish"
+    t.string   "cat"
     t.text     "english_description"
     t.text     "french_description"
     t.text     "creole_description"
     t.text     "spanish_description"
-    t.boolean  "main_category"
+    t.integer  "parent_id"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
   end

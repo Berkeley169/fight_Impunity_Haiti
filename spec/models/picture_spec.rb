@@ -23,18 +23,6 @@ describe Picture do
   end
 
   describe "validating the correct format" do
-  	it "should require a name" do
-      p = FactoryGirl.create(:picture)
-      p.name = nil
-      p.should_not be_valid
-  	end
-
-    it "should require a pic attachment" do
-      p = FactoryGirl.create(:picture)
-      p.pic = nil
-      p.should_not be_valid
-    end
-
     it "should work if everything is valid" do
       p = FactoryGirl.create(:picture)
       p.should be_valid
@@ -45,4 +33,8 @@ describe Picture do
         :pic => File.new(Rails.root + 'spec/fixtures/documents/Lorem_ipsum.pdf'))}.to raise_error
     end
   end
+
+  it {should validate_presence_of :pic}
+  it {should validate_presence_of :name}
+
 end
