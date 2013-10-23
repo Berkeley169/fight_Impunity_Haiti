@@ -8,7 +8,7 @@ class DashboardController < ApplicationController
 
   def setup_dashboard
     @user = authenticate_user
-    if @user == 'redirect'
+    if not @user.is_a? User
       redirect_to sessions_login_path
     else
       @flash_notice = flash[:notice]

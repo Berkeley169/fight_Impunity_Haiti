@@ -50,9 +50,10 @@ class Dashboard::UsersController < DashboardController
   end
 
   def authenticate_manager
-    if authenticate_user == 'redirect'
+    user = authenticate_user
+    if not user.is_a? User
       redirect_to sessions_login_path
-    elsif authenticate_user.role.to_sym != :Manager
+    elsif user.role.to_sym != :Manager and user.role.to_sym != :Tech
       redirect_to dashboard_path
     end
   end
