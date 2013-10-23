@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Dashboard::UsersController do
   
-  describe "routing\n" do
+  describe "routing for a manager\n" do
 
     before(:each) do   
       user = FactoryGirl.build(:manager)
@@ -44,7 +44,12 @@ describe Dashboard::UsersController do
       get :index
       response.should redirect_to dashboard_path
     end
-    
+    it 'should redirect to login without authenticated user' do
+       Dashboard::UsersController.any_instance.stub(:authenticate_user).and_return("redirect")
+      get :index
+      response.should redirect_to sessions_login_path
+    end
+        
   end
 
 end
