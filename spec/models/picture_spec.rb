@@ -3,7 +3,6 @@ describe Picture do
   describe "the get_translations method" do
   	it "successfully gets all the children" do
   		p = FactoryGirl.create(:picture)
-  		p.id = 1
   		p.save
   		list = p.picture_langs
       list.count.should == 4
@@ -15,7 +14,6 @@ describe Picture do
   describe "the get_language method" do
   	it "should get the correct language" do
   		p = FactoryGirl.create(:picture)
-  		p.id = 1
   		p.save
       p.get_language("English").lang.should == "English"
       p.get_language("French").lang.should == "French"	
