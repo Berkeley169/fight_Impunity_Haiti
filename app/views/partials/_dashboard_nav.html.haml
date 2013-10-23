@@ -8,11 +8,6 @@
 %text#flash= @flash_notice
 
 %div#link_column
-  = link_to 'Dashboard Home', '/dashboard', :class => :dashboard_button
-  = link_to 'Published', '/dashboard/documents/published', :class => :dashboard_button
-  = link_to 'Editor Reviewed', '/dashboard/documents/reviewed', :class => :dashboard_button
-  = link_to 'In Progress', '/dashboard/documents/in_progress', :class => :dashboard_button
-  = link_to 'All Documents', '/dashboard/documents', :class => :dashboard_button
-  = link_to 'Submit Document','/dashboard/documents/new', :class => :dashboard_button
-  = link_to 'Manage Users','/dashboard/users', :class => :dashboard_button
+  - @links.keys.each do |name|
+    = link_to name, @links[name], :class => :dashboard_button
     

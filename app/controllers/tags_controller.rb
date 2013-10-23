@@ -1,7 +1,6 @@
 class TagsController < ApplicationController
   # GET /tags
   # GET /tags.json
-  layout 'dashboard'
   before_filter :authenticate_user
 
   def index
