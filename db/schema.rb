@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(:version => 20131023222046) do
 
   create_table "binaries", :force => true do |t|
-    t.string   "title"
+    t.string   "name"
     t.integer  "item_id"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
