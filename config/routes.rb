@@ -18,8 +18,6 @@ FightImpunityHaiti::Application.routes.draw do
   resources :sounds
   match 'pages/contact' => 'pages#contact'
   match 'pages/about' => 'pages#about'
-  match 'login' => 'sessions', :as => :login
-  match 'login/sign_out' => 'sessions#sign_out'
   match 'dashboard' => 'dashboard#index'
 
   namespace :dashboard do

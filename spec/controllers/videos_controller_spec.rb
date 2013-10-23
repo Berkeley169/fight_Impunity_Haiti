@@ -10,15 +10,19 @@ describe VideosController do
   end
 
   describe "GET 'edit'" do
+    v = FactoryGirl.build(:video)
+    v.save!
     it "returns http success" do
-      get 'edit'
+      get 'edit', {:id => v.to_param}
       response.should be_success
     end
   end
 
   describe "GET 'show'" do
     it "returns http success" do
-      get 'show'
+      v = FactoryGirl.build(:video)
+      v.save!
+      get 'show', {:id => v.to_param}
       response.should be_success
     end
   end

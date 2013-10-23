@@ -81,3 +81,10 @@ module ValidModelConstructors
     return pl
   end
 end
+
+include Devise::TestHelpers
+
+def setup_user(user = :manager)
+  @request.env["devise.mapping"] = Devise.mappings[:manager]
+  sign_in FactoryGirl.create(user)
+end

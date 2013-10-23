@@ -25,7 +25,6 @@ gem 'paperclip'
 
 # added for user authentication
 gem 'devise', :git => 'https://github.com/plataformatec/devise.git'
-gem 'omniauth-ldap', :git => 'https://github.com/intridea/omniauth-ldap.git'
 
 # get version info for each gem
 

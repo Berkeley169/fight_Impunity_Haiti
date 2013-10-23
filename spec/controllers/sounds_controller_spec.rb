@@ -10,15 +10,19 @@ describe SoundsController do
   end
 
   describe "GET 'edit'" do
+    s = FactoryGirl.build(:sound)
+    s.save!
     it "returns http success" do
-      get 'edit'
+      get 'edit', {:id => s.to_param}
       response.should be_success
     end
   end
 
   describe "GET 'show'" do
+    s = FactoryGirl.build(:sound)
+    s.save!
     it "returns http success" do
-      get 'show'
+      get 'show', {:id => s.to_param}
       response.should be_success
     end
   end
