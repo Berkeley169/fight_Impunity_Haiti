@@ -23,4 +23,12 @@ FactoryGirl.define do
     m.role "Manager"
     m.lang "English"
   end
+  factory :tech, :class => 'user' do |m|
+    m.name "Tex Saport"
+    m.email "tech@gmail.com"
+    m.password "abcd1234"
+    m.password_confirmation "abcd1234"
+    m.role "Tech"
+    m.lang "English"
+  end
 end

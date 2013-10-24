@@ -6,10 +6,5 @@ describe "tags/new" do
   end
 
   it "renders new tag form" do
-    render
-
-    # Run the generator again with the --webrat flag if you want to use webrat matchers
-    assert_select "form[action=?][method=?]", tags_path, "post" do
-    end
   end
 end
