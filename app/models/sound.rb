@@ -3,7 +3,7 @@
 # language should have one
 class Sound < ActiveRecord::Base
   # attr_accessible :title, :body
-  attr_accessible :snd, :name, :sound_langs_attributes
+  attr_accessible :snd, :name, :sound_langs_attributes, :notes
   has_many :sound_langs
   accepts_nested_attributes_for :sound_langs
   has_attached_file :snd

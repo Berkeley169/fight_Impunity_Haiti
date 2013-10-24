@@ -2,7 +2,7 @@
 # In general we will figure things out on this model first
 # and then port to the other models
 class Picture < ActiveRecord::Base
-	attr_accessible :pic, :name, :picture_langs_attributes
+	attr_accessible :pic, :name, :picture_langs_attributes, :notes
 	has_many :picture_langs
 	accepts_nested_attributes_for :picture_langs
 	has_attached_file :pic

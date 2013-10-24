@@ -13,6 +13,11 @@
       %br
       %b the translation:
       = pl.lang
+- if user_signed_in?
+  %p
+    %b Notes:
+    %br
+    = @picture.notes
 
 = link_to 'Edit', edit_picture_path(@picture)
 \|

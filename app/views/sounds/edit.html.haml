@@ -1,2 +1,7 @@
-%h1 Sound#edit
-%p Find me in app/views/sound/edit.html.haml
+%h1 Editing Sound
+
+= render 'form'
+
+= link_to 'Show', @sound
+\|
+= link_to 'Back', sounds_path

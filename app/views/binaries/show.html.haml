@@ -2,7 +2,7 @@
 
 %p
   %b Title:
-  = @binary.title
+  = @binary.name
 %p
   - @binary_langs.each do |pl|
     %p
@@ -11,6 +11,11 @@
       %br
       %b the translation:
       = pl.lang
+- if user_signed_in?
+  %p
+    %b Notes:
+    %br
+    = @binary.notes
 
 = link_to 'Edit', edit_binary_path(@binary)
 \|
