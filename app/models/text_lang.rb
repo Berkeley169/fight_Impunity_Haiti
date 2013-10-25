@@ -5,5 +5,4 @@ class TextLang < ActiveRecord::Base
   has_attached_file :txt
   belongs_to :text
   validates :lang, presence: true
-  validates_attachment :txt, :presence => true
 end

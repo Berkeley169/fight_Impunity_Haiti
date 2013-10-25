@@ -39,5 +39,9 @@ describe Tag do
         end
     end
 
-    it { should validate_presence_of :kind}
+    it { should validate_presence_of :cat}
+    it { should validate_presence_of :french}
+    it { should validate_presence_of :english}
+    it { should validate_presence_of :spanish}
+    it { should validate_presence_of :creole}
 end

@@ -1,7 +1,6 @@
 class TagsController < ApplicationController
   # GET /tags
   # GET /tags.json
-  layout 'dashboard'
   before_filter :authenticate_user
 
   def index
@@ -26,7 +25,7 @@ class TagsController < ApplicationController
   # GET /tags/new
   # GET /tags/new.json
   def new
-    if current_user
+    if current_user.role == "Manager"
       @tag = Tag.new
       mains = Tag.where(:cat => "main")
       @main_categories = [["",nil]]
@@ -45,11 +44,16 @@ class TagsController < ApplicationController
 
   # GET /tags/1/edit
   def edit
-    @tag = Tag.find(params[:id])
-    mains = Tag.where(:cat => "main")
-    @main_categories = [["",nil]]
-    mains.each do |m|
-      @main_categories << [m.english, m.id]
+    if current_user.role == "Manager"
+      @tag = Tag.find(params[:id])
+      mains = Tag.where(:cat => "main")
+      @main_categories = [["",nil]]
+      mains.each do |m|
+        @main_categories << [m.english, m.id]
+      end
+    else
+      flash[:alert] = "you must be logged in as a manager to edit a tag"
+      redirect_to tags_path
     end
   end
 

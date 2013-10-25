@@ -1,8 +1,9 @@
 require 'spec_helper'
 
 describe User do
-  it {should validate_presence_of :hased_password}
+  it {should validate_presence_of :password}
   it {should validate_presence_of :role}
+<<<<<<< HEAD
   it {should validate_presence_of :username}
   	describe "when setting language" do
 		it "should raise an error if language is set to anything but English or French" do
@@ -75,4 +76,5 @@ describe User do
 			@editor.valid?.should == true
 		end
 	end
+  it {should validate_presence_of :email}
 end

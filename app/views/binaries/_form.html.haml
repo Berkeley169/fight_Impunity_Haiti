@@ -7,8 +7,8 @@
           %li= msg
 
   .field
-    = f.label :title
-    = f.text_field :title
+    = f.label :name
+    = f.text_field :name
   .field
     = f.label :bin
     = f.file_field :bin
@@ -25,6 +25,9 @@
       = pl.label :description
       = pl.text_field :description, :size => 150
 
+  .field
+    = f.label :notes
+    = f.text_area :notes, :rows => 10
 
 
 
