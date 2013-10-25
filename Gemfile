@@ -22,6 +22,7 @@ gem 'reek'
 gem 'flog'
 gem 'flay'
 gem 'paperclip'
+gem 'simple_form'
 
 # added for user authentication
 gem 'devise', :git => 'https://github.com/plataformatec/devise.git'
