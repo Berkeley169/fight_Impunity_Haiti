@@ -8,8 +8,25 @@ class Dashboard::UsersController < DashboardController
   end
 
   def new
-    @fields = [:name,:email,:password,:password_confirmation,:role,:lang]
-    @title = 'Manage Users'
+    @form_type = :new_user
+    @title = 'Add New User'
+    @button_text = 'Create New User'
+    @defaults = {}
+    User::REQUIRED_FIELDS.each do |field|
+      if field == :lang
+        @defaults[field] = {}
+        Item::LANGUAGES.each do |lang|
+          @defaults[field][lang] = nil
+        end
+      elsif field == :role
+        @defaults[field] = {}
+        User::ROLES.each do |role|
+          @defaults[field][role] = nil
+        end
+      else
+        @defaults[field] = nil
+      end
+    end
   end
 
   def create
@@ -31,8 +48,26 @@ class Dashboard::UsersController < DashboardController
   end
 
   def edit
-    @fields = [:username,:role,:lang]
+    @form_type = :edit_user
     @user_to_edit = User.find_by_id(params[:id])
+    @button_text = 'Save Changes'
+    @title = "Edit #{@user_to_edit.name}"
+    @defaults = {}
+    User::REQUIRED_FIELDS.each do |field|
+      if field == :lang
+        @defaults[field] = {}
+        Item::LANGUAGES.each do |lang|
+          @defaults[field][lang] = @user_to_edit.lang.to_sym == lang
+        end
+      elsif field == :role
+        @defaults[field] = {}
+        User::ROLES.each do |role|
+          @defaults[field][role] = @user_to_edit.role.to_sym == role
+        end
+      else
+        @defaults[field] = eval "@user_to_edit.#{field}"
+      end
+    end
   end
 
   def update

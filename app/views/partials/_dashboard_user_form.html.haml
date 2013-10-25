@@ -1,0 +1,22 @@
+= form_for @form_type, :url => { :action => :create} do |form|
+  - User::REQUIRED_FIELDS.each do |field|
+    - if field == :lang
+      %text Language: 
+      - Item::LANGUAGES.each do |lang|
+        = form.radio_button field, lang, :checked => @defaults[field][lang]
+        = lang
+    - elsif field =~ /pass/
+      - if @form_type == :new_user
+        %text= field.to_s.sub("_"," ").capitalize + ':'
+        = form.password_field field
+    - else
+      %text= field.to_s.sub("_"," ").capitalize + ':'
+      - if field == :role
+        - User::ROLES.each do |role|
+          = form.radio_button field, role, :checked => @defaults[field][role]
+          = role
+      - else
+        = form.text_field field, :value => @defaults[field]
+    %br
+  = form.submit @button_text
+

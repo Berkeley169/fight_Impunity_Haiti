@@ -6,17 +6,22 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
-  attr_accessible :role, :lang, :name
+  attr_accessible :role, :lang, :first_name, :last_name
   
-  validates_presence_of :name, :password, :role, :password_confirmation, :email, :lang
-  validates_uniqueness_of :name, :email
-  validates_length_of :name, :minimum => 6
+  validates_presence_of :first_name, :last_name, :password, :role, :password_confirmation, :email, :lang
+  validates_uniqueness_of :email
   #validate :proper_role
   #validate :proper_lang
 
   ROLES = [:Manager, :Tech, :Editor]
   LANGS = Item::LANGUAGES
+  REQUIRED_FIELDS = [:first_name, :last_name, :email, :role, :lang, :password, :password_confirmation]
 
+  def name
+    "#{first_name} #{last_name}"
+  end
+
+  
   protected
 
 
