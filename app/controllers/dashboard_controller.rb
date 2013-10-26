@@ -23,6 +23,7 @@ class DashboardController < ApplicationController
       @links['Submit Document'] = '/dashboard/documents/new'
       if @user.role.to_sym == :Manager  or @user.role.to_sym == :Tech
         @links['Manage Users']    = '/dashboard/users'
+        @links['Manage Tags'] = tags_path
       end
     end
   end
