@@ -1,4 +1,4 @@
-= form_for @binary do |f|
+= simple_form_for @binary do |f|
   - if @binary.errors.any?
     #error_explanation
       %h2= "#{pluralize(@binary.errors.count, "error")} prohibited this binary from being saved:"
@@ -9,25 +9,33 @@
   .field
     = f.label :name
     = f.text_field :name
+
+  .field
+    = f.label :date
+    = f.date_select :date
+
   .field
     = f.label :bin
     = f.file_field :bin
     
-  = f.fields_for :binary_langs do |pl|
-    pl
+  = f.fields_for :binary_langs do |bl|
     .field
-      = pl.label :title
-      = pl.text_field :title
+      = bl.label :title
+      = bl.text_field :title
     .field
-      = pl.label :lang
-      = pl.text_field :lang
+      = bl.label :lang
+      = bl.text_field :lang
     .field
-      = pl.label :description
-      = pl.text_field :description, :size => 150
+      = bl.label :description
+      = bl.text_field :description, :size => 150
+
+  .field
+    = f.association :tags, as: :check_boxes, label_method: :english
 
   .field
     = f.label :notes
     = f.text_area :notes, :rows => 10
+
 
 
 

@@ -1,0 +1,20 @@
+.binary_partial
+  = image_tag '/assets/binary_icon.png'
+  %h2= binary.name
+  %p
+  author:
+  = binary.author
+  %br
+  =binary.date
+  -binary.binary_langs.each do |bl|
+    - if bl.published
+      %p{:class => "published"}= bl.lang
+    - else
+      %p{:class => "notpublished"}= bl.lang
+
+
+  %br
+  = link_to 'Show', binary
+  = link_to 'Edit', edit_binary_path(binary)
+  = link_to 'Destroy', binary, :method => :delete, :data => { :confirm => 'Are you sure?' }
+  %br
