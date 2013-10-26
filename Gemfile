@@ -75,3 +75,5 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'debugger'
 
+# added for code coverage
+gem 'simplecov', :require => false, :group => :test
