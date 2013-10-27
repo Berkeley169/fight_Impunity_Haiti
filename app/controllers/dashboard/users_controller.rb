@@ -95,6 +95,8 @@ class Dashboard::UsersController < DashboardController
     user = authenticate_user
     if not user.is_a? User
       redirect_to sessions_login_path
+    elsif params[:action] == :edit and params[:id] == user.id
+      nil
     elsif user.role.to_sym != :Manager and user.role.to_sym != :Tech
       redirect_to dashboard_path
     end
