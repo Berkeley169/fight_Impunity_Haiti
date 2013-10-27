@@ -12,29 +12,19 @@ class Dashboard::UsersController < DashboardController
     @url = "/dashboard/users#create"
     @title = 'Add New User'
     @button_text = 'Create New User'
-    @defaults = {}
-    User::REQUIRED_FIELDS.each do |field|
-      if field == :lang
-        @defaults[field] = {}
-        Item::LANGUAGES.each do |lang|
-          @defaults[field][lang] = nil
-        end
-      elsif field == :role
-        @defaults[field] = {}
-        User::ROLES.each do |role|
-          @defaults[field][role] = nil
-        end
-      else
-        @defaults[field] = nil
-      end
-    end
+    create_form
   end
 
   def create
     if params[:new_user] and params[:new_user][:password] == params[:new_user][:password_confirmation]
-      User.create!(params[:new_user])
+      user = User.create(params[:new_user])
+      if user
+        flash[:notice] = "#{user.name} was created"
+        redirect_to dashboard_users_path and return
+      end
     end
-    redirect_to dashboard_users_path
+    flash[:notice] = "an error occurred, try again"
+    redirect_to new_dashboard_user_path and return
   end
 
   def destroy
@@ -54,22 +44,7 @@ class Dashboard::UsersController < DashboardController
     @user_to_edit = User.find_by_id(params[:id])
     @button_text = 'Save Changes'
     @title = "Edit #{@user_to_edit.name}"
-    @defaults = {}
-    User::REQUIRED_FIELDS.each do |field|
-      if field == :lang
-        @defaults[field] = {}
-        Item::LANGUAGES.each do |lang|
-          @defaults[field][lang] = @user_to_edit.lang.to_sym == lang
-        end
-      elsif field == :role
-        @defaults[field] = {}
-        User::ROLES.each do |role|
-          @defaults[field][role] = @user_to_edit.role.to_sym == role
-        end
-      else
-        @defaults[field] = eval "@user_to_edit.#{field}"
-      end
-    end
+    create_form(true)
   end
 
   def update
@@ -101,5 +76,31 @@ class Dashboard::UsersController < DashboardController
       redirect_to dashboard_path
     end
   end
-  
+
+  def create_form(defaults=false)
+    @defaults = {}
+    User::REQUIRED_FIELDS.each do |field|
+      if field == :lang
+        @defaults[field] = {}
+        Item::LANGUAGES.each do |lang|
+          if defaults
+            @defaults[field][lang] = @user_to_edit.lang.to_sym == lang
+          else
+            @defaults[field][lang] = nil
+          end
+        end
+      elsif field == :role
+        @defaults[field] = {}
+        User::ROLES.each do |role|
+          if defaults
+            @defaults[field][role] = @user_to_edit.role.to_sym == role
+          else
+            @defaults[field][role] = nil
+          end
+        end
+      else
+        @defaults[field] = nil
+      end
+    end
+  end
 end

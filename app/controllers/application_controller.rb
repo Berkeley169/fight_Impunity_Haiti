@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_out_path_for(resource_or_scope)
-    return sessions_login_path
+    return root_path
     # return home_page_path for user using current_user method
   end
 
