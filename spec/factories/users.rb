@@ -2,7 +2,8 @@
 
 FactoryGirl.define do
   factory :editor, :class => 'user' do |e|
-    e.name "Eddy Tor"
+    e.first_name "Eddy"
+    e.last_name "Tor"
     e.email "editor@gmail.com"
     e.password "abcd1234"
     e.password_confirmation "abcd1234"
@@ -10,7 +11,8 @@ FactoryGirl.define do
     e.lang "English"
   end
   factory :manager, :class => 'user' do |m|
-    m.name "M. Anna Ger"
+    m.first_name "M. Anna"
+    m.last_name "Ger"
     m.email "manager@gmail.com"
     m.password "abcd1234"
     m.password_confirmation "abcd1234"
@@ -18,7 +20,8 @@ FactoryGirl.define do
     m.lang "English"
   end
   factory :tech, :class => 'user' do |m|
-    m.name "Tex Saport"
+    m.first_name "Tex"
+    m.last_name "Saport"
     m.email "tech@gmail.com"
     m.password "abcd1234"
     m.password_confirmation "abcd1234"

@@ -1,4 +1,4 @@
-= form_for @form_type, :url => { :action => :create} do |form|
+= form_for @form_type, :url => @url do |form|
   - User::REQUIRED_FIELDS.each do |field|
     - if field == :lang
       %text Language: 

@@ -8,6 +8,7 @@ describe Dashboard::UsersController do
       user = FactoryGirl.build(:manager)
       Dashboard::UsersController.any_instance.stub(:authenticate_user).and_return(user)
       User.stub(:find){user}
+      User.stub(:find_by_id){user}
     end
     
     it "index page request returns http success" do
@@ -42,6 +43,7 @@ describe Dashboard::UsersController do
       user = FactoryGirl.build(:tech)
       Dashboard::UsersController.any_instance.stub(:authenticate_user).and_return(user)
       User.stub(:find){user}
+      User.stub(:find_by_id){user}
     end
     
     it "index page request returns http success" do

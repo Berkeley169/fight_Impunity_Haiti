@@ -9,6 +9,7 @@ class Dashboard::UsersController < DashboardController
 
   def new
     @form_type = :new_user
+    @url = "/dashboard/users#create"
     @title = 'Add New User'
     @button_text = 'Create New User'
     @defaults = {}
@@ -49,6 +50,7 @@ class Dashboard::UsersController < DashboardController
 
   def edit
     @form_type = :edit_user
+    @url = "/dashboard/users/#{params[:id]}/update"
     @user_to_edit = User.find_by_id(params[:id])
     @button_text = 'Save Changes'
     @title = "Edit #{@user_to_edit.name}"
@@ -76,8 +78,13 @@ class Dashboard::UsersController < DashboardController
       for field in params[:edit_user].keys
         eval "user.#{field} = params[:edit_user][field]"
       end
-      user.save
-      flash[:notice] = user.name + ' was updated'
+      params[:edit_user].delete(:password)
+      params[:edit_user].delete(:password_confirmation)
+      if user.save(validate: false)
+        flash[:notice] = user.name + ' was updated'
+      else
+        flash[:notice] = 'an error occured'
+      end
     else
       flash[:notice] = 'user number ' + params[:id].to_s + " doesn't exist"
     end

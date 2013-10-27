@@ -1,2 +1,0 @@
-%div#new_user_form
-  = render "partials/dashboard_user_form"
