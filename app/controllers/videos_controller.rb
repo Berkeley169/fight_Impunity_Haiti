@@ -1,4 +1,5 @@
 class VideosController < ApplicationController
+  before_filter :authenticate_user, :except => [:index, :show, :new]
   def index
     @videos = Video.all
   end

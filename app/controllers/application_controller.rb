@@ -17,8 +17,16 @@ class ApplicationController < ActionController::Base
     else
       flash[:notice] = 'You must log in before continuing'
       @user = 'redirect'
-      redirect_to '/sessions/login'
+      redirect_to new_user_session_path
     end
   end
-  
+
+  def authenticate_manager
+    if not (user_signed_in? and current_user.role == "Manager")
+      flash[:notice] = 'You must be a site manager to do that'
+      redirect_to new_user_session_path
+    end
+    else
+      @user = current_user
+  end
 end

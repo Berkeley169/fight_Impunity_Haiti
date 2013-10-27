@@ -1,3 +1,4 @@
+# THIS CUCUMBER TEST IS FOR IMPLEMENTATION DURING ITERATION 2
 Feature: Publish document as manager
  
   As an manager
@@ -5,11 +6,11 @@ Feature: Publish document as manager
   I want to be able to publish documents
 
 Scenario: allow manager to publish an edited document
-  Given I am signed in as a manager
-  When  I go to the edit document page
-  Then  I should be able to publish it
+#  Given I am signed in as a manager
+#  When  I go to the edit document page
+#  Then  I should be able to publish it
 
 Scenario: disallow editor from publshing an edited document
-  Given I am signed in as an editor
-  When  I go to the edit document page
-  Then  I should not be able to publish it
+#  Given I am signed in as an editor
+#  When  I go to the edit document page
+#  Then  I should not be able to publish it

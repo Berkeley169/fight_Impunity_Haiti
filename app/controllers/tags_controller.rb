@@ -1,7 +1,7 @@
 class TagsController < ApplicationController
   # GET /tags
   # GET /tags.json
-  before_filter :authenticate_user
+  before_filter :authenticate_manager, :except => [:index, :show]
 
   def index
     @tags = Tag.all
@@ -25,7 +25,6 @@ class TagsController < ApplicationController
   # GET /tags/new
   # GET /tags/new.json
   def new
-    if current_user.role == "Manager"
       @tag = Tag.new
       mains = Tag.where(:cat => "main")
       @main_categories = [["",nil]]
@@ -36,25 +35,16 @@ class TagsController < ApplicationController
         format.html # new.html.erb
         format.json { render json: @tag }
       end
-    else
-      flash[:alert] = "you must be logged in as a manager to make new tags"
-      redirect_to tags_path
-    end
   end
 
   # GET /tags/1/edit
   def edit
-    if current_user.role == "Manager"
       @tag = Tag.find(params[:id])
       mains = Tag.where(:cat => "main")
       @main_categories = [["",nil]]
       mains.each do |m|
         @main_categories << [m.english, m.id]
       end
-    else
-      flash[:alert] = "you must be logged in as a manager to edit a tag"
-      redirect_to tags_path
-    end
   end
 
   # POST /tags

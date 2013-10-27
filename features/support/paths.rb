@@ -11,9 +11,10 @@ module NavigationHelpers
     # paths for canonical locations on the site
     when /^the home page$/ then '/'
     when /^the dashboard page$/ then '/dashboard'
-    when /^the login page$/ then '/sessions/login'
+    when /^the login page$/ then new_user_session_path
     when /^the logout page$/ then '/sessions/logout'
-    when /^the user create page$/ then '/users/create'
+    when /^the user create page$/ then new_dashboard_user_path
+    when /^the manage tags page$/ then tags_path
     # Paths for showing items, lookup on the name field
     when /^the show picture page for "(.*)"$/
       p = Picture.where('name' => $1).first
@@ -30,6 +31,9 @@ module NavigationHelpers
     when /^the show video page for "(.*)"$/
       v = Video.where('name' => $1).first
       video_path(v.id)
+    when /^the show tag page for "(.*)"$/
+      tag = Tag.where('english' => $1).first
+      tag_path(tag.id)
 
     # Paths for editting items, lookup on the name field
     when /^the edit picture page for "(.*)"$/
@@ -47,6 +51,9 @@ module NavigationHelpers
     when /^the edit video page for "(.*)"$/
       v = Video.where('name' => $1).first
       edit_video_path(v.id)
+    when /^the edit tag page for "(.*)"$/
+      tag = Tag.where('english' => $1).first
+      edit_tag_path(tag.id)
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
