@@ -48,21 +48,6 @@ ActiveRecord::Schema.define(:version => 20131023222046) do
     t.datetime "bin_lang_updated_at"
   end
 
-  create_table "documents", :force => true do |t|
-    t.string   "name"
-    t.datetime "date"
-    t.boolean  "english"
-    t.boolean  "french"
-    t.boolean  "creole"
-    t.boolean  "spanish"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
-    t.string   "file_file_name"
-    t.string   "file_content_type"
-    t.integer  "file_file_size"
-    t.datetime "file_updated_at"
-  end
-
   create_table "items", :force => true do |t|
     t.string   "type"
     t.datetime "created_at", :null => false
@@ -202,7 +187,8 @@ ActiveRecord::Schema.define(:version => 20131023222046) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "name"
+    t.string   "first_name"
+    t.string   "last_name"
     t.string   "role"
     t.string   "lang"
     t.datetime "created_at",                             :null => false

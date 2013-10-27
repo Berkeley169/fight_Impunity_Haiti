@@ -8,11 +8,34 @@ class Dashboard::UsersController < DashboardController
   end
 
   def new
+#<<<<<<< HEAD
     if @user.role != "Manager"
       redirect_to dashboard_path
     end
-    @fields = [:name,:email,:password,:password_confirmation,:role,:lang]
-    @title = 'Manage Users'
+#    @fields = [:name,:email,:password,:password_confirmation,:role,:lang]
+#    @title = 'Manage Users'
+#=======
+    @form_type = :new_user
+    @url = "/dashboard/users#create"
+    @title = 'Add New User'
+    @button_text = 'Create New User'
+    @defaults = {}
+    User::REQUIRED_FIELDS.each do |field|
+      if field == :lang
+        @defaults[field] = {}
+        Item::LANGUAGES.each do |lang|
+          @defaults[field][lang] = nil
+        end
+      elsif field == :role
+        @defaults[field] = {}
+        User::ROLES.each do |role|
+          @defaults[field][role] = nil
+        end
+      else
+        @defaults[field] = nil
+      end
+    end
+#>>>>>>> 7ba78d9870f62ead1c184a2e4dfa3c8b971197f9
   end
 
   def create
@@ -34,8 +57,27 @@ class Dashboard::UsersController < DashboardController
   end
 
   def edit
-    @fields = [:username,:role,:lang]
+    @form_type = :edit_user
+    @url = "/dashboard/users/#{params[:id]}/update"
     @user_to_edit = User.find_by_id(params[:id])
+    @button_text = 'Save Changes'
+    @title = "Edit #{@user_to_edit.name}"
+    @defaults = {}
+    User::REQUIRED_FIELDS.each do |field|
+      if field == :lang
+        @defaults[field] = {}
+        Item::LANGUAGES.each do |lang|
+          @defaults[field][lang] = @user_to_edit.lang.to_sym == lang
+        end
+      elsif field == :role
+        @defaults[field] = {}
+        User::ROLES.each do |role|
+          @defaults[field][role] = @user_to_edit.role.to_sym == role
+        end
+      else
+        @defaults[field] = eval "@user_to_edit.#{field}"
+      end
+    end
   end
 
   def update
@@ -44,8 +86,13 @@ class Dashboard::UsersController < DashboardController
       for field in params[:edit_user].keys
         eval "user.#{field} = params[:edit_user][field]"
       end
-      user.save
-      flash[:notice] = user.name + ' was updated'
+      params[:edit_user].delete(:password)
+      params[:edit_user].delete(:password_confirmation)
+      if user.save(validate: false)
+        flash[:notice] = user.name + ' was updated'
+      else
+        flash[:notice] = 'an error occured'
+      end
     else
       flash[:notice] = 'user number ' + params[:id].to_s + " doesn't exist"
     end
@@ -56,6 +103,8 @@ class Dashboard::UsersController < DashboardController
     user = authenticate_user
     if not user.is_a? User
       redirect_to sessions_login_path
+    elsif params[:action] == :edit and params[:id] == user.id
+      nil
     elsif user.role.to_sym != :Manager and user.role.to_sym != :Tech
       redirect_to dashboard_path
     end
