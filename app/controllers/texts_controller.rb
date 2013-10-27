@@ -1,4 +1,5 @@
 class TextsController < ApplicationController
+  before_filter :authenticate_user, :except => [:index, :show, :new]
   def index
     @texts = Text.all
   end

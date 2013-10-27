@@ -1,6 +1,6 @@
 class Dashboard::UsersController < DashboardController
 
-  before_filter :authenticate_manager
+  before_filter :authenticate_user
 
   def index
     @users = User.all
@@ -8,6 +8,9 @@ class Dashboard::UsersController < DashboardController
   end
 
   def new
+    if @user.role != "Manager"
+      redirect_to dashboard_path
+    end
     @fields = [:name,:email,:password,:password_confirmation,:role,:lang]
     @title = 'Manage Users'
   end

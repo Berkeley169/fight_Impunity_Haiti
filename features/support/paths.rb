@@ -13,7 +13,7 @@ module NavigationHelpers
     when /^the dashboard page$/ then '/dashboard'
     when /^the login page$/ then '/sessions/login'
     when /^the logout page$/ then '/sessions/logout'
-    when /^the user create page$/ then '/users/create'
+    when /^the user create page$/ then new_dashboard_user_path
     # Paths for showing items, lookup on the name field
     when /^the show picture page for "(.*)"$/
       p = Picture.where('name' => $1).first

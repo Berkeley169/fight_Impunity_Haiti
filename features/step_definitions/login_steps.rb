@@ -1,8 +1,8 @@
 # This top example is the most correct,
 # and the steps here should be refined to
 # have logins for editors, managers, and techs
-Given /I am signed in/ do
-  manager = FactoryGirl.create(:manager)
+Given /I am signed in as an? (.*)$/ do |role|
+  manager = FactoryGirl.create(role.to_sym)
   manager.save
   visit '/sessions/login'
 

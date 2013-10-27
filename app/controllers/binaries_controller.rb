@@ -1,4 +1,5 @@
 class BinariesController < ApplicationController
+  before_filter :authenticate_user, :except => [:index, :show, :new]
   def index
     @binaries = Binary.all
   end
