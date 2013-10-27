@@ -11,10 +11,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131019235353) do
+ActiveRecord::Schema.define(:version => 20131023222046) do
 
   create_table "binaries", :force => true do |t|
-    t.string   "title"
+    t.string   "name"
     t.integer  "item_id"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
@@ -22,7 +22,16 @@ ActiveRecord::Schema.define(:version => 20131019235353) do
     t.string   "bin_content_type"
     t.integer  "bin_file_size"
     t.datetime "bin_updated_at"
+    t.string   "notes"
   end
+
+  create_table "binaries_tags", :id => false, :force => true do |t|
+    t.integer "binary_id"
+    t.integer "tag_id"
+  end
+
+  add_index "binaries_tags", ["binary_id", "tag_id"], :name => "index_binaries_tags_on_binary_id_and_tag_id"
+  add_index "binaries_tags", ["tag_id"], :name => "index_binaries_tags_on_tag_id"
 
   create_table "binary_langs", :force => true do |t|
     t.string   "lang"
@@ -37,14 +46,6 @@ ActiveRecord::Schema.define(:version => 20131019235353) do
     t.integer  "bin_lang_file_size"
     t.datetime "bin_lang_updated_at"
   end
-
-  create_table "binarys_tags", :id => false, :force => true do |t|
-    t.integer "binary_id"
-    t.integer "tag_id"
-  end
-
-  add_index "binarys_tags", ["binary_id", "tag_id"], :name => "index_binarys_tags_on_binary_id_and_tag_id"
-  add_index "binarys_tags", ["tag_id"], :name => "index_binarys_tags_on_tag_id"
 
   create_table "documents", :force => true do |t|
     t.string   "name"
@@ -101,6 +102,7 @@ ActiveRecord::Schema.define(:version => 20131019235353) do
     t.string   "pic_content_type"
     t.integer  "pic_file_size"
     t.datetime "pic_updated_at"
+    t.string   "notes"
   end
 
   create_table "pictures_tags", :id => false, :force => true do |t|
@@ -131,6 +133,7 @@ ActiveRecord::Schema.define(:version => 20131019235353) do
     t.string   "snd_content_type"
     t.integer  "snd_file_size"
     t.datetime "snd_updated_at"
+    t.string   "notes"
   end
 
   create_table "sounds_tags", :id => false, :force => true do |t|
@@ -146,11 +149,12 @@ ActiveRecord::Schema.define(:version => 20131019235353) do
     t.string   "french"
     t.string   "creole"
     t.string   "spanish"
+    t.string   "cat"
     t.text     "english_description"
     t.text     "french_description"
     t.text     "creole_description"
     t.text     "spanish_description"
-    t.boolean  "main_category"
+    t.integer  "parent_id"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
   end
@@ -193,6 +197,7 @@ ActiveRecord::Schema.define(:version => 20131019235353) do
     t.string   "author"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "notes"
   end
 
   create_table "users", :force => true do |t|
@@ -234,6 +239,7 @@ ActiveRecord::Schema.define(:version => 20131019235353) do
     t.string   "vid"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "notes"
   end
 
 end

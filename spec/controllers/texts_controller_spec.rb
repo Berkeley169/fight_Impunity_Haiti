@@ -16,16 +16,20 @@ describe TextsController do
     end
   end
 
-  describe "GET 'update'" do
+  describe "GET 'edit'" do
+    t = FactoryGirl.build(:text)
+    t.save!
     it "returns http success" do
-      get 'update'
+      get 'edit', {:id => t.to_param}
       response.should be_success
     end
   end
 
   describe "GET 'show'" do
+    t = FactoryGirl.build(:text)
+    t.save!
     it "returns http success" do
-      get 'show'
+      get 'show', {:id => t.to_param}
       response.should be_success
     end
   end

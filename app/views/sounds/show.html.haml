@@ -1,2 +1,22 @@
-%h1 Sound#show
-%p Find me in app/views/sound/show.html.haml
+%p#notice= notice
+
+%p
+  %b Name:
+  = @sound.name
+%p
+  - @sound_langs.each do |sl|
+    %p
+      %b Title:
+      = sl.title
+      %br
+      %b Translation:
+      = sl.lang
+- if user_signed_in?
+  %p
+    %b Notes:
+    %br
+    = @sound.notes
+
+= link_to 'Edit', edit_sound_path(@sound)
+\|
+= link_to 'Back', sounds_path

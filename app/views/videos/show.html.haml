@@ -11,6 +11,11 @@
       %br
       %b the translation:
       = pl.lang
+- if user_signed_in?
+  %p
+    %b Notes:
+    %br
+    = @video.notes
 
 = link_to 'Edit', edit_video_path(@video)
 \|

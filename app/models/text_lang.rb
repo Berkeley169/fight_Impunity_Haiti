@@ -4,4 +4,5 @@ class TextLang < ActiveRecord::Base
   attr_accessible :description, :lang, :title, :txt, :plain_text, :published
   has_attached_file :txt
   belongs_to :text
+  validates :lang, presence: true
 end

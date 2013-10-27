@@ -1,5 +1,8 @@
 FightImpunityHaiti::Application.routes.draw do
 
+  resources :tags
+
+
   devise_for :users, :path => 'sessions'
   devise_scope :user do
     get '/sessions/login', :to  => 'devise/sessions#new'

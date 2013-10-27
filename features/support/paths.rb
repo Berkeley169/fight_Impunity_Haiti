@@ -1,8 +1,3 @@
-# TL;DR: YOU SHOULD DELETE THIS FILE
-#
-# This file is used by web_steps.rb, which you should also delete
-#
-# You have been warned
 module NavigationHelpers
   # Maps a name to a path. Used by the
   #
@@ -13,10 +8,45 @@ module NavigationHelpers
   def path_to(page_name)
     case page_name
 
+    # paths for canonical locations on the site
+    when /^the home page$/ then '/'
     when /^the dashboard page$/ then '/dashboard'
     when /^the login page$/ then '/sessions/login'
     when /^the logout page$/ then '/sessions/logout'
     when /^the user create page$/ then '/users/create'
+    # Paths for showing items, lookup on the name field
+    when /^the show picture page for "(.*)"$/
+      p = Picture.where('name' => $1).first
+      picture_path(p.id)
+    when /^the show binary page for "(.*)"$/
+      b = Binary.where('name' => $1).first
+      binary_path(b.id)
+    when /^the show text page for "(.*)"$/
+      t = Text.where('name' => $1).first
+      text_path(t.id)
+    when /^the show sound page for "(.*)"$/
+      s = Sound.where('name' => $1).first
+      sound_path(s.id)
+    when /^the show video page for "(.*)"$/
+      v = Video.where('name' => $1).first
+      video_path(v.id)
+
+    # Paths for editting items, lookup on the name field
+    when /^the edit picture page for "(.*)"$/
+      p = Picture.where('name' => $1).first
+      edit_picture_path(p.id)
+    when /^the edit binary page for "(.*)"$/
+      b = Binary.where('name' => $1).first
+      edit_binary_path(b.id)
+    when /^the edit text page for "(.*)"$/
+      t = Text.where('name' => $1).first
+      edit_text_path(t.id)
+    when /^the edit sound page for "(.*)"$/
+      s = Sound.where('name' => $1).first
+      edit_sound_path(s.id)
+    when /^the edit video page for "(.*)"$/
+      v = Video.where('name' => $1).first
+      edit_video_path(v.id)
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
