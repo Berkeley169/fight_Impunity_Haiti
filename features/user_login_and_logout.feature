@@ -16,7 +16,7 @@ Scenario: allow users to login
 Scenario: allows users to logout
   Given I am signed in as an editor
   When  I go to the logout page
-  Then  I should see "Signed out successfully."
+  Then  I should be on the home page
   And   I should be signed out
 
 Scenario: logging in as a non-existent user causes failure
