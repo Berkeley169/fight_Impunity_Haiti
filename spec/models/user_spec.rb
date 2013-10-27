@@ -9,7 +9,15 @@ describe User do
     it "should raise an error if language is set to anything but English or French" do
       manager = FactoryGirl.build(:manager, :lang => "Latin")
       manager.valid?
-      manager.errors.should include(:lang, "must be either: English or French")
+      manager.errors.messages[:lang].should == ["must be either: English or French"]
+    end
+  end
+
+  describe "when setting role" do
+    it "should raise an error if role is set to anything but Manager, Editor, or Tech" do
+      manager = FactoryGirl.build(:manager, :role => "Newb")
+      manager.valid?
+      manager.errors.messages[:role].should == ["must be either: Manager, Editor, or Tech"]
     end
   end
   describe "for managers" do
@@ -44,7 +52,7 @@ describe User do
       @manager.valid?.should == false
     end
     it "should be valid when email is changed" do
-      @manager.lang = "ryankillory@gmail.com"
+      @manager.email = "ryankillory@gmail.com"
       @manager.valid?.should == true
     end
   end
@@ -80,7 +88,6 @@ describe User do
       @editor.valid?.should == false
     end
     it "should be valid when email is changed" do
-      @editor.lang = "ryankillory@gmail.com"
       @editor.valid?.should == true
     end
   end

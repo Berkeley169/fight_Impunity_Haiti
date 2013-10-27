@@ -10,8 +10,8 @@ class User < ActiveRecord::Base
   
   validates_presence_of :first_name, :last_name, :password, :role, :password_confirmation, :email, :lang
   validates_uniqueness_of :email
-  #validate :proper_role
-  #validate :proper_lang
+  validate :proper_role
+  validate :proper_lang
 
   ROLES = [:Manager, :Tech, :Editor]
   LANGS = Item::LANGUAGES
@@ -22,18 +22,24 @@ class User < ActiveRecord::Base
   end
 
   
-  protected
+  #protected
 
 
   def proper_role
-    if not ROLES.include? :role
+    if self.role and not ROLES.include? self.role.to_sym
       errors.add(:role, "must be either: Manager, Editor, or Tech")
+      return false
+    else
+      return true
     end 
   end
 
   def proper_lang
-    if not LANGS.include? :lang
+    if self.lang and not LANGS.include? self.lang.to_sym
       errors.add(:lang, "must be either: English or French")
+      return false
+    else
+      return true
     end 
   end
 end
