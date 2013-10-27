@@ -33,7 +33,7 @@ describe Dashboard::UsersController do
     end
     it "create user page request redirects to index" do
       get :create
-      response.should redirect_to dashboard_users_path
+      response.should redirect_to new_dashboard_user_path
     end
   end
 
@@ -68,7 +68,7 @@ describe Dashboard::UsersController do
     end
     it "create user page request redirects to index" do
       get :create
-      response.should redirect_to dashboard_users_path
+      response.should redirect_to new_dashboard_user_path
     end
   end
 
