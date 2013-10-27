@@ -1,4 +1,4 @@
-= form_for @video do |f|
+= simple_form_for @video do |f|
   - if @video.errors.any?
     #error_explanation
       %h2= "#{pluralize(@video.errors.count, "error")} prohibited this video from being saved:"
@@ -9,21 +9,28 @@
   .field
     = f.label :name
     = f.text_field :name
+
+  .field
+    = f.label :date
+    = f.text_field :date
+
   .field
     = f.label :vid
     = f.text_field :vid
     
-  = f.fields_for :video_langs do |pl|
-    pl
+  = f.fields_for :video_langs do |vl|
     .field
-      = pl.label :title
-      = pl.text_field :title
+      = vl.label :title
+      = vl.text_field :title
     .field
-      = pl.label :lang
-      = pl.text_field :lang
+      = vl.label :lang
+      = vl.text_field :lang
     .field
-      = pl.label :description
-      = pl.text_field :description, :size => 150
+      = vl.label :description
+      = vl.text_field :description, :size => 150
+
+  .field
+    = f.association :tags, as: :check_boxes, label_method: :english
 
   .field
     = f.label :notes
@@ -32,5 +39,3 @@
   .actions
     = f.submit 'Save'
 
-/   .actions
-/     = f.submit 'Save'

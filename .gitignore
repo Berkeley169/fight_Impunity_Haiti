@@ -27,3 +27,7 @@
 /config/database.yml
 database.yml
 /db/schema.rb
+
+#ignore coverage folder
+/coverage
+

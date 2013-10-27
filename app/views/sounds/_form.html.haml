@@ -1,4 +1,4 @@
-= form_for @sound do |f|
+= simple_form_for @sound do |f|
   - if @sound.errors.any?
     #error_explanation
       %h2= "#{pluralize(@sound.errors.count, "error")} prohibited this sound from being saved:"
@@ -9,29 +9,36 @@
   .field
     = f.label :name
     = f.text_field :name
+
+  .field
+    = f.label :date
+    = f.date_select :date
+
   .field
     = f.label :snd
     = f.file_field :snd
     
-  = f.fields_for :sound_langs do |pl|
-    pl
+  = f.fields_for :sound_langs do |sl|
     .field
-      = pl.label :title
-      = pl.text_field :title
+      = sl.label :title
+      = sl.text_field :title
     .field
-      = pl.label :lang
-      = pl.text_field :lang, :disabled => true
+      = sl.label :lang
+      = sl.text_field :lang, :disabled => true
     .field
-      = pl.label :description
-      = pl.text_field :description, :size => 150
+      = sl.label :description
+      = sl.text_field :description, :size => 150
+    .field
+      = sl.label :published
+      = sl.check_box :published
+
+  .field
+    = f.association :tags, as: :check_boxes, label_method: :english
 
   .field
     = f.label :notes
     = f.text_field :notes, :rows => 10
 
-
   .actions
     = f.submit 'Save'
 
-/   .actions
-/     = f.submit 'Save'

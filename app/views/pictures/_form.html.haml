@@ -1,4 +1,4 @@
-= form_for @picture do |f|
+= simple_form_for @picture do |f|
   - if @picture.errors.any?
     #error_explanation
       %h2= "#{pluralize(@picture.errors.count, "error")} prohibited this picture from being saved:"
@@ -9,6 +9,11 @@
   .field
     = f.label :name
     = f.text_field :name
+
+  .field
+    = f.label :date
+    = f.date_select :date
+
   .field
     = f.label :pic
     = f.file_field :pic
@@ -23,6 +28,12 @@
     .field
       = pl.label :description
       = pl.text_field :description, :size => 150
+    .field
+      = pl.label :published
+      = pl.check_box :published
+
+  .field
+    = f.association :tags, as: :check_boxes, label_method: :english
 
   .field
     = f.label :notes
@@ -31,5 +42,3 @@
   .actions
     = f.submit 'Save'
 
-/   .actions
-/     = f.submit 'Save'

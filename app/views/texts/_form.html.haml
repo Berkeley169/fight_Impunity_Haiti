@@ -1,4 +1,4 @@
-= form_for @text do |f|
+= simple_form_for @text do |f|
   - if @text.errors.any?
     #error_explanation
       %h2= "#{pluralize(@text.errors.count, "error")} prohibited this text from being saved:"
@@ -18,32 +18,32 @@
     = f.label :author
     = f.text_field :author
   
-  = f.fields_for :text_langs do |pl|
+  = f.fields_for :text_langs do |tl|
     .field
-      = pl.label :title
-      = pl.text_field :title
+      = tl.label :title
+      = tl.text_field :title
     .field
-      = pl.label :lang
-      = pl.text_field :lang
+      = tl.label :lang
+      = tl.text_field :lang
     .field
-      = pl.label :description
-      = pl.text_field :description, :size => 150
+      = tl.label :description
+      = tl.text_field :description, :size => 150
     .field
-      = pl.label :plain_text
-      = pl.text_area :plain_text
+      = tl.label :plain_text
+      = tl.text_area :plain_text
     .field
-      = pl.label :published
-      = pl.check_box :published
+      = tl.label :published
+      = tl.check_box :published
     .field
-    = f.label :txt
-    = f.file_field :txt
+      = f.label :txt
+      = f.file_field :txt
 
+  .field
+    = f.association :tags,   as: :check_boxes, label_method: :english
 
   .field
     = f.label :notes
     = f.text_area :notes, :rows => 10
-
-
 
   .actions
     = f.submit 'Save'

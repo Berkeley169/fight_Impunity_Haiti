@@ -13,5 +13,4 @@ describe TextLang do
   	end
 
   	it {should validate_presence_of :lang}
-  	it {should validate_presence_of :txt}
 end

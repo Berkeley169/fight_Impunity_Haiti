@@ -96,7 +96,7 @@ GEM
       rails (>= 3.0.0)
     cucumber-rails-training-wheels (1.0.0)
       cucumber-rails (>= 1.1.1)
-    database_cleaner (1.2.0)
+    database_cleaner (1.1.1)
     debugger (1.6.2)
       columnize (>= 0.3.1)
       debugger-linecache (~> 1.2.0)
@@ -298,6 +298,13 @@ GEM
     shoulda-context (1.1.5)
     shoulda-matchers (2.4.0)
       activesupport (>= 3.0.0)
+    simple_form (2.1.0)
+      actionpack (~> 3.0)
+      activemodel (~> 3.0)
+    simplecov (0.7.1)
+      multi_json (~> 1.0)
+      simplecov-html (~> 0.7.1)
+    simplecov-html (0.7.1)
     slop (3.4.6)
     spork (0.9.2)
     sprockets (2.2.2)
@@ -358,6 +365,8 @@ DEPENDENCIES
   ruby-tmdb (= 0.2.1)
   sass-rails (~> 3.2.3)
   shoulda
+  simple_form
+  simplecov
   spork
   timecop (= 0.6.1)
   uglifier (>= 1.0.3)
