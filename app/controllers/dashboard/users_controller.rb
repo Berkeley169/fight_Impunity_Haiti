@@ -56,13 +56,12 @@ class Dashboard::UsersController < DashboardController
     @title = "Edit #{@user_to_edit.name}"
     @defaults = {}
     User::REQUIRED_FIELDS.each do |field|
+      @defaults[field] = {}
       if field == :lang
-        @defaults[field] = {}
         Item::LANGUAGES.each do |lang|
           @defaults[field][lang] = @user_to_edit.lang.to_sym == lang
         end
       elsif field == :role
-        @defaults[field] = {}
         User::ROLES.each do |role|
           @defaults[field][role] = @user_to_edit.role.to_sym == role
         end
@@ -75,7 +74,7 @@ class Dashboard::UsersController < DashboardController
   def update
     if User.exists?(params[:id])
       user = User.find_by_id(params[:id])
-      for field in params[:edit_user].keys
+      params[:edit_user].keys.each do |field|
         eval "user.#{field} = params[:edit_user][field]"
       end
       params[:edit_user].delete(:password)
