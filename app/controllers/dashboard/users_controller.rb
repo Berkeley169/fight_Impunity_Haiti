@@ -50,7 +50,7 @@ class Dashboard::UsersController < DashboardController
   def update
     if User.exists?(params[:id])
       user = User.find_by_id(params[:id])
-      for field in params[:edit_user].keys
+      params[:edit_user].keys.each do |field|
         eval "user.#{field} = params[:edit_user][field]"
       end
       params[:edit_user].delete(:password)
