@@ -3,7 +3,7 @@
 # the tags will need to be translated into four langauges
 # Tags will also own themselvea
 class Tag < ActiveRecord::Base
-  attr_accessor :creole, :english, :french, :spanish, :cat,
+  attr_accessible :creole, :english, :french, :spanish, :cat,
       :english_description, :french_description, :spanish_description,
       :creole_description, :parent_id
   has_and_belongs_to_many :pictures 

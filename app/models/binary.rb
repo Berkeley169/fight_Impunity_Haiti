@@ -2,7 +2,7 @@
 # When talking to the customer refer to this as "other" rather than "binary"
 class Binary < ActiveRecord::Base
 
-  attr_accessor :name, :date, :binary_langs_attributes, :notes, :tags_attributes, :tag_ids
+  attr_accessible :name, :date, :binary_langs_attributes, :notes, :tags_attributes, :tag_ids
   has_many :binary_langs, dependent: :destroy
   belongs_to :item
   accepts_nested_attributes_for :binary_langs

@@ -1,6 +1,6 @@
 class Dashboard::UsersController < DashboardController
 
-  before_filter :authenticate_manager
+  before_filter :authenticate_user
 
   def index
     @users = User.all
@@ -8,13 +8,13 @@ class Dashboard::UsersController < DashboardController
   end
 
   def new
-#<<<<<<< HEAD
+<<<<<<< HEAD
     if @user.role != "Manager"
       redirect_to dashboard_path
     end
-#    @fields = [:name,:email,:password,:password_confirmation,:role,:lang]
-#    @title = 'Manage Users'
-#=======
+    @fields = [:name,:email,:password,:password_confirmation,:role,:lang]
+    @title = 'Manage Users'
+=======
     @form_type = :new_user
     @url = "/dashboard/users#create"
     @title = 'Add New User'
@@ -35,7 +35,7 @@ class Dashboard::UsersController < DashboardController
         @defaults[field] = nil
       end
     end
-#>>>>>>> 7ba78d9870f62ead1c184a2e4dfa3c8b971197f9
+>>>>>>> 7ba78d9870f62ead1c184a2e4dfa3c8b971197f9
   end
 
   def create
@@ -64,12 +64,13 @@ class Dashboard::UsersController < DashboardController
     @title = "Edit #{@user_to_edit.name}"
     @defaults = {}
     User::REQUIRED_FIELDS.each do |field|
-      @defaults[field] = {}
       if field == :lang
+        @defaults[field] = {}
         Item::LANGUAGES.each do |lang|
           @defaults[field][lang] = @user_to_edit.lang.to_sym == lang
         end
       elsif field == :role
+        @defaults[field] = {}
         User::ROLES.each do |role|
           @defaults[field][role] = @user_to_edit.role.to_sym == role
         end
@@ -82,7 +83,7 @@ class Dashboard::UsersController < DashboardController
   def update
     if User.exists?(params[:id])
       user = User.find_by_id(params[:id])
-      params[:edit_user].keys.each do |field|
+      for field in params[:edit_user].keys
         eval "user.#{field} = params[:edit_user][field]"
       end
       params[:edit_user].delete(:password)
@@ -98,15 +99,15 @@ class Dashboard::UsersController < DashboardController
     redirect_to dashboard_users_path
   end
 
-#  def authenticate_manager
-#    user = authenticate_user
-#    if not user.is_a? User
-#      redirect_to sessions_login_path
-#    elsif params[:action] == :edit and params[:id] == user.id
-#      nil
-#    elsif user.role.to_sym != :Manager and user.role.to_sym != :Tech
-#      redirect_to dashboard_path
-#    end
-#  end
+  def authenticate_manager
+    user = authenticate_user
+    if not user.is_a? User
+      redirect_to sessions_login_path
+    elsif params[:action] == :edit and params[:id] == user.id
+      nil
+    elsif user.role.to_sym != :Manager and user.role.to_sym != :Tech
+      redirect_to dashboard_path
+    end
+  end
   
 end

@@ -18,3 +18,7 @@ end
 Given /there is a binary named "(.*)"/ do |name|
   b = FactoryGirl.create(:binary, :name => name)
 end
+
+Given /there is a tag named "(.*)"/ do |name|
+  tag = FactoryGirl.create(:tag, :english => name)
+end
