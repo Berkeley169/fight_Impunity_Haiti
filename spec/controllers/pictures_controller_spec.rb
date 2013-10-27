@@ -3,6 +3,26 @@ include ValidModelConstructors
 
 
 describe PicturesController do
+
+	before(:each) do
+		@p1 = FactoryGirl.create(:picture)
+		@p2 = FactoryGirl.create(:picture)
+		@p3 = FactoryGirl.create(:picture)
+	end
+
+	describe "index" do
+		it "should work" do
+			get 'index'
+			response.should be_success
+		end
+	end
+
+	describe "show" do
+		it "should work" do
+			get :show, :id => @p1.id
+			response.should be_success
+		end
+	end
 #   let(:valid_attributes) { { "name" => "MyString" } }
 #   let(:valid_session) { {} }
 #   describe "GET 'index'" do
