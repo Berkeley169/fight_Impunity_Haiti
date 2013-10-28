@@ -61,7 +61,7 @@ describe TagsController do
 
     it "should not work for an the public" do
       get :new
-      response.status.should be(302)
+      response.status.should == 302
     end
   end
 
@@ -82,7 +82,7 @@ describe TagsController do
 
     it "should not work for an the public" do
       get :edit, {:id => t.to_param}
-      response.status.should be(302)
+      response.status.should ==302
     end
   end
 
@@ -101,9 +101,9 @@ describe TagsController do
       response.status.should be(200)
     end
 
-    it "should not work for an the public" do
+    it "should work for the public" do
       get :show, {:id => t.to_param}
-      response.status.should be(302)
+      response.status.should be(200)
     end
   end
   # describe "GET show" do

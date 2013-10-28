@@ -1,10 +1,7 @@
-.binary_partial
+.doc_index_partial
   = image_tag '/assets/binary_icon.png'
   %h2= binary.name
   %p
-  author:
-  = binary.author
-  %br
   =binary.date
   -binary.binary_langs.each do |bl|
     - if bl.published

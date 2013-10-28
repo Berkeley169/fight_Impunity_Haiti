@@ -16,7 +16,6 @@ describe TextsController do
 
   describe "GET 'create'" do
     it "returns http success" do
-      setup
       post 'create', :author => 'The Dude'
       response.should be_success
     end

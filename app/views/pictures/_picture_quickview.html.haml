@@ -1,12 +1,9 @@
-.picture_partial
-  = image_tag '/assets/picture_icon.png'
+.doc_index_partial
+  = image_tag '/assets/text_icon.png'
   %h2= picture.name
   %p
-  author:
-  = picture.author
-  %br
   =picture.date
-  -picture.text_langs.each do |pl|
+  -picture.picture_langs.each do |pl|
     - if pl.published
       %p{:class => "published"}= pl.lang
     - else
@@ -15,6 +12,6 @@
 
   %br
   = link_to 'Show', picture
-  = link_to 'Edit', edit_picture_path(text)
+  = link_to 'Edit', edit_picture_path(picture)
   = link_to 'Destroy', picture, :method => :delete, :data => { :confirm => 'Are you sure?' }
   %br

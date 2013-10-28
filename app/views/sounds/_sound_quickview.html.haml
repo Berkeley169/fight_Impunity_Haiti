@@ -1,10 +1,7 @@
-.sound_partial
+.doc_index_partial
   / = image_tag '/assets/sound_icon.png'
   %h2= sound.name
   %p
-  author:
-  = sound.author
-  %br
   =sound.date
   -sound.sound_langs.each do |sl|
     - if sl.published

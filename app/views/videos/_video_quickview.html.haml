@@ -1,10 +1,7 @@
-.video_partial
+.doc_index_partial
   / = image_tag '/assets/video_icon.png'
   %h2= video.name
   %p
-  author:
-  = video.author
-  %br
   =video.date
   -video.video_langs.each do |vl|
     - if vl.published

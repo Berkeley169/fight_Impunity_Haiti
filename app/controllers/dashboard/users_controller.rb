@@ -50,7 +50,7 @@ class Dashboard::UsersController < DashboardController
     @url = "/dashboard/users/#{params[:id]}/update"
     @user_to_edit = User.find_by_id(params[:id])
     @button_text = 'Save Changes'
-    @title = "Edit #{@user_to_edit.name}"
+    @title = "Edit #{@user_to_edit.first_name} #{@user_to_edit.last_name}"
     create_form(true)
   end
 

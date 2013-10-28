@@ -22,11 +22,14 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate_manager
-    if not (user_signed_in? and current_user.role == "Manager")
-      flash[:notice] = 'You must be a site manager to do that'
+    if not user_signed_in?
+      flash[:notice] = 'You must log in as a manager to do that'
       redirect_to new_user_session_path
-    end
+    elsif not current_user.role == "Manager"
+      flash[:notice] = 'You must be a site manager to do that'
+      redirect_to dashboard_path
     else
       @user = current_user
+    end
   end
 end
