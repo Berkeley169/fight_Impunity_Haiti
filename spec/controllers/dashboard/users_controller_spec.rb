@@ -9,12 +9,6 @@ describe Dashboard::UsersController do
 
   describe "routing for a manager\n" do
     
-    #before(:each) do   
-    #  user = FactoryGirl.build(:manager)
-    #  Dashboard::UsersController.any_instance.stub(:authenticate_user).and_return(user)
-    #  User.stub(:find){user}
-    #  User.stub(:find_by_id){user}
-    #end
     it "index page request returns http success" do
       get :index
       response.should be_success
@@ -24,7 +18,7 @@ describe Dashboard::UsersController do
       response.should be_success
     end
     it "edit user page request returns http success" do
-      get :edit, id: 1
+      get :edit, id: User.where(:role => 'Manager').first.id
       response.should be_success
     end
     it "destroy user request redirects to index" do
@@ -92,15 +86,6 @@ describe Dashboard::UsersController do
       response.status.should == 302
     end
   end
-
-  # describe "Get update" do
-  #   it "should redirect to the show page" do
-  #     t = FactoryGirl.create(:manager, :email => "#{Time.now.to_f}@domain.com")
-  #     t.save
-  #     post :update, :id => t.to_param, :tag => {:email => "#{Time.now.to_f}@domain.com"}
-  #     response.status.should == 302
-  #   end
-  # end
 
   describe "Get destroy" do
     it "should redirect" do

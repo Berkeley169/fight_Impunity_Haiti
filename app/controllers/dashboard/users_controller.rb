@@ -8,13 +8,6 @@ class Dashboard::UsersController < DashboardController
   end
 
   def new
-#<<<<<<< HEAD
-#    if @user.role != "Manager"
-#      redirect_to dashboard_path
-#    end
-#    @fields = [:name,:email,:password,:password_confirmation,:role,:lang]
-#    @title = 'Manage Users'
-#=======
     @form_type = :new_user
     @url = "/dashboard/users#create"
     @title = 'Add New User'
@@ -72,17 +65,6 @@ class Dashboard::UsersController < DashboardController
     end
     redirect_to dashboard_users_path
   end
-
-#  def authenticate_manager
-#    user = authenticate_user
-#    if not user.is_a? User
-#      redirect_to sessions_login_path
-#    elsif params[:action] == :edit and params[:id] == user.id
-#      nil
-#    elsif user.role.to_sym != :Manager and user.role.to_sym != :Tech
-#      redirect_to dashboard_path
-#    end
-#  end
 
   def create_form(defaults=false)
     @defaults = {}
