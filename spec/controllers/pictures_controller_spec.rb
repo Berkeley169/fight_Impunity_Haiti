@@ -3,6 +3,11 @@ include ValidModelConstructors
 
 
 describe PicturesController do
+  include Devise::TestHelpers
+
+  def setup(user = :manager)
+    sign_in FactoryGirl.create(user)
+  end
 
 	before(:each) do
 		@p1 = FactoryGirl.create(:picture)
@@ -23,6 +28,15 @@ describe PicturesController do
 			response.should be_success
 		end
 	end
+
+	describe "new" do
+		setup
+		it "should work" do
+			get :new
+			response.should be_success
+		end
+	end
+
 #   let(:valid_attributes) { { "name" => "MyString" } }
 #   let(:valid_session) { {} }
 #   describe "GET 'index'" do
