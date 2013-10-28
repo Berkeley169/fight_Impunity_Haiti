@@ -14,27 +14,39 @@ describe SoundsController do
     end
   end
 
-  describe "POST 'create'" do
-    it "returns http success" do
-      post 'create'
-      response.should be_success
-    end
-  end
-
-  describe "GET 'edit'" do
-    s = FactoryGirl.create(:sound)
-    it "returns http success" do
-      setup
-      get 'edit', {:id => s.to_param}
-      response.should be_success
-    end
-  end
-
   describe "GET 'show'" do
     s = FactoryGirl.create(:sound)
     it "returns http success" do
       get 'show', {:id => s.to_param}
       response.should be_success
+    end
+  end
+
+  describe "Get create" do
+    it "should redirect to the show page" do
+      setup
+      post :create, :tag => FactoryGirl.attributes_for(:sound)
+      response.status.should == 200
+    end
+  end
+
+  describe "Get update" do
+    it "should redirect to the show page" do
+      setup
+      t = FactoryGirl.create(:sound)
+      t.save
+      post :update, :id => t.to_param, :tag => FactoryGirl.attributes_for(:sound)
+      response.status.should == 302
+    end
+  end
+
+  describe "Get destroy" do
+    it "should redirect" do
+      setup
+      t = FactoryGirl.create(:sound)
+      t.save
+      post :destroy, :id => t.to_param
+      response.status.should == 302
     end
   end
 

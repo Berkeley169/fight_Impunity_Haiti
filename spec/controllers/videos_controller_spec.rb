@@ -35,4 +35,32 @@ describe VideosController do
     end
   end
 
+  describe "Get create" do
+    it "should redirect to the show page" do
+      setup
+      post :create, :tag => FactoryGirl.attributes_for(:video)
+      response.status.should == 200
+    end
+  end
+
+  describe "Get update" do
+    it "should redirect to the show page" do
+      setup
+      t = FactoryGirl.create(:video)
+      t.save
+      post :update, :id => t.to_param, :tag => FactoryGirl.attributes_for(:video)
+      response.status.should == 302
+    end
+  end
+
+  describe "Get destroy" do
+    it "should redirect" do
+      setup
+      t = FactoryGirl.create(:video)
+      t.save
+      post :destroy, :id => t.to_param
+      response.status.should == 302
+    end
+  end
+
 end

@@ -6,7 +6,7 @@ describe Dashboard::UsersController do
   before(:each) do
     sign_in FactoryGirl.create(:manager)
   end
-  
+
   describe "routing for a manager\n" do
     
     #before(:each) do   
@@ -83,6 +83,31 @@ describe Dashboard::UsersController do
       sign_in editor
       get :index
       response.should redirect_to dashboard_path
+    end
+  end
+
+  describe "Get create" do
+    it "should redirect to the show page" do
+      post :create, :tag => FactoryGirl.attributes_for(:manager, :email => "#{Time.now.to_f}@domain.com")
+      response.status.should == 302
+    end
+  end
+
+  # describe "Get update" do
+  #   it "should redirect to the show page" do
+  #     t = FactoryGirl.create(:manager, :email => "#{Time.now.to_f}@domain.com")
+  #     t.save
+  #     post :update, :id => t.to_param, :tag => {:email => "#{Time.now.to_f}@domain.com"}
+  #     response.status.should == 302
+  #   end
+  # end
+
+  describe "Get destroy" do
+    it "should redirect" do
+      t = FactoryGirl.create(:manager, :email => "#{Time.now.to_f}@domain.com")
+      t.save
+      post :destroy, :id => t.to_param
+      response.status.should == 302
     end
   end
 end
