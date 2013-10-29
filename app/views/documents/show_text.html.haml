@@ -1,0 +1,26 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @document.name
+  = @document.date
+%p
+  - @document_langs.each do |dl|
+    %p
+      %b Title:
+      = dl.title
+      %br
+      %b Translation:
+      = dl.lang
+      %br
+      = dl.plain_text
+      %br
+- if user_signed_in?
+  %p
+    %b Notes:
+    %br
+    = @document.notes
+
+= link_to 'Edit', edit_document_path(:type => params[:type], :id => @document.id)
+\|
+= link_to 'Back', documents_path(:type => params[:type])

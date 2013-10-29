@@ -1,0 +1,7 @@
+%h1 Editing document
+
+= render 'form'
+
+= link_to 'Show', document_path(:type => params[:type], :id => @document.id)
+\|
+= link_to 'Back', documents_path(:type => params[:type])

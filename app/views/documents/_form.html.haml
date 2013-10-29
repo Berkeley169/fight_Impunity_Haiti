@@ -1,0 +1,61 @@
+= simple_form_for @document, :url => @submit_url do |f|
+  - if @document.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@document.errors.count, "error")} prohibited this document from being saved:"
+      %ul
+        - @document.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    = f.label :name
+    = f.text_field :name
+
+  .field
+    = f.label :date
+    = f.date_select :date
+  
+  - case params[:type]
+  - when "pictures"
+    .field
+      = f.label :pic
+      = f.file_field :pic
+  - when "binaries"
+    .field
+      = f.label :bin
+      = f.file_field :bin
+  - when "sounds"
+    .field
+      = f.label :snd
+      = f.file_field :snd
+  - when "videos"
+    .field
+      = f.label :vid
+      = f.text_field
+    
+  = f.fields_for @langs_sym do |dl|
+    .field
+      = dl.label :title
+      = dl.text_field :title
+    .field
+      = dl.label :lang
+      = dl.text_field :lang
+    - if params[:type] == "texts"
+      .field
+        = dl.label :plain_text
+        = dl.text_area :plain_text
+    .field
+      = dl.label :description
+      = dl.text_field :description, :size => 150
+    .field
+      = dl.label :published
+      = dl.check_box :published
+
+  .field
+    = f.association :tags, as: :check_boxes, label_method: :english
+
+  .field
+    = f.label :notes
+    = f.text_field :notes, :rows => 10
+
+  .actions
+    = f.submit 'Save'
+

@@ -1,0 +1,7 @@
+%h1 Listing Documents
+
+.content
+  = render :partial => 'document_quickview', :collection => @documents, :as => :document
+%br
+
+= link_to 'New document', new_document_path(:type => params[:type])

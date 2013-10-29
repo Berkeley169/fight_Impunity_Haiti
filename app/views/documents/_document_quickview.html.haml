@@ -1,0 +1,18 @@
+.doc_index_partial
+  = image_tag '/assets/text_icon.png'
+  %h2= document.name
+  %p
+  = document.date
+  - document.send(@langs_sym).each do |dl|
+    - if dl.published
+      %p{:class => "published"}= dl.lang
+    - else
+      %p{:class => "notpublished"}= dl.lang
+
+
+  %br
+  = link_to 'Show', document_path(:type => params[:type], :id => document.id)
+  = link_to 'Edit', edit_document_path(:type => params[:type], :id => document.id)
+  = link_to 'Destroy', destroy_document_path(:type => params[:type], :id => document.id), 
+                        :data => { :confirm => 'Are you sure?' }
+  %br

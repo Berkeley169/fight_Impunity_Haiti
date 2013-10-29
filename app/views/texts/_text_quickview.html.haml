@@ -2,9 +2,6 @@
   = image_tag '/assets/text_icon.png'
   %h2= text.name
   %p
-  author:
-  = text.author
-  %br
   =text.date
   -text.text_langs.each do |tl|
     - if tl.published

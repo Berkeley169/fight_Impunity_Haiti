@@ -14,10 +14,6 @@
     = f.label :date
     = f.date_select :date
 
-  .field
-    = f.label :author
-    = f.text_field :author
-  
   = f.fields_for :text_langs do |tl|
     .field
       = tl.label :title
