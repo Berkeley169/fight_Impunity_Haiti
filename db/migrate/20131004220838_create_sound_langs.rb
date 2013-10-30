@@ -6,6 +6,7 @@ class CreateSoundLangs < ActiveRecord::Migration
       t.text :description
       t.boolean :published
       t.belongs_to :sound
+      t.string :status
       t.timestamps
     end
   end

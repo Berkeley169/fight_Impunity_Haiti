@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(:version => 20131023222046) do
     t.text     "description"
     t.boolean  "published"
     t.integer  "binary_id"
+    t.string   "status"
     t.datetime "created_at",            :null => false
     t.datetime "updated_at",            :null => false
     t.string   "bin_lang_file_name"
@@ -74,6 +75,7 @@ ActiveRecord::Schema.define(:version => 20131023222046) do
     t.text     "description"
     t.boolean  "published"
     t.integer  "picture_id"
+    t.string   "status"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
@@ -105,6 +107,7 @@ ActiveRecord::Schema.define(:version => 20131023222046) do
     t.text     "description"
     t.boolean  "published"
     t.integer  "sound_id"
+    t.string   "status"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
@@ -168,6 +171,7 @@ ActiveRecord::Schema.define(:version => 20131023222046) do
     t.integer  "text_id"
     t.boolean  "published"
     t.text     "plain_text"
+    t.string   "status"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
     t.string   "txt_file_name"
@@ -214,6 +218,7 @@ ActiveRecord::Schema.define(:version => 20131023222046) do
     t.text     "description"
     t.boolean  "published"
     t.integer  "video_id"
+    t.string   "status"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
