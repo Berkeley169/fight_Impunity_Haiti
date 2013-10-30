@@ -54,6 +54,13 @@ body {
   background: #eeeee6;
 }
 
+.languages {
+ float: right;
+}
+
+.languages img {
+}
+
 
 /*!
  * Bootstrap v3.0.0

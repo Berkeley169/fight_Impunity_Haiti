@@ -6,8 +6,7 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
-    = link_to "Espanol", :locale => 'es'
-    = link_to "English", :local => 'en'
+    = render 'partials/languages'
     = render 'partials/dashboard_nav'
     =t :hello
     = yield
