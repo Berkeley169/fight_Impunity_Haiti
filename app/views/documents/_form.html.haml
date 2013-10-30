@@ -1,4 +1,4 @@
-= simple_form_for @document, :url => @submit_url do |f|
+= simple_form_for @document do |f|
   - if @document.errors.any?
     #error_explanation
       %h2= "#{pluralize(@document.errors.count, "error")} prohibited this document from being saved:"
@@ -29,7 +29,7 @@
   - when "videos"
     .field
       = f.label :vid
-      = f.text_field
+      = f.text_field :vid
     
   = f.fields_for @langs_sym do |dl|
     .field

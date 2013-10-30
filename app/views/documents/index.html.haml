@@ -4,4 +4,4 @@
   = render :partial => 'document_quickview', :collection => @documents, :as => :document
 %br
 
-= link_to 'New document', new_document_path(:type => params[:type])
+= link_to 'New document', [:new, @doc_type_sym, @document]

@@ -18,6 +18,4 @@
     %br
     = @document.notes
 
-= link_to 'Edit', edit_document_path(:type => params[:type], :id => @document.id)
-\|
-= link_to 'Back', documents_path(:type => params[:type])
+= render 'bottom_links', :document => @document

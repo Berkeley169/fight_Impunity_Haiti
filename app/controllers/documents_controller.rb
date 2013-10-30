@@ -5,13 +5,8 @@ class DocumentsController < ApplicationController
   def type_setup
     type = {:binaries => Binary, :pictures => Picture, :sounds => Sound, :texts => Text, :videos => Video}
     @doc_type = type[params[:type].to_sym]
-    if params[:type] == 'binaries'
-      @doc_type_sym = :binary
-      @langs_sym = 'binary_langs'.to_sym
-    else
-      @doc_type_sym = params[:type].chomp('s').to_sym
-      @langs_sym = (params[:type].chomp('s') + '_langs').to_sym
-    end
+    @doc_type_sym = params[:type].singularize.to_sym
+    @langs_sym = (params[:type].singularize + '_langs').to_sym
   end
 
   def index
@@ -21,24 +16,11 @@ class DocumentsController < ApplicationController
   def show
     @document = @doc_type.find(params[:id])
     @document_langs = @document.send(@langs_sym)
-    # This can be further DRYed out at the views level later
-    case params[:type]
-    when "binaries"
-      render :show_binary
-    when "pictures"
-      render :show_picture
-    when "sounds"
-      render :show_sound
-    when "texts"
-      render :show_text
-    when "video"
-      render :show_video
-    end
+    render ('show_' + params[:type].singularize).to_sym
   end
 
   def new
     @document = @doc_type.new
-    @submit_url = create_document_path(:type => params[:type])
     document_langs = []
     Item::LANGUAGES.each do |l|
       document_langs.append(@document.send(@langs_sym).build(:lang => l))
@@ -46,12 +28,10 @@ class DocumentsController < ApplicationController
   end
 
   def create
-    @submit_url = create_document_path(:type => params[:type])
     @document = @doc_type.new(params[@doc_type_sym])
     respond_to do |format|
       if @document.save
-        format.html { redirect_to document_path(:type => params[:type],
-                                                :id => @document.id), 
+        format.html { redirect_to @document,
                       notice: "#{@doc_type_sym.to_s} was successfully created." }
         format.json { render json: @document, status: :created, location: @document }
       else
@@ -63,17 +43,14 @@ class DocumentsController < ApplicationController
 
   def edit
     @document = @doc_type.find(params[:id])
-    @submit_url = update_document_path(:type => params[:type],
-                                       :id => @document.id)
+    #@submit_url = update_document_path(:type => params[:type],
   end
 
   def update
     @document = @doc_type.find(params[:id])
-    @submit_url = create_document_path(:type => params[:type])
     respond_to do |format|
       if @document.update_attributes(params[@doc_type_sym])
-        format.html { redirect_to document_path(:type => params[:type], 
-                                                :id => @document.id),
+        format.html { redirect_to @document, 
                       notice: "#{@doc_type_sym.to_s} was successfully updated." }
         format.json { head :no_content }
       else
@@ -88,7 +65,7 @@ class DocumentsController < ApplicationController
     @document.destroy
 
     respond_to do |format|
-      format.html { redirect_to documents_path(:type => params[:type]) }
+      format.html { redirect_to :controller => "documents", :action => "index", :type => params[:type] } 
       format.json { head :no_content }
     end
   end

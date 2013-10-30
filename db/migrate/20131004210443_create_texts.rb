@@ -4,7 +4,6 @@ class CreateTexts < ActiveRecord::Migration
     	t.string :name
     	t.belongs_to :item
     	t.datetime :date
-    	t.string :author
       t.timestamps
     end
   end

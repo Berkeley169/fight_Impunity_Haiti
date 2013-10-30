@@ -11,8 +11,7 @@
 
 
   %br
-  = link_to 'Show', document_path(:type => params[:type], :id => document.id)
-  = link_to 'Edit', edit_document_path(:type => params[:type], :id => document.id)
-  = link_to 'Destroy', destroy_document_path(:type => params[:type], :id => document.id), 
-                        :data => { :confirm => 'Are you sure?' }
+  = link_to 'Show', document 
+  = link_to 'Edit', [:edit, document]
+  = link_to 'Destroy', [:destroy, document], :data => { :confirm => 'Are you sure?' }
   %br
