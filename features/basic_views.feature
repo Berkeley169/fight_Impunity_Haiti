@@ -8,4 +8,4 @@ Background: you are on the home page
 	Given I am on the home page
 
 Scenario: see the home page
-	Then I should see "login"
+	Then I should see "Login"

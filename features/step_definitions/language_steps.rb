@@ -1,15 +1,15 @@
-Given /my language is Spanish/ do
+When /I click Spanish/ do
 	find("#SpanishFlag").click
 end
 
-Given /my language is English/ do
-find("#EnglishFlag").click
+When /I click English/ do
+	find("#EnglishFlag").click
 end
 
-Given /my language is French/ do
+When /I click French/ do
 find("#FrenchFlag").click
 end
 
-Given /my language is Creole/ do
+When /I click Creole/ do
 find("#CreoleFlag").click
 end
