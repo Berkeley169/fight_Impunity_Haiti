@@ -4,5 +4,5 @@
 class Item < ActiveRecord::Base
   attr_accessible :type
   LANGUAGES = [:English, :French, :Creole, :Spanish]
-
+  STATUSES = [:new, :pending, :inprogress, :published, :rejected]
 end

@@ -6,6 +6,7 @@ class CreatePictureLangs < ActiveRecord::Migration
       t.text :description
       t.boolean :published
       t.belongs_to :picture
+      t.string :status
       t.timestamps
     end
   end

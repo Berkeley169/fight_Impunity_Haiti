@@ -17,6 +17,7 @@
   .field
     = f.label :author
     = f.text_field :author
+
   
   = f.fields_for :text_langs do |tl|
     .field
@@ -35,8 +36,9 @@
       = tl.label :published
       = tl.check_box :published
     .field
-      = f.label :txt
-      = f.file_field :txt
+      = tl.label :txt
+      = tl.file_field :txt
+
 
   .field
     = f.association :tags,   as: :check_boxes, label_method: :english
