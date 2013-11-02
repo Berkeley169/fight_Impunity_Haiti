@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe DocumentsController do
+describe DocumentsController, :type => :controller do
   include Devise::TestHelpers
 
   def login(user = :manager)
@@ -93,6 +93,15 @@ describe DocumentsController do
       post :update, :id => @t.id, :type => "texts", :text => {:name => "NewTestTextName", :date => Date.today}
       response.status.should == 302
     end
+  	it "should not publish for editors" do
+      post :update, :status => 'published', :id => @t.id, :type => "texts", :text => {:name => "NewTestTextName", :date => Date.today}
+      response.status.should == 400
+  	end
+  	it "should publish for managers" do
+      post :update, :status => 'published', :id => @t.id, :type => "texts", :text => {:name => "NewTestTextName", :date => Date.today}
+      response.status.should == 302
+
+  	end
   end
 
   describe "GET destroy" do
@@ -103,4 +112,24 @@ describe DocumentsController do
     end
   end
 
+  describe "GET index" do
+  	it "should show all documents with no params" do
+		get :index
+		@docs = assigns(:docs)
+		@docs.should_not be_nil
+		@docs.length.should == 5
+  	end
+  	it "should show new documents with params type new" do
+		get :index, {:status => 'new'}
+		@docs = assigns(:docs)
+		@docs.should_not be_nil
+		@docs.length.should == 1
+  	end
+  	it "should show published documerts with params type published" do
+		get :index, {:status => 'published'}
+		@docs = assigns(:docs)
+		@docs.should_not be_nil
+		@docs.length.should == 4
+  	end
+  end
 end
