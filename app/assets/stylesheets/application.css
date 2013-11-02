@@ -42,6 +42,24 @@ padding: 2px 0 0 0;
     margin: 30px 0;
 }
 
+.homebox {
+  width: 90%;
+  height:90px;
+  background:#bbb;
+  border-radius:10px;
+}
+
+.homebox img {
+  float:right;
+  padding: 5px;
+  height: 40px;
+  border-radius: 4px;
+}
+
+.homebox h2{
+  padding:10px;
+}
+
 .button-holder {
 	margin-left:auto;
     margin-right:auto;
@@ -51,7 +69,8 @@ padding: 2px 0 0 0;
 
 body {
  	/*background-image: url('background.jpg');*/
-  background: #eeeee6;
+  /*background: #eeeee6;*/
+  background: #fff;
 }
 
 .languages {
@@ -814,6 +833,7 @@ pre code {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+  position: relative;
 }
 
 .container:before,
@@ -4987,7 +5007,7 @@ a.list-group-item.active > .badge,
   font-weight: 200;
   line-height: 2.1428571435;
   color: inherit;
-  background-color: #eeeeee;
+  background-color: #eee;
 }
 
 .jumbotron h1 {
