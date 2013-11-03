@@ -16,8 +16,14 @@ Given /I am not signed in/ do
 end
 
 And /I log in as (.*)/ do |email|
-  manager = FactoryGirl.create(:manager)
-  post :login, { :email => manager.email, :password => manager.password }
+  manager = FactoryGirl.build(:manager)
+  manager.email = email
+  manager.save
+  visit '/sessions/login'
+
+  fill_in "user_email", :with => manager.email
+  fill_in "user_password", :with => manager.password
+  click_button "Sign in"
 end
 
 Then /I should be signed out/ do
