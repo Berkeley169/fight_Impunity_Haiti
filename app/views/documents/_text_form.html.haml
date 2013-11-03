@@ -3,5 +3,5 @@
 = f.simple_fields_for :subtype_fields, OpenStruct.new(@document.subtype_fields) do |sf|
   - @doc_type.send(@text_subtype.to_sym).each do |sff|
     .field
-      = sf.label sff.to_s.titleize
-      = sf.text_field sff
+      = sf.label sff.to_s.titleize, required: false
+      = sf.text_field sff, required: false
