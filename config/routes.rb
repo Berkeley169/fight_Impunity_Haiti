@@ -57,7 +57,7 @@ FightImpunityHaiti::Application.routes.draw do
 
   namespace :dashboard do
     resources :users
-    match 'users/:id/delete' => 'users#destroy'
+    match 'users/:id/destroy' => 'users#destroy'
     match 'users/:id/update' => 'users#update'
     resources :items, :path => 'documents'
   end

@@ -16,7 +16,7 @@ class Dashboard::UsersController < DashboardController
   end
 
   def create
-    if params[:new_user] and params[:new_user][:password] == params[:new_user][:password_confirmation]
+    if valid_new_user
       user = User.create(params[:new_user])
       if user
         flash[:notice] = "#{user.name} was created"
@@ -27,15 +27,29 @@ class Dashboard::UsersController < DashboardController
     redirect_to new_dashboard_user_path and return
   end
 
+  def valid_new_user
+    params[:new_user] and params[:new_user][:password] == params[:new_user][:password_confirmation]
+  end
+
   def destroy
     if User.exists?(params[:id])
       user = User.find(params[:id])
-      flash[:notice] = user.name + ' was deleted'
-      User.destroy(user.id)
-    else
-      flash[:notice] = "User doesn't exist"
+      if not_self(user)
+        flash[:notice] = user.name + ' was deleted'
+        User.destroy(user.id)
+      end
+      redirect_to dashboard_users_path and return
     end
+    flash[:notice] = "User doesn't exist"
     redirect_to dashboard_users_path
+  end
+
+  def not_self(user)
+    if user == @user
+      flash[:notice] = 'A user cannot delete themselves'
+      return false
+    end
+    return true
   end
 
   def edit
@@ -50,15 +64,11 @@ class Dashboard::UsersController < DashboardController
   def update
     if User.exists?(params[:id])
       user = User.find_by_id(params[:id])
-      params[:edit_user].keys.each do |field|
-        eval "user.#{field} = params[:edit_user][field]"
-      end
-      params[:edit_user].delete(:password)
-      params[:edit_user].delete(:password_confirmation)
+      edit_user(user)
       if user.save(validate: false)
         flash[:notice] = user.name + ' was updated'
       else
-        flash[:notice] = 'an error occured'
+        flash[:notice] = 'an error occured, please try again'
       end
     else
       flash[:notice] = 'user number ' + params[:id].to_s + " doesn't exist"
@@ -66,29 +76,47 @@ class Dashboard::UsersController < DashboardController
     redirect_to dashboard_users_path
   end
 
+  def edit_user(user)
+    for field in params[:edit_user].keys
+      eval "user.#{field} = params[:edit_user][field]"
+    end
+  end
+
+  def authenticate_manager
+    user = authenticate_user
+    if not user.is_a? User
+      redirect_to sessions_login_path
+    elsif params[:action] == :edit and params[:id] == user.id
+      @editing_self = true
+    elsif user.role.to_sym != :Manager and user.role.to_sym != :Tech
+      redirect_to dashboard_path
+    end
+  end
+
   def create_form(defaults=false)
     @defaults = {}
     User::REQUIRED_FIELDS.each do |field|
       if field == :lang
-        @defaults[field] = {}
-        Item::LANGUAGES.each do |lang|
-          if defaults
-            @defaults[field][lang] = @user_to_edit.lang.to_sym == lang
-          else
-            @defaults[field][lang] = nil
-          end
-        end
+        add_radio_button_defaults(field,Item::LANGUAGES,defaults)
       elsif field == :role
-        @defaults[field] = {}
-        User::ROLES.each do |role|
-          if defaults
-            @defaults[field][role] = @user_to_edit.role.to_sym == role
-          else
-            @defaults[field][role] = nil
-          end
-        end
+        add_radio_button_defaults(field,User::ROLES,defaults)
       else
-        @defaults[field] = nil
+        if defaults
+          @defaults[field] = eval "@user_to_edit.#{field}"
+        else
+          @defaults[field] = nil
+        end
+      end
+    end
+  end
+
+  def add_radio_button_defaults(field,list,defaults)
+    @defaults[field] = {}
+    list.each do |radio_field|
+      if defaults
+        @defaults[field][radio_field] = (eval "@user_to_edit.#{field}.to_sym") == radio_field
+      else
+        @defaults[field][radio_field] = nil
       end
     end
   end

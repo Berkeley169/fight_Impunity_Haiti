@@ -1,75 +1,12 @@
 require 'spec_helper'
 
 describe Dashboard::UsersController do
+
   include Devise::TestHelpers
 
-  before(:each) do
-    sign_in FactoryGirl.create(:manager)
-  end
-
-  describe "routing for a manager\n" do
-    
-    it "index page request returns http success" do
-      get :index
-      response.should be_success
-    end
-    it "new user page request returns http success" do
-      get :new
-      response.should be_success
-    end
-    it "edit user page request returns http success" do
-      get :edit, id: User.where(:role => 'Manager').first.id
-      response.should be_success
-    end
-    it "destroy user request redirects to index" do
-      delete :destroy, id: 1
-      response.should redirect_to dashboard_users_path
-    end
-    it "update user page request redirects to index" do
-      post :update, :id => 1, :edit_user => {:first_name => 'Jones'}
-      response.should redirect_to dashboard_users_path
-    end
-    it "create user page request redirects to index" do
-      get :create
-      response.should redirect_to new_dashboard_user_path
-    end
-  end
-
-  describe "routing for tech\n" do
-
-    before(:each) do   
-      user = FactoryGirl.build(:tech)
-      sign_in user
-    end
-    
-    it "index page request returns http success" do
-      get :index
-      response.should_not be_success
-    end
-    it "new user page request returns http success" do
-      get :new
-      response.should_not be_success
-    end
-    it "edit user page request returns http success" do
-      get :edit, id: 1
-      response.should_not be_success
-    end
-    it "destroy user request redirects to index" do
-      delete :destroy, id: 0
-      response.should_not redirect_to dashboard_users_path
-    end
-    it "update user page request redirects to index" do
-      post :update, id: 0, :edit_user => {:first_name => 'Fred'}
-      response.should_not redirect_to dashboard_users_path
-    end
-    it "create user page request redirects to index" do
-      get :create
-      response.should_not redirect_to new_dashboard_user_path
-    end
-  end
-
   
-  describe 'other user behavior\n' do
+  
+  describe 'should redirect non-manager' do
 
     it 'should redirect an editor to the dashboard' do
       editor = FactoryGirl.create(:editor)
@@ -78,6 +15,12 @@ describe Dashboard::UsersController do
       get :index
       response.should redirect_to dashboard_path
     end
+
+    it 'should redirect to login without authenticated user' do
+      Dashboard::UsersController.any_instance.stub(:authenticate_user).and_return("redirect")
+      get :index
+      response.should redirect_to sessions_login_path
+    end       
   end
 
   describe "Get create" do
@@ -95,4 +38,47 @@ describe Dashboard::UsersController do
       response.status.should == 302
     end
   end
+
+  valid_roles = [:manager,:tech]
+  valid_roles.each do |role|
+    describe "actions for a #{role}" do
+      
+      before(:each) do   
+        @user = FactoryGirl.build(role)
+        @editor = FactoryGirl.build(:editor)
+        Dashboard::UsersController.any_instance.stub(:authenticate_user).and_return(@user)
+        User.stub(:find).and_return(@user)
+        User.stub(:find_by_id).and_return(@user)
+        User.stub(:all).and_return([@user,@editor])
+      end
+
+      it 'should find list of users for index page' do
+        get 'index'
+        assigns(:users).should == [@user,@editor]
+      end
+
+      it 'should not have a list of defaults for the new page' do
+        get 'new'
+        defaults = assigns(:defaults)
+        defaults['lang'].values.flatten.reject{|val| val == nil}.length.should == 0
+        defaults['role'].values.flatten.reject{|val| val == nil}.length.should == 0
+        defaults.delete('lang')
+        defaults.delete('role')
+        defaults.values.flatten.reject{|val| val == nil}.length.should == 0
+      end
+
+      it 'should have a list of defaults for the edit page' do
+        get 'edit', :id => 0
+        defaults = assigns(:defaults)
+        defaults.keys.each do |key|
+          if ['lang','role'].include? key
+            defaults[key].values.flatten.reject{|val| not val}.length.should == 1
+          else
+            defaults[key].should_not == nil
+          end
+        end
+      end
+
+    end
+  end 
 end
