@@ -29,6 +29,10 @@ gem 'devise', :git => 'https://github.com/plataformatec/devise.git'
 
 # get version info for each gem
 
+# mailer gem
+gem 'mail'
+gem 'sendgrid-rails', '~> 2.0'
+
 group :development, :test do
   gem 'capybara'
   gem 'rspec-rails'
