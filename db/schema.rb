@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(:version => 20131023222046) do
     t.string   "bin_content_type"
     t.integer  "bin_file_size"
     t.datetime "bin_updated_at"
-    t.string   "notes"
+    t.text     "notes"
   end
 
   create_table "binaries_tags", :id => false, :force => true do |t|
@@ -90,7 +90,7 @@ ActiveRecord::Schema.define(:version => 20131023222046) do
     t.string   "pic_content_type"
     t.integer  "pic_file_size"
     t.datetime "pic_updated_at"
-    t.string   "notes"
+    t.text     "notes"
   end
 
   create_table "pictures_tags", :id => false, :force => true do |t|
@@ -122,7 +122,7 @@ ActiveRecord::Schema.define(:version => 20131023222046) do
     t.string   "snd_content_type"
     t.integer  "snd_file_size"
     t.datetime "snd_updated_at"
-    t.string   "notes"
+    t.text     "notes"
   end
 
   create_table "sounds_tags", :id => false, :force => true do |t|
@@ -184,10 +184,11 @@ ActiveRecord::Schema.define(:version => 20131023222046) do
     t.string   "name"
     t.integer  "item_id"
     t.datetime "date"
-    t.string   "author"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.string   "notes"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.string   "subtype"
+    t.text     "subtype_fields"
+    t.text     "notes"
   end
 
   create_table "users", :force => true do |t|
@@ -230,7 +231,7 @@ ActiveRecord::Schema.define(:version => 20131023222046) do
     t.string   "vid"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.string   "notes"
+    t.text     "notes"
   end
 
 end

@@ -55,6 +55,21 @@ module NavigationHelpers
       tag = Tag.where('english' => $1).first
       edit_tag_path(tag.id)
 
+    # Paths for visiting the new item page
+    when /^the new binary page$/
+      new_binary_path
+    when /^the new picture page$/
+      new_picture_path
+    when /^the new sound page$/
+      new_sound_path
+    when /^the new text page$/
+      new_text_path
+    when /^the new video page$/
+      new_video_path
+
+    when /^the new text page for text type "(.*)"$/
+      new_text_path(:subtype => $1)
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

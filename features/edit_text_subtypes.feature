@@ -12,9 +12,9 @@ Background:
   And I am signed in as an editor
 
 Scenario:
-  When I go to the edit text page for "TextWebText"
-  Then I should see "URL"
-  And I should not see "Book Title"
+  When I go to the edit text page for "TestWebText"
+  Then I should see "Url"
+  And I should not see "Title"
 
 Scenario:
   When I go to the edit text page for "TestNewsText"
@@ -22,11 +22,11 @@ Scenario:
   And I should not see "Journal Name"
 
 Scenario:
-  When I go to the edit page for "TestJournalText"
-  Then I should see "Journal Name"
-  And I should not see "URL"
+  When I go to the edit text page for "TestJournalText"
+  Then I should see "Journal"
+  And I should not see "Url"
 
 Scenario:
-  When I go to the edit page for "TestBookText"
-  Then I should see "Book Title"
+  When I go to the edit text page for "TestBookText"
+  Then I should see "Title"
   And I should not see "Newspaper"

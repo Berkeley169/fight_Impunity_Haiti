@@ -53,6 +53,4 @@ describe Text do
   			list.include?(tl2).should be_true
   		end
   	end
-
-  	it {should validate_presence_of :author}
 end

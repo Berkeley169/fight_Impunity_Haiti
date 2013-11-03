@@ -5,6 +5,8 @@ class CreateTexts < ActiveRecord::Migration
     	t.belongs_to :item
     	t.datetime :date
       t.timestamps
+      t.string :subtype
+      t.text :subtype_fields
     end
   end
 end

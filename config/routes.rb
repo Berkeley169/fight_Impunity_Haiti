@@ -45,6 +45,7 @@ FightImpunityHaiti::Application.routes.draw do
   post '/texts' => 'documents#create', :as => :create_text, :type => "texts"
   get '/texts/:id/delete' => 'documents#destroy', :as => :destroy_text, :type => "texts"
   put '/texts/:id' => 'documents#update', :as => :update_text, :type => "texts"
+  get '/texts/new/type_select' => 'documents#text_choice', :as => :new_text_choice, :type => "texts"
 
   get   '/sounds', :to => 'documents#index', :as => :sounds, :type => "sounds"
   get '/sounds/new' => 'documents#new', :as => :new_sound, :type => "sounds"

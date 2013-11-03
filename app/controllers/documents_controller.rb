@@ -1,5 +1,5 @@
 class DocumentsController < ApplicationController
-  before_filter :authenticate_user, :except => [:index, :show, :new, :create]
+  before_filter :authenticate_user, :except => [:index, :show, :new, :create, :text_choice]
   before_filter :type_setup
 
   def type_setup
@@ -21,10 +21,25 @@ class DocumentsController < ApplicationController
 
   def new
     @document = @doc_type.new
+    if params[:type] == "texts"
+      if params[:subtype] == nil
+        redirect_to new_text_choice_path
+        return
+      else
+        @text_subtype = params[:subtype]
+        @document.subtype = @subtype
+        Text.send(params[:subtype]).each do |field|
+          @document.subtype_fields[field] = ""
+        end
+      end
+    end
     document_langs = []
     Item::LANGUAGES.each do |l|
       document_langs.append(@document.send(@langs_sym).build(:lang => l))
     end
+  end
+
+  def text_choice
   end
 
   def create
@@ -43,7 +58,9 @@ class DocumentsController < ApplicationController
 
   def edit
     @document = @doc_type.find(params[:id])
-    #@submit_url = update_document_path(:type => params[:type],
+    if @document.class == Text
+      @text_subtype = @document.subtype
+    end
   end
 
   def update

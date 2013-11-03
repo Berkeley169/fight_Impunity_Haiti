@@ -15,34 +15,34 @@ Feature: Allow different types of text uploads to have specific fields
 Background:
   Given there is a web article text named "TextWebText"
   And there is a journal article text named "TestJournalText"
-  And there is a book excerpt text named "TextBookText"
+  And there is a book excerpt text named "TestBookText"
   And there is a newspaper article text named "TestNewsText"
 
 Scenario: web articles show proper fields
-  Given I am on the show page for "TextWebText"
+  Given I am on the show text page for "TextWebText"
   Then I should see "Website"
-  And I should see "URL"
-  And I should not see "Journal Name"
+  And I should see "Url"
+  And I should not see "Journal"
   And I should not see "Newspaper"
   And I should not see "Book Title"
 
 Scenario: journal articles show proper fields
-  Given I am on the show page for "TestJournalText"
-  Then I should see "Journal Name"
+  Given I am on the show text page for "TestJournalText"
+  Then I should see "Journal"
   And I should not see "URL"
   And I should not see "Book Title"
   And I should not see "Newspaper"
 
 Scenario: book excerpts show the proper fields
-  Given I am on the show page for "TestBookText"
-  Then I should see "Book Title"
+  Given I am on the show text page for "TestBookText"
+  Then I should see "Title"
   And I should not see "Website"
   And I should not see "Newspaper"
-  And I should not see "Journal Name"
+  And I should not see "Journal"
  
 Scenario: newspaper articles show the proper fields
-  Given I am on the show page for "TestNewsText"
+  Given I am on the show text page for "TestNewsText"
   Then I should see "Newspaper"
   And I should not see "URL"
   And I should not see "Journal Name"
-  And I should nto see "Book Title"
+  And I should not see "Book Title"

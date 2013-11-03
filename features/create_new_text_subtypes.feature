@@ -6,16 +6,15 @@ Feature: support choosing what type of text to create
 
 Scenario: user is prompted to pick a text type
   When I go to the new text page
-  Then I should see "Please specify the type of document being uploaded"
+  Then I should see "Please select a document type from the list below:"
   And I should see "Journal"
   And I should see "Newspaper"
   And I should see "Book"
   And I should see "Web"
 
 Scenario: properly classify the documents
-  Given I am on the new text page
+  Given I am on the new text page for text type "web"
   And I fill in "Name" with "TestWebText"
-  And I fill in "Date" with "2009-11-01"
-  And I fill in "Author" with "Jim Jones McGee"
-  And I press "Submit"
+  And I fill in "Website" with "CNN.com"
+  And I press "Save"
   Then text "TestWebText" should be of type "web"
