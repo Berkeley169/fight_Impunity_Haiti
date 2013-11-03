@@ -19,7 +19,7 @@ describe Dashboard::UsersController do
     it 'should redirect to login without authenticated user' do
       Dashboard::UsersController.any_instance.stub(:authenticate_user).and_return("redirect")
       get :index
-      response.should redirect_to sessions_login_path
+      response.should redirect_to new_user_session_path
     end       
   end
 

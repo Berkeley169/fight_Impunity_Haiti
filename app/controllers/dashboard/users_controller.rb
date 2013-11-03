@@ -65,15 +65,20 @@ class Dashboard::UsersController < DashboardController
     if User.exists?(params[:id])
       user = User.find_by_id(params[:id])
       edit_user(user)
-      if user.save(validate: false)
-        flash[:notice] = user.name + ' was updated'
-      else
-        flash[:notice] = 'an error occured, please try again'
-      end
+      success = user.save(validate: false)
+      form_submit_message(success,user)
     else
       flash[:notice] = 'user number ' + params[:id].to_s + " doesn't exist"
     end
     redirect_to dashboard_users_path
+  end
+
+  def form_submit_message(success,user)
+    if success
+      flash[:notice] = user.name + ' was updated'
+    else
+      flash[:notice] = 'an error occured, please try again'
+    end
   end
 
   def edit_user(user)
@@ -85,12 +90,20 @@ class Dashboard::UsersController < DashboardController
   def authenticate_manager
     user = authenticate_user
     if not user.is_a? User
-      redirect_to sessions_login_path
-    elsif params[:action] == :edit and params[:id] == user.id
+      redirect_to new_user_session_path
+    elsif editing_self(user)
       @editing_self = true
-    elsif user.role.to_sym != :Manager and user.role.to_sym != :Tech
+    elsif not_manager_or_tech(user)
       redirect_to dashboard_path
     end
+  end
+
+  def not_manager_or_tech(user)
+    user.role.to_sym != :Manager and user.role.to_sym != :Tech
+  end
+
+  def editing_self(user)
+    params[:action] == :edit and params[:id] == user.id
   end
 
   def create_form(defaults=false)

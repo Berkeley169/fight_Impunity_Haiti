@@ -25,6 +25,7 @@ And /I log in with email "(.*)" and password "(.*)"$/ do |email, password|
   visit sessions_login_path
   fill_in "user_email", :with => email
   fill_in "user_password", :with => password
+  click_button "Sign in"
 end
 
 And /I log in as (.*)/ do |email|

@@ -1,19 +1,3 @@
-Given /I am a manager/ do
-  manager = FactoryGirl.create(:manager)
-  visit sessions_login_path
-  fill_in('Email', :with => manager.email)
-  fill_in('Password', :with => manager.password)
-  click_button('Sign in')
-end
-
-Given /I am an editor/ do
-  editor = FactoryGirl.create(:editor) 
-  visit sessions_login_path
-  fill_in('Email', :with => editor.email)
-  fill_in('Password', :with => editor.password)
-  click_button('Sign in')
-end
-
 Then /I fill in and submit the new user form with proper fields/ do
   fields = FactoryGirl.attributes_for(:editor)
   fill_in('new_user_email', :with => fields[:email])
