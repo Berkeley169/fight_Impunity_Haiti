@@ -29,9 +29,6 @@
     .field
       = dl.label :description
       = dl.text_field :description, :size => 150
-    .field
-      = dl.label :published
-      = dl.check_box :published
 
   .field
     = f.association :tags, as: :check_boxes, label_method: :english
