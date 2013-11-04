@@ -29,6 +29,10 @@
     .field
       = dl.label :description
       = dl.text_field :description, :size => 150
+    - if @permissions
+      .field
+        = dl.label :status
+        = dl.select :status, Item::STATUSES
 
   .field
     = f.association :tags, as: :check_boxes, label_method: :english

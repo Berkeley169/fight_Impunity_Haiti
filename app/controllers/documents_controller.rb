@@ -20,6 +20,7 @@ class DocumentsController < ApplicationController
   end
 
   def new
+    @permissions = permissions
     @document = @doc_type.new
     if params[:type] == "texts"
       if params[:subtype] == nil
@@ -61,6 +62,7 @@ class DocumentsController < ApplicationController
   end
 
   def edit
+    @permissions = permissions
     @document = @doc_type.find(params[:id])
     if @document.class == Text
       @text_subtype = @document.subtype

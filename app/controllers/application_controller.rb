@@ -33,6 +33,14 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def permissions
+    if not user_signed_in?
+      nil
+    else
+      current_user.role
+    end
+  end
+
   def set_locale
     if params[:locale]
       I18n.locale = params[:locale] || I18n.default_locale
