@@ -16,4 +16,5 @@ Scenario: properly classify the documents
   Given I am on the new text page for text type "web"
   And I fill in "Name" with "TestWebText"
   And I fill in "text_subtype_fields_website" with "CNN.com"
+  And I press "Save"
   Then text "TestWebText" should be of type "web"
