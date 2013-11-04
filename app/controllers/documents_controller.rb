@@ -23,11 +23,15 @@ class DocumentsController < ApplicationController
     @document = @doc_type.new
     document_langs = []
     Item::LANGUAGES.each do |l|
-      document_langs.append(@document.send(@langs_sym).build(:lang => l))
+      document_langs.append(@document.send(@langs_sym).build(:lang => l, :status => 'new'))
     end
   end
 
   def create
+    params[@doc_type_sym][(@langs_sym.to_s + '_attributes').to_sym]['0'][:status] = 'new'
+    params[@doc_type_sym][(@langs_sym.to_s + '_attributes').to_sym]['1'][:status] = 'new'
+    params[@doc_type_sym][(@langs_sym.to_s + '_attributes').to_sym]['2'][:status] = 'new'
+    params[@doc_type_sym][(@langs_sym.to_s + '_attributes').to_sym]['3'][:status] = 'new'
     @document = @doc_type.new(params[@doc_type_sym])
     respond_to do |format|
       if @document.save
