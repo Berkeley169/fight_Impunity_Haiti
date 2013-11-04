@@ -18,9 +18,9 @@
         .collapse.navbar-collapse
           %ul{:class => "nav navbar-nav"}
             %li= link_to "Home", '/'
-            %li= link_to "About", {:controller => 'pages', :action => 'about'}
-            %li= link_to "Contact", {:controller => 'pages', :action => 'contact'}
-            %li= link_to t(:login), sessions_login_path
+            %li= link_to "About", {:controller => '/pages', :action => 'about'}
+            %li= link_to "Contact", {:controller => '/pages', :action => 'contact'}
+            %li= link_to t(:login), new_user_session_path
           = render 'partials/languages'
     .rule_bl
     .container
