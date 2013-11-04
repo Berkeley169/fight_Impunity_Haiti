@@ -3,6 +3,8 @@
 %p
   %b Name:
   = @document.name
+  %br
+  %b Date:
   = @document.date
 %p
   - @document_langs.each do |dl|
@@ -15,6 +17,12 @@
       %br
       = dl.plain_text
       %br
+%p
+  - @document.subtype_fields.keys.each do |f|
+    %p
+      %b= "#{f.to_s.titleize}"
+      = @document.subtype_fields[f]
+
 - if user_signed_in?
   %p
     %b Notes:

@@ -5,5 +5,8 @@ describe Item do
   	it "should be able to get the languages" do
   		Item::LANGUAGES.sort.should == [:English, :French, :Creole, :Spanish].sort
   	end
+  	it "should be able to get the statuses" do
+  		Item::STATUSES.sort.should ==  [:new, :pending, :inprogress, :published, :rejected].sort
+  	end
   end
 end

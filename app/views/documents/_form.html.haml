@@ -12,25 +12,9 @@
   .field
     = f.label :date
     = f.date_select :date
-  
-  - case params[:type]
-  - when "pictures"
-    .field
-      = f.label :pic
-      = f.file_field :pic
-  - when "binaries"
-    .field
-      = f.label :bin
-      = f.file_field :bin
-  - when "sounds"
-    .field
-      = f.label :snd
-      = f.file_field :snd
-  - when "videos"
-    .field
-      = f.label :vid
-      = f.text_field :vid
-    
+
+  = render params[:type].singularize + '_form', :f => f
+
   = f.fields_for @langs_sym do |dl|
     .field
       = dl.label :title

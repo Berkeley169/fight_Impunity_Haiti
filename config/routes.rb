@@ -5,7 +5,6 @@ FightImpunityHaiti::Application.routes.draw do
 
   devise_for :users, :path => 'sessions'
   devise_scope :user do
-    get '/sessions/login', :to  => 'devise/sessions#new'
     get '/sessions/logout', :to  => 'devise/sessions#destroy'
   end
 
@@ -45,6 +44,7 @@ FightImpunityHaiti::Application.routes.draw do
   post '/texts' => 'documents#create', :as => :create_text, :type => "texts"
   get '/texts/:id/delete' => 'documents#destroy', :as => :destroy_text, :type => "texts"
   put '/texts/:id' => 'documents#update', :as => :update_text, :type => "texts"
+  get '/texts/new/type_select' => 'documents#text_choice', :as => :new_text_choice, :type => "texts"
 
   get   '/sounds', :to => 'documents#index', :as => :sounds, :type => "sounds"
   get '/sounds/new' => 'documents#new', :as => :new_sound, :type => "sounds"
@@ -57,7 +57,7 @@ FightImpunityHaiti::Application.routes.draw do
 
   namespace :dashboard do
     resources :users
-    match 'users/:id/delete' => 'users#destroy'
+    match 'users/:id/destroy' => 'users#destroy'
     match 'users/:id/update' => 'users#update'
     resources :items, :path => 'documents'
   end

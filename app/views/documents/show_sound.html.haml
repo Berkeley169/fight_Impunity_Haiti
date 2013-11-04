@@ -3,14 +3,16 @@
 %p
   %b Name:
   = @document.name
+  %br
+  %b Date:
   = @document.date
 %p
   - @document_langs.each do |dl|
     %p
-      %b the title:
+      %b Title:
       = dl.title
       %br
-      %b the translation:
+      %b Translation:
       = dl.lang
 - if user_signed_in?
   %p
