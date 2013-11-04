@@ -5,12 +5,12 @@ Feature: basic document flow should work
 	I want to be able to create documents and have them published
 
 Scenario: allow editor to create document and send it to new
-	Given I am signed in as an editor 
+	Given that I am signed in as an editor
 	When  I create a new document
 	Then  I should see the document in new pool
 
 Scenario: allow manager to create document and send it to new
-	Given I am signed in as an manager 
+	Given that I am signed in as an manager 
 	When  I create a new document
 	Then  I should see the document in new pool
 
@@ -20,7 +20,7 @@ Scenario: allow user to create document and send it to new
 	Then  a manager should see the document in new pool
 
 Scenario: allow manager to submit document from new to published
-	Given I am a manager
+	Given that I am signed in as a manager
 	And   there is a document in the new pool
 	When  I publish the document
 	Then  I should be on the new pool page
@@ -29,7 +29,7 @@ Scenario: allow manager to submit document from new to published
 	And   public users should be able to see the document
 
 Scenario: disallow editor from seeing the publish button
-	Given I am a editor
+	Given that I am signed in as an editor
 	And   there is a document in the new pool
 	When  I am on the editing page for that document
 	Then  I should not see a publish button

@@ -5,7 +5,7 @@ I want to be able to update my profile
 In case I make an error, or want to change my password
 
 Scenario: User should be able to change name
-	Given that I am an editor
+	Given that I am signed in as an editor
 	When I am on the home page
 	And I should not see "Johnny Jonbo"
 	When I follow "Edit Profile"
@@ -16,7 +16,7 @@ Scenario: User should be able to change name
   	And I should see "Johnny Jonbo"
 
 Scenario: User should be able to change password
-	Given that I am an editor
+	Given that I am signed in as an editor
 	When I am on the home page
 	And I follow "Edit Profile"
 	Then I should be on the edit profile page
