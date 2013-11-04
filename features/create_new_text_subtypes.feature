@@ -14,7 +14,6 @@ Scenario: user is prompted to pick a text type
 
 Scenario: properly classify the documents
   Given I am on the new text page for text type "web"
-  And show me the page
   And I fill in "Name" with "TestWebText"
   And I fill in "text_subtype_fields_website" with "CNN.com"
   Then text "TestWebText" should be of type "web"
