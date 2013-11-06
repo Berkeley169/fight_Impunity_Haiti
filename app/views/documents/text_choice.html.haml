@@ -1,7 +1,14 @@
 %p
   %b Please select a document type from the list below:
 %p
-  = link_to 'Web Article', new_text_path(:subtype => 'web')
-  = link_to 'Journal Article', new_text_path(:subtype => 'journal')
-  = link_to 'Newspaper Article', new_text_path(:subtype => 'newspaper')
-  = link_to 'Book Excerpt', new_text_path(:subtype => 'book')
+  %button{:type => "button", :class => "btn"}
+    = link_to 'Web Article', new_text_path(:subtype => 'web')
+%p
+  %button{:type => "button", :class => "btn"}
+    = link_to 'Journal Article', new_text_path(:subtype => 'journal')
+%p
+  %button{:type => "button", :class => "btn"}
+    = link_to 'Newspaper Article', new_text_path(:subtype => 'newspaper')
+%p
+  %button{:type => "button", :class => "btn"}
+    = link_to 'Book Excerpt', new_text_path(:subtype => 'book')
