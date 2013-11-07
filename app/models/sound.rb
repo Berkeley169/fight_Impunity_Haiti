@@ -22,4 +22,13 @@ class Sound < ActiveRecord::Base
 		#needs to be implemented
     self.sound_langs.where(:lang => lang).first || nil
 	end
+
+  def published?
+    sound_langs.each do |sl|
+      if sl.status == 'published'
+        return true
+      end
+    end
+    return false
+  end
 end

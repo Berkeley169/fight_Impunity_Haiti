@@ -18,7 +18,7 @@ class DashboardController < ApplicationController
       if @user.role.to_sym == :Manager
         @links['Editor Reviewed'] = '/dashboard/documents/reviewed'
       end
-      @links['In Progress']     = '/dashboard/documents/in_progress'
+      @links['In Progress']     = '/dashboard/documents/inprogress'
       @links['All Documents']   = '/dashboard/documents'
       @links['Submit Document'] = '/dashboard/documents/new'
       if @user.role.to_sym == :Manager  or @user.role.to_sym == :Tech

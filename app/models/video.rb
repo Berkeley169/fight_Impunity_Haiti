@@ -22,4 +22,13 @@ class Video < ActiveRecord::Base
 	end
 
 
+  def published?
+    video_langs.each do |vl|
+      if vl.status == 'published'
+        return true
+      end
+    end
+    return false
+  end
+
 end

@@ -36,4 +36,13 @@ class Text < ActiveRecord::Base
 			end
 		end
 	end
+
+  def published?
+    text_langs.each do |tl|
+      if tl.status == 'published'
+        return true
+      end
+    end
+    return false
+  end
 end

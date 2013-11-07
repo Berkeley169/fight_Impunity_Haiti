@@ -12,4 +12,6 @@ class Dashboard::ItemsController < DashboardController
   	@title = "New Documents"
   end
 
+  def inprogress
+  end
 end

@@ -13,13 +13,22 @@ class Picture < ActiveRecord::Base
     validates_attachment :pic, :presence => true,
                           :content_type => {:content_type => ['image/jpg', 'image/png', 'image/jpeg']}
 
-  def get_translations
-    self.picture_langs
+  	def get_translations
+    	self.picture_langs
 	end
 
 	def get_language(lang)
 	    self.picture_langs.where(:lang => lang).first || nil
 	end
+
+  def published?
+    picture_langs.each do |pl|
+      if pl.status == 'published'
+        return true
+      end
+    end
+    return false
+  end
 
 end
 

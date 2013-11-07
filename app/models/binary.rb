@@ -23,4 +23,13 @@ class Binary < ActiveRecord::Base
       return nil
     end
   end
+
+  def published?
+    binary_langs.each do |bl|
+      if bl.status == 'published'
+        return true
+      end
+    end
+    return false
+  end
 end

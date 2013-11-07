@@ -28,5 +28,30 @@ describe Binary do
     end
   end
 
+  describe "the published? method" do
+    it "should return true if one sub_lang is published" do
+      p = FactoryGirl.create(:binary)
+      p.save
+      pl = p.get_language(:English)
+      pl.status = 'published'
+      pl.save
+      p.published?.should be_true
+    end
+    it "should return false if no sub_langs are published" do
+      p = FactoryGirl.create(:binary)
+      p.save
+      p.published?.should be_false
+    end
+    it "should return true if all the sub_langs are published" do
+      p = FactoryGirl.create(:binary)
+      p.save
+      p.binary_langs.each do |pl|
+        pl.status = "published"
+        pl.save
+      end
+      p.published?.should be_true
+    end
+  end
+
   it {should validate_presence_of :name}
 end
