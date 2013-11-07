@@ -11,6 +11,7 @@ class DocumentsController < ApplicationController
 
   def index
     @documents = @doc_type.all
+    @permissions = permissions
   end
 
   def show

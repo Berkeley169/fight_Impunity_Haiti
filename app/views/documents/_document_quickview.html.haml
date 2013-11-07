@@ -12,6 +12,8 @@
 
   %br
   = link_to 'Show', document 
-  = link_to 'Edit', [:edit, document]
-  = link_to 'Destroy', [:destroy, document], :data => { :confirm => 'Are you sure?' }
+  - if current_user
+    = link_to 'Edit', [:edit, document]
+  - if @permissions == "manager"
+    = link_to 'Destroy', [:destroy, document], :data => { :confirm => 'Are you sure?' }
   %br
