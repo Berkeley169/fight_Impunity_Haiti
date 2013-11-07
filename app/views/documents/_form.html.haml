@@ -16,12 +16,11 @@
   = render params[:type].singularize + '_form', :f => f
 
   = f.fields_for @langs_sym do |dl|
+    %h4= dl.object.lang
     .field
       = dl.label :title
       = dl.text_field :title
-    .field
-      = dl.label :lang
-      = dl.text_field :lang
+    = dl.hidden_field :lang
     - if params[:type] == "texts"
       .field
         = dl.label :plain_text
@@ -33,7 +32,7 @@
       .field
         = dl.label :status
         = dl.select :status, Item::STATUSES
-
+  %br
   .field
     = f.association :tags, as: :check_boxes, label_method: :english
 
