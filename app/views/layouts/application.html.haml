@@ -23,6 +23,7 @@
             - unless current_user
               %li= link_to t(:login), new_user_session_path
             -else 
+              %li= link_to "Dashboard", dashboard_path
               %li= link_to t(:logout), sessions_logout_path
           = render 'partials/languages'
     .rule_bl
