@@ -3,7 +3,7 @@
   %h2= document.name
   %p
   = document.date
-  - document.send(@langs_sym).each do |dl|
+  - document.send((document.class.to_s.downcase + "_langs").to_sym).each do |dl|
     - if dl.published
       %p{:class => "published"}= dl.lang
     - else
