@@ -20,7 +20,10 @@
             %li= link_to "Home", '/'
             %li= link_to "About", {:controller => '/pages', :action => 'about'}
             %li= link_to "Contact", {:controller => '/pages', :action => 'contact'}
-            %li= link_to t(:login), new_user_session_path
+            - unless current_user
+              %li= link_to t(:login), new_user_session_path
+            -else 
+              %li= link_to t(:logout), sessions_logout_path
           = render 'partials/languages'
     .rule_bl
     .container
