@@ -66,6 +66,8 @@ GEM
       main
       ruby_parser (~> 3.0)
       sexp_processor (~> 4.1)
+    ckeditor_rails (4.2.2)
+      railties (>= 3.0)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.1)
@@ -340,6 +342,7 @@ DEPENDENCIES
   bcrypt-ruby (~> 3.0.0)
   capybara
   chronic (= 0.9.1)
+  ckeditor_rails
   coffee-rails (~> 3.2.1)
   cucumber
   cucumber-rails

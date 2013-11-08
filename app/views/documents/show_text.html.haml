@@ -15,7 +15,7 @@
       %b Translation:
       = dl.lang
       %br
-      = dl.plain_text
+      = dl.plain_text.html_safe
       %br
 %p
   - @document.subtype_fields.keys.each do |f|
