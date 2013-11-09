@@ -1,14 +1,15 @@
 %div#user_info
   %text= 'Logged in as: ' + @user.name
   %br
+  = link_to 'Edit Profile', edit_dashboard_user_path(@user.id)
   = link_to 'Sign out', sessions_logout_path, :id => 'sign_out'
 
 %h1#header= @title
-
-%text#flash= @flash_notice
 
 %div#link_column
   - @links.keys.each do |name|
     = link_to name, @links[name], :class => :dashboard_button
   = link_to 'Dashboard Home', '/dashboard', :class => :dashboard_button
+
+%h4#flash= flash[:notice]
     

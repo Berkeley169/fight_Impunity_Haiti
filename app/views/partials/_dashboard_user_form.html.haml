@@ -19,4 +19,6 @@
         = form.text_field field, :value => @defaults[field]
     %br
   = form.submit @button_text
+- if @editing_self
+  = link_to 'Change Password', "/dashboard/users/#{@user.id}/password"
 
