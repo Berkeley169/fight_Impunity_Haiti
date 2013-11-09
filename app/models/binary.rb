@@ -1,7 +1,7 @@
 # This is the binary class which is used to hold all of the other types of attachments we may want to upload
 # When talking to the customer refer to this as "other" rather than "binary"
 class Binary < ActiveRecord::Base
-
+  include Status
   attr_accessible :name, :date, :binary_langs_attributes, :notes, :tags_attributes, :tag_ids
   has_many :binary_langs, dependent: :destroy
   belongs_to :item
@@ -22,14 +22,5 @@ class Binary < ActiveRecord::Base
     else
       return nil
     end
-  end
-
-  def published?
-    binary_langs.each do |bl|
-      if bl.status == 'published'
-        return true
-      end
-    end
-    return false
   end
 end

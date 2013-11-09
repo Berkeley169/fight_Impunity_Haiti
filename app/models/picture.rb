@@ -2,6 +2,7 @@
 # In general we will figure things out on this model first
 # and then port to the other models
 class Picture < ActiveRecord::Base
+	include Status
 	attr_accessible :pic, :name, :date, :picture_langs_attributes, :notes, :tags_attributes, :tag_ids
 	has_many :picture_langs, dependent: :destroy
 	accepts_nested_attributes_for :picture_langs
@@ -20,15 +21,5 @@ class Picture < ActiveRecord::Base
 	def get_language(lang)
 	    self.picture_langs.where(:lang => lang).first || nil
 	end
-
-  def published?
-    picture_langs.each do |pl|
-      if pl.status == 'published'
-        return true
-      end
-    end
-    return false
-  end
-
 end
 

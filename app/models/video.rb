@@ -2,6 +2,7 @@
 # Contains the information for the video
 # Videos will probably not be translated
 class Video < ActiveRecord::Base
+  include Status
   attr_accessible :name, :date, :vid, :video_langs_attributes, :notes, :tags_attributes, :tag_ids
   has_many :video_langs, dependent: :destroy
   belongs_to :item
@@ -20,15 +21,4 @@ class Video < ActiveRecord::Base
             return nil
         end
 	end
-
-
-  def published?
-    video_langs.each do |vl|
-      if vl.status == 'published'
-        return true
-      end
-    end
-    return false
-  end
-
 end

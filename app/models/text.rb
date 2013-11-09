@@ -1,6 +1,7 @@
 # This is the text model
 # It will not have an attachment but instead it's children will
 class Text < ActiveRecord::Base
+  include Status
   attr_accessible :name, :date, :text_langs_attributes, :notes, 
                   :tags_attributes, :tag_ids, :subtype_fields, :subtype
   has_many :text_langs, dependent: :destroy
@@ -37,12 +38,4 @@ class Text < ActiveRecord::Base
 		end
 	end
 
-  def published?
-    text_langs.each do |tl|
-      if tl.status == 'published'
-        return true
-      end
-    end
-    return false
-  end
 end

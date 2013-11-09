@@ -2,7 +2,7 @@
 # this should not have an attachment but each specific
 # language should have one
 class Sound < ActiveRecord::Base
-  # attr_accessible :title, :body
+  include Status
   attr_accessible :snd, :name, :date, :sound_langs_attributes, :notes, :tags_attributes, :tag_ids
   has_many :sound_langs, dependent: :destroy
   accepts_nested_attributes_for :sound_langs
@@ -23,12 +23,4 @@ class Sound < ActiveRecord::Base
     self.sound_langs.where(:lang => lang).first || nil
 	end
 
-  def published?
-    sound_langs.each do |sl|
-      if sl.status == 'published'
-        return true
-      end
-    end
-    return false
-  end
 end
