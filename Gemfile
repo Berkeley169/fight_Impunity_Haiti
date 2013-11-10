@@ -23,6 +23,7 @@ gem 'flog'
 gem 'flay'
 gem 'paperclip'
 gem 'simple_form'
+gem 'bootstrap-sass'
 
 # added for user authentication
 gem 'devise', :git => 'https://github.com/plataformatec/devise.git'

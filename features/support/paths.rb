@@ -13,10 +13,10 @@ module NavigationHelpers
     when /^the dashboard page$/ then '/dashboard'
     when /^the login page$/ then new_user_session_path
     when /^the logout page$/ then '/sessions/logout'
-    when /^the user create page$/ then new_dashboard_user_path
+    when /^the user create page$/ then new_user_path
     when /^the manage tags page$/ then tags_path
-    when /^the user index page$/ then dashboard_users_path
-    when /^the user edit page$/ then edit_dashboard_user_path
+    when /^the user index page$/ then users_path
+    when /^the user edit page$/ then edit_user_path
 
     # Paths for showing items, lookup on the name field
     when /^the show picture page for "(.*)"$/

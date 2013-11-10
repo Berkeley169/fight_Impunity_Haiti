@@ -1,6 +1,7 @@
 FightImpunityHaiti::Application.routes.draw do
 
   resources :tags
+  resources :users
 
 
   devise_for :users, :path => 'sessions'
@@ -57,6 +58,9 @@ FightImpunityHaiti::Application.routes.draw do
   get '/documents/new/choice' => 'documents#new_document_choice', :as => :new_document_choice
 
   get '/dashboard/:status' => 'documents#dashboard_index', :as => :dashboard_index
+
+  get '/users/:id/delete' => 'users#destroy', :as => :destroy_user
+  post '/users/:id/update' => 'users#update'
 
   #namespace :dashboard do
   #  resources :users

@@ -1,7 +1,7 @@
 = content_for :title, "Manage users"
 
 %div#panel
-  = link_to 'Add User', new_dashboard_user_path, :class => :dashboard_button, :id => :add_user_button
+  = link_to 'Add User', new_user_path, :id => :add_user_button
   %table#user_table
     %tr
       %th Name
@@ -18,8 +18,8 @@
         %td= user.lang
         %td= user.created_at.to_s(:db)
         %td= user.updated_at.to_s(:db)
-        %td= link_to 'Edit', edit_dashboard_user_path(user.id), :class => :dashboard_button
-        %td= link_to 'Delete', "users/#{user.id}/destroy", :class => :dashboard_button, :confirm => "Are you user you want to delete user #{user.name}?"
+        %td= link_to 'Edit', edit_user_path(user.id)
+        %td= link_to 'Delete', destroy_user_path(user), :confirm => "Are you user you want to delete user #{user.name}?"
         
 
 

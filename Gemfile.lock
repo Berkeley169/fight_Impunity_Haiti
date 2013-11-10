@@ -49,6 +49,8 @@ GEM
     awesome_print (1.2.0)
     bcrypt-ruby (3.0.1)
     bluff (0.1.0)
+    bootstrap-sass (3.0.2.1)
+      sass (~> 3.2)
     builder (3.0.4)
     cane (2.6.0)
       parallel
@@ -338,6 +340,7 @@ PLATFORMS
 DEPENDENCIES
   autotest
   bcrypt-ruby (~> 3.0.0)
+  bootstrap-sass
   capybara
   chronic (= 0.9.1)
   coffee-rails (~> 3.2.1)

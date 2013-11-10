@@ -1,4 +1,4 @@
-class Dashboard::UsersController < DashboardController
+class UsersController < ApplicationController
 
   before_filter :authenticate_manager
 
@@ -9,7 +9,7 @@ class Dashboard::UsersController < DashboardController
 
   def new
     @form_type = :new_user
-    @url = "/dashboard/users#create"
+    @url = "/users#create"
     @title = 'Add New User'
     @button_text = 'Create New User'
     create_form
@@ -20,11 +20,11 @@ class Dashboard::UsersController < DashboardController
       user = User.create(params[:new_user])
       if user
         flash[:notice] = "#{user.name} was created"
-        redirect_to dashboard_users_path and return
+        redirect_to users_path and return
       end
     end
     flash[:notice] = "an error occurred, try again"
-    redirect_to new_dashboard_user_path and return
+    redirect_to new_user_path and return
   end
 
   def valid_new_user
@@ -37,16 +37,19 @@ class Dashboard::UsersController < DashboardController
       if not_self(user)
         flash[:notice] = user.name + ' was deleted'
         User.destroy(user.id)
+        redirect_to users_path and return
+      else
+        flash[:notice] = "A manager cannot delete their own account in this way!"
+        redirect_to users_path
+        return
       end
-      redirect_to dashboard_users_path and return
     end
     flash[:notice] = "User doesn't exist"
-    redirect_to dashboard_users_path
+    redirect_to users_path
   end
 
   def not_self(user)
-    if user == @user
-      flash[:notice] = 'A user cannot delete themselves'
+    if user == current_user
       return false
     end
     return true
@@ -54,7 +57,7 @@ class Dashboard::UsersController < DashboardController
 
   def edit
     @form_type = :edit_user
-    @url = "/dashboard/users/#{params[:id]}/update"
+    @url = "/users/#{params[:id]}/update"
     @user_to_edit = User.find_by_id(params[:id])
     @button_text = 'Save Changes'
     @title = "Edit #{@user_to_edit.first_name} #{@user_to_edit.last_name}"
@@ -70,7 +73,7 @@ class Dashboard::UsersController < DashboardController
     else
       flash[:notice] = 'user number ' + params[:id].to_s + " doesn't exist"
     end
-    redirect_to dashboard_users_path
+    redirect_to users_path
   end
 
   def form_submit_message(success,user)
@@ -88,13 +91,15 @@ class Dashboard::UsersController < DashboardController
   end
 
   def authenticate_manager
-    user = authenticate_user
-    if not user.is_a? User
+    if not user_signed_in?
       redirect_to new_user_session_path
-    elsif editing_self(user)
+      return
+    end
+    user = current_user
+    if editing_self(user)
       @editing_self = true
     elsif not_manager_or_tech(user)
-      redirect_to dashboard_path
+      redirect_to root_path
     end
   end
 
