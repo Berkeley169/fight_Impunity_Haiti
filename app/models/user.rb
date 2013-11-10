@@ -10,8 +10,7 @@ class User < ActiveRecord::Base
   
   validates_presence_of :first_name, :last_name, :password, :role, :password_confirmation, :email, :lang
   validates_uniqueness_of :email
-  validate :proper_role
-  validate :proper_lang
+  validate :proper_parameters
 
   ROLES = [:Manager, :Tech, :Editor]
   LANGS = Item::LANGUAGES
@@ -24,22 +23,24 @@ class User < ActiveRecord::Base
   
   #protected
 
+  def proper_parameters
+    validate_parameter("role") and validate_parameter("lang")
+  end
 
-  def proper_role
-    if self.role and not ROLES.include? self.role.to_sym
-      errors.add(:role, "must be either: Manager, Editor, or Tech")
+  def validate_parameter(type)
+    if eval "self.#{type} and not #{type.pluralize.upcase}.include? self.#{type}.to_sym"
+      add_error(type)
       return false
     else
       return true
     end 
   end
 
-  def proper_lang
-    if self.lang and not LANGS.include? self.lang.to_sym
+  def add_error(type)
+    if type == "role"
+      errors.add(:role, "must be either: Manager, Editor, or Tech")
+    elsif type == "lang"
       errors.add(:lang, "must be either: English or French")
-      return false
-    else
-      return true
-    end 
+    end
   end
 end

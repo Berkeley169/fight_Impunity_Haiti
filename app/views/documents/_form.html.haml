@@ -33,6 +33,7 @@
         = dl.label :status
         = dl.select :status, Item::STATUSES
   %br
+
   .field
     = f.association :tags, as: :check_boxes, label_method: :english
 

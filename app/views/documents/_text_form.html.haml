@@ -1,5 +1,4 @@
-%p Text Form
-= f.hidden_field :subtype, :value => params[:subtype]
+= f.hidden_field :subtype, :value => @text_subtype
 = f.simple_fields_for :subtype_fields, OpenStruct.new(@document.subtype_fields) do |sf|
   - @doc_type.send(@text_subtype.to_sym).each do |sff|
     .field

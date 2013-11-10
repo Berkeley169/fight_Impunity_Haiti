@@ -2,6 +2,8 @@ class Dashboard::UsersController < DashboardController
 
   before_filter :authenticate_manager
 
+  @@self_edit_options = ["edit","update","password_form","update_password"]
+
   def index
     @users = User.all
     @title = 'Manage Users'
@@ -61,16 +63,48 @@ class Dashboard::UsersController < DashboardController
     create_form(true)
   end
 
-  def update
+  def update_user(validate)
     if User.exists?(params[:id])
       user = User.find_by_id(params[:id])
       edit_user(user)
-      success = user.save(validate: false)
+      success = user.save(validate: validate)
       form_submit_message(success,user)
     else
       flash[:notice] = 'user number ' + params[:id].to_s + " doesn't exist"
     end
-    redirect_to dashboard_users_path
+    sign_in(user, :bypass => true)
+    return success
+  end
+
+  def password_form
+    render 'edit_password' and return
+  end
+
+  def update
+    update_user(false)
+    redirect_user_or_manager
+  end
+
+  def update_password
+    if params[:edit_user][:password] != params[:edit_user][:password_confirmation]
+      flash[:notice] = "passwords don't match"
+      password_form
+    else
+      if update_user(true)
+        flash[:notice] = "#{@user.name} password successfully updated"
+        redirect_user_or_manager
+      else
+        password_form
+      end
+    end
+  end
+
+  def redirect_user_or_manager
+    if @editing_self and not_manager_or_tech(@user)
+      redirect_to dashboard_path
+    else
+      redirect_to dashboard_users_path
+    end
   end
 
   def form_submit_message(success,user)
@@ -103,7 +137,7 @@ class Dashboard::UsersController < DashboardController
   end
 
   def editing_self(user)
-    params[:action] == :edit and params[:id] == user.id
+    @@self_edit_options.include? params[:action] and params[:id].to_i == user.id
   end
 
   def create_form(defaults=false)
