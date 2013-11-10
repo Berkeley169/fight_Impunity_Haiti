@@ -7,6 +7,11 @@ class CreateTexts < ActiveRecord::Migration
       t.timestamps
       t.string :subtype
       t.text :subtype_fields
+      t.boolean :new
+      t.boolean :pending
+      t.boolean :inprogress
+      t.boolean :published
+      t.boolean :rejected
     end
   end
 end

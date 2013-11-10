@@ -1,5 +1,5 @@
 class Dashboard::ItemsController < DashboardController
-  
+
   TYPES = [Picture, Text, Sound, Video, Binary]
   def index
     setup_dashboard

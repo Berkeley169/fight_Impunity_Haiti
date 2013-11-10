@@ -1,12 +1,17 @@
 class DocumentsController < ApplicationController
-  before_filter :authenticate_user, :except => [:index, :show, :new, :create, :text_choice]
-  before_filter :type_setup
+  before_filter :authenticate_user, :except => [:index, :show, :new, :create, :text_choice, :new_document_choice]
+  before_filter :type_setup, :except => [:dashboard_index, :new_document_choice]
+  before_filter :dashboard_setup, :only => [:dashboard_index]
 
   def type_setup
     type = {:binaries => Binary, :pictures => Picture, :sounds => Sound, :texts => Text, :videos => Video}
     @doc_type = type[params[:type].to_sym]
     @doc_type_sym = params[:type].singularize.to_sym
     @langs_sym = (params[:type].singularize + '_langs').to_sym
+  end
+
+  def dashboard_setup
+    @all_documents = Text.all + Picture.all + Binary.all + Video.all + Sound.all
   end
 
   def index
@@ -92,5 +97,18 @@ class DocumentsController < ApplicationController
       format.html { redirect_to :controller => "documents", :action => "index", :type => params[:type] } 
       format.json { head :no_content }
     end
+  end
+
+
+  def dashboard_index
+    if params[:status] == 'all'
+      @documents = @all_documents
+    else
+      @documents = @all_documents.where(params[:status].to_sym => true)
+    end 
+    render 'index'
+  end
+
+  def new_document_choice
   end
 end

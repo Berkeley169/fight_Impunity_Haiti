@@ -3,7 +3,8 @@
 # and then port to the other models
 class Picture < ActiveRecord::Base
 	include Status
-	attr_accessible :pic, :name, :date, :picture_langs_attributes, :notes, :tags_attributes, :tag_ids
+	attr_accessible :pic, :name, :date, :picture_langs_attributes, :notes, :tags_attributes, :tag_ids,
+                  :new, :in_progress, :pending, :published, :rejected
 	has_many :picture_langs, dependent: :destroy
 	accepts_nested_attributes_for :picture_langs
 	has_attached_file :pic

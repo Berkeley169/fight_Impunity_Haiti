@@ -3,7 +3,8 @@
 # language should have one
 class Sound < ActiveRecord::Base
   include Status
-  attr_accessible :snd, :name, :date, :sound_langs_attributes, :notes, :tags_attributes, :tag_ids
+  attr_accessible :snd, :name, :date, :sound_langs_attributes, :notes, :tags_attributes, :tag_ids,
+                  :new, :in_progress, :pending, :published, :rejected
   has_many :sound_langs, dependent: :destroy
   accepts_nested_attributes_for :sound_langs
   has_attached_file :snd

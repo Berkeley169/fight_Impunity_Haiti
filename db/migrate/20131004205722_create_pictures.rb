@@ -5,6 +5,11 @@ class CreatePictures < ActiveRecord::Migration
     	t.string :name
     	t.belongs_to :item
       	t.timestamps
+      t.boolean :new
+      t.boolean :pending
+      t.boolean :inprogress
+      t.boolean :published
+      t.boolean :rejected
     end
   end
 end

@@ -6,6 +6,11 @@ class CreateVideos < ActiveRecord::Migration
     	t.string :name
     	t.string :vid
       	t.timestamps
+      t.boolean :new
+      t.boolean :pending
+      t.boolean :inprogress
+      t.boolean :published
+      t.boolean :rejected
     end
   end
 end

@@ -3,7 +3,8 @@
 class Text < ActiveRecord::Base
   include Status
   attr_accessible :name, :date, :text_langs_attributes, :notes, 
-                  :tags_attributes, :tag_ids, :subtype_fields, :subtype
+                  :tags_attributes, :tag_ids, :subtype_fields, :subtype,
+                  :new, :in_progress, :pending, :published, :rejected
   has_many :text_langs, dependent: :destroy
   belongs_to :item
   has_and_belongs_to_many :tags

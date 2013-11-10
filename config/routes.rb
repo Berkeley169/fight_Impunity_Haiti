@@ -54,14 +54,18 @@ FightImpunityHaiti::Application.routes.draw do
   get '/sounds/:id/delete' => 'documents#destroy', :as => :destroy_sound, :type => "sounds"
   put '/sounds/:id' => 'documents#update', :as => :update_sound, :type => "sounds"
 
-  namespace :dashboard do
-    resources :users
-    match 'users/:id/destroy' => 'users#destroy'
-    match 'users/:id/update' => 'users#update'
-    resources :items, :path => 'documents'
-    match 'published' =>'items#published'
-    match 'new' => "items#fresh"
-  end
+  get '/documents/new/choice' => 'documents#new_document_choice', :as => :new_document_choice
+
+  get '/dashboard/:status' => 'documents#dashboard_index', :as => :dashboard_index
+
+  #namespace :dashboard do
+  #  resources :users
+  #  match 'users/:id/destroy' => 'users#destroy'
+  #  match 'users/:id/update' => 'users#update'
+  #  resources :items, :path => 'documents'
+  #  match 'published' =>'items#published'
+  #  match 'new' => "items#fresh"
+  #end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
