@@ -7,10 +7,10 @@ FactoryGirl.define do
   	f.pic File.new(Rails.root + 'spec/fixtures/images/trollface.jpeg')
     # auto-create PictureLangs
     f.picture_langs_attributes([
-      { lang: "English", title: "Title" },
-      { lang: "French", title: "Title" },
-      { lang: "Spanish", title: "Title" },
-      { lang: "Creole", title: "Title" },
+      { lang: "English", title: "Title", status: "new" },
+      { lang: "French", title: "Title", status: "new" },
+      { lang: "Spanish", title: "Title", status: "new" },
+      { lang: "Creole", title: "Title", status: "new" },
     ])
   end
 end

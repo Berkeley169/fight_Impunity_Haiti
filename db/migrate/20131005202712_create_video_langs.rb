@@ -4,7 +4,6 @@ class CreateVideoLangs < ActiveRecord::Migration
       t.string :lang
       t.string :title
       t.text :description
-      t.boolean :published
       t.belongs_to :video
       t.string :status
       t.timestamps
