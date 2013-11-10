@@ -10,7 +10,7 @@ class Video < ActiveRecord::Base
   has_and_belongs_to_many :tags
   accepts_nested_attributes_for :video_langs
   validates :name,:vid, presence: true
-  
+  after_validation :set_statuses
     def get_translations
         self.video_langs
     end

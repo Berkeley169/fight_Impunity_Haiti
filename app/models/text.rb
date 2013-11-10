@@ -10,9 +10,8 @@ class Text < ActiveRecord::Base
   has_and_belongs_to_many :tags
   accepts_nested_attributes_for :text_langs
   #validates :subtype, :inclusion => { :in => ['web','journal','newspaper','book'] }
-
   serialize :subtype_fields, Hash
-
+  after_validation :set_statuses
   cattr_accessor :web, :journal, :book, :newspaper
 
   Text.web       = [:website, :url]

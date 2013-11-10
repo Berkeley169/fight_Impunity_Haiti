@@ -11,7 +11,7 @@ class Binary < ActiveRecord::Base
   has_and_belongs_to_many :tags
   validates :name, presence: true
   has_and_belongs_to_many :tags
-
+  after_validation :set_statuses
 
   def get_translations
     self.binary_langs

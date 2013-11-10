@@ -27,4 +27,12 @@ module Status
   def rejected?
     status_check('rejected')
   end
+
+  def set_statuses
+    self.new = new?
+    self.published = published?
+    self.in_progress = in_progress?
+    self.pending = pending?
+    self.rejected = rejected?
+  end
 end

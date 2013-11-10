@@ -12,6 +12,7 @@ class Sound < ActiveRecord::Base
   validates :name, :presence => true
   validates_attachment :snd, :presence => true,
             :content_type => {:content_type => ['audio/mpeg3', 'audio/mpeg']}
+  after_validation :set_statuses
   has_and_belongs_to_many :tags
 
 	def get_translations
