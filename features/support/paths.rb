@@ -15,10 +15,10 @@ module NavigationHelpers
     when /^the logout page$/ then '/sessions/logout'
     when /^the user create page$/ then new_user_path
     when /^the manage tags page$/ then tags_path
-#     when /^the user index page$/ then users_path
-#     when /^the user edit page$/ then edit_user_path
-    when /^the user index page$/ then dashboard_users_path
-    when /^the user edit page$/ then edit_dashboard_user_path
+    when /^the user index page$/ then users_path
+    when /^the user edit page$/ then edit_user_path
+    # when /^the user index page$/ then dashboard_users_path
+    # when /^the user edit page$/ then edit_dashboard_user_path
     when /^the edit profile page$/ then '/dashboard/users/1/edit'
     when /^the password recovery page$/ then '/sessions/password/new'
     when /^the password page$/ then '/sessions/password'
