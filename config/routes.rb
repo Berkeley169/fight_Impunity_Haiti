@@ -70,6 +70,17 @@ FightImpunityHaiti::Application.routes.draw do
   #  match 'published' =>'items#published'
   #  match 'new' => "items#fresh"
   #end
+  # namespace :dashboard do
+  #   resources :users
+  #   match 'users/:id/destroy' => 'users#destroy'
+  #   match 'users/:id/update' => 'users#update'
+  #   match 'users/:id/password' => 'users#password_form'
+  #   match 'users/:id/update_password' => 'users#update_password'
+  #   resources :items, :path => 'documents'
+  #   match 'published' =>'items#published'
+  #   match 'new' => "items#fresh"
+  # end
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

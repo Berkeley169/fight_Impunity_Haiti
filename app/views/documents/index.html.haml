@@ -1,7 +1,11 @@
-%h1 Listing Documents
+%h1= "Listing #{params[:type].to_s.titleize}"
 
 .content
   = render :partial => 'document_quickview', :collection => @documents, :as => :document
 %br
 
+/ <<<<<<< HEAD
 = link_to 'Submit a Document', new_document_choice_path
+/ =======
+/ = link_to "Submit a Document", [:new, @doc_type_sym, @document]
+/ >>>>>>> flow
