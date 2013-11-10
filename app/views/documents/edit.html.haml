@@ -4,6 +4,7 @@
 
 = link_to 'Show', @document #document_path(:type => params[:type], :id => @document.id)
 \|
-= link_to 'Back', :controller => "documents",
-                  :action => "index",
-                  :type => params[:type]
+= link_to 'Back', :back
+/:controller => "documents",
+/:action => "index",
+/:type => params[:type]

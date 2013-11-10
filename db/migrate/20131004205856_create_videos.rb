@@ -8,7 +8,7 @@ class CreateVideos < ActiveRecord::Migration
       	t.timestamps
       t.boolean :new
       t.boolean :pending
-      t.boolean :inprogress
+      t.boolean :in_progress
       t.boolean :published
       t.boolean :rejected
     end

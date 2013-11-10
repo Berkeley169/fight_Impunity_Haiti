@@ -9,7 +9,7 @@ class CreateTexts < ActiveRecord::Migration
       t.text :subtype_fields
       t.boolean :new
       t.boolean :pending
-      t.boolean :inprogress
+      t.boolean :in_progress
       t.boolean :published
       t.boolean :rejected
     end

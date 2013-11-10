@@ -1,0 +1,11 @@
+%h1= "Listing #{params[:type].to_s.titleize}"
+
+.content
+  = render :partial => 'document_quickview', :collection => @documents, :as => :document
+%br
+
+<<<<<<< HEAD
+= link_to 'Submit a Document', new_document_choice_path
+=======
+= link_to "Submit a Document", [:new, @doc_type_sym, @document]
+>>>>>>> cf9b683e647797835a840b4a1dbf2284743bef96

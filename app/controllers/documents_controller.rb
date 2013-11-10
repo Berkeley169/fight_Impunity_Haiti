@@ -101,10 +101,11 @@ class DocumentsController < ApplicationController
 
 
   def dashboard_index
+    types = [Text, Picture, Binary, Video, Sound]
     if params[:status] == 'all'
-      @documents = @all_documents
+      @documents = types.map { |type| type.all }.reduce(:+)
     else
-      @documents = @all_documents.where(params[:status].to_sym => true)
+      @documents = types.map { |type| type.where(params[:status].to_sym => true) }.reduce(:+)
     end 
     render 'index'
   end
