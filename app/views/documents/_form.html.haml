@@ -24,7 +24,7 @@
     - if params[:type] == "texts"
       .field
         = dl.label :plain_text
-        = dl.text_area :plain_text
+        = dl.text_area :plain_text, :class => 'ckeditor'
     .field
       = dl.label :description
       = dl.text_field :description, :size => 150

@@ -1,0 +1,3 @@
+i$('.ckeditor').ckeditor({
+  // optional config
+});
