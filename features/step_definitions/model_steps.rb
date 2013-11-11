@@ -52,3 +52,9 @@ Then /text "(.*)" should be of type "(.*)"/ do |name, subtype|
   t = Text.where(:name => name).first
   t.subtype.should == subtype
 end
+
+When /I set the status of "(.*)" translation of the "(.*)" "(.*)" to "(.*)"/ do |lang, type, name, status|
+  lng = type.titleize.constantize.where(:name => name).first.get_language(:lang)
+  lng.status = status
+  lng.save
+end
