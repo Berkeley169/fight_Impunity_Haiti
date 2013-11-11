@@ -28,8 +28,8 @@ describe Binary do
     end
   end
 
-  describe "the published? method" do
-    it "should return false if no sub_langs are published" do
+  describe "the boolean status attribute" do
+    it "should return false for published? if no sub_langs are published" do
       p = FactoryGirl.create(:binary)
       p.save
       p.published?.should be_false
@@ -42,6 +42,29 @@ describe Binary do
         pl.save
       end
       p.published?.should be_true
+    end
+    it "should run a post validation hook that sets booleans" do
+      b = FactoryGirl.create(:binary)
+      b.save
+      b.new.should == true
+      b.published.should == false
+      b.pending.should == false
+      b.in_progress.should == false
+      b.rejected.should == false
+      b.binary_langs[0].status = "published"
+      b.binary_langs[1].status = "pending"
+      b.binary_langs[2].status = "in_progress"
+      b.binary_langs[3].status = "rejected"
+      b.binary_langs[0].save
+      b.binary_langs[1].save
+      b.binary_langs[2].save
+      b.binary_langs[3].save
+      b.save
+      b.new.should == false
+      b.published.should == true
+      b.in_progress.should == true
+      b.pending.should == true
+      b.rejected.should == true
     end
   end
 
