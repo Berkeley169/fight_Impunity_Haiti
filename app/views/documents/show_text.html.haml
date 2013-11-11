@@ -16,6 +16,9 @@
       = dl.lang
       %br
       = dl.plain_text.html_safe
+      / need to show iff text file is not missing
+      %b File:
+      = dl.txt
       %br
 %p
   - @document.subtype_fields.keys.each do |f|
