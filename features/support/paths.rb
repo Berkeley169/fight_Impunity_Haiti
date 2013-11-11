@@ -22,6 +22,8 @@ module NavigationHelpers
     when /^the edit profile page$/ then '/dashboard/users/1/edit'
     when /^the password recovery page$/ then '/sessions/password/new'
     when /^the password page$/ then '/sessions/password'
+    when /^the new documents path/ then '/dashboard/new'
+    when /^the published documents path/ then '/dashboard/published'
 
     # Paths for showing items, lookup on the name field
     when /^the show picture page for "(.*)"$/

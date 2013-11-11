@@ -6,30 +6,25 @@ Feature: basic document flow should work
 
 Scenario: allow editor to create document and send it to new
 	Given that I am signed in as an editor
-	When  I create a new document
-	Then  I should see the document in new pool
+	And  then there is a picture named "foobar"
+	And I am on the new documents path
+	Then I should see "foobar"
 
 Scenario: allow manager to create document and send it to new
 	Given that I am signed in as an manager 
-	When  I create a new document
-	Then  I should see the document in new pool
-
-Scenario: allow user to create document and send it to new 
-	Given I am not signed in
-	When  I create a new document
-	Then  a manager should see the document in new pool
+	And  then there is a picture named "foobar"
+	And I am on the new documents path
+	Then I should see "foobar"
 
 Scenario: allow manager to submit document from new to published
 	Given that I am signed in as a manager
-	And   there is a document in the new pool
-	When  I publish the document
-	Then  I should be on the new pool page
-	And   I should see "document published"
-	And   I should see the document in published pool
-	And   public users should be able to see the document
+	And  then there is a picture named "foobar"
+	When  I set the status of "English" translation of the "picture" "foobar" to "published"
+	And I am on the published documents path
+	Then I should see "foobar"
 
 Scenario: disallow editor from seeing the publish button
 	Given that I am signed in as an editor
-	And   there is a document in the new pool
-	When  I am on the editing page for that document
-	Then  I should not see a publish button
+	And  then there is a picture named "foobar"
+	When  I am on the edit picture page for "foobar"
+	Then  I should not see "status"
