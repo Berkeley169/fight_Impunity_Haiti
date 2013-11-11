@@ -55,27 +55,49 @@ describe Text do
   	end
 
   describe "the published? method" do
-    # it "should return true if one sub_lang is published" do
-    #   p = FactoryGirl.create(:text)
-    #   p.save
-    #   pl = p.get_language(:English)
-    #   pl.status = 'published'
-    #   pl.save
-    #   p.published?.should be_true
-    # end
+    it "should return true if one sub_lang is published" do
+      p = FactoryGirl.create(:text)
+      p.save
+      pl = p.text_langs[0]
+      pl.status = 'published'
+      pl.save
+      p.published?.should == true
+    end
     it "should return false if no sub_langs are published" do
       p = FactoryGirl.create(:text)
       p.save
       p.published?.should be_false
     end
-    # it "should return true if all the sub_langs are published" do
-    #   p = FactoryGirl.create(:text)
-    #   p.save
-    #   p.text_langs.each do |pl|
-    #     pl.status = "published"
-    #     pl.save
-    #   end
-    #   p.published?.should be_true
-    # end
+    it "should return true if all the sub_langs are published" do
+      p = FactoryGirl.create(:text)
+      p.save
+      p.text_langs.each do |pl|
+        pl.status = "published"
+        pl.save
+      end
+      p.published?.should be_true
+    end
+    it "should run a post validation hook that sets status booleans" do
+      statuses = ["published", "in_progress", "pending", "rejected", "new"]
+      t = FactoryGirl.create(:text)
+      t.save
+      t.new.should == true
+      t.published.should == false
+      t.in_progress.should == false
+      t.pending.should == false
+      t.rejected.should == false
+      (0..3).each do |i|
+        t.text_langs[i].status = statuses[i]
+        t.text_langs[i].save
+      end
+      t.save 
+      t.published.should == true
+      t.pending.should == true
+      t.in_progress.should == true
+      t.rejected.should == true
+      t.new.should == false
+    end
+      
+    
   end
 end

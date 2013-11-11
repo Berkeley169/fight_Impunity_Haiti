@@ -60,5 +60,26 @@ describe Video do
       end
       p.published?.should be_true
     end
+    it "should run a post validation hook that sets status booleans" do
+      statuses = ["published", "in_progress", "pending", "rejected", "new"]
+      t = FactoryGirl.create(:video)
+      t.save
+      t.new.should == true
+      t.published.should == false
+      t.pending.should == false
+      t.in_progress.should == false
+      t.rejected.should == false
+      (0..3).each do |i|
+        t.video_langs[i].status = statuses[i]
+        t.video_langs[i].save
+      end
+      t.save 
+      t.published.should == true
+      t.pending.should == true
+      t.in_progress.should == true
+      t.rejected.should == true
+      t.new.should == false
+    end
+
   end
 end

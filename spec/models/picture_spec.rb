@@ -47,6 +47,29 @@ describe Picture do
       end
       p.published?.should be_true
     end
+    it "should run a post validation hook that sets booleans" do
+      b = FactoryGirl.create(:picture)
+      b.save
+      b.new.should == true
+      b.published.should == false
+      b.pending.should == false
+      b.in_progress.should == false
+      b.rejected.should == false
+      b.picture_langs[0].status = "published"
+      b.picture_langs[1].status = "pending"
+      b.picture_langs[2].status = "in_progress"
+      b.picture_langs[3].status = "rejected"
+      b.picture_langs[0].save
+      b.picture_langs[1].save
+      b.picture_langs[2].save
+      b.picture_langs[3].save
+      b.save
+      b.new.should == false
+      b.published.should == true
+      b.in_progress.should == true
+      b.pending.should == true
+      b.rejected.should == true
+    end
   end
 
   it {should validate_presence_of :pic}
