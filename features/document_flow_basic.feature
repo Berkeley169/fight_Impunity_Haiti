@@ -25,6 +25,6 @@ Scenario: allow manager to submit document from new to published
 
 Scenario: disallow editor from seeing the publish button
 	Given that I am signed in as an editor
-	And   there is a document in the new pool
-	When  I am on the editing page for that document
-	Then  I should not see a publish button
+	And  then there is a picture named "foobar"
+	When  I am on the edit picture page for "foobar"
+	Then  I should not see "status"
