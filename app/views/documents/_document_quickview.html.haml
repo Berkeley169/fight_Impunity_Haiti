@@ -3,11 +3,11 @@
   %h2= document.name
   %p
   = document.date
-  - document.send((document.class.to_s.downcase + "_langs").to_sym).each do |dl|
-    - if dl.published
-      %p{:class => "published"}= dl.lang
-    - else
-      %p{:class => "notpublished"}= dl.lang
+  /- document.send((document.class.to_s.downcase + "_langs").to_sym).each do |dl|
+  / - if dl.published
+  /   %p{:class => "published"}= dl.lang
+  / - else
+  /   %p{:class => "notpublished"}= dl.lang
 
 
   %br
