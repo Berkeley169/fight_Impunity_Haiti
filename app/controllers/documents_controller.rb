@@ -50,10 +50,9 @@ class DocumentsController < ApplicationController
   end
 
   def create
-    params[@doc_type_sym][(@langs_sym.to_s + '_attributes').to_sym]['0'][:status] = 'new'
-    params[@doc_type_sym][(@langs_sym.to_s + '_attributes').to_sym]['1'][:status] = 'new'
-    params[@doc_type_sym][(@langs_sym.to_s + '_attributes').to_sym]['2'][:status] = 'new'
-    params[@doc_type_sym][(@langs_sym.to_s + '_attributes').to_sym]['3'][:status] = 'new'
+    (0..3).each do |i|
+      params[@doc_type_sym][(@langs_sym.to_s + '_attributes').to_sym][i.to_s][:status] = 'new'
+    end
     @document = @doc_type.new(params[@doc_type_sym])
     respond_to do |format|
       if @document.save
@@ -111,5 +110,8 @@ class DocumentsController < ApplicationController
   end
 
   def new_document_choice
+  end
+  def set_new
+
   end
 end
