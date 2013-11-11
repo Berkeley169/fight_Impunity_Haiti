@@ -10,3 +10,4 @@
     %li= link_to 'New', dashboard_index_path(:status => "new")
     %li= link_to 'Rejected', dashboard_index_path(:status => "rejected")
     %li= link_to 'User Management', users_path
+    %li= link_to 'Edit Profile', edit_user_path(:id => current_user.id)

@@ -1,27 +1,29 @@
 class UsersController < ApplicationController
 
-  before_filter :authenticate_manager
-
-  @@self_edit_options = ["edit","update","password_form","update_password"]
+  before_filter :authenticate_action, :except => [:index, :show]
+  before_filter :authenticate_user, :only => [:index, :show]
 
   def index
     @users = User.all
-    @title = 'Manage Users'
+    @title = 'Showing Users'
+  end
+
+  def show
+    @user = User.find(params[:id])
   end
 
   def new
-    @form_type = :new_user
-    @url = "/users#create"
+    @user = User.new
     @title = 'Add New User'
     @button_text = 'Create New User'
-    create_form
   end
 
   def create
+    @user = User.new(params[:user])
     if valid_new_user
-      user = User.create(params[:new_user])
-      if user
-        flash[:notice] = "#{user.name} was created"
+      @user.save
+      if @user.valid?
+        flash[:notice] = "#{@user.name} was created"
         redirect_to users_path and return
       end
     end
@@ -30,7 +32,10 @@ class UsersController < ApplicationController
   end
 
   def valid_new_user
-    params[:new_user] and params[:new_user][:password] == params[:new_user][:password_confirmation]
+    if params[:user][:password] != ""
+      return (params[:user] and params[:user][:password] == params[:user][:password_confirmation])
+    end
+    return true
   end
 
   def destroy
@@ -39,12 +44,8 @@ class UsersController < ApplicationController
       if not_self(user)
         flash[:notice] = user.name + ' was deleted'
         User.destroy(user.id)
-        redirect_to users_path and return
-      else
-        flash[:notice] = "A manager cannot delete their own account in this way!"
-        redirect_to users_path
-        return
       end
+      redirect_to users_path and return
     end
     flash[:notice] = "User doesn't exist"
     redirect_to users_path
@@ -52,61 +53,32 @@ class UsersController < ApplicationController
 
   def not_self(user)
     if user == current_user
+      flash[:notice] = 'A manager cannot delete their own account!'
       return false
     end
     return true
   end
 
   def edit
-    @form_type = :edit_user
-    @url = "/users/#{params[:id]}/update"
-    @user_to_edit = User.find_by_id(params[:id])
-    @button_text = 'Save Changes'
-    @title = "Edit #{@user_to_edit.first_name} #{@user_to_edit.last_name}"
-    create_form(true)
-  end
-
-  def update_user(validate)
-    if User.exists?(params[:id])
-      user = User.find_by_id(params[:id])
-      edit_user(user)
-      success = user.save(validate: validate)
-      form_submit_message(success,user)
-    else
-      flash[:notice] = 'user number ' + params[:id].to_s + " doesn't exist"
-    end
-    sign_in(user, :bypass => true)
-    return success
-  end
-
-  def password_form
-    render 'edit_password' and return
+    @user = User.find(params[:id])
+    @title = "Edit #{@user.first_name} #{@user.last_name}"
   end
 
   def update
-    update_user(false)
-    redirect_user_or_manager
-  end
-
-  def update_password
-    if params[:edit_user][:password] != params[:edit_user][:password_confirmation]
-      flash[:notice] = "passwords don't match"
-      password_form
-    else
-      if update_user(true)
-        flash[:notice] = "#{@user.name} password successfully updated"
-        redirect_user_or_manager
-      else
-        password_form
+    if User.exists?(params[:id])
+      @user = User.find(params[:id])
+      if params[:user]["password"] == "" and params[:user]["password_confirmation"] == ""
+        params[:user].delete("password")
+        params[:user].delete("password_confirmation")
       end
-    end
-  end
-
-  def redirect_user_or_manager
-    if @editing_self and not_manager_or_tech(@user)
-      redirect_to dashboard_path
+      if @user.update_attributes(params[:user])
+        redirect_to @user, notice: "User successfully updated"
+      else
+        redirect_to edit_user_path, notice: "An error occurred, please check the user fields"
+      end
     else
-      redirect_to dashboard_users_path
+      flash[:notice] = 'user number ' + params[:id].to_s + " doesn't exist"
+      redirect_to users_path
     end
   end
 
@@ -119,57 +91,31 @@ class UsersController < ApplicationController
   end
 
   def edit_user(user)
-    for field in params[:edit_user].keys
+    for field in params[:user].keys
       eval "user.#{field} = params[:edit_user][field]"
     end
   end
 
-  def authenticate_manager
+  def authenticate_action
     if not user_signed_in?
       redirect_to new_user_session_path
       return
     end
-    user = current_user
-    if editing_self(user)
-      @editing_self = true
-    elsif not_manager_or_tech(user)
-      redirect_to root_path
+    if editing_self
+      return
+    elsif not_manager_or_tech
+      flash[:notice] = "You are not permitted to do that"
+      redirect_to users_path
+      return
     end
   end
 
-  def not_manager_or_tech(user)
-    user.role.to_sym != :Manager and user.role.to_sym != :Tech
+  def not_manager_or_tech
+    current_user.role.to_sym != :Manager and current_user.role.to_sym != :Tech
   end
 
-  def editing_self(user)
-    @@self_edit_options.include? params[:action] and params[:id].to_i == user.id
+  def editing_self
+    params[:id] == current_user.id.to_s
   end
 
-  def create_form(defaults=false)
-    @defaults = {}
-    User::REQUIRED_FIELDS.each do |field|
-      if field == :lang
-        add_radio_button_defaults(field,Item::LANGUAGES,defaults)
-      elsif field == :role
-        add_radio_button_defaults(field,User::ROLES,defaults)
-      else
-        if defaults
-          @defaults[field] = eval "@user_to_edit.#{field}"
-        else
-          @defaults[field] = nil
-        end
-      end
-    end
-  end
-
-  def add_radio_button_defaults(field,list,defaults)
-    @defaults[field] = {}
-    list.each do |radio_field|
-      if defaults
-        @defaults[field][radio_field] = (eval "@user_to_edit.#{field}.to_sym") == radio_field
-      else
-        @defaults[field][radio_field] = nil
-      end
-    end
-  end
 end

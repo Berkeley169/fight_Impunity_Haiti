@@ -12,7 +12,7 @@ Scenario: disallow public from accessing user create page
 Scenario: disallow editors from accessing user create page
   Given I am signed in as an editor
   When  I go to the user create page
-  Then  I should be on the home page
+  Then  I should be on the user index page
 
 Scenario: allow managers to access user create page
   Given I am signed in as a manager
@@ -45,12 +45,11 @@ Scenario: manager deletes an existing user
 Scenario: manager edit an existing user
   Given I am signed in as a manager
   When I am on the user index page
-  And I should not see "Johnny Jonbo"
+  And I should not see "Johnny Bravo"
   When I follow "Edit"
-  And I change "edit_user_first_name" to "Johnny Jonbo"
-  And press "Save Changes"
-  Then I should be on the user index page
-  And I should see "Johnny Jonbo"
+  And I change "user_first_name" to "Johnny Bravo"
+  And press "Submit"
+  And I should see "Johnny Bravo"
 
 Scenario: manager deletes an existing user
   Given I am signed in as a manager

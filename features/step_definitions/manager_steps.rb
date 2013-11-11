@@ -1,19 +1,19 @@
 Then /I fill in and submit the new user form with proper fields/ do
   fields = FactoryGirl.attributes_for(:editor)
-  fill_in('new_user_email', :with => fields[:email])
-  fill_in('new_user_password', :with => fields[:password])
-  fill_in('new_user_password_confirmation', :with => fields[:password])
-  fill_in('new_user_first_name', :with => fields[:first_name])
-  fill_in('new_user_last_name', :with => fields[:last_name])
-  choose("new_user_role_#{fields[:role].downcase}")
-  choose("new_user_lang_#{fields[:lang].downcase}")
-  click_button('Create New User')
+  fill_in('user_email', :with => fields[:email])
+  fill_in('user_password', :with => fields[:password])
+  fill_in('user_password_confirmation', :with => fields[:password])
+  fill_in('user_first_name', :with => fields[:first_name])
+  fill_in('user_last_name', :with => fields[:last_name])
+  choose("user_role_#{fields[:role].downcase}")
+  choose("user_lang_#{fields[:lang].downcase}")
+  click_button('Submit')
 end
 
 Then /I fill in and submit the new user form with improper fields/ do
-  fill_in('new_user_password', :with => 'one thing')
-  fill_in('new_user_password_confirmation', :with => 'something else')
-  click_button('Create New User')
+  fill_in('user_password', :with => 'one thing')
+  fill_in('user_password_confirmation', :with => 'something else')
+  click_button('Submit')
 end
   
 Then /I should see a user created message/ do

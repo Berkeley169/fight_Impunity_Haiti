@@ -1,0 +1,23 @@
+= simple_form_for @user do |f|
+  .field
+    = f.label "First Name"
+    = f.text_field :first_name
+  .field
+    = f.label "Last Name"
+    = f.text_field :last_name
+  .field
+    = f.label "E-mail"
+    = f.text_field :email
+  .field
+    = f.label "Password"
+    = f.password_field :password
+  .field
+    = f.label "Password Confirmation"
+    = f.password_field :password_confirmation
+  .field
+    = f.collection_radio_buttons :role, [["Manager", "Manager"], ["Editor", "Editor"], ["Tech", "Tech"]], :first, :last
+  .field
+    = f.collection_radio_buttons :lang, [["English", "English"], ["French", "French"], ["Creole", "Creole"], ["Spanish", "Spanish"]], :first, :last
+  .actions
+    = f.submit 'Submit'
+

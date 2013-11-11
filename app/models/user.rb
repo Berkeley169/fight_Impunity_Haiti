@@ -8,7 +8,11 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   attr_accessible :role, :lang, :first_name, :last_name
   
-  validates_presence_of :first_name, :last_name, :password, :role, :password_confirmation, :email, :lang
+  validates_presence_of :first_name, :last_name, :role, :email, :lang
+  validates_presence_of :password, :on => :create, :length => {:minimum => 6, :maximum => 40}
+  validates_presence_of :password_confirmation, :on => :create, :length => {:minimum => 6, :maximum => 40}
+  validates :password, :on => :update, :length => {:minimum => 6, :maximum => 40}, :allow_blank => true
+  validates :password_confirmation, :on => :update, :length => {:minimum => 6, :maximum => 40}, :allow_blank => true
   validates_uniqueness_of :email
   validate :proper_parameters
 
