@@ -3,10 +3,9 @@
     Dashboard Menu
     %b.caret
   %ul.dropdown-menu{:role => "menu"}
-    %li= link_to "Test", root_path
     %li= link_to 'Published', dashboard_index_path(:status => "published")
     %li= link_to 'In Progress', dashboard_index_path(:status => "in_progress")
     %li= link_to 'Pending', dashboard_index_path(:status => "pending")
     %li= link_to 'New', dashboard_index_path(:status => "new")
     %li= link_to 'Rejected', dashboard_index_path(:status => "rejected")
-
+    %li= link_to 'Edit Profile', edit_user_path(:status => current_user.id)

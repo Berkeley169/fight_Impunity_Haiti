@@ -4,7 +4,7 @@
   %p
   = document.date
   - document.send((document.class.to_s.downcase + "_langs").to_sym).each do |dl|
-    - if dl.published
+    - if dl.status == "published"
       %p{:class => "published"}= dl.lang
     - else
       %p{:class => "notpublished"}= dl.lang

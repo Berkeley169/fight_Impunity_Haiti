@@ -14,7 +14,7 @@ Background:
 Scenario:
   When I go to the edit text page for "TestWebText"
   Then I should see "Url"
-  And I should not see "Title"
+  And I should not see "Newspaper"
 
 Scenario:
   When I go to the edit text page for "TestNewsText"
