@@ -32,12 +32,11 @@ class DocumentsController < ApplicationController
       if params[:subtype] == nil
         redirect_to new_text_choice_path
         return
-      else
-        @text_subtype = params[:subtype]
-        @document.subtype = @subtype
-        Text.send(params[:subtype]).each do |field|
-          @document.subtype_fields[field] = ""
-        end
+      end
+      @text_subtype = params[:subtype]
+      @document.subtype = @subtype
+      Text.send(params[:subtype]).each do |field|
+        @document.subtype_fields[field] = ""
       end
     end
     document_langs = []
@@ -50,8 +49,9 @@ class DocumentsController < ApplicationController
   end
 
   def create
+    lang = params[@doc_type_sym][(@langs_sym.to_s + '_attributes').to_sym]
     (0..3).each do |i|
-      params[@doc_type_sym][(@langs_sym.to_s + '_attributes').to_sym][i.to_s][:status] = 'new'
+      lang[i.to_s][:status] = 'new'
     end
     @document = @doc_type.new(params[@doc_type_sym])
     respond_to do |format|
