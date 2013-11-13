@@ -1,11 +1,13 @@
-%p#notice= notice
-
 %p
   %b Name:
   = @document.name
   %br
   %b Date:
   = @document.date
+
+%p 
+  = render 'show_' + @doc_type_sym.to_s
+
 %p
   - @document_langs.each do |dl|
     %p
@@ -14,7 +16,7 @@
       %br
       %b Translation:
       = dl.lang
-- if user_signed_in?
+- if user_signed_in?  
   %p
     %b Notes:
     %br

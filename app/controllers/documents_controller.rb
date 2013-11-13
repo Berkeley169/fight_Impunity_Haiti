@@ -22,7 +22,6 @@ class DocumentsController < ApplicationController
   def show
     @document = @doc_type.find(params[:id])
     @document_langs = @document.send(@langs_sym)
-    render ('show_' + params[:type].singularize).to_sym
   end
 
   def new
