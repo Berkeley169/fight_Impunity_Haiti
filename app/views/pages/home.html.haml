@@ -16,7 +16,7 @@
       .homebox
         = image_tag 'film_icon.png'
         %h2= link_to 'Video', videos_path
-  .row
+
     .col-xs-4
       .homebox
         = image_tag 'audio_icon.png'
@@ -24,3 +24,5 @@
     .col-xs-4
       .homebox
         %h2= link_to 'Other', binaries_path
+  .row
+    = render :partial => 'tag_home_partial', :collection => @tags, :as => :tag
