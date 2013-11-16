@@ -1,3 +1,4 @@
+include Status
 class DocumentsController < ApplicationController
   before_filter :authenticate_user, :except => [:index, :show, :new, :create, :text_choice, :new_document_choice]
   before_filter :type_setup, :except => [:dashboard_index, :new_document_choice]
@@ -20,7 +21,14 @@ class DocumentsController < ApplicationController
   end
 
   def show
-    @document = @doc_type.find(params[:id])
+    begin
+      @document = @doc_type.find(params[:id])
+      if not @document.published and not user_signed_in?
+        raise Error
+      end
+    rescue
+      not_found
+    end
     @document_langs = @document.send(@langs_sym)
   end
 
