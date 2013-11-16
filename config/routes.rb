@@ -56,11 +56,12 @@ FightImpunityHaiti::Application.routes.draw do
   put '/sounds/:id' => 'documents#update', :as => :update_sound, :type => "sounds"
 
   get '/documents/new/choice' => 'documents#new_document_choice', :as => :new_document_choice
-
   get '/dashboard/:status' => 'documents#dashboard_index', :as => :dashboard_index
 
   get '/users/:id/delete' => 'users#destroy', :as => :destroy_user
   post '/users/:id/update' => 'users#update'
+
+  get '/index_by_tag/:tagid' => 'documents#index_by_tag'
 
   #namespace :dashboard do
   #  resources :users
