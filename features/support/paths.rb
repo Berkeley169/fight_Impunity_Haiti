@@ -80,6 +80,18 @@ module NavigationHelpers
     when /^the new text page for text type "(.*)"$/
       new_text_path(:subtype => $1)
 
+    #Paths for type indexes
+    when /^the binary index page$/
+      binaries_path
+    when /^the picture index page$/
+      pictures_path
+    when /^the text index page$/
+      texts_path
+    when /^the sound index page$/
+      sounds_path
+    when /^the video index page$/
+      videos_path
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

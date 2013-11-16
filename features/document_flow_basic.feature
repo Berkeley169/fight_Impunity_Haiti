@@ -19,7 +19,7 @@ Scenario: allow manager to create document and send it to new
 Scenario: allow manager to submit document from new to published
 	Given that I am signed in as a manager
 	And  then there is a picture named "foobar"
-	When  I set the status of "English" translation of the "picture" "foobar" to "published"
+	When  I set the status of the english translation of the picture "foobar" to "published"
 	And I am on the published documents path
 	Then I should see "foobar"
 

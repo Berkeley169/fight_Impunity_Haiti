@@ -231,3 +231,13 @@ end
 Then /^show me the page$/ do
   save_and_open_page
 end
+
+# PROJECT SPECIFIC STEPS
+Then /I should not be able to fill in "(.*)"$/ do |field|
+  begin
+    fill_in(field, :with => "content")
+    fail
+  rescue Capybara::ElementNotFound
+    pass
+  end
+end
