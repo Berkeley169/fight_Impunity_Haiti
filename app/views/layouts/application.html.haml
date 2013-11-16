@@ -13,13 +13,12 @@
             %span{:class => "icon-bar"}
             %span{:class => "icon-bar"}
             %span{:class => "icon-bar"}
-        .navbar-brand 
-          Fight Impunity in Haiti
+        .navbar-brand= t(:fight)
         .collapse.navbar-collapse
           %ul{:class => "nav navbar-nav"}
-            %li= link_to "Home", '/'
-            %li= link_to "About", {:controller => '/pages', :action => 'about'}
-            %li= link_to "Contact", {:controller => '/pages', :action => 'contact'}
+            %li= link_to t(:home), '/'
+            %li= link_to t(:about), {:controller => '/pages', :action => 'about'}
+            %li= link_to t(:contact), {:controller => '/pages', :action => 'contact'}
             - unless current_user
               %li= link_to t(:login), new_user_session_path
             -else 

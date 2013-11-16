@@ -2,9 +2,9 @@
 
 = render 'form'
 
-= link_to 'Show', @document #document_path(:type => params[:type], :id => @document.id)
+= link_to t(:show), @document #document_path(:type => params[:type], :id => @document.id)
 \|
-= link_to 'Back', :back
+= link_to t(:back), :back
 /:controller => "documents",
 /:action => "index",
 /:type => params[:type]

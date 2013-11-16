@@ -1,6 +1,47 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
+---
 en:
-  hello: "Hello world in English"
-  login: "Login"
+  hello: Hello world in English
+  login: Login
+  home: Home
+  about: About
+  contact: Contact
+  fight: Fight Impunity in Haiti
+  texts: Texts
+  pictures: Pictures
+  video: Video
+  welcomemessage: We are a group of activists, developers, students, and professionals
+    alike who are dedicated to fighting impunity for human rights violations in Haiti
+    over the last century.  Currently this site is a work in progress.  We are making
+    an eLibrary so most of the work currently is behind the scenes.  If you are an
+    editor or manager, you can log in above.
+  audio: Audio
+  other: Other
+  underconstruction: Under Construction
+  edit: Edit
+  back: Back
+  show: Show
+  destroy: Destroy
+  save: Save
+  download: ! 'Download: '
+  submitadocument: Submit a Document
+  webarticle: Web Article
+  journalarticle: Journal Article
+  newspaperarticle: Newspaper Article
+  bookexcerpt: Book Excerpt
+  textnew: Text Document
+  picturenew: Picture
+  audionew: Audio File
+  videonew: Video
+  othernew: Other (PPT, spreadsheet, etc)
+  resendconfirmation: Resend confirmation instructions
+  confirmaccount: Confirm my account
+  changepassword: Change my password
+  unlockaccount: Unlock my account
+  newpassword: New password
+  confirmnewpassword: Confirm new password
+  sendpasswordreset: Send me reset password instructions
+  update: Update
+  cancelaccount: Cancel my account
+  areyousure: Are you sure?
+  signup: Are you sure?
+  signin: "Sign in"

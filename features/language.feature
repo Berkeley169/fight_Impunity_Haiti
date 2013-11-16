@@ -83,5 +83,4 @@ Scenario: When I am logging in with language set to English, I should see it in 
 	Then I should see "Sign in"
 	Then I should see "Forgot your password?"
 	When I click "Forgot your password?"
-	I should see "Send me reset password instructions"
-	
+	Then I should see "Send me reset password instructions"
