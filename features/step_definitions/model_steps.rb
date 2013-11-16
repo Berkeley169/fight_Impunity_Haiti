@@ -53,7 +53,7 @@ Then /text "(.*)" should be of type "(.*)"/ do |name, subtype|
   t.subtype.should == subtype
 end
 
-When /I set the status of "(.*)" translation of the "(.*)" "(.*)" to "(.*)"/ do |lang, type, name, status|
+When /I set the status of the (.*) translation of the (.*) "(.*)" to "(.*)"/ do |lang, type, name, status|
   thing = type.titleize.constantize.where(:name => name).first
   lng = thing.get_language(lang.titleize.to_sym)
   lng.status = status
