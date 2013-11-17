@@ -15,7 +15,7 @@ class Picture < ActiveRecord::Base
 	validates :name, presence: true
     validates_attachment :pic, :presence => true,
                           :content_type => {:content_type => ['image/jpg', 'image/png', 'image/jpeg']}
-    after_validation :set_statuses 
+    after_validation :set_statuses
    	def get_translations
     	self.picture_langs
 	end

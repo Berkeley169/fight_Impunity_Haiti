@@ -35,4 +35,19 @@ module Status
     self.pending = pending?
     self.rejected = rejected?
   end
+
+  def refresh_statuses
+    self.set_statuses
+    self.save
+  end
+
+  def auth_to_view(document_lang)
+    if user_signed_in?
+      return true
+    else
+      if document_lang.status == 'published'
+        return true
+      end
+    end
+  end
 end

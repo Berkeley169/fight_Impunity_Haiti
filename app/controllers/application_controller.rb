@@ -1,5 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+
+  rescue_from ActionController::RoutingError, :with => :render_404
+
   before_filter :set_locale
   def after_sign_in_path_for(resource_or_scope)
     return dashboard_path
@@ -51,5 +54,13 @@ class ApplicationController < ActionController::Base
       I18n.locale = params[:locale] || I18n.default_locale
     end
     
+  end
+
+  def not_found
+    raise ActionController::RoutingError.new('Not Found')
+  end
+
+  def render_404
+    render :file => "#{Rails.root}/public/404.html", :status => 404, :layout => false
   end
 end

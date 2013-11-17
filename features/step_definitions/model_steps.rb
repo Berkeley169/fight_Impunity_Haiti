@@ -60,3 +60,8 @@ When /I set the status of the (.*) translation of the (.*) "(.*)" to "(.*)"/ do 
   lng.save
   thing.save
 end
+
+Given /there is a tag with En: "(.*)" Fr: "(.*)" Cr: "(.*)" Sp: "(.*)"/ do |en, fr, cr, sp|
+  t = Tag.new(:english => en, :french => fr, :creole => cr, :spanish => sp, :cat => 'main')
+  t.save
+end

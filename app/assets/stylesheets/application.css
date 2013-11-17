@@ -6899,3 +6899,18 @@ td.visible-print {
   }
 }
 
+.new {
+  color:red;
+}
+.in_progress {
+  color:red;
+}
+.pending {
+  color:red;
+}
+.rejected {
+  color:red;
+}
+.published {
+  color:green;
+}

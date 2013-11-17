@@ -5,15 +5,15 @@ module ApplicationHelper
 
 	def locale_to_word(locale = I18n.locale)
 		if locale == :en
-			:English
+			:english
 		elsif locale == :fr
-			:French
+			:french
 		elsif locale == :es
-			:Spanish
+			:spanish
 		elsif locale == :ht
-			:Creole
+			:creole
 		else
-			:English
+			:english
 		end	
 	end
 end
