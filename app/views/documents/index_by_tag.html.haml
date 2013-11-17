@@ -1,7 +1,10 @@
 .content
   %h1=@tag.send(locale_to_word)
-  .tag_sidebar
-    = render :partial => 'tag_button', :collection => @tags, :as => :t
+  -if @tag.cat == 'main'
+    .tag_sidebar
+      %h3 Subcategories
+      .btn-group-vertical
+        = render :partial => 'tag_button', :collection => @tags, :as => :t
   = render :partial => 'document_quickview', :collection => @documents, :as => :document
 
 %br
