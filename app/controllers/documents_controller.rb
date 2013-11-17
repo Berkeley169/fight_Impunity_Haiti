@@ -15,7 +15,11 @@ class DocumentsController < ApplicationController
   end
 
   def index
-    @documents = @doc_type.all
+    if current_user == nil
+      @documents = @doc_type.where(:published => true)
+    else
+      @documents = @doc_type.all
+    end
     @permissions = permissions
   end
 
@@ -59,6 +63,7 @@ class DocumentsController < ApplicationController
                       notice: "#{@doc_type_sym.to_s} was successfully created." }
         format.json { render json: @document, status: :created, location: @document }
       else
+        @text_subtype = params[:text][:subtype]
         format.html { render action: "new" }
         format.json { render json: @document.errors, status: :unprocessable_entity }
       end
@@ -81,6 +86,7 @@ class DocumentsController < ApplicationController
                       notice: "#{@doc_type_sym.to_s} was successfully updated." }
         format.json { head :no_content }
       else
+        @text_subtype = params[:text][:subtype]
         format.html { render action: "edit" }
         format.json { render json: @document.errors, status: :unprocessable_entity }
       end

@@ -5,4 +5,13 @@ class TextLang < ActiveRecord::Base
   has_attached_file :txt
   belongs_to :text
   validates :lang, presence: true
+  validate :proper_file
+
+  def proper_file
+  	if self.txt_content_type == nil or self.txt_content_type == 'application/pdf'
+  		return true
+  	end
+  	errors.add(:txt, 'must be a pdf')
+  	return false
+  end
 end
