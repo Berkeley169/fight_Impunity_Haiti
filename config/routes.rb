@@ -61,7 +61,7 @@ FightImpunityHaiti::Application.routes.draw do
   get '/users/:id/delete' => 'users#destroy', :as => :destroy_user
   post '/users/:id/update' => 'users#update'
 
-  get '/index_by_tag/:tagid' => 'documents#index_by_tag'
+  get '/index_by_tag/:tagid' => 'documents#index_by_tag', :as => :index_by_tag
 
   #namespace :dashboard do
   #  resources :users

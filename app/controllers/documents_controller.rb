@@ -21,8 +21,9 @@ class DocumentsController < ApplicationController
 
   def index_by_tag
     if params[:tagid]
-      tag = Tag.find_by_id(params[:tagid])
-      @documents = tag.pictures << tag.texts << tag.videos << tag.sounds << tag.binaries
+      @tag = Tag.find_by_id(params[:tagid])
+      @documents = @tag.pictures << @tag.texts << @tag.videos << @tag.sounds << @tag.binaries
+      @tags = @tag.children
     else
       not_found
     end
