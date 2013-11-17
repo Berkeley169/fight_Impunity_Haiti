@@ -3,6 +3,7 @@
 # Videos will probably not be translated
 class Video < ActiveRecord::Base
   include Status
+  include DocumentsHelper
   attr_accessible :name, :date, :vid, :video_langs_attributes, :notes, :tags_attributes, :tag_ids,
                   :new, :in_progress, :pending, :published, :rejected
   has_many :video_langs, dependent: :destroy

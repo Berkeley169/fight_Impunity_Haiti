@@ -17,6 +17,7 @@ Background:
   And there is a journal article text named "TestJournalText"
   And there is a book excerpt text named "TestBookText"
   And there is a newspaper article text named "TestNewsText"
+  And I am signed in as a manager
 
 Scenario: web articles show proper fields
   Given I am on the show text page for "TextWebText"

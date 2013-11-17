@@ -1,12 +1,11 @@
 - @document.text_langs.each do |dl|
-  - if auth_to_view(dl)
-    %p
-      = dl.plain_text.html_safe
-      / need to show iff text file is not missing
+  %p.display_text
+    - if dl.txt.url != '/txts/original/missing.png'
       %b File:
-      = image_tag dl.txt.url
-      %br
-
+      %iframe{src: dl.txt.url,class:'pdf'}
+    - else
+      = dl.plain_text.html_safe
+    %br
 %p
   - @document.subtype_fields.keys.each do |f|
     %p

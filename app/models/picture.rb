@@ -3,6 +3,7 @@
 # and then port to the other models
 class Picture < ActiveRecord::Base
 	include Status
+	include DocumentsHelper
 	attr_accessible :pic, :name, :date, :picture_langs_attributes, :notes, :tags_attributes, :tag_ids,
                   :new, :in_progress, :pending, :published, :rejected
 	has_many :picture_langs, dependent: :destroy

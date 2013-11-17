@@ -17,20 +17,20 @@
 
   = f.fields_for @langs_sym do |dl|
     %h4= dl.object.lang
-    .field
+    .field{:id => 'document_lang_' + dl.object.lang.downcase + '_title'}
       = dl.label :title
       = dl.text_field :title
     = dl.hidden_field :lang
     - if params[:type] == "texts"
-      .field
+      .field{:id => 'document_lang_' + dl.object.lang.downcase + '_plain_text'}
         = dl.label :plain_text
         = dl.text_area :plain_text, :class => 'ckeditor'
         = dl.file_field :txt
-    .field
+    .field{:id => 'document_lang_' + dl.object.lang.downcase + '_description'}
       = dl.label :description
       = dl.text_field :description, :size => 150
     - if @permissions
-      .field
+      .field{:id => 'document_lang_' + dl.object.lang.downcase + '_status'}
         = dl.label :status
         = dl.select :status, Item::STATUSES
   %br

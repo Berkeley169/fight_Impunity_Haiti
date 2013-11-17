@@ -35,6 +35,7 @@ gem 'devise', :git => 'https://github.com/plataformatec/devise.git'
 gem 'mail'
 gem 'sendgrid-rails', '~> 2.0'
 
+
 group :development, :test do
   gem 'capybara'
   gem 'rspec-rails'
