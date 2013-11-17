@@ -1,4 +1,3 @@
-include Status
 class DocumentsController < ApplicationController
   before_filter :authenticate_user, :except => [:index, :show, :new, :create, :text_choice, :new_document_choice]
   before_filter :type_setup, :except => [:dashboard_index, :new_document_choice]

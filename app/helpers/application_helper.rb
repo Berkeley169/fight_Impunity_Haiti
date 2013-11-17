@@ -16,4 +16,8 @@ module ApplicationHelper
 			:english
 		end	
 	end
+
+  def auth_to_view(document_lang)
+    user_signed_in? or document_lang.status == 'published'
+  end
 end
