@@ -1,9 +1,9 @@
-= link_to 'Edit', [:edit, document]
+= link_to t(:edit), [:edit, document]
 \|
 /- if params[:status] and user_signed_in?
 /  = link_to 'Back', dashboard_index_path(:status => params[:status])
 /- else
-= link_to 'Back', :back 
+= link_to t(:back), :back 
 
 / :controller => "documents",
 / :action => "index",

@@ -2,13 +2,13 @@
   %b Please select a document type from the list below:
 %p
   /%button{:type => "button", :class => "btn"}
-  = link_to 'Web Article', new_text_path(:subtype => 'web')
+  = link_to t(:webarticle), new_text_path(:subtype => 'web')
 %p
   /%button{:type => "button", :class => "btn"}
-  = link_to 'Journal Article', new_text_path(:subtype => 'journal')
+  = link_to t(:journalarticle), new_text_path(:subtype => 'journal')
 %p
   /%button{:type => "button", :class => "btn"}
-  = link_to 'Newspaper Article', new_text_path(:subtype => 'newspaper')
+  = link_to t(:newspaperarticle), new_text_path(:subtype => 'newspaper')
 %p
   /%button{:type => "button", :class => "btn"}
-  = link_to 'Book Excerpt', new_text_path(:subtype => 'book')
+  = link_to t(:bookexcerpt), new_text_path(:subtype => 'book')
