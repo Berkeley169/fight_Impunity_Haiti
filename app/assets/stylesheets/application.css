@@ -350,6 +350,7 @@ table {
   }
   h2,
   h3 {
+    text-transform:capitalize;
     page-break-after: avoid;
   }
   .navbar {
@@ -599,6 +600,7 @@ h2,
 
 h3,
 .h3 {
+  text-transform:capitalize;
   font-size: 24px;
 }
 

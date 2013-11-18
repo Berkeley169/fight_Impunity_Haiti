@@ -1,4 +1,5 @@
-
+---
 ht:
-  hello: "Hello world in creole"
-  login: "Identifiez-vous"
+  hello: Hello world in creole
+  login: Identifiez-vous
+  subcategories: ! '#!# subcategories'
