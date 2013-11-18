@@ -43,5 +43,27 @@ en:
   update: Update
   cancelaccount: Cancel my account
   areyousure: Are you sure?
-  signup: Are you sure?
-  signin: "Sign in"
+  signup: Sign up
+  signin: Sign in
+  forgotpassword: Forgot your password?
+  didntreceiveconfirmation: Didn't receive confirmation instructions?
+  didntreceiveunlock: Didn't receive unlock instructions?
+  signinwith: ! 'Sign in with '
+  resendunlock: Resend unlock instructions
+  loggedinas: ! 'Logged in as: '
+  editprofile: Edit Profile
+  signout: Sign out
+  dashboardhome: Dashboard Home
+  published: Published
+  inprogress: In Progress
+  pending: Pending
+  new: New
+  rejected: Rejected
+  userdirectory: User Directory
+  usermanagement: User Management
+  newtag: New Tag
+  backtodashboard: Back to Dashboard
+  delete: Delete
+  deleteuserconfirm: ! 'Are you user you want to delete user '
+  adduser: Add User
+  manageusers: Manage Users

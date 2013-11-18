@@ -31,10 +31,10 @@
     = f.text_area :spanish_description
   .field
     = f.label "Type"
-    = f.select :cat, options_for_select([["Main Category", "main"], ["Sub Category", "sub"], ["Miscelaneous", "misc"]])
+    = f.select :cat, options_for_select([["Main Category", "main"], ["Subcategory", "sub"], ["Miscellaneous", "misc"]])
   .field
     = f.label "Main Category"
     = f.select :parent_id, options_for_select(@main_categories)
 
   .actions
-    = f.submit 'Save'
+    = f.submit t(:save)

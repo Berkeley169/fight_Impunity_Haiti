@@ -12,11 +12,11 @@
     %tr
       %td= tag.english
       %td= tag.french
-      %td= link_to 'Show', tag
-      %td= link_to 'Edit', edit_tag_path(tag)
-      %td= link_to 'Destroy', tag, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= link_to t(:show), tag
+      %td= link_to t(:edit), edit_tag_path(tag)
+      %td= link_to t(:destroy), tag, :method => :delete, :data => { :confirm => t(:areyousure) }
 
 %br
 
-= link_to 'New Tag', new_tag_path
-= link_to 'Back to Dashboard', dashboard_path
+= link_to t(:newtag), new_tag_path
+= link_to t(:backtodashboard), dashboard_path
