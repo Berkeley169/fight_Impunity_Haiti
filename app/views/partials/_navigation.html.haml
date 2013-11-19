@@ -1,0 +1,36 @@
+%header.navbar
+  .container
+    .navbar-header
+      %button.navbar-toggle{:type => "button", 'data-toggle' => 'collapse', 'data-target' => '.navbar-collapse'}
+        %span.sr-only Toggle Navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      .navbar-brand
+        %strong= t :fightimpunity
+        = t :inhaiti
+    %nav.collapse.navbar-collapse
+      %ul.nav.navbar-nav.navbar-right
+        %li= link_to t(:home), '/'
+        %li= link_to t(:about), {:controller => '/pages', :action => 'about'}
+        %li= link_to t(:contact), {:controller => '/pages', :action => 'contact'}
+        //%li= link_to t(:dashboard), dashboard_index_path
+        - if user_signed_in?
+          = render "partials/dashboard_nav_#{current_user.role}"
+        - unless current_user
+          %li= link_to t(:login), new_user_session_path, { :class => 'auth' }
+        - else 
+          %li= link_to t(:logout), sessions_logout_path, { :class => 'auth' }
+        %li.languages.dropdown
+          %a.dropper{:href => '#', :class => 'dropdown-toggle', 'data-toggle' => 'dropdown'} 
+            %img{:src => "/assets/#{locale_to_word}-32.png"}
+            %b.caret
+          %ul.dropdown-menu
+            - if get_locale != :en
+              %li= link_to '', {:locale => 'en'}, {:id => 'EnglishFlag'}
+            - if get_locale != :fr
+              %li= link_to '', {:locale => 'fr'}, {:id => 'FrenchFlag'}
+            - if get_locale != :ht
+              %li= link_to '', {:locale => 'ht'}, {:id => 'CreoleFlag'}
+            - if get_locale != :es
+              %li= link_to '', {:locale => 'es'}, {:id => 'SpanishFlag'}

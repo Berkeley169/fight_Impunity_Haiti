@@ -7,6 +7,8 @@ en:
   about: About
   contact: Contact
   fight: Fight Impunity in Haiti
+  fightimpunity: Fight Impunity
+  inhaiti: in Haiti
   texts: Texts
   pictures: Pictures
   video: Video
@@ -69,3 +71,5 @@ en:
   adduser: Add User
   manageusers: Manage Users
   created: Created
+  today: '#!# today'
+  yesterday: '#!# yesterday'
