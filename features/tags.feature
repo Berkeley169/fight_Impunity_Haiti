@@ -1,5 +1,10 @@
 Feature: Tags showing on main page
 
+	As a public user
+	I want to see the main categories on the main page
+	so I can easily navigate through them
+
+
 Background: a tag exists
 	Given there is a tag with En: "EnTag" Fr: "FrTag" Cr: "CrTag" Sp: "SpTag"
 Scenario: simple tag on the home page

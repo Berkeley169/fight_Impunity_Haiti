@@ -29,6 +29,11 @@ p.display_text{
   width: 90%;
   height:100%;
 }
+.tag_sidebar {
+  float: left;
+  border: 1px solid black ;
+  padding:5px 5px 20px 5px;
+}
 
 #top {
 	height: 75px;
@@ -355,6 +360,7 @@ table {
   }
   h2,
   h3 {
+    text-transform:capitalize;
     page-break-after: avoid;
   }
   .navbar {
@@ -604,6 +610,7 @@ h2,
 
 h3,
 .h3 {
+  text-transform:capitalize;
   font-size: 24px;
 }
 

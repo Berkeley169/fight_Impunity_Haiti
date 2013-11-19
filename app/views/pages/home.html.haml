@@ -1,28 +1,27 @@
 .jumbotron
-  %h2 Under Construction
-  %p We are a group of activists, developers, students, and profesionals alike who are dedicated to fighting impunity for human rights violations in Haiti over the last century. Currently this site is a work in progress. We are working on making an eLibrary so most of the work currently is behind the scenes. If you are an editor or a manager you can log in above.
-
+  %h2= t(:underconstruction)
+  %p= t(:welcomemessage) 
 .container
   .row
     .col-xs-4
       .homebox
         = image_tag 'text_icon.png'
-        %h2= link_to 'Texts', texts_path
+        %h2= link_to t(:texts), texts_path
     .col-xs-4
       .homebox
         = image_tag 'photo_icon.png'
-        %h2= link_to 'Pictures', pictures_path
+        %h2= link_to t(:pictures), pictures_path
     .col-xs-4
       .homebox
         = image_tag 'film_icon.png'
-        %h2= link_to 'Video', videos_path
-
+        %h2= link_to t(:video), videos_path
+  .row
     .col-xs-4
       .homebox
         = image_tag 'audio_icon.png'
-        %h2= link_to 'Audio', sounds_path
+        %h2= link_to t(:audio), sounds_path
     .col-xs-4
       .homebox
-        %h2= link_to 'Other', binaries_path
+        %h2= link_to t(:other), binaries_path
   .row
     = render :partial => 'tag_home_partial', :collection => @tags, :as => :tag

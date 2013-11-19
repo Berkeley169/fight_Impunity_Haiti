@@ -1,6 +1,6 @@
 class DocumentsController < ApplicationController
   before_filter :authenticate_user, :except => [:index, :show, :new, :create, :text_choice, :new_document_choice]
-  before_filter :type_setup, :except => [:dashboard_index, :new_document_choice]
+  before_filter :type_setup, :except => [:dashboard_index, :new_document_choice, :index_by_tag]
   before_filter :dashboard_setup, :only => [:dashboard_index]
 
   def type_setup
@@ -21,6 +21,16 @@ class DocumentsController < ApplicationController
       @documents = @doc_type.all
     end
     @permissions = permissions
+  end
+
+  def index_by_tag
+    if params[:tagid]
+      @tag = Tag.find_by_id(params[:tagid])
+      @documents = @tag.pictures << @tag.texts << @tag.videos << @tag.sounds << @tag.binaries
+      @tags = @tag.children
+    else
+      not_found
+    end
   end
 
   def show
