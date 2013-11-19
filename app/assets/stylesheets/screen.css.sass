@@ -5,6 +5,8 @@ body
   padding: 14px
 .auth
   border: 1px solid #eee
+.navbar-toggle .icon-bar
+  background-color: #888
 .navbar-right .dropdown-menu
   left: 0
 .navbar
@@ -15,7 +17,6 @@ body
       border-top-color: #888
       border-bottom-color: #888
     > li
-      margin-left: 5px
       > a
         font-size: 0.9em
         color: #888
@@ -28,10 +29,10 @@ body
   background-color: #fff
 .languages
   > a.dropper
-    margin-left: 5px
     padding: 10px
     opacity: 0.8
   a
+    margin-right: 5px
     float: left
     opacity: 0.6
     transition: opacity 0.3s
@@ -67,3 +68,9 @@ body
     width: 32px
     height: 32px
     display: block
+
+@media (max-width: 767px)
+  body
+    padding: 0 5px
+  .navbar .nav > li 
+    margin-left: 0

@@ -17,10 +17,6 @@
         //%li= link_to t(:dashboard), dashboard_index_path
         - if user_signed_in?
           = render "partials/dashboard_nav_#{current_user.role}"
-        - unless current_user
-          %li= link_to t(:login), new_user_session_path, { :class => 'auth' }
-        - else 
-          %li= link_to t(:logout), sessions_logout_path, { :class => 'auth' }
         %li.languages.dropdown
           %a.dropper{:href => '#', :class => 'dropdown-toggle', 'data-toggle' => 'dropdown'} 
             %img{:src => "/assets/#{locale_to_word}-32.png"}
@@ -34,3 +30,7 @@
               %li= link_to '', {:locale => 'ht'}, {:id => 'CreoleFlag'}
             - if get_locale != :es
               %li= link_to '', {:locale => 'es'}, {:id => 'SpanishFlag'}
+        - unless current_user
+          %li= link_to t(:login), new_user_session_path, { :class => 'auth' }
+        - else 
+          %li= link_to t(:logout), sessions_logout_path, { :class => 'auth' }
