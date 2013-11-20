@@ -9,5 +9,5 @@
     %li= link_to t(:new), dashboard_index_path(:status => "new")
     %li= link_to t(:rejected), dashboard_index_path(:status => "rejected")
     %li.divider 
-    %li= link_to t(:editprofile, edit_user_path(:id => current_user.id)
+    %li= link_to t(:editprofile), edit_user_path(:id => current_user.id)
     %li= link_to t(:userdirectory), users_path
