@@ -36,22 +36,22 @@ module ApplicationHelper
 
   def auth_to_edit_lang(document_lang)
     if not user_signed_in?
-      return false
-    end
-    if current_user.role == "Manager"
+      return document_lang.status == "new"
+    elsif current_user.role == "Manager"
       return true
-    elsif current_user.role == "Editor" and document_lang.status == "in_progress"
-      return true
+    elsif current_user.role == "Editor"
+      return document_lang.status == "in_progress"
     else
       return false
     end
   end
 
   def auth_to_edit_meta(document)
-    if not user_signed_in?
+    if document.new_document?
+      return true
+    elsif not user_signed_in?
       return false
-    end
-    if current_user.role == "Manager"
+    eslif current_user.role == "Manager"
       return true
     elsif current_user.role == "Editor" and not (document.published or document.pending)
       return true
