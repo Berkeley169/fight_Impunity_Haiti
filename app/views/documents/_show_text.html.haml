@@ -1,14 +1,16 @@
 - @document.text_langs.each do |dl|
-  %p
-    = dl.plain_text.html_safe
-    / need to show iff text file is not missing
+  %p.display_text
+  - if dl.txt.url != '/txts/original/missing.png'
     %b File:
-    = image_tag dl.txt.url
+    /%iframe{:src => dl.txt.url, :class => 'pdf'}
+    %object{:data => dl.txt.url, :type => 'application/pdf'}
+      = link_to "Click Here for Download", dl.txt.url
+  - else
+    = dl.plain_text.html_safe
     %br
-
 %p
   - @document.subtype_fields.keys.each do |f|
     %p
-      %b= "#{f.to_s.titleize}"
+      %b= "#{f.to_s.titleize}: "
       = @document.subtype_fields[f]
 

@@ -6,7 +6,7 @@ describe Item do
   		Item::LANGUAGES.sort.should == [:English, :French, :Creole, :Spanish].sort
   	end
   	it "should be able to get the statuses" do
-  		Item::STATUSES.sort.should ==  [:new, :pending, :inprogress, :published, :rejected].sort
+  		Item::STATUSES.sort.should ==  [:new, :pending, :in_progress, :published, :rejected].sort
   	end
   end
 end
