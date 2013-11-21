@@ -54,6 +54,7 @@ es:
   loggedinas: '#!# loggedinas'
   editprofile: '#!# editprofile'
   signout: '#!# signout'
+  dashboard: '#!# dashboard'
   dashboardhome: '#!# dashboardhome'
   published: '#!# published'
   inprogress: '#!# inprogress'
