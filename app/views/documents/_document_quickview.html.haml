@@ -3,14 +3,15 @@
     .type
       %img{ :src => '/assets/text_icon.png', :height => "32", :width => "32"}
     .langs
-      - document.send((document.class.to_s.downcase + "_langs").to_sym).each do |dl|
+      - document.send((document.class.to_s.downcase + "_langs").to_sym).sort.each do |dl|
         - if dl.status == "published"
           %img{:src => "/assets/#{dl.lang}-16.png", :height => "16", :width => "16"}
         - else
           %img{:src => "/assets/#{dl.lang}-gray-16.png"}
   %td.title-and-description
-    %h3= doc_title(document)
-    %h5= doc_description(document)
+    - title_and_description = relevant_title_and_description(document, current_user)
+    %h3= title_and_description[0]
+    %h5= title_and_description[1]
   %td.date{ :align => 'center' }
     %p="#{t(:created)} #{pretty_date(document.date)}"
   %td.space

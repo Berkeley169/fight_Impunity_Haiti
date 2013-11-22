@@ -27,10 +27,11 @@ class TagsController < ApplicationController
   def new
       @tag = Tag.new
       mains = Tag.where(:cat => "main")
-      @main_categories = [["",nil]]
+      @main_categories = []
       mains.each do |m|
         @main_categories << [m.english, m.id]
       end
+      # @main_categories << ["",nil]
       respond_to do |format|
         format.html # new.html.erb
         format.json { render json: @tag }
@@ -41,10 +42,11 @@ class TagsController < ApplicationController
   def edit
       @tag = Tag.find(params[:id])
       mains = Tag.where(:cat => "main")
-      @main_categories = [["",nil]]
+      @main_categories = []
       mains.each do |m|
         @main_categories << [m.english, m.id]
       end
+      # @main_categories << ["",nil]
   end
 
   # POST /tags

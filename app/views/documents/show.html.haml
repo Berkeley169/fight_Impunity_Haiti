@@ -1,7 +1,4 @@
 %p
-  %b Name:
-  = @document.name
-  %br
   %b Date:
   = @document.date
 
@@ -9,7 +6,7 @@
   = render 'show_' + @doc_type_sym.to_s
 
 %p
-  - @document_langs.each do |dl|
+  - @document_langs.sort.each do |dl|
     - if auth_to_view(dl)
       %h3= dl.lang
       - if user_signed_in?

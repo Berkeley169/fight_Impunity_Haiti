@@ -74,3 +74,13 @@ en:
   created: Created
   today: '#!# today'
   yesterday: '#!# yesterday'
+  english: English
+  creole: Creole
+  spanish: Spanish
+  french: French
+  main_category: main category
+  type: type
+  english_description: English description
+  french_description: French description
+  spanish_description: Spanish description
+  creole_description: Creole description
