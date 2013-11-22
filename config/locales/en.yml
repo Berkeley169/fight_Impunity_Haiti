@@ -68,3 +68,13 @@ en:
   deleteuserconfirm: ! 'Are you user you want to delete user '
   adduser: Add User
   manageusers: Manage Users
+  english: English
+  creole: Creole
+  spanish: Spanish
+  french: French
+  main_category: main category
+  type: type
+  english_description: English description
+  french_description: French description
+  spanish_description: Spanish description
+  creole_description: Creole description
