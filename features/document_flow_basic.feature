@@ -7,13 +7,13 @@ Feature: basic document flow should work
 Scenario: allow editor to create document and send it to new
 	Given that I am signed in as an editor
 	And  then there is a picture named "foobar"
-	And I am on the new documents path
+	And I am on the new documents page
 	Then I should see "foobar"
 
 Scenario: allow manager to create document and send it to new
 	Given that I am signed in as an manager 
 	And  then there is a picture named "foobar"
-	And I am on the new documents path
+	And I am on the new documents page
 	Then I should see "foobar"
 
 Scenario: allow manager to submit document from new to published

@@ -22,14 +22,10 @@
             %img{:src => "/assets/#{locale_to_word}-32.png"}
             %b.caret
           %ul.dropdown-menu
-            - if get_locale != :en
-              %li= link_to '', {:locale => 'en'}, {:id => 'EnglishFlag'}
-            - if get_locale != :fr
-              %li= link_to '', {:locale => 'fr'}, {:id => 'FrenchFlag'}
-            - if get_locale != :ht
-              %li= link_to '', {:locale => 'ht'}, {:id => 'CreoleFlag'}
-            - if get_locale != :es
-              %li= link_to '', {:locale => 'es'}, {:id => 'SpanishFlag'}
+            %li= link_to '', {:locale => 'en'}, {:id => 'EnglishFlag'}
+            %li= link_to '', {:locale => 'fr'}, {:id => 'FrenchFlag'}
+            %li= link_to '', {:locale => 'ht'}, {:id => 'CreoleFlag'}
+            %li= link_to '', {:locale => 'es'}, {:id => 'SpanishFlag'}
         - unless current_user
           %li= link_to t(:login), new_user_session_path, { :class => 'auth' }
         - else 

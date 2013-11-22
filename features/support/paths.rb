@@ -22,7 +22,7 @@ module NavigationHelpers
     when /^the edit profile page$/ then '/dashboard/users/1/edit'
     when /^the password recovery page$/ then '/sessions/password/new'
     when /^the password page$/ then '/sessions/password'
-    when /^the new documents path/ then '/dashboard/new'
+    when /^the new documents page$/ then '/dashboard/new'
     when /^the published documents path/ then '/dashboard/published'
 
     # Paths for showing items, lookup on the name field
@@ -79,6 +79,8 @@ module NavigationHelpers
 
     when /^the new text page for text type "(.*)"$/
       new_text_path(:subtype => $1)
+    when /^the create document page$/
+      new_document_choice_path
 
     #Paths for type indexes
     when /^the binary index page$/
