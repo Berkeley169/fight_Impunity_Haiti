@@ -1,19 +1,22 @@
-.doc_index_partial
-  = image_tag '/assets/text_icon.png'
-  %h2= document.relevant_title(document,current_user)
-  %p
-  = document.date
-  - document.send((document.class.to_s.downcase + "_langs").to_sym).each do |dl|
-    - if dl.status == "published"
-      %p{:class => "published"}= dl.lang
-    - else
-      %p{:class => "notpublished"}= dl.lang
-
-
-  %br
-  = link_to t(:show), document 
-  - if current_user
-    = link_to t(:edit), [:edit, document]
-  - if @permissions == "Manager"
-    = link_to t(:destroy), [:destroy, document], :data => { :confirm => t(:areyousure) }
-  %br
+%tr
+  %td.type-and-langs{ :align => 'center' }
+    .type
+      %img{ :src => '/assets/text_icon.png', :height => "32", :width => "32"}
+    .langs
+      - document.send((document.class.to_s.downcase + "_langs").to_sym).each do |dl|
+        - if dl.status == "published"
+          %img{:src => "/assets/#{dl.lang}-16.png", :height => "16", :width => "16"}
+        - else
+          %img{:src => "/assets/#{dl.lang}-gray-16.png"}
+  %td.title-and-description
+    %h3= doc_title(document)
+    %h5= doc_description(document)
+  %td.date{ :align => 'center' }
+    %p="#{t(:created)} #{pretty_date(document.date)}"
+  %td.space
+  %td.actions{ :align => 'center' }
+    = link_to "#{t(:show)}", document 
+    - if current_user
+      = link_to "#{t(:edit)}", [:edit, document]
+    - if @permissions == "Manager"
+      = link_to "#{t(:destroy)}", [:destroy, document], :data => { :confirm => "#{t(:areyousure)}" }

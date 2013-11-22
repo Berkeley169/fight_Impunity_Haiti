@@ -7,6 +7,8 @@ en:
   about: About
   contact: Contact
   fight: Fight Impunity in Haiti
+  fightimpunity: Fight Impunity
+  inhaiti: in Haiti
   texts: Texts
   pictures: Pictures
   video: Video
@@ -23,7 +25,7 @@ en:
   show: Show
   destroy: Destroy
   save: Save
-  download: ! 'Download: '
+  download: 'Download: '
   submitadocument: Submit a Document
   webarticle: Web Article
   journalarticle: Journal Article
@@ -49,11 +51,12 @@ en:
   forgotpassword: Forgot your password?
   didntreceiveconfirmation: Didn't receive confirmation instructions?
   didntreceiveunlock: Didn't receive unlock instructions?
-  signinwith: ! 'Sign in with '
+  signinwith: 'Sign in with '
   resendunlock: Resend unlock instructions
-  loggedinas: ! 'Logged in as: '
+  loggedinas: 'Logged in as: '
   editprofile: Edit Profile
   signout: Sign out
+  dashboard: Dashboard
   dashboardhome: Dashboard Home
   published: Published
   inprogress: In Progress
@@ -65,6 +68,9 @@ en:
   newtag: New Tag
   backtodashboard: Back to Dashboard
   delete: Delete
-  deleteuserconfirm: ! 'Are you user you want to delete user '
+  deleteuserconfirm: 'Are you user you want to delete user '
   adduser: Add User
   manageusers: Manage Users
+  created: Created
+  today: '#!# today'
+  yesterday: '#!# yesterday'
