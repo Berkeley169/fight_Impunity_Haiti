@@ -1,0 +1,31 @@
+
+/ <%= form_tag("/search", method: "get") do %>
+/   <%= label_tag(:q, "Search for:") %>
+/   <%= text_field_tag(:q) %>
+/   <%= submit_tag("Search") %>
+/ <% end %>
+
+= form_tag "/pages/contact", method:"post" do
+
+	.field
+		= label_tag :name
+		= text_field_tag :name
+
+	.field
+		= label_tag :phone_number
+		= text_field_tag :phone_number
+
+	.field
+		= label_tag :subject
+		= select_tag(:option, options_for_select([["Bug", 1], ["Comment", 2], ["Question", 3]], selected: :option ))
+
+	.field
+		= label_tag :email
+		= text_field_tag :email
+
+	.field
+		= label_tag :reason
+		= text_area_tag :reason
+
+	%br
+	= submit_tag "Submit"

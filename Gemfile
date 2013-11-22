@@ -7,6 +7,7 @@ gem 'rails', '3.2.13'
 
 gem 'pg'
 gem 'haml-rails'
+#gem 'recaptcha', :require => "recaptch/rails"
 gem 'autotest'
 gem 'spork'
 gem 'metric_fu'

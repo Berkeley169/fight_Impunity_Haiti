@@ -6,4 +6,9 @@ class Notifier < ActionMailer::Base
   mail = mail(to: recipient.email,
        bcc: ["dummy@email.com", "Order Watcher <watcher@example.com>"])
   end
+
+  def contact_us(recipient, sub)
+  	mail = mail(to: recipient.email,
+  		subject: "FightImpunityHaiti: #{sub}")
+
 end
