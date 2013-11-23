@@ -5,34 +5,66 @@
       %ul
         - @document.errors.full_messages.each do |msg|
           %li= msg
-  .field
-    = f.label :name
-    = f.text_field :name
 
-  .field
-    = f.label :date
-    = f.date_select :date
+  - if auth_to_edit_meta(@document)
+    .field
+      = f.label :name
+      = f.text_field :name
 
-  = render params[:type].singularize + '_form', :f => f
+    .field
+      = f.label :date
+      = f.date_select :date, start_year: 1850, end_year: Date.today.year
+    = render params[:type].singularize + '_form', :f => f
+  - else
+    %b Name: 
+    = @document.name
+    %br
+    %b Date: 
+    = @document.date
+    %br 
+    - if @doc_type == Text
+      = f.hidden_field :subtype, :value => @text_subtype
+      = render 'text_subtypes'
+    - else
+      = render 'show_' + @doc_type_sym.to_s
+   
 
   = f.fields_for @langs_sym do |dl|
-    %h4= dl.object.lang
-    .field
-      = dl.label :title
-      = dl.text_field :title
-    = dl.hidden_field :lang
-    - if params[:type] == "texts"
-      .field
-        = dl.label :plain_text
-        = dl.text_area :plain_text, :class => 'ckeditor'
-        = dl.file_field :txt
-    .field
-      = dl.label :description
-      = dl.text_field :description, :size => 150
-    - if @permissions
-      .field
+    - if auth_to_edit_lang(dl.object)
+      %h4= dl.object.lang
+      .field{:id => 'document_lang_' + dl.object.lang.downcase + '_title'}
+        = dl.label :title
+        = dl.text_field :title
+      = dl.hidden_field :lang
+      - if params[:type] == "texts"
+        .field{:id => 'document_lang_' + dl.object.lang.downcase + '_plain_text'}
+          = dl.label :plain_text
+          = dl.text_area :plain_text, :class => 'ckeditor'
+          = dl.file_field :txt
+      .field{:id => 'document_lang_' + dl.object.lang.downcase + '_description'}
+        = dl.label :description
+        = dl.text_field :description, :size => 150
+    - else
+      %h4= dl.object.lang
+      = dl.hidden_field :lang
+      %b Title:
+      = dl.object.title
+      %br
+      - if params[:type] == "texts"
+        %b Content:
+        %br
+        = dl.object.plain_text.html_safe
+      %b Description:
+      %br
+      = dl.object.description
+      %br
+    - if auth_to_edit_status(dl.object)
+      .field{:id => 'document_lang_' + dl.object.lang.downcase + '_status'}
         = dl.label :status
-        = dl.select :status, Item::STATUSES
+        = dl.select :status, Item.status_options(current_user)
+    - else 
+      %b Publication status: 
+      %b{:class => dl.object.status}= dl.object.status.humanize.titleize
   %br
 
   .field

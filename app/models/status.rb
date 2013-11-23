@@ -35,4 +35,9 @@ module Status
     self.pending = pending?
     self.rejected = rejected?
   end
+
+  def new_document?
+    self.new? and not self.in_progress? and not self.pending? and not self.published? and not self.rejected?
+  end
+
 end

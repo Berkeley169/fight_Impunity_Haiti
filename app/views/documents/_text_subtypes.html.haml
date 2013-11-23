@@ -1,0 +1,6 @@
+%p
+  - @document.subtype_fields.keys.each do |f|
+    %p
+      %b= "#{f.to_s.titleize}"
+      = @document.subtype_fields[f]
+
