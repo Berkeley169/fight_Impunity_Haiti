@@ -14,12 +14,13 @@
         %li= link_to t(:home), '/'
         %li= link_to t(:about), {:controller => '/pages', :action => 'about'}
         %li= link_to t(:contact), {:controller => '/pages', :action => 'contact'}
+        %li= link_to t(:donations_title), {:controller => '/pages', :action => 'donate'}
         //%li= link_to t(:dashboard), dashboard_index_path
         - if user_signed_in?
           = render "partials/dashboard_nav_#{current_user.role}"
         %li.languages.dropdown
           %a.dropper{:href => '#', :class => 'dropdown-toggle', 'data-toggle' => 'dropdown'} 
-            %img{:src => "/assets/#{locale_to_word}-32.png"}
+            %img{:src => "/assets/#{locale_to_word.capitalize}-32.png"}
             %b.caret
           %ul.dropdown-menu
             %li= link_to '', {:locale => 'en'}, {:id => 'EnglishFlag'}
