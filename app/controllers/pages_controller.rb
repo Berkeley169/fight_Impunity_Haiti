@@ -19,8 +19,8 @@ class PagesController < ApplicationController
   	# 	redirect_to '/'
   	# end
   	Notifier.send_contact_request(@sub).deliver
-  	#flash[:notice] = :contact_thanks
-  	#redirect_to '/'
+  	flash[:notice] = t(:contact_thanks)
+  	redirect_to '/'
   end
 
   def about
