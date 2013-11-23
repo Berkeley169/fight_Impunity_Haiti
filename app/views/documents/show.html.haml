@@ -1,6 +1,6 @@
 %p
   %b Name:
-  = @document.name
+  = @document.relevant_title(@document,@relevant_langs)
   %br
   %b Date:
   = @document.date
@@ -11,17 +11,18 @@
 %p
   - @document_langs.each do |dl|
     - if auth_to_view(dl)
-      %h3= dl.lang
-      - if user_signed_in?
-        %b Publication status: 
-        %b{:class => dl.status}= dl.status.humanize.titleize
-      %p
-        %b Title:
-        = dl.title
-        %br
-        %b Description:
-        %br
-        = dl.description
+      /*%div{id: "doc_info_#{dl.lang}"}*/
+        %h3= dl.lang
+        - if user_signed_in?
+          %b Publication status: 
+          %b{:class => dl.status}= dl.status.humanize.titleize
+        %p
+          %b Title:
+          = dl.title
+          %br
+          %b Description:
+          %br
+          = dl.description
 - if user_signed_in?  
   %p
     %b Notes:

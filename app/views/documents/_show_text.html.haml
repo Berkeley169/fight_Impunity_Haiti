@@ -2,8 +2,7 @@
   %p.display_text
   - if dl.txt.url != '/txts/original/missing.png'
     %b File:
-    /%iframe{:src => dl.txt.url, :class => 'pdf'}
-    %object{:data => dl.txt.url, :type => 'application/pdf'}
+    %object.pdf{:data => dl.txt.url, :type => 'application/pdf'}
       = link_to "Click Here for Download", dl.txt.url
   - else
     = dl.plain_text.html_safe

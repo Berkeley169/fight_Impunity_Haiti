@@ -1,6 +1,6 @@
 .doc_index_partial
   = image_tag '/assets/text_icon.png'
-  %h2= document.relevant_title(document,current_user)
+  %h2= document.relevant_title(document,@relevant_langs)
   %p
   = document.date
   - document.send((document.class.to_s.downcase + "_langs").to_sym).each do |dl|

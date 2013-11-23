@@ -67,18 +67,20 @@ class UsersController < ApplicationController
   def update
     if User.exists?(params[:id])
       @user = User.find(params[:id])
+      edit_user(@user)
       if params[:user]["password"] == "" and params[:user]["password_confirmation"] == ""
-        params[:user].delete("password")
-        params[:user].delete("password_confirmation")
+        status = @user.save(validate:false)
+      else
+        status = @user.save
+        if @editing_self
+          sign_in @user, :bypass => true
+        end
       end
-      if @user.update_attributes(params[:user])
+      if status
         redirect_to @user, notice: "User successfully updated"
       else
         redirect_to edit_user_path, notice: "An error occurred, please check the user fields"
       end
-    else
-      flash[:notice] = 'user number ' + params[:id].to_s + " doesn't exist"
-      redirect_to users_path
     end
   end
 
@@ -92,7 +94,7 @@ class UsersController < ApplicationController
 
   def edit_user(user)
     for field in params[:user].keys
-      eval "user.#{field} = params[:edit_user][field]"
+      eval "user.#{field} = params[:user][field]"
     end
   end
 
@@ -101,7 +103,8 @@ class UsersController < ApplicationController
       redirect_to new_user_session_path
       return
     end
-    if editing_self
+    @editing_self = editing_self
+    if @editing_self
       return
     elsif not_manager_or_tech
       flash[:notice] = "You are not permitted to do that"

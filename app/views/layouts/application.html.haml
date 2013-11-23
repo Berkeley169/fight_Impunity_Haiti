@@ -23,11 +23,15 @@
               %li= link_to t(:login), new_user_session_path
             -else 
               %li= link_to t(:logout), sessions_logout_path
-            - if user_signed_in?
-              = render "partials/dashboard_nav_#{current_user.role}"
+              %li= link_to t(:editprofile), edit_user_path(:id => current_user.id)
+          -if current_user
+            %div#user_name= "#{current_user.name}"
           = render 'partials/languages'
     .rule_bl
-    .container
+    - if user_signed_in?
+      %div#sidebar
+        = render "partials/dashboard_nav_#{current_user.role}"
+    .container#main_content
       %p= flash[:notice]
       / %p= "#{flash[:notice]}"
       = yield

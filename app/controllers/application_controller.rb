@@ -50,6 +50,9 @@ class ApplicationController < ActionController::Base
       session[:locale] = params[:locale]
     elsif session[:locale]
       I18n.locale = session[:locale] || I18n.default_locale
+    elsif current_user
+      langs = {'French'=>'fr','English'=>'en','Creole'=>'ht','Spanish'=>'es'} 
+      I18n.locale = langs[current_user.lang] || I18n.default_locale
     else
       I18n.locale = params[:locale] || I18n.default_locale
     end
