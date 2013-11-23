@@ -1,7 +1,21 @@
 %h1= "Listing #{params[:type].to_s.titleize}"
 
+/ TODO: LOCALIZE
 .content
-  = render :partial => 'document_quickview', :collection => @documents, :as => :document
+  %table.doc-list
+    %thead  
+      %tr
+        %td.type-and-langs{ :align => 'center' }
+          Type and Langs Published
+        %td.title-and-description{ :align => 'center' }
+          Title and Description
+        %td.date{ :align => 'center' }
+          Date created
+        %td.space
+        %td.actions{ :align => 'center' }
+          Actions
+    %tbody
+      = render :partial => 'document_quickview', :collection => @documents, :as => :document
 %br
 
 = link_to t(:submitadocument), new_document_choice_path
