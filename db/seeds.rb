@@ -17,3 +17,11 @@ text.text_langs_attributes = [
       { lang: "Spanish", title: "Title", status: "new", plain_text: "content" },
     ]
 text.save!
+
+# Tag.create!(:english => "History", :french => "Histoire", :spanish => "Historia", :creole => "Istwa", :cat => "main")
+# Tag.create!(:english => "Duvalier in exile", :french => "Duvalier en exil", :spanish => "Duvalier en el exilio", :creole => "Duvalye in egzil", :cat => "main")
+# Tag.create!(:english => "The return", :french => "Le retour", :spanish => "El regreso", :creole => "Retou", :cat => "main")
+# Tag.create!(:english => "Obligation to Remember", :french => "Devoir de memoire", :spanish => "Obligación para recordar", :creole => "Obligasyon pou n sonje ", :cat => "main")
+# Tag.create!(:english => "Virtual Exposition", :french => "Exposition virtuelle", :spanish => "Exposición Virtual", :creole => "Ekspozisyon vityel", :cat => "main")
+
+
