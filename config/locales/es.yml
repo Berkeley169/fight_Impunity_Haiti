@@ -9,7 +9,7 @@ es:
   fight: ! '#!# fight'
   texts: escrito
   pictures: fotos
-  picture: foto
+  picture: ! '#!# picture'
   video: vídeo
   welcomemessage: ! '#!# welcomemessage'
   audio: sonido
@@ -85,7 +85,6 @@ es:
   status: ! '#!# status'
   notes: ! '#!# notes'
   file: ! '#!# file'
-  picture: ! '#!# picture'
   click_here_for_download: ! '#!# click_here_for_download'
   editing: ! '#!# editing'
   document: ! '#!# document'
@@ -99,4 +98,7 @@ es:
   videos: ! '#!# videos'
   tags_management: ! '#!# tags_management'
   donations_title: Donaciones
-  donation_splash: Estamos trabajando currenlty sobre cómo configurar las donaciones. Utilice el formulario de contacto para ponerse en contacto con nosotros en este momento.
+  donation_splash: Estamos trabajando currenlty sobre cómo configurar las donaciones.
+    Utilice el formulario de contacto para ponerse en contacto con nosotros en este
+    momento.
+  content: ! '#!# content'

@@ -94,7 +94,6 @@ en:
   status: status
   notes: notes
   file: File
-  picture: Picture
   click_here_for_download: Click here for Download
   editing: Editing
   document: Document
@@ -108,4 +107,6 @@ en:
   actions: Actions
   tags_management: Manage Tags
   donations_title: Donations
-  donation_splash: We are currenlty working on how to set up donations. Please use the contact form to get in contact with us at the moment.
+  donation_splash: We are currenlty working on how to set up donations. Please use
+    the contact form to get in contact with us at the moment.
+  content: Content

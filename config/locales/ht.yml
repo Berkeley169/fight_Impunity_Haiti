@@ -9,7 +9,7 @@ ht:
   fight: ! '#!# fight'
   texts: tèks
   pictures: Foto
-  picture: Foto
+  picture: ! '#!# picture'
   video: Videyo
   welcomemessage: ! '#!# welcomemessage'
   audio: son
@@ -85,7 +85,6 @@ ht:
   status: ! '#!# status'
   notes: ! '#!# notes'
   file: ! '#!# file'
-  picture: ! '#!# picture'
   click_here_for_download: ! '#!# click_here_for_download'
   editing: ! '#!# editing'
   document: ! '#!# document'
@@ -100,4 +99,6 @@ ht:
   videos: ! '#!# videos'
   tags_management: jere Tags
   donations_title: Donasyon
-  donation_splash: Nou ap currenlty ap travay sou ki jan yo mete kanpe donasyon. Tanpri itilize fòm nan kontak yo ka resevwa an kontak ak nou nan moman an.
+  donation_splash: Nou ap currenlty ap travay sou ki jan yo mete kanpe donasyon. Tanpri
+    itilize fòm nan kontak yo ka resevwa an kontak ak nou nan moman an.
+  content: ! '#!# content'

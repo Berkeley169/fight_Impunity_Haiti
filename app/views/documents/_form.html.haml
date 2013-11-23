@@ -16,10 +16,10 @@
       = f.date_select :date, start_year: 1850, end_year: Date.today.year
     = render params[:type].singularize + '_form', :f => f
   - else
-    %b Name: 
+    %b= t(:name) + ":" 
     = @document.name
     %br
-    %b Date: 
+    %b= t(:date) + ":" 
     = @document.date
     %br 
     - if @doc_type == Text
@@ -47,14 +47,14 @@
     - else
       %h4= dl.object.lang
       = dl.hidden_field :lang
-      %b Title:
+      %b= t(:title) +":"
       = dl.object.title
       %br
       - if params[:type] == "texts"
-        %b Content:
+        %b= t(:content) + ":"
         %br
         = dl.object.plain_text.html_safe
-      %b Description:
+      %b= t(:description) +":"
       %br
       = dl.object.description
       %br
@@ -63,7 +63,7 @@
         = dl.label t(:status)
         = dl.select :status, Item.status_options(current_user)
     - else 
-      %b Publication status: 
+      %b= t(:publication_status) + ":" 
       %b{:class => dl.object.status}= dl.object.status.humanize.titleize
   %br
 

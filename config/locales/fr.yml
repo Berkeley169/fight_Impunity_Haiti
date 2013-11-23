@@ -9,7 +9,7 @@ fr:
   fight: ! '#!# fight'
   texts: texte
   pictures: photos
-  picture: photo
+  picture: ! '#!# picture'
   video: vidéo
   welcomemessage: ! '#!# welcomemessage'
   audio: son
@@ -85,7 +85,6 @@ fr:
   status: ! '#!# status'
   notes: ! '#!# notes'
   file: ! '#!# file'
-  picture: ! '#!# picture'
   click_here_for_download: ! '#!# click_here_for_download'
   editing: ! '#!# editing'
   document: ! '#!# document'
@@ -100,4 +99,7 @@ fr:
   videos: ! '#!# videos'
   tags_management: gérer les tags
   donations_title: Dons
-  donation_splash: Nous travaillons sur currenlty comment mettre en place les dons. S'il vous plaît utilisez le formulaire de contact pour entrer en contact avec nous en ce moment.
+  donation_splash: Nous travaillons sur currenlty comment mettre en place les dons.
+    S'il vous plaît utilisez le formulaire de contact pour entrer en contact avec
+    nous en ce moment.
+  content: ! '#!# content'
