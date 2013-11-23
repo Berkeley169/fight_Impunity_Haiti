@@ -9,6 +9,7 @@ ht:
   fight: ! '#!# fight'
   texts: tèks
   pictures: Foto
+  picture: Foto
   video: Videyo
   welcomemessage: ! '#!# welcomemessage'
   audio: son
@@ -76,3 +77,4 @@ ht:
   french_description: ! '#!# french__description'
   spanish_description: ! '#!# spanish_description'
   creole_description: ! '#!# creole_description'
+  videos: ! '#!# videos'

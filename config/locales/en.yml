@@ -9,6 +9,7 @@ en:
   fight: Fight Impunity in Haiti
   texts: Texts
   pictures: Pictures
+  picture: Picture
   video: Video
   welcomemessage: We are a group of activists, developers, students, and professionals
     alike who are dedicated to fighting impunity for human rights violations in Haiti
@@ -78,3 +79,4 @@ en:
   french_description: French description
   spanish_description: Spanish description
   creole_description: Creole description
+  videos: ! '#!# videos'

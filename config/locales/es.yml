@@ -9,7 +9,8 @@ es:
   fight: ! '#!# fight'
   texts: escrito
   pictures: fotos
-  video: vídeos
+  picture: foto
+  video: vídeo
   welcomemessage: ! '#!# welcomemessage'
   audio: sonido
   other: otro
@@ -76,3 +77,4 @@ es:
   french_description: ! '#!# french__description'
   spanish_description: ! '#!# spanish_description'
   creole_description: ! '#!# creole_description'
+  videos: ! '#!# videos'
