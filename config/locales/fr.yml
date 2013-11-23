@@ -7,12 +7,13 @@ fr:
   about: ! '#!# about'
   contact: ! '#!# contact'
   fight: ! '#!# fight'
-  texts: ! '#!# texts'
-  pictures: ! '#!# pictures'
-  video: ! '#!# video'
+  texts: texte
+  pictures: photos
+  picture: photo
+  video: vidéo
   welcomemessage: ! '#!# welcomemessage'
-  audio: ! '#!# audio'
-  other: ! '#!# other'
+  audio: son
+  other: autre
   underconstruction: ! '#!# underconstruction'
   edit: ! '#!# edit'
   back: ! '#!# back'
@@ -43,7 +44,7 @@ fr:
   areyousure: ! '#!# areyousure'
   turnoff: ! '#!# turnoff'
   signup: ! '#!# signup'
-  signin: ! '#!# signin'
+  signin: Connexion
   forgotpassword: ! '#!# forgotpassword'
   didntreceiveconfirmation: ! '#!# didntreceiveconfirmation'
   didntreceiveunlock: ! '#!# didntreceiveunlock'
@@ -53,7 +54,7 @@ fr:
   editprofile: ! '#!# editprofile'
   signout: ! '#!# signout'
   dashboardhome: ! '#!# dashboardhome'
-  published: ! '#!# published'
+  published: publié
   inprogress: ! '#!# inprogress'
   pending: ! '#!# pending'
   new: ! '#!# new'
@@ -66,10 +67,10 @@ fr:
   deleteuserconfirm: ! '#!# deleteuserconfirm'
   adduser: ! '#!# adduser'
   manageusers: ! '#!# manageusers'
-  english: ! '#!# english'
-  creole: ! '#!# creole'
-  spanish: ! '#!# spanish'
-  french: ! '#!# french'
+  english: Anglais
+  creole: créole
+  spanish: espagnol
+  french: français
   main_category: ! '#!# main_category'
   type: ! '#!# type'
   english_description: ! '#!# english_description'
@@ -96,3 +97,7 @@ fr:
   title_and_description: ! '#!# title_and_description'
   date_created: ! '#!# date_created'
   actions: ! '#!# actions'
+  videos: ! '#!# videos'
+  tags_management: gérer les tags
+  donations_title: Dons
+  donation_splash: Nous travaillons sur currenlty comment mettre en place les dons. S'il vous plaît utilisez le formulaire de contact pour entrer en contact avec nous en ce moment.

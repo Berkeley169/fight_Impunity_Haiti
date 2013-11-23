@@ -12,6 +12,7 @@ FightImpunityHaiti::Application.routes.draw do
   match 'pages/contact' => 'pages#contact'
   match 'pages/about' => 'pages#about'
   match 'dashboard' => 'dashboard#index'
+  match 'pages/donate' => 'pages#donate'
 
   get   '/pictures', :to => 'documents#index', :as => :pictures, :type => "pictures"
   get '/pictures/new' => 'documents#new', :as => :new_picture, :type => "pictures"

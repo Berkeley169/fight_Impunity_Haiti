@@ -11,7 +11,9 @@ en:
   inhaiti: in Haiti
   texts: Texts
   pictures: Pictures
+  picture: Picture
   video: Video
+  videos: videos
   welcomemessage: We are a group of activists, developers, students, and professionals
     alike who are dedicated to fighting impunity for human rights violations in Haiti
     over the last century.  Currently this site is a work in progress.  We are making
@@ -104,3 +106,6 @@ en:
   title_and_description: Title and Description
   date_created: Date created
   actions: Actions
+  tags_management: Manage Tags
+  donations_title: Donations
+  donation_splash: We are currenlty working on how to set up donations. Please use the contact form to get in contact with us at the moment.
