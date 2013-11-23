@@ -1,5 +1,33 @@
 ---
 fr:
+  date:
+    order:
+    - :day
+    - :month
+    - :year
+    formats:
+      default: ! '%Y-%m-%d'
+    day_names:
+    - #!# Sunday
+    - #!# Monday
+    - #!# Tuesday
+    - #!# Wednesday
+    - #!# Thursday
+    - #!# Friday
+    - #!# Saturday
+    month_names:
+    - #!# January
+    - #!# February
+    - #!# March
+    - #!# April
+    - #!# May
+    - #!# June
+    - #!# July
+    - #!# August
+    - #!# September
+    - #!# October
+    - #!# November
+    - #!# December
   hello: Hello world in French
   login: Identifiez-vous
   subcategories: ! '#!# subcategories'
@@ -103,3 +131,4 @@ fr:
     S'il vous plaît utilisez le formulaire de contact pour entrer en contact avec
     nous en ce moment.
   content: ! '#!# content'
+  date_string: ! '#!# date_string'

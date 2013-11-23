@@ -1,5 +1,33 @@
 ---
 en:
+  date:
+    order:
+    - :month
+    - :day
+    - :year
+    formats:
+      default: ! '%Y-%m-%d'
+    day_names:
+    - Sunday
+    - Monday
+    - Tuesday
+    - Wednesday
+    - Thursday
+    - Friday
+    - Saturday
+    month_names:
+    - January
+    - February
+    - March
+    - April
+    - May
+    - June
+    - July
+    - August
+    - September
+    - October
+    - November
+    - December
   hello: Hello world in English
   login: Login
   subcategories: subcategories
@@ -87,7 +115,6 @@ en:
   spanish_description: Spanish description
   creole_description: Creole description
   name: name
-  date: date
   title: title
   plain_text: plain text
   description: description
@@ -110,3 +137,4 @@ en:
   donation_splash: We are currenlty working on how to set up donations. Please use
     the contact form to get in contact with us at the moment.
   content: Content
+  date_string: Date
