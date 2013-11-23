@@ -13,6 +13,7 @@ en:
   pictures: Pictures
   picture: Picture
   video: Video
+  videos: videos
   welcomemessage: We are a group of activists, developers, students, and professionals
     alike who are dedicated to fighting impunity for human rights violations in Haiti
     over the last century.  Currently this site is a work in progress.  We are making
@@ -26,7 +27,7 @@ en:
   show: Show
   destroy: Destroy
   save: Save
-  download: 'Download: '
+  download: ! 'Download: '
   submitadocument: Submit a Document
   webarticle: Web Article
   journalarticle: Journal Article
@@ -52,9 +53,9 @@ en:
   forgotpassword: Forgot your password?
   didntreceiveconfirmation: Didn't receive confirmation instructions?
   didntreceiveunlock: Didn't receive unlock instructions?
-  signinwith: 'Sign in with '
+  signinwith: ! 'Sign in with '
   resendunlock: Resend unlock instructions
-  loggedinas: 'Logged in as: '
+  loggedinas: ! 'Logged in as: '
   editprofile: Edit Profile
   signout: Sign out
   dashboard: Dashboard
@@ -69,12 +70,12 @@ en:
   newtag: New Tag
   backtodashboard: Back to Dashboard
   delete: Delete
-  deleteuserconfirm: 'Are you user you want to delete user '
+  deleteuserconfirm: ! 'Are you user you want to delete user '
   adduser: Add User
   manageusers: Manage Users
   created: Created
-  today: '#!# today'
-  yesterday: '#!# yesterday'
+  today: ! '#!# today'
+  yesterday: ! '#!# yesterday'
   english: English
   creole: Creole
   spanish: Spanish
@@ -85,4 +86,5 @@ en:
   french_description: French description
   spanish_description: Spanish description
   creole_description: Creole description
-  videos: ! '#!# videos'
+
+  tags_management: Manage Tags
