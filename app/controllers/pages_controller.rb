@@ -7,10 +7,18 @@ class PagesController < ApplicationController
   end
 
   def email
-  	#@form_data = params
-  	# @public_user
-  	# @sub
-  	#Notifier.send_contact_request(@public_user, @sub).deliver
+  	#@form_data = params[:email]
+  	@name = params[:name]
+  	@sub = params[:sub]
+  	@pnum = params[:phone_number]
+  	@body = params[:reason]
+  	@email = params[:email]
+  	# if params[:reason]
+  	# 	redirect_to '/pages/about'
+  	# else
+  	# 	redirect_to '/'
+  	# end
+  	Notifier.send_contact_request(@sub).deliver
   	#flash[:notice] = :contact_thanks
   	#redirect_to '/'
   end
