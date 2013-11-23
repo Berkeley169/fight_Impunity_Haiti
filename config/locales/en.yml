@@ -74,8 +74,8 @@ en:
   adduser: Add User
   manageusers: Manage Users
   created: Created
-  today: ! '#!# today'
-  yesterday: ! '#!# yesterday'
+  today: Today
+  yesterday: Yesterday
   english: English
   creole: Creole
   spanish: Spanish
@@ -86,6 +86,27 @@ en:
   french_description: French description
   spanish_description: Spanish description
   creole_description: Creole description
+  name: name
+  date: date
+  title: title
+  plain_text: plain text
+  description: description
+  status: status
+  notes: notes
+  file: File
+  click_here_for_download: Click here for Download
+  editing: Editing
+  document: Document
+  publication_status: Publication status
+  select_document_type: Please select a document type from the list below
+  select_document_upload_type: Please select a type of document to upload
+  listing: Listing
+  type_and_langs_published: Type and Langs Published
+  title_and_description: Title and Description
+  date_created: Date created
+  actions: Actions
   tags_management: Manage Tags
   donations_title: Donations
-  donation_splash: We are currenlty working on how to set up donations. Please use the contact form to get in contact with us at the moment.
+  donation_splash: We are currenlty working on how to set up donations. Please use
+    the contact form to get in contact with us at the moment.
+  content: Content

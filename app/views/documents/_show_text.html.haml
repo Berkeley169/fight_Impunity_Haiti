@@ -4,7 +4,7 @@
     %b File:
     /%iframe{:src => dl.txt.url, :class => 'pdf'}
     %object{:data => dl.txt.url, :type => 'application/pdf'}
-      = link_to "Click Here for Download", dl.txt.url
+      = link_to t(:click_here_for_download), dl.txt.url
   - else
     = dl.plain_text.html_safe
     %br
