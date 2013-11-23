@@ -11,7 +11,7 @@ class Sound < ActiveRecord::Base
   belongs_to :item
   validates :name, :presence => true
   validates_attachment :snd, :presence => true,
-            :content_type => {:content_type => ['audio/mpeg3', 'audio/mpeg']}
+            :content_type => {:content_type => ['audio/mpeg3', 'audio/mpeg', 'audio/mp3']}
   after_validation :set_statuses
   has_and_belongs_to_many :tags
 
