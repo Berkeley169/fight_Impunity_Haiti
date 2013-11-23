@@ -1,5 +1,5 @@
 %p
-  %b Please select a document type from the list below:
+  %b= t(:select_document_type) + ":"
 %p
   /%button{:type => "button", :class => "btn"}
   = link_to t(:webarticle), new_text_path(:subtype => 'web')

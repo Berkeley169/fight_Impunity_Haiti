@@ -1,4 +1,4 @@
-%h1= "Editting #{@doc_type_sym.to_s.titleize} Document"
+%h1= t(:editing) + " #{@doc_type_sym.to_s.titleize} " + t(:document)
 
 = render 'form'
 

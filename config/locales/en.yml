@@ -25,7 +25,7 @@ en:
   show: Show
   destroy: Destroy
   save: Save
-  download: 'Download: '
+  download: ! 'Download: '
   submitadocument: Submit a Document
   webarticle: Web Article
   journalarticle: Journal Article
@@ -51,9 +51,9 @@ en:
   forgotpassword: Forgot your password?
   didntreceiveconfirmation: Didn't receive confirmation instructions?
   didntreceiveunlock: Didn't receive unlock instructions?
-  signinwith: 'Sign in with '
+  signinwith: ! 'Sign in with '
   resendunlock: Resend unlock instructions
-  loggedinas: 'Logged in as: '
+  loggedinas: ! 'Logged in as: '
   editprofile: Edit Profile
   signout: Sign out
   dashboard: Dashboard
@@ -68,12 +68,12 @@ en:
   newtag: New Tag
   backtodashboard: Back to Dashboard
   delete: Delete
-  deleteuserconfirm: 'Are you user you want to delete user '
+  deleteuserconfirm: ! 'Are you user you want to delete user '
   adduser: Add User
   manageusers: Manage Users
   created: Created
-  today: '#!# today'
-  yesterday: '#!# yesterday'
+  today: Today
+  yesterday: Yesterday
   english: English
   creole: Creole
   spanish: Spanish
@@ -84,3 +84,23 @@ en:
   french_description: French description
   spanish_description: Spanish description
   creole_description: Creole description
+  name: name
+  date: date
+  title: title
+  plain_text: plain text
+  description: description
+  status: status
+  notes: notes
+  file: File
+  picture: Picture
+  click_here_for_download: Click here for Download
+  editing: Editing
+  document: Document
+  publication_status: Publication status
+  select_document_type: Please select a document type from the list below
+  select_document_upload_type: Please select a type of document to upload
+  listing: Listing
+  type_and_langs_published: Type and Langs Published
+  title_and_description: Title and Description
+  date_created: Date created
+  actions: Actions
