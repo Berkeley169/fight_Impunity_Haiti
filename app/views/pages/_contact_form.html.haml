@@ -1,11 +1,6 @@
 
-/ <%= form_tag("/search", method: "get") do %>
-/   <%= label_tag(:q, "Search for:") %>
-/   <%= text_field_tag(:q) %>
-/   <%= submit_tag("Search") %>
-/ <% end %>
-
-= form_tag "/pages/contact", method:"post" do
+/= form_tag(:url => email_path, :method =>"put", :multipart => true) do
+= form_tag({:action => 'email'}, method: "post") do
 
 	.field
 		= label_tag :name
