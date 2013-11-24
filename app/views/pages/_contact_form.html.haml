@@ -1,4 +1,4 @@
-
+/= select_tag(:option, options_for_select([["Bug", 1], ["Comment", 2], ["Question", 3]], selected: :option ))
 = form_tag({:action => 'email'}, method: "post") do
 
 	.field
@@ -11,7 +11,7 @@
 
 	.field
 		= label_tag :subject
-		= select_tag(:option, options_for_select([["Bug", 1], ["Comment", 2], ["Question", 3]], selected: :option ))
+		= select_tag(:option, options_for_select(["Bug", "Comment", "Question"], selected: :option ))
 
 	.field
 		= label_tag :email
