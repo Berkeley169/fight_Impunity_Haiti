@@ -1,5 +1,33 @@
 ---
 ht:
+  date:
+    order:
+    - :day
+    - :month
+    - :year
+    formats:
+      default: ! '%Y-%m-%d'
+    day_names:
+    - '#!# Sunday'
+    - '#!# Monday'
+    - '#!# Tuesday'
+    - '#!# Wednesday'
+    - '#!# Thursday'
+    - '#!# Friday'
+    - '#!# Saturday'
+    month_names:
+    - '#!# January'
+    - '#!# February'
+    - '#!# March'
+    - '#!# April'
+    - '#!# May'
+    - '#!# June'
+    - '#!# July'
+    - '#!# August'
+    - '#!# September'
+    - '#!# October'
+    - '#!# November'
+    - '#!# December'
   hello: Hello world in creole
   login: Identifiez-vous
   subcategories: ! '#!# subcategories'
@@ -9,7 +37,7 @@ ht:
   fight: ! '#!# fight'
   texts: tèks
   pictures: Foto
-  picture: Foto
+  picture: ! '#!# picture'
   video: Videyo
   welcomemessage: ! '#!# welcomemessage'
   audio: son
@@ -77,8 +105,29 @@ ht:
   french_description: ! '#!# french__description'
   spanish_description: ! '#!# spanish_description'
   creole_description: ! '#!# creole_description'
+  name: ! '#!# name'
+  title: ! '#!# title'
+  plain_text: ! '#!# plain_text'
+  description: ! '#!# description'
+  status: ! '#!# status'
+  notes: ! '#!# notes'
+  file: ! '#!# file'
+  click_here_for_download: ! '#!# click_here_for_download'
+  editing: ! '#!# editing'
+  document: ! '#!# document'
+  publication_status: ! '#!# publication_status'
+  select_document_type: ! '#!# select_document_type'
+  select_document_upload_type: ! '#!# select_document_upload_type'
+  listing: ! '#!# listing'
+  type_and_langs_published: ! '#!# type_and_langs_published'
+  title_and_description: ! '#!# title_and_description'
+  date_created: ! '#!# date_created'
+  actions: ! '#!# actions'
   videos: ! '#!# videos'
   tags_management: jere Tags
   donations_title: Donasyon
-  donation_splash: Nou ap currenlty ap travay sou ki jan yo mete kanpe donasyon. Tanpri itilize fòm nan kontak yo ka resevwa an kontak ak nou nan moman an.
   contact_thanks: Mèsi pou D 'ou. Nou pral jwenn tounen ba ou pi vit ke posib.
+  donation_splash: Nou ap currenlty ap travay sou ki jan yo mete kanpe donasyon. Tanpri
+    itilize fòm nan kontak yo ka resevwa an kontak ak nou nan moman an.
+  content: ! '#!# content'
+  date_string: ! '#!# date_string'

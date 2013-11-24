@@ -1,5 +1,5 @@
 %p
-  %b Date:
+  %b= t(:date_string) + ":"
   = @document.date
 
 %p 
@@ -10,18 +10,18 @@
     - if auth_to_view(dl)
       %h3= dl.lang
       - if user_signed_in?
-        %b Publication status: 
+        %b= t(:publication_status) + ":" 
         %b{:class => dl.status}= dl.status.humanize.titleize
       %p
-        %b Title:
+        %b= t(:title) + ":"
         = dl.title
         %br
-        %b Description:
+        %b= t(:description) + ":"
         %br
         = dl.description
 - if user_signed_in?  
   %p
-    %b Notes:
+    %b= t(:notes) + ":"
     %br
     = @document.notes
 
