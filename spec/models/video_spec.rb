@@ -82,4 +82,24 @@ describe Video do
     end
 
   end
+
+  describe "validation" do
+    before(:each) do
+      # Rebecca Black's Friday, by default
+      @v = FactoryGirl.create(:video)
+    end
+    it "should check that a video ID is valid" do
+      # default FactoryGirl video should be fine
+      @v.valid?.should == true
+    end
+    it "should mark a nonexistant video unfound" do
+      @v = FactoryGirl.create(:video)
+      @v.vid = "http://www.youtube.com/watch?v=aaaaaaaaaaa"
+      @v.valid?.should == false
+    end
+    it "should mark an invalid vid properly" do
+      @v.vid = "http://www.youtube.com/watch?v=this_is_not_a_valid_video_id"
+      @v.valid?.should == false
+    end
+  end
 end

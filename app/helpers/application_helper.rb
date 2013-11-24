@@ -32,18 +32,17 @@ module ApplicationHelper
     end
   end
 
-  def auth_to_edit_meta(document)
-    if document.new_document?
+  def auth_to_edit_meta(doc)
+    if doc.new_document?
       return true
-    elsif not user_signed_in?
-      return false
-    eslif current_user.role == "Manager"
-      return true
-    elsif current_user.role == "Editor" and not (document.published or document.pending)
-      return true
-    else
-      return false
     end
+    if current_user.role == "Manager"
+      return true
+    end
+    if current_user.role == "Editor" and not (doc.published or doc.pending)
+      return true
+    end
+    return false
   end
 
   def locale_to_word(locale = I18n.locale)
@@ -97,4 +96,5 @@ module ApplicationHelper
                        get_locale == element.to_sym ||
                        locale == element
   end
+
 end
