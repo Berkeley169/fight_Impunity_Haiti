@@ -137,3 +137,5 @@ ht:
   volume: ! '#!# volume'
   newspaper: ! '#!# newspaper'
   chapter: ! '#!# chapter'
+  dashboard: ! '#!# dashboard'
+  logout: ! '#!# logout'
