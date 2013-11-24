@@ -33,28 +33,28 @@
     - if auth_to_edit_lang(dl.object)
       %h4= dl.object.lang
       .field{:id => 'document_lang_' + dl.object.lang.downcase + '_title'}
-        = dl.label t(:title)
+        = dl.label t(:title).titleize + ":"
         = dl.text_field :title
       = dl.hidden_field :lang
       - if params[:type] == "texts"
         .field{:id => 'document_lang_' + dl.object.lang.downcase + '_plain_text'}
-          = dl.label t(:plain_text)
+          = dl.label t(:plain_text).titleize + ":"
           = dl.text_area :plain_text, :class => 'ckeditor'
           = dl.file_field :txt
       .field{:id => 'document_lang_' + dl.object.lang.downcase + '_description'}
-        = dl.label t(:description)
+        = dl.label t(:description).titleize + ":"
         = dl.text_field :description, :size => 150
     - else
       %h4= dl.object.lang
       = dl.hidden_field :lang
-      %b= t(:title) +":"
+      %b= t(:title).titleize + ":"
       = dl.object.title
       %br
       - if params[:type] == "texts"
-        %b= t(:content) + ":"
+        %b= t(:content).titleize + ":"
         %br
         = dl.object.plain_text.html_safe
-      %b= t(:description) +":"
+      %b= t(:description).titleize + ":"
       %br
       = dl.object.description
       %br

@@ -13,10 +13,10 @@
         %b= t(:publication_status) + ":" 
         %b{:class => dl.status}= dl.status.humanize.titleize
       %p
-        %b= t(:title) + ":"
+        %b= t(:title).titleize + ":"
         = dl.title
         %br
-        %b= t(:description) + ":"
+        %b= t(:description).titleize + ":"
         %br
         = dl.description
 - if user_signed_in?  

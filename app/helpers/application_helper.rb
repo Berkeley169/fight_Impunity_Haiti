@@ -13,23 +13,24 @@ module ApplicationHelper
     end
     if current_user.role == "Manager"
       return true
-    elsif current_user.role == "Editor" and ["in_progress", "new"].include?(document_lang.status)
-      return true
-    else
-      return false
     end
+    if current_user.role.downcase == "editor" and ["in_progress", "new"].include?(document_lang.status)
+      return true
+    end
+    return false
   end
 
   def auth_to_edit_lang(document_lang)
     if not user_signed_in?
       return document_lang.status == "new"
-    elsif current_user.role == "Manager"
-      return true
-    elsif current_user.role == "Editor"
-      return document_lang.status == "in_progress"
-    else
-      return false
     end
+    if current_user.role == "Manager"
+      return true
+    end
+    if current_user.role == "Editor"
+      return document_lang.status == "in_progress"
+    end
+    return false
   end
 
   def auth_to_edit_meta(doc)

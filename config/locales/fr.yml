@@ -126,9 +126,16 @@ fr:
   videos: ! '#!# videos'
   tags_management: gérer les tags
   donations_title: Dons
-  contact_thanks: Merci pour votre contribution. Nous reviendrons vers vous dès que possible.
+  contact_thanks: Merci pour votre contribution. Nous reviendrons vers vous dès que
+    possible.
   donation_splash: Nous travaillons sur currenlty comment mettre en place les dons.
     S'il vous plaît utilisez le formulaire de contact pour entrer en contact avec
     nous en ce moment.
   content: ! '#!# content'
   date_string: ! '#!# date_string'
+  website: ! '#!# website'
+  url: ! '#!# url'
+  journal: ! '#!# journal'
+  volume: ! '#!# volume'
+  newspaper: ! '#!# newspaper'
+  chapter: ! '#!# chapter'
