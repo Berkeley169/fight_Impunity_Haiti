@@ -15,7 +15,7 @@ class Tag < ActiveRecord::Base
   has_many :children, :class_name => 'Tag', :foreign_key => 'parent_id'
   validates :cat, presence: true, inclusion: { in: %w(main sub misc),
     message: "%{value} is not a valid type of tag" }
-  validates :english, :spanish, :french, :creole, presence: true
+  validates :english, :spanish, :french, :creole, presence: true, uniqueness: true
 
 
   TYPES = ["main", "sub", "misc"]

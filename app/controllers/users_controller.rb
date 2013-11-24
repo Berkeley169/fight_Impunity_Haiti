@@ -16,6 +16,7 @@ class UsersController < ApplicationController
     @user = User.new
     @title = 'Add New User'
     @button_text = 'Create New User'
+    @new_user = true
   end
 
   def create

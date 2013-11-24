@@ -1,0 +1,82 @@
+body
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif
+
+nav
+  position: relative
+  z-index: 10000
+header.navbar 
+  z-index: 10000
+  position: relative
+.navbar-nav > li > a.auth
+  padding: 14px
+.auth
+  border: 1px solid #eee
+.navbar-toggle .icon-bar
+  background-color: #888
+.navbar-right .dropdown-menu
+  left: 0
+.navbar
+  padding: 20px 0
+  border-bottom: 1px solid #eee
+  .nav
+    .caret, a:hover .caret, .open .caret
+      border-top-color: #888
+      border-bottom-color: #888
+    > li
+      > a
+        font-size: 0.9em
+        color: #888
+      > a:hover
+        background-color: #f6f6f6
+.nav > li > a.dropper:hover, 
+.nav .open > a.dropper, 
+.nav .open > a.dropper:hover, 
+.nav .open > a.dropper:focus
+  background-color: #fff
+.languages
+  > a.dropper
+    padding: 10px
+    opacity: 0.8
+  a
+    margin-right: 5px
+    float: left
+    opacity: 0.6
+    transition: opacity 0.3s
+  a:hover
+    opacity: 1.0
+  .dropdown-menu
+    top: 90%
+    right: 19px
+    left: auto
+    min-width: 51px
+    width: 51px
+    li
+      overflow: hidden
+      a
+        margin-left: 8px
+  #EnglishFlag
+    background: url('English-32.png') no-repeat
+    width: 32px
+    height: 32px
+    display: block
+  #SpanishFlag
+    background: url('Spanish-32.png') no-repeat
+    width: 32px
+    height: 32px
+    display: block
+  #FrenchFlag
+    background: url('French-32.png') no-repeat
+    width: 32px
+    height: 32px
+    display: block
+  #CreoleFlag
+    background: url('Creole-32.png') no-repeat
+    width: 32px
+    height: 32px
+    display: block
+
+@media (max-width: 767px)
+  body
+    padding: 0 5px
+  .navbar .nav > li 
+    margin-left: 0

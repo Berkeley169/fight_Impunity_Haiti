@@ -1,17 +1,22 @@
 %p
-  %b Name:
-  = @document.relevant_title(@document,@relevant_langs)
+  %h3= @document.relevant_title_and_description(@document,@relevant_langs)[0]
+  .langs
+    - @document.send((@document.class.to_s.downcase + "_langs").to_sym).sort.each do |dl|
+      - if dl.status == "published"
+        %img{:src => "/assets/#{dl.lang}-16.png", :height => "16", :width => "16"}
+      - else
+        %img{:src => "/assets/#{dl.lang}-gray-16.png"}
   %br
-  %b Date:
+  %b= t(:date) + ":"
   = @document.date
 
 %p 
   = render 'show_' + @doc_type_sym.to_s
 
 %p
-  - @document_langs.each do |dl|
+  - @document_langs.sort.each do |dl|
     - if auth_to_view(dl)
-      /*%div{id: "doc_info_#{dl.lang}"}*/
+      %div{id: "doc_info_#{dl.lang}", class: "doc_info"}
         %h3= dl.lang
         - if user_signed_in?
           %b Publication status: 
@@ -25,7 +30,7 @@
           = dl.description
 - if user_signed_in?  
   %p
-    %b Notes:
+    %b= t(:notes) + ":"
     %br
     = @document.notes
 

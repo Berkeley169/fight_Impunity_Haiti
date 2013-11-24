@@ -7,12 +7,13 @@ es:
   about: ! '#!# about'
   contact: ! '#!# contact'
   fight: ! '#!# fight'
-  texts: ! '#!# texts'
-  pictures: ! '#!# pictures'
-  video: ! '#!# video'
+  texts: escrito
+  pictures: fotos
+  picture: ! '#!# picture'
+  video: vídeo
   welcomemessage: ! '#!# welcomemessage'
-  audio: ! '#!# audio'
-  other: ! '#!# other'
+  audio: sonido
+  other: otro
   underconstruction: ! '#!# underconstruction'
   edit: ! '#!# edit'
   back: ! '#!# back'
@@ -43,7 +44,7 @@ es:
   areyousure: ! '#!# areyousure'
   turnoff: ! '#!# turnoff'
   signup: ! '#!# signup'
-  signin: ! '#!# signin'
+  signin: login
   forgotpassword: ! '#!# forgotpassword'
   didntreceiveconfirmation: ! '#!# didntreceiveconfirmation'
   didntreceiveunlock: ! '#!# didntreceiveunlock'
@@ -53,7 +54,7 @@ es:
   editprofile: ! '#!# editprofile'
   signout: ! '#!# signout'
   dashboardhome: ! '#!# dashboardhome'
-  published: ! '#!# published'
+  published: publicado
   inprogress: ! '#!# inprogress'
   pending: ! '#!# pending'
   new: ! '#!# new'
@@ -66,3 +67,38 @@ es:
   deleteuserconfirm: ! '#!# deleteuserconfirm'
   adduser: ! '#!# adduser'
   manageusers: ! '#!# manageusers'
+  english: Inglés
+  creole: criollo
+  spanish: español
+  french: francés
+  main_category: ! '#!# main_category'
+  type: ! '#!# type'
+  english_description: ! '#!# english_description'
+  french_description: ! '#!# french__description'
+  spanish_description: ! '#!# spanish_description'
+  creole_description: ! '#!# creole_description'
+  name: ! '#!# name'
+  date: ! '#!# date'
+  title: ! '#!# title'
+  plain_text: ! '#!# plain_text'
+  description: ! '#!# description'
+  status: ! '#!# status'
+  notes: ! '#!# notes'
+  file: ! '#!# file'
+  click_here_for_download: ! '#!# click_here_for_download'
+  editing: ! '#!# editing'
+  document: ! '#!# document'
+  publication_status: ! '#!# publication_status'
+  select_document_type: ! '#!# select_document_type'
+  select_document_upload_type: ! '#!# select_document_upload_type'
+  listing: ! '#!# listing'
+  type_and_langs_published: ! '#!# type_and_langs_published'
+  title_and_description: ! '#!# title_and_description'
+  date_created: ! '#!# date_created'
+  videos: ! '#!# videos'
+  tags_management: ! '#!# tags_management'
+  donations_title: Donaciones
+  donation_splash: Estamos trabajando currenlty sobre cómo configurar las donaciones.
+    Utilice el formulario de contacto para ponerse en contacto con nosotros en este
+    momento.
+  content: ! '#!# content'
