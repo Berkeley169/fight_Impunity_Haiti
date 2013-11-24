@@ -27,7 +27,6 @@ Scenario: User should be able to change password
 
 Scenario: User should be able to change password
 	Given that I am signed in as an editor
-	When I am on the dashboard page
 	And I follow "Edit Profile"
 	And I fill in "user_password" with "password"
 	And I fill in "user_password_confirmation" with "something else"

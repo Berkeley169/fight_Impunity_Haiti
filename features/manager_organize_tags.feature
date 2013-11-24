@@ -15,5 +15,5 @@ Scenario: allow manager to view the tag page
 Scenario: disallow editor from editing a tag
   Given I am signed in as an editor
   When  I go to the edit tag page for "TestTag"
-  Then  I should be on the dashboard page
+  Then  I should be on the home page
 
