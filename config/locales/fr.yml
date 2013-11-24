@@ -1,5 +1,33 @@
 ---
 fr:
+  date:
+    order:
+    - :day
+    - :month
+    - :year
+    formats:
+      default: ! '%Y-%m-%d'
+    day_names:
+    - dimanche
+    - lundi
+    - mardi
+    - mercredi
+    - jeudi
+    - vendredi
+    - samedi
+    month_names:
+    - janvier
+    - février
+    - mars
+    - avril
+    - mai
+    - juin
+    - juillet
+    - août
+    - septembre
+    - octobre
+    - novembre
+    - decembre
   hello: Hello world in French
   login: Identifiez-vous
   subcategories: ! '#!# subcategories'
@@ -78,7 +106,6 @@ fr:
   spanish_description: ! '#!# spanish_description'
   creole_description: ! '#!# creole_description'
   name: ! '#!# name'
-  date: ! '#!# date'
   title: ! '#!# title'
   plain_text: ! '#!# plain_text'
   description: ! '#!# description'
@@ -103,3 +130,4 @@ fr:
     S'il vous plaît utilisez le formulaire de contact pour entrer en contact avec
     nous en ce moment.
   content: ! '#!# content'
+  date_string: ! '#!# date_string'

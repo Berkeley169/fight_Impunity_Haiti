@@ -12,14 +12,14 @@
       = f.text_field :name
 
     .field
-      = f.label t(:date)
+      = f.label t(:date_string)
       = f.date_select :date, start_year: 1850, end_year: Date.today.year
     = render params[:type].singularize + '_form', :f => f
   - else
     %b= t(:name) + ":" 
     = @document.name
     %br
-    %b= t(:date) + ":" 
+    %b= t(:date_string) + ":" 
     = @document.date
     %br 
     - if @doc_type == Text
