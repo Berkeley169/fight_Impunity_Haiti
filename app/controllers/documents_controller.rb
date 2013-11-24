@@ -81,7 +81,7 @@ class DocumentsController < ApplicationController
     @return_path = return_to_from_create(@document)
     #respond_to do |format|
       if @document.save
-        redirect_to @return_path, "#{@doc_type_sym.to_s} was successfully created."
+        redirect_to @return_path, notice:"#{@doc_type_sym.to_s} was successfully created."
         #format.html { redirect_to @return_path,
         #              notice: "#{@doc_type_sym.to_s} was successfully created." }
         #format.json { render json: @document, status: :created, location: @document }
