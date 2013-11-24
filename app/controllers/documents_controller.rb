@@ -74,16 +74,27 @@ class DocumentsController < ApplicationController
       lang[i.to_s][:status] = 'new'
     end
     @document = @doc_type.new(params[@doc_type_sym])
+    @return_path = return_to_from_create(@document)
     respond_to do |format|
       if @document.save
-        format.html { redirect_to @document,
+        format.html { redirect_to @return_path,
                       notice: "#{@doc_type_sym.to_s} was successfully created." }
         format.json { render json: @document, status: :created, location: @document }
       else
-        @text_subtype = params[:text][:subtype]
+        if @doc_type_sym == :text
+          @text_subtype = params[:text][:subtype]
+        end
         format.html { render action: "new" }
         format.json { render json: @document.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def return_to_from_create(document)
+    if user_signed_in?
+      return document
+    else
+      return method((document.class.to_s.downcase.pluralize + "_path").to_sym).call
     end
   end
 
@@ -103,7 +114,9 @@ class DocumentsController < ApplicationController
                       notice: "#{@doc_type_sym.to_s} was successfully updated." }
         format.json { head :no_content }
       else
-        @text_subtype = params[:text][:subtype]
+        if @doc_type_sym == :text
+          @text_subtype = params[:text][:subtype]
+        end
         format.html { render action: "edit" }
         format.json { render json: @document.errors, status: :unprocessable_entity }
       end

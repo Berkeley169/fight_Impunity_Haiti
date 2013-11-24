@@ -3,7 +3,7 @@
   = @document.date
 
 %p 
-  = render 'show_' + @doc_type_sym.to_s
+  = render 'show_' + @doc_type_sym.to_s, :document => @document
 
 %p
   - @document_langs.sort.each do |dl|
