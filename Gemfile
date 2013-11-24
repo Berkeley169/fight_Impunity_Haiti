@@ -11,7 +11,6 @@ gem 'haml-rails'
 gem 'autotest'
 gem 'spork'
 gem 'metric_fu'
-gem 'debugger'
 gem 'timecop', '0.6.1'
 gem 'chronic', '0.9.1'
 gem 'omniauth'
@@ -42,6 +41,7 @@ group :development, :test do
   gem 'capybara'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
+  gem 'debugger'
 end
 
 group :test do
