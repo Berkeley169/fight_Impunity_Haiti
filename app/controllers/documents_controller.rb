@@ -75,19 +75,21 @@ class DocumentsController < ApplicationController
     end
     @document = @doc_type.new(params[@doc_type_sym])
     @return_path = return_to_from_create(@document)
-    respond_to do |format|
+    #respond_to do |format|
       if @document.save
-        format.html { redirect_to @return_path,
-                      notice: "#{@doc_type_sym.to_s} was successfully created." }
-        format.json { render json: @document, status: :created, location: @document }
+        redirect_to @return_path, notice: "#{@doc_type_sym.to_s} was successfully created."
+        #format.html { redirect_to @return_path,
+        #              notice: "#{@doc_type_sym.to_s} was successfully created." }
+        #format.json { render json: @document, status: :created, location: @document }
       else
         if @doc_type_sym == :text
           @text_subtype = params[:text][:subtype]
         end
-        format.html { render action: "new" }
-        format.json { render json: @document.errors, status: :unprocessable_entity }
+        render action: "new"
+        #format.html { render action: "new" }
+        #format.json { render json: @document.errors, status: :unprocessable_entity }
       end
-    end
+    #end
   end
 
   def return_to_from_create(document)
@@ -108,29 +110,31 @@ class DocumentsController < ApplicationController
 
   def update
     @document = @doc_type.find(params[:id])
-    respond_to do |format|
+    #respond_to do |format|
       if @document.update_attributes(params[@doc_type_sym])
-        format.html { redirect_to @document, 
-                      notice: "#{@doc_type_sym.to_s} was successfully updated." }
-        format.json { head :no_content }
+        redirect_to @document, notice: "#{@doc_type_sym.to_s} was successfully updated."
+        #format.html { redirect_to @document, 
+        #              notice: "#{@doc_type_sym.to_s} was successfully updated." }
+        #format.json { head :no_content }
       else
         if @doc_type_sym == :text
           @text_subtype = params[:text][:subtype]
         end
-        format.html { render action: "edit" }
-        format.json { render json: @document.errors, status: :unprocessable_entity }
+        render action: "edit"
+        #format.html { render action: "edit" }
+        #format.json { render json: @document.errors, status: :unprocessable_entity }
       end
-    end
+    #end
   end
 
   def destroy
     @document = @doc_type.find(params[:id])
     @document.destroy
-
-    respond_to do |format|
-      format.html { redirect_to :controller => "documents", :action => "index", :type => params[:type] } 
-      format.json { head :no_content }
-    end
+    redirect_to :controller => "documents", :action => "index", :type => params[:type]
+    #respond_to do |format|
+    #  format.html { redirect_to :controller => "documents", :action => "index", :type => params[:type] } 
+    #  format.json { head :no_content }
+    #end
   end
 
 
