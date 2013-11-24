@@ -31,3 +31,6 @@ database.yml
 #ignore coverage folder
 /coverage
 
+
+# ignore assets generated in precompile process
+/public/assets/*
