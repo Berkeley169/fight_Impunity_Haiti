@@ -1,9 +1,11 @@
-%div.user-menu
-    = link_to t(:published), dashboard_index_path(:status => "published")
-    = link_to t(:inprogress), dashboard_index_path(:status => "in_progress")
-    = link_to t(:pending), dashboard_index_path(:status => "pending")
-    = link_to t(:new), dashboard_index_path(:status => "new")
-    = link_to t(:rejected), dashboard_index_path(:status => "rejected")
+%div#sidebar-wrapper
+  %ul.sidebar-nav
+    %li.sidebar-brand= t(:dashboard).titleize
+    %li= link_to t(:published), dashboard_index_path(:status => "published")
+    %li= link_to t(:inprogress), dashboard_index_path(:status => "in_progress")
+    %li= link_to t(:pending), dashboard_index_path(:status => "pending")
+    %li= link_to t(:new), dashboard_index_path(:status => "new")
+    %li= link_to t(:rejected), dashboard_index_path(:status => "rejected")
 
     = link_to t(:usermanagement), users_path
 
@@ -21,3 +23,4 @@
 //    %li= link_to t(:usermanagement), users_path
 //    %li= link_to t(:tags_management), tags_path
 //    %li= link_to t(:editprofile), edit_user_path(:id => current_user.id)
+

@@ -7,14 +7,18 @@
     %link{ :href => "//fonts.googleapis.com/css?family=Open+Sans:300italic,300,400italic,400,600italic,600,700italic,700,800italic,800", :rel => "stylesheet", :type => "text/css"}
     = stylesheet_link_tag "application", :media => "all"
     = stylesheet_link_tag "screen"
+    = stylesheet_link_tag "sidebar"
     = csrf_meta_tag
   %body
-    = render 'partials/navigation'
     .rule_bl
-    - if user_signed_in?
-      %div#sidebar
+    %div#wrapper
+      /.rule_bl
+      - if user_signed_in?
         = render "partials/dashboard_nav_#{current_user.role}"
-    .container#main_content
-      %p= flash[:notice]
-      = yield
+      - else
+        %div#sidebar-wrapper
+      = render 'partials/navigation'
+      %div#page-content-wrapper
+        %p= flash[:notice]
+        = yield
     = javascript_include_tag "application"
