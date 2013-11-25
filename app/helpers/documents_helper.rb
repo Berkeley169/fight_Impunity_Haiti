@@ -8,7 +8,7 @@ module DocumentsHelper
 				return [item_lang.title,item_lang.description,lang]
 			end
 		end
-		return ['No Title', 'No Description',nil]
+		return ['No Title', 'No Description', nil]
 	end
 
 	def valid(item_lang)
