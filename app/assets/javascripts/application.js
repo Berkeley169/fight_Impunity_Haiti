@@ -25,7 +25,7 @@ function displaySection(toHideList,toShow) {
 window.onload = function() {
 	$('.dropdown-toggle').dropdown();
 	if ($('#sidebar')[0] != undefined) {
-   		$('#main_content')[0].style.float = 'left';
+   		$('#main_content')[0].id = 'main_content_left';
 	}
 	if ($('.relevant_lang')[0] != undefined) {
 		displayLang($('.relevant_lang')[0].id)

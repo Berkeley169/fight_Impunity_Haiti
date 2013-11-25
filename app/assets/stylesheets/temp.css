@@ -22,6 +22,10 @@
   width: 85%;
 }
 
+#main_content_left {
+  width: 85%;
+  float: left;
+}
 .user-menu a {
   padding: 10px 15px;
     background: #222222;
