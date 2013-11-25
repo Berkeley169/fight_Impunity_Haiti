@@ -6,18 +6,17 @@
     = link_to t(:rejected), dashboard_index_path(:status => "rejected")
     = link_to t(:userdirectory), users_path
 
--# 
-    %li.dropdown
-      %a.dropdown-toggle{:href => "#", :role => "button", "data-toggle" => "dropdown", "data-target" => '#'}
-        = t(:dashboard)
-        %b.caret
-      %ul.dropdown-menu{:role => "menu"}
-        %li= link_to t(:published), dashboard_index_path(:status => "published")
-        %li= link_to t(:inprogress), dashboard_index_path(:status => "in_progress")
-        %li= link_to t(:pending), dashboard_index_path(:status => "pending")
-        %li= link_to t(:new), dashboard_index_path(:status => "new")
-        %li= link_to t(:rejected), dashboard_index_path(:status => "rejected")
-        %li.divider 
-        %li= link_to t(:editprofile), edit_user_path(:id => current_user.id)
-        %li= link_to t(:userdirectory), users_path
->>>>>>> e0ecf783008abe4aa199242796542c7e6e74a7f5
+// 
+//    %li.dropdown
+//      %a.dropdown-toggle{:href => "#", :role => "button", "data-toggle" => "dropdown", "data-target" => '#'}
+//        = t(:dashboard)
+//        %b.caret
+//      %ul.dropdown-menu{:role => "menu"}
+//        %li= link_to t(:published), dashboard_index_path(:status => "published")
+//       %li= link_to t(:inprogress), dashboard_index_path(:status => "in_progress")
+//     %li= link_to t(:pending), dashboard_index_path(:status => "pending")
+//      %li= link_to t(:new), dashboard_index_path(:status => "new")
+//        %li= link_to t(:rejected), dashboard_index_path(:status => "rejected")
+//        %li.divider 
+//        %li= link_to t(:editprofile), edit_user_path(:id => current_user.id)
+//        %li= link_to t(:userdirectory), users_path

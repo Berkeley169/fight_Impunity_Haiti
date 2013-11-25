@@ -1,5 +1,33 @@
 ---
 ht:
+  date:
+    order:
+    - :day
+    - :month
+    - :year
+    formats:
+      default: ! '%Y-%m-%d'
+    day_names:
+    - '#!# Sunday'
+    - '#!# Monday'
+    - '#!# Tuesday'
+    - '#!# Wednesday'
+    - '#!# Thursday'
+    - '#!# Friday'
+    - '#!# Saturday'
+    month_names:
+    - '#!# January'
+    - '#!# February'
+    - '#!# March'
+    - '#!# April'
+    - '#!# May'
+    - '#!# June'
+    - '#!# July'
+    - '#!# August'
+    - '#!# September'
+    - '#!# October'
+    - '#!# November'
+    - '#!# December'
   hello: Hello world in creole
   login: Identifiez-vous
   subcategories: ! '#!# subcategories'
@@ -78,7 +106,6 @@ ht:
   spanish_description: ! '#!# spanish_description'
   creole_description: ! '#!# creole_description'
   name: ! '#!# name'
-  date: ! '#!# date'
   title: ! '#!# title'
   plain_text: ! '#!# plain_text'
   description: ! '#!# description'
@@ -99,6 +126,8 @@ ht:
   videos: ! '#!# videos'
   tags_management: jere Tags
   donations_title: Donasyon
+  contact_thanks: Mèsi pou D 'ou. Nou pral jwenn tounen ba ou pi vit ke posib.
   donation_splash: Nou ap currenlty ap travay sou ki jan yo mete kanpe donasyon. Tanpri
     itilize fòm nan kontak yo ka resevwa an kontak ak nou nan moman an.
   content: ! '#!# content'
+  date_string: ! '#!# date_string'

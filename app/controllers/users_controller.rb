@@ -73,12 +73,12 @@ class UsersController < ApplicationController
         status = @user.save(validate:false)
       else
         status = @user.save
-        if @editing_self
-          sign_in @user, :bypass => true
-        end
       end
       if status
         redirect_to @user, notice: "User successfully updated"
+        if @editing_self
+          sign_in @user, :bypass => true
+        end
       else
         redirect_to edit_user_path, notice: "An error occurred, please check the user fields"
       end

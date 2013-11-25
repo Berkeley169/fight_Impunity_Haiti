@@ -5,7 +5,12 @@
 }
 
 .doc_info {
-  visibility: hidden;
+  display: block;
+}
+
+.display_text {
+  display: block;
+  height: 40%;
 }
 
 #category_list {
@@ -35,7 +40,7 @@
 
 #sidebar {
   width: 15%;
-  height: 1000px;
+  height: 100%;
   float: left;
 }
 

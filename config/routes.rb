@@ -64,6 +64,7 @@ FightImpunityHaiti::Application.routes.draw do
 
   get '/index_by_tag/:tagid' => 'documents#index_by_tag', :as => :index_by_tag
 
+  post '/pages/email' => 'pages#email', :as => :email
   #namespace :dashboard do
   #  resources :users
   #  match 'users/:id/destroy' => 'users#destroy'

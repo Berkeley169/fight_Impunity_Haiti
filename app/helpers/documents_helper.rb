@@ -5,10 +5,10 @@ module DocumentsHelper
 		lang_prefs.each do |lang|
 			item_lang = item.get_language(lang)
 			if valid(item_lang)
-				return [item_lang.title,item_lang.description]
+				return [item_lang.title,item_lang.description,lang]
 			end
 		end
-		return ['No Title', 'No Description']
+		return ['No Title', 'No Description',nil]
 	end
 
 	def valid(item_lang)
