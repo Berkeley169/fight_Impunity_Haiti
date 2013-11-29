@@ -11,6 +11,7 @@ describe DocumentsController, :type => :controller do
     @b = FactoryGirl.create(:binary, :name => "TestBinary")
     @b.save
     @p = FactoryGirl.create(:picture, :name => "TestPicture")
+    @p.picture_langs[0].status = 'published'
     @p.save
     @s = FactoryGirl.create(:sound, :name => "TestSound")
     @s.save
@@ -63,7 +64,7 @@ describe DocumentsController, :type => :controller do
     it "fetches the proper document and associated langs" do
       get :show, :id => @p.id, :type => "pictures"
       assigns(:document).should == @p
-      assigns(:document_langs).should == @p.picture_langs
+      assigns(:document_langs).should == Picture.find(@p.id).picture_langs
     end
 
     it "retrieves the right content types" do

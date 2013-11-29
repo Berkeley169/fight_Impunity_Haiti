@@ -11,7 +11,7 @@ Scenario: allow users to login
   Given I am not signed in
   When  I go to the login page 
   And   I log in with email "bob@bomb.com" and password "hunter222"
-  Then  I should be on the dashboard page
+  Then  I should be on the home page
 
 Scenario: allows users to logout
   Given I am signed in as an editor

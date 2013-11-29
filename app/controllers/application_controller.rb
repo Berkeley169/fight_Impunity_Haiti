@@ -1,8 +1,11 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+
+  rescue_from ActionController::RoutingError, :with => :render_404
+
   before_filter :set_locale
   def after_sign_in_path_for(resource_or_scope)
-    return dashboard_path
+    return root_path
     # return home_page_path for user using current_user method
   end
 
@@ -27,7 +30,7 @@ class ApplicationController < ActionController::Base
       redirect_to new_user_session_path
     elsif not current_user.role == "Manager"
       flash[:notice] = 'You must be a site manager to do that'
-      redirect_to dashboard_path
+      redirect_to root_path
     else
       @user = current_user
     end
@@ -51,5 +54,13 @@ class ApplicationController < ActionController::Base
       I18n.locale = params[:locale] || I18n.default_locale
     end
     
+  end
+
+  def not_found
+    raise ActionController::RoutingError.new('Not Found')
+  end
+
+  def render_404
+    render :file => "#{Rails.root}/public/404.html", :status => 404, :layout => false
   end
 end

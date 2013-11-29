@@ -19,3 +19,13 @@ Scenario: see the contact page
 	When I follow "Contact"
 	Then I should see "Contact Information"
 	And I should see "Administrator"
+ 
+Scenario: submit a request to be contacted
+  When I follow "Contact"
+  And I fill in "Name" with "test_name"
+  And I fill in "Email" with "pie@b.c"
+  And I select "Question" from "option"
+  And I fill in "Reason" with "this is a test"
+  And I press "Submit"
+  Then I should see "Thank you for your input."
+

@@ -4,5 +4,14 @@
 class Item < ActiveRecord::Base
   attr_accessible :type
   LANGUAGES = [:English, :French, :Creole, :Spanish]
-  STATUSES = [:new, :pending, :inprogress, :published, :rejected]
+  STATUSES = [:new, :pending, :in_progress, :published, :rejected]
+
+  def self.status_options(user)
+    if user.role == "Editor"
+      opts = [:new, :in_progress, :pending]
+    elsif user.role == "Manager"
+      opts = Item::STATUSES
+    end
+    opts.map { |x| [x.to_s.humanize.titleize, x] }
+  end
 end

@@ -15,7 +15,11 @@ class DocumentsController < ApplicationController
   end
 
   def index
-    @documents = @doc_type.all
+    if current_user == nil
+      @documents = @doc_type.where(:published => true)
+    else
+      @documents = @doc_type.all
+    end
     @permissions = permissions
   end
 
@@ -30,7 +34,14 @@ class DocumentsController < ApplicationController
   end
 
   def show
-    @document = @doc_type.find(params[:id])
+    begin
+      @document = @doc_type.find(params[:id])
+      if not @document.published and not user_signed_in?
+        raise Error
+      end
+    rescue
+      not_found
+    end
     @document_langs = @document.send(@langs_sym)
   end
 
@@ -50,7 +61,11 @@ class DocumentsController < ApplicationController
     end
     document_langs = []
     Item::LANGUAGES.each do |l|
-      document_langs.append(@document.send(@langs_sym).build(:lang => l, :status => 'new'))
+      document_langs.append(@document.send(@langs_sym).build(:lang => l.to_s, :status => 'new'))
+      # need to also initialize the plain_text of each lang if we are dealing with a text document
+      if params[:type] == "texts"
+        document_langs.last.plain_text = ""
+      end
     end
   end
 
@@ -63,15 +78,29 @@ class DocumentsController < ApplicationController
       lang[i.to_s][:status] = 'new'
     end
     @document = @doc_type.new(params[@doc_type_sym])
-    respond_to do |format|
+    @return_path = return_to_from_create(@document)
+    #respond_to do |format|
       if @document.save
-        format.html { redirect_to @document,
-                      notice: "#{@doc_type_sym.to_s} was successfully created." }
-        format.json { render json: @document, status: :created, location: @document }
+        redirect_to @return_path, notice:"#{@doc_type_sym.to_s} was successfully created."
+        #format.html { redirect_to @return_path,
+        #              notice: "#{@doc_type_sym.to_s} was successfully created." }
+        #format.json { render json: @document, status: :created, location: @document }
       else
-        format.html { render action: "new" }
-        format.json { render json: @document.errors, status: :unprocessable_entity }
+        if @doc_type_sym == :text
+          @text_subtype = params[:text][:subtype]
+        end
+        render action: "new"
+        #format.html { render action: "new" }
+        #format.json { render json: @document.errors, status: :unprocessable_entity }
       end
+    #end
+  end
+
+  def return_to_from_create(document)
+    if user_signed_in?
+      return document
+    else
+      return method((document.class.to_s.downcase.pluralize + "_path").to_sym).call
     end
   end
 
@@ -85,26 +114,31 @@ class DocumentsController < ApplicationController
 
   def update
     @document = @doc_type.find(params[:id])
-    respond_to do |format|
+    #respond_to do |format|
       if @document.update_attributes(params[@doc_type_sym])
-        format.html { redirect_to @document, 
-                      notice: "#{@doc_type_sym.to_s} was successfully updated." }
-        format.json { head :no_content }
+        redirect_to @document, notice: "#{@doc_type_sym.to_s} was successfully updated."
+        #format.html { redirect_to @document, 
+        #              notice: "#{@doc_type_sym.to_s} was successfully updated." }
+        #format.json { head :no_content }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @document.errors, status: :unprocessable_entity }
+        if @doc_type_sym == :text
+          @text_subtype = params[:text][:subtype]
+        end
+        render action: "edit"
+        #format.html { render action: "edit" }
+        #format.json { render json: @document.errors, status: :unprocessable_entity }
       end
-    end
+    #end
   end
 
   def destroy
     @document = @doc_type.find(params[:id])
     @document.destroy
-
-    respond_to do |format|
-      format.html { redirect_to :controller => "documents", :action => "index", :type => params[:type] } 
-      format.json { head :no_content }
-    end
+    redirect_to :controller => "documents", :action => "index", :type => params[:type]
+    #respond_to do |format|
+    #  format.html { redirect_to :controller => "documents", :action => "index", :type => params[:type] } 
+    #  format.json { head :no_content }
+    #end
   end
 
 

@@ -1,5 +1,5 @@
 .languages
-  = link_to image_tag('United-States.png'), {:locale => 'en'}, {:id => 'EnglishFlag'}
-  = link_to image_tag('France.png'), {:locale => 'fr'}, {:id => 'FrenchFlag'}
-  = link_to image_tag('Haiti.png'), {:locale => 'ht'}, {:id => 'CreoleFlag'}
-  = link_to image_tag('Spain.png'), {:locale => 'es'}, {:id => 'SpanishFlag'}
+  = link_to '', {:locale => 'en'}, {:id => 'EnglishFlag', :class => current_locale_class(params[:locale], 'en')}
+  = link_to '', {:locale => 'fr'}, {:id => 'FrenchFlag', :class => current_locale_class(params[:locale], 'fr')}
+  = link_to '', {:locale => 'ht'}, {:id => 'CreoleFlag', :class => current_locale_class(params[:locale], 'ht')}
+  = link_to '', {:locale => 'es'}, {:id => 'SpanishFlag', :class => current_locale_class(params[:locale], 'es')}

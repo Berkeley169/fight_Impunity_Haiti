@@ -53,15 +53,17 @@ class TagsController < ApplicationController
   # POST /tags.json
   def create
     @tag = Tag.new(params[:tag])
-    respond_to do |format|
+    #respond_to do |format|
       if @tag.save
-        format.html { redirect_to @tag, notice: 'Tag was successfully created.' }
-        format.json { render json: @tag, status: :created, location: @tag }
+        redirect_to @tag, notice: 'Tag was successfully created.'
+        #format.html { redirect_to @tag, notice: 'Tag was successfully created.' }
+        #format.json { render json: @tag, status: :created, location: @tag }
       else
-        format.html { render action: "new" }
-        format.json { render json: @tag.errors, status: :unprocessable_entity }
+        render action: "new"
+        #format.html { render action: "new" }
+        #format.json { render json: @tag.errors, status: :unprocessable_entity }
       end
-    end
+    #end
   end
 
   # PUT /tags/1
@@ -69,15 +71,17 @@ class TagsController < ApplicationController
   def update
     @tag = Tag.find(params[:id])
 
-    respond_to do |format|
+    #respond_to do |format|
       if @tag.update_attributes(params[:tag])
-        format.html { redirect_to @tag, notice: 'Tag was successfully updated.' }
-        format.json { head :no_content }
+        redirect_to @tag, notice: 'Tag was successfully updated.'
+        #format.html { redirect_to @tag, notice: 'Tag was successfully updated.' }
+        #format.json { head :no_content }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @tag.errors, status: :unprocessable_entity }
+        render action: "edit"
+        #format.html { render action: "edit" }
+        #format.json { render json: @tag.errors, status: :unprocessable_entity }
       end
-    end
+    #end
   end
 
   # DELETE /tags/1

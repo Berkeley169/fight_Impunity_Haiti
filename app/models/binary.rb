@@ -2,6 +2,7 @@
 # When talking to the customer refer to this as "other" rather than "binary"
 class Binary < ActiveRecord::Base
   include Status
+  include DocumentsHelper
   attr_accessible :name, :date, :binary_langs_attributes, :notes, :tags_attributes, :tag_ids,
                   :new, :in_progress, :pending, :published, :rejected
   has_many :binary_langs, dependent: :destroy

@@ -39,7 +39,7 @@ And /I log in as (.*)/ do |email|
 end
 
 Then /I should be signed out/ do
-  visit '/dashboard'
+  visit '/dashboard/pending'
   step 'I should see "You must log in before continuing"'
 end
 

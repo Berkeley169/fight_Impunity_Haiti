@@ -1,0 +1,14 @@
+//= require_self
+//= require_tree .
+
+@import "bootstrap";
+
+.new{ color: red; }
+.in_progress{ color: red; }
+.pending{ color: red; }
+.rejected{ color: red; }
+.published{ color: green; }
+.tag_sidebar { 
+	float:left;
+	margin: 10px;
+}

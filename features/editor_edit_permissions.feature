@@ -18,9 +18,9 @@ Background:
 # numbers in IDs correspond as follows: {English => 1, French => 2, Creole => 3, Spanish => 4}
 
 Scenario: No ability to edit published translations
-  Given I am on the edit picture page for "TestNews"
-  Then I should not be able to fill in "text_text_langs_attributes_4_description"
+  Given I am on the edit text page for "TestNews"
+  Then I should not be able to fill in "document_lang_creole_description"
 
 Scenario: Cannot edit pending translations
   Given I am on the edit picture page for "TestPic2"
-  Then I should not be able to fill in "picture_picture_langs_attributes_1_description"
+  Then I should not be able to fill in "picture_lang_english_description"

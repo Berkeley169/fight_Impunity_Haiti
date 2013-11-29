@@ -1,23 +1,47 @@
 # MODEL GENERATION STEPS
 Given /there is a picture named "(.*)"$/ do |name|
   p = FactoryGirl.create(:picture, :name => name)
+  p.picture_langs.each do |pl|
+    pl.title = name
+    pl.save
+  end
   p.save
 end
 
 Given /there is a video named "(.*)"$/ do |name|
   v = FactoryGirl.create(:video, :name => name)
+  v.video_langs.each do |vl|
+    vl.title = name
+    vl.save
+  end
+  v.save
 end
 
 Given /there is a sound named "(.*)"$/ do |name|
   s = FactoryGirl.create(:sound, :name => name)
+  s.sound_langs.each do |sl|
+    sl.title = name
+    sl.save
+  end
+  s.save
 end
 
 Given /there is a text named "(.*)"$/ do |name|
   t = FactoryGirl.create(:text, :name => name)
+  t.text_langs.each do |tl|
+    tl.title = name
+    tl.save
+  end
+  t.save
 end
 
 Given /there is a binary named "(.*)"/ do |name|
   b = FactoryGirl.create(:binary, :name => name)
+  b.binary_langs.each do |bl|
+    bl.title = name
+    bl.save
+  end
+  b.save
 end
 
 Given /there is a tag named "(.*)"/ do |name|

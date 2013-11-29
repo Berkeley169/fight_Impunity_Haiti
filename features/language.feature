@@ -59,22 +59,19 @@ Scenario: When I visit the texts page and set language to English, I should see 
 	Then I should see "Submit a Document"
 
 Scenario: When I go through new document flow with language set to English, I should see it in English
-	Given I am on the new documents page
+	Given I am on the create document page
 	When I click English
 	Then I should see "Please select a type of document to upload:"
 	Then I should see "Text Document"
-	When I click "Text Document"
-	Then I should see "Please select a document from the list below"
-	Then I should see "Web Journal"
-	When I click "Web Journal"
+	When I follow "Text Document"
+	Then I should see "Please select a document type from the list below"
+	Then I should see "Journal Article"
+	When I follow "Journal Article"
 	Then I should see "New Text"
 	Then I should see "Title"
-	Then I should see "Choose File"
-	Then I should see "Size"
-	Then I should see "Save"
 	Then I should see "Back"
-	When I fill "Name" field with "ASDF"
-	When I click "Submit"
+	When I fill in "text_text_langs_attributes_0_title" with "ASDF"
+	When I press "Save"
 	Then I should see "text was successfully created."
 
 Scenario: When I am logging in with language set to English, I should see it in English
@@ -82,5 +79,3 @@ Scenario: When I am logging in with language set to English, I should see it in 
 	When I click English
 	Then I should see "Sign in"
 	Then I should see "Forgot your password?"
-	When I click "Forgot your password?"
-	Then I should see "Send me reset password instructions"

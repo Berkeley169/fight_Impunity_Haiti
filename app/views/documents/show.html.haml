@@ -1,24 +1,27 @@
 %p
-  %b Name:
-  = @document.name
-  %br
-  %b Date:
+  %b= t(:date_string) + ":"
   = @document.date
 
 %p 
-  = render 'show_' + @doc_type_sym.to_s
+  = render 'show_' + @doc_type_sym.to_s, :document => @document
 
 %p
-  - @document_langs.each do |dl|
-    %p
-      %b Title:
-      = dl.title
-      %br
-      %b Translation:
-      = dl.lang
+  - @document_langs.sort.each do |dl|
+    - if auth_to_view(dl)
+      %h3= dl.lang
+      - if user_signed_in?
+        %b= t(:publication_status) + ":" 
+        %b{:class => dl.status}= dl.status.humanize.titleize
+      %p
+        %b= t(:title).titleize + ":"
+        = dl.title
+        %br
+        %b= t(:description).titleize + ":"
+        %br
+        = dl.description
 - if user_signed_in?  
   %p
-    %b Notes:
+    %b= t(:notes) + ":"
     %br
     = @document.notes
 

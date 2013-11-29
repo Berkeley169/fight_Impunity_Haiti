@@ -7,10 +7,10 @@ gem 'rails', '3.2.13'
 
 gem 'pg'
 gem 'haml-rails'
+#gem 'recaptcha', :require => "recaptch/rails"
 gem 'autotest'
 gem 'spork'
 gem 'metric_fu'
-gem 'debugger'
 gem 'timecop', '0.6.1'
 gem 'chronic', '0.9.1'
 gem 'omniauth'
@@ -25,6 +25,7 @@ gem 'paperclip'
 gem 'simple_form'
 gem 'bootstrap-sass'
 gem 'ckeditor_rails'
+gem 'youtube_addy'
 
 # added for user authentication
 gem 'devise', :git => 'https://github.com/plataformatec/devise.git'
@@ -35,10 +36,12 @@ gem 'devise', :git => 'https://github.com/plataformatec/devise.git'
 gem 'mail'
 gem 'sendgrid-rails', '~> 2.0'
 
+
 group :development, :test do
   gem 'capybara'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
+  gem 'debugger'
 end
 
 group :test do

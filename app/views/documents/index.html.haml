@@ -1,11 +1,21 @@
-%h1= "Listing #{params[:type].to_s.titleize}"
+%h1= t(:listing) + " #{params[:type].to_s.titleize}"
 
+/ TODO: LOCALIZE
 .content
-  = render :partial => 'document_quickview', :collection => @documents, :as => :document
+  %table.doc-list
+    %thead  
+      %tr
+        %td.type-and-langs{ :align => 'center' }
+          = t(:type_and_langs_published)
+        %td.title-and-description{ :align => 'center' }
+          = t(:title_and_description)
+        %td.date{ :align => 'center' }
+          = t(:date_created)
+        %td.space
+        %td.actions{ :align => 'center' }
+          = t(:actions)
+    %tbody
+      = render :partial => 'document_quickview', :collection => @documents, :as => :document
 %br
 
-/ <<<<<<< HEAD
 = link_to t(:submitadocument), new_document_choice_path
-/ =======
-/ = link_to "Submit a Document", [:new, @doc_type_sym, @document]
-/ >>>>>>> flow
