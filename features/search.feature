@@ -15,7 +15,7 @@ Scenario: make sure you can search
 
 Scenario: search should return a document
   Given I am signed in as a manager
-  When I search "Test Text"
+  When I search "Text"
   Then I should see "Test Text"
 
 Scenario: search should return a tag
