@@ -6,7 +6,9 @@ Feature: search basics
 
 
 Background: Document and Tag exist
-  Given there is a text named "Test Text"
+  Given I am signed in as a manager
+  And I am on the home page
+  Given there is a text named "TestText"
   Given there is a tag with En: "EnTag" Fr: "FrTag" Cr: "CrTag" Sp: "SpTag"
 
 Scenario: make sure you can search
@@ -14,11 +16,9 @@ Scenario: make sure you can search
   Then  I should see "Search"
 
 Scenario: search should return a document
-  Given I am signed in as a manager
-  When I search "Text"
-  Then I should see "Test Text"
+  When I search "TestText"
+  Then I should see "TestText"
 
 Scenario: search should return a tag
-  Given I am signed in as a manager
   When I search "EnTag"
   Then I should see "EnTag"
