@@ -31,3 +31,7 @@
           %li= link_to t(:login), new_user_session_path, { :class => 'auth' }
         - else 
           %li= link_to t(:logout), sessions_logout_path, { :class => 'auth' }
+        = form_tag search_path, :method => 'get' do
+          %p
+            = text_field_tag :search, params[:search]
+            = submit_tag "Search", :name => nil

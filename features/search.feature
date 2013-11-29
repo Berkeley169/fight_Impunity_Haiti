@@ -13,7 +13,7 @@ Background: Document and Tag exist
 
 Scenario: make sure you can search
   Given I am on the home page
-  Then  I should see "Search"
+  Then  I should see the search button
 
 Scenario: search should return a document
   When I search "TestText"
