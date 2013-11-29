@@ -4,6 +4,7 @@
 class Video < ActiveRecord::Base
   include Status
   include DocumentsHelper
+  include PgSearch
   attr_accessible :name, :date, :vid, :video_langs_attributes, :notes, :tags_attributes, :tag_ids,
                   :new, :in_progress, :pending, :published, :rejected
   has_many :video_langs, dependent: :destroy

@@ -3,6 +3,7 @@
 class Text < ActiveRecord::Base
   include Status
   include DocumentsHelper
+  include PgSearch
   attr_accessible :name, :date, :text_langs_attributes, :notes, 
                   :tags_attributes, :tag_ids, :subtype_fields, :subtype,
                   :new, :in_progress, :pending, :published, :rejected
@@ -14,6 +15,8 @@ class Text < ActiveRecord::Base
   serialize :subtype_fields, Hash
   after_validation :set_statuses
   cattr_accessor :web, :journal, :book, :newspaper
+
+  multisearchable :against => [:name]
 
   Text.web       = [:website, :url]
   Text.journal   = [:journal, :volume]
