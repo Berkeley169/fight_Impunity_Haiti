@@ -85,7 +85,55 @@ When /I set the status of the (.*) translation of the (.*) "(.*)" to "(.*)"/ do 
   thing.save
 end
 
+When /all the translations of the (.*) named "(.*)" are (.*)$/ do |type, name, status|
+  doc = type.constantize.where(:name => name).first
+  doc_langs = (type + "_langs").to_sym
+  doc.send(doc_langs).each do |doc_lang|
+    doc_lang.status = status
+  end
+  doc.save
+end
+
 Given /there is a tag with En: "(.*)" Fr: "(.*)" Cr: "(.*)" Sp: "(.*)"/ do |en, fr, cr, sp|
   t = Tag.new(:english => en, :french => fr, :creole => cr, :spanish => sp, :cat => 'main')
   t.save
 end
+
+# PERMISSIONS VIOLATIONS TESTS
+When /I submit a manual POST request to create a (.*) (.*) document named "(.*)"$/ do |status, type, name|
+  path_helper = "create_" + type + "_path"
+  doc = FactoryGirl.create(type.to_sym)
+  doc.name = name
+  doc_langs = (type + "_langs").to_sym
+  doc.send(doc_langs).each do |doc_lang|
+    doc_lang.status = status
+    doc_lang.save
+  end
+  post(send(path_helper), type.to_sym => doc.attributes)
+end
+
+Then /the (.*) document named "(.*)" should not exist$/ do |type, name|
+  type.constantize.where(:name => name).count.should == 0
+end
+
+When /I submit a manual POST request to edit a (.*) named "(.*)"$/ do |type, name|
+  doc = type.constantize.where(:name => name).first
+  doc.name = doc.name + " EDITTED"
+  path_helper = "update_" + type + "path"
+  post(send(path_helper), doc.attributes)
+end
+
+When /I submit a manual POST request to mark a (.*) named "(.*)" as (.*)$/ do |type, name, status|
+  doc = type.constantize.where(:name => name).first
+  path_helper = "update_" + type + "_path".to_sym
+  doc_langs_attributes = type + "_langs_attributes".to_sym
+  post(send(path_helper), type.to_sym => { doc_langs_attribute => [
+                            {:id => 1, :status => status},
+                            {:id => 2, :status => status},
+                            {:id => 3, :status => stauts},
+                            {:id => 4, :status => status}
+                          ]
+                        }
+                      )
+end
+
