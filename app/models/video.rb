@@ -14,6 +14,8 @@ class Video < ActiveRecord::Base
   validates :name,:vid, presence: true
   validate :valid_youtube_link
   after_validation :set_statuses
+  multisearchable :against => [:name]
+
     def get_translations
         self.video_langs
     end

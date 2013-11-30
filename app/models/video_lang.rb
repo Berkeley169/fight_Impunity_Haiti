@@ -4,4 +4,5 @@ class VideoLang < ActiveRecord::Base
 	include PgSearch
   	attr_accessible :description, :lang, :title, :published, :status
   	belongs_to :video
+  	multisearchable :against => [:title, :description]
 end

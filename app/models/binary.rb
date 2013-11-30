@@ -14,6 +14,7 @@ class Binary < ActiveRecord::Base
   validates :name, presence: true
   has_and_belongs_to_many :tags
   after_validation :set_statuses
+  multisearchable :against => [:name]
 
   def get_translations
     self.binary_langs

@@ -2,7 +2,8 @@
 # Rerfer to this as other and not binary with the customer
 class BinaryLang < ActiveRecord::Base
 	include PgSearch
-  	attr_accessible :description, :lang, :title, :published, :status
+  	attr_accessible :description, :lang, :title, :status
   	belongs_to :binary
   	has_attached_file :bin_lang
+  	multisearchable :against => [:title, :description]
 end

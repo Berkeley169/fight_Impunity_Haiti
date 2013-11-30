@@ -5,4 +5,5 @@ class PictureLang < ActiveRecord::Base
 	attr_accessible :description, :lang, :title, :published, :status
 	belongs_to :picture
 	#validates :title, :lang, presence: true
+	multisearchable :against => [:description, :title]
 end
