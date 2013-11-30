@@ -86,7 +86,7 @@ When /I set the status of the (.*) translation of the (.*) "(.*)" to "(.*)"/ do 
 end
 
 When /all the translations of the (.*) named "(.*)" are (.*)$/ do |type, name, status|
-  doc = type.constantize.where(:name => name).first
+  doc = type.classify.constantize.where(:name => name).first
   doc_langs = (type + "_langs").to_sym
   doc.send(doc_langs).each do |doc_lang|
     doc_lang.status = status
@@ -102,14 +102,19 @@ end
 # PERMISSIONS VIOLATIONS TESTS
 When /I submit a manual POST request to create a (.*) (.*) document named "(.*)"$/ do |status, type, name|
   path_helper = "create_" + type + "_path"
-  doc = FactoryGirl.create(type.to_sym)
-  doc.name = name
+  doc = FactoryGirl.build(type.to_sym, :name => name)
   doc_langs = (type + "_langs").to_sym
-  doc.send(doc_langs).each do |doc_lang|
-    doc_lang.status = status
-    doc_lang.save
+  attrs = doc.attributes
+  lang_attrs = {}
+  i = 0
+  languages = ["English", "French", "Creole", "Spanish"]
+  doc.send(doc_langs).each do |lang|
+    lang_attrs[i.to_s] = {:title => "title", :lang => languages[i], :description => ""}
+    i += 1
   end
-  post(send(path_helper), type.to_sym => doc.attributes)
+  attrs[(doc_langs.to_s + "_attributes").to_sym] = lang_attrs
+  puts attrs
+  post(send(path_helper), type.to_sym => attrs)
 end
 
 Then /the (.*) document named "(.*)" should not exist$/ do |type, name|
@@ -117,20 +122,20 @@ Then /the (.*) document named "(.*)" should not exist$/ do |type, name|
 end
 
 When /I submit a manual POST request to edit a (.*) named "(.*)"$/ do |type, name|
-  doc = type.constantize.where(:name => name).first
+  doc = type.classify.constantize.where(:name => name).first
   doc.name = doc.name + " EDITTED"
-  path_helper = "update_" + type + "path"
-  post(send(path_helper), doc.attributes)
+  path_helper = "update_" + type + "_path"
+  put(send(path_helper, :id => doc.id), doc.attributes)
 end
 
 When /I submit a manual POST request to mark a (.*) named "(.*)" as (.*)$/ do |type, name, status|
-  doc = type.constantize.where(:name => name).first
-  path_helper = "update_" + type + "_path".to_sym
-  doc_langs_attributes = type + "_langs_attributes".to_sym
-  post(send(path_helper), type.to_sym => { doc_langs_attribute => [
+  doc = type.classify.constantize.where(:name => name).first
+  path_helper = "update_" + type + "_path"
+  doc_langs_attributes = (type + "_langs_attributes").to_sym
+  put(send(path_helper, :id => doc.id), type.to_sym => { doc_langs_attributes => [
                             {:id => 1, :status => status},
                             {:id => 2, :status => status},
-                            {:id => 3, :status => stauts},
+                            {:id => 3, :status => status},
                             {:id => 4, :status => status}
                           ]
                         }
