@@ -3,6 +3,7 @@
 # the tags will need to be translated into four langauges
 # Tags will also own themselvea
 class Tag < ActiveRecord::Base
+  include PgSearch
   attr_accessible :creole, :english, :french, :spanish, :cat,
       :english_description, :french_description, :spanish_description,
       :creole_description, :parent_id
@@ -16,7 +17,8 @@ class Tag < ActiveRecord::Base
   validates :cat, presence: true, inclusion: { in: %w(main sub misc),
     message: "%{value} is not a valid type of tag" }
   validates :english, :spanish, :french, :creole, presence: true, uniqueness: true
-
+  multisearchable :against => [:english, :french, :spanish, :creole, :english_description,
+                                    :creole_description, :french_description, :spanish_description]
 
   TYPES = ["main", "sub", "misc"]
 end

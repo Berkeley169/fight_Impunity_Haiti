@@ -3,6 +3,7 @@
 class Binary < ActiveRecord::Base
   include Status
   include DocumentsHelper
+  include PgSearch
   attr_accessible :name, :date, :binary_langs_attributes, :notes, :tags_attributes, :tag_ids,
                   :new, :in_progress, :pending, :published, :rejected
   has_many :binary_langs, dependent: :destroy
@@ -13,6 +14,7 @@ class Binary < ActiveRecord::Base
   validates :name, presence: true
   has_and_belongs_to_many :tags
   after_validation :set_statuses
+  multisearchable :against => [:name]
 
   def get_translations
     self.binary_langs

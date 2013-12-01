@@ -4,6 +4,7 @@
 class Sound < ActiveRecord::Base
   include Status
   include DocumentsHelper
+  include PgSearch
   attr_accessible :snd, :name, :date, :sound_langs_attributes, :notes, :tags_attributes, :tag_ids,
                   :new, :in_progress, :pending, :published, :rejected
   has_many :sound_langs, dependent: :destroy
@@ -15,6 +16,7 @@ class Sound < ActiveRecord::Base
             :content_type => {:content_type => ['audio/mpeg3', 'audio/mpeg', 'audio/mp3']}
   after_validation :set_statuses
   has_and_belongs_to_many :tags
+  multisearchable :against => [:name]
 
 	def get_translations
 			#needs to be implemented
