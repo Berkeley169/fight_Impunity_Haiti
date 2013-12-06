@@ -63,7 +63,7 @@ FightImpunityHaiti::Application.routes.draw do
   post '/users/:id/update' => 'users#update'
 
   get '/index_by_tag/:tagid' => 'documents#index_by_tag', :as => :index_by_tag
-
+  get '/search' => 'search#index', :as => :search
   post '/pages/email' => 'pages#email', :as => :email
   #namespace :dashboard do
   #  resources :users

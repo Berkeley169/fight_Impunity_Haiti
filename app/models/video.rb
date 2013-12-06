@@ -4,6 +4,7 @@
 class Video < ActiveRecord::Base
   include Status
   include DocumentsHelper
+  include PgSearch
   attr_accessible :name, :date, :vid, :video_langs_attributes, :notes, :tags_attributes, :tag_ids,
                   :new, :in_progress, :pending, :published, :rejected
   has_many :video_langs, dependent: :destroy
@@ -13,6 +14,8 @@ class Video < ActiveRecord::Base
   validates :name,:vid, presence: true
   validate :valid_youtube_link
   after_validation :set_statuses
+  multisearchable :against => [:name]
+
     def get_translations
         self.video_langs
     end

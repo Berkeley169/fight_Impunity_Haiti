@@ -4,6 +4,7 @@
 class Picture < ActiveRecord::Base
 	include Status
 	include DocumentsHelper
+	include PgSearch
 	attr_accessible :pic, :name, :date, :picture_langs_attributes, :notes, :tags_attributes, :tag_ids,
                   :new, :in_progress, :pending, :published, :rejected
 	has_many :picture_langs, dependent: :destroy
@@ -16,6 +17,9 @@ class Picture < ActiveRecord::Base
     validates_attachment :pic, :presence => true,
                           :content_type => {:content_type => ['image/jpg', 'image/png', 'image/jpeg']}
     after_validation :set_statuses
+
+    multisearchable :against => [:name]
+    
    	def get_translations
     	self.picture_langs
 	end

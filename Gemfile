@@ -26,6 +26,9 @@ gem 'simple_form'
 gem 'bootstrap-sass'
 gem 'ckeditor_rails'
 gem 'youtube_addy'
+gem 'pg_search'
+
+gem 'paypal-express'
 
 # added for user authentication
 gem 'devise', :git => 'https://github.com/plataformatec/devise.git'

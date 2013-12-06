@@ -32,5 +32,9 @@
         - else 
           %li= link_to t(:logout), sessions_logout_path, { :class => 'auth' }
           %li= link_to t(:editprofile), edit_user_path(:id => current_user.id)
-          %li= "#{current_user.name}"
-
+          %li
+            %a= "#{current_user.name}"
+        = form_tag search_path, :method => 'get' do
+          %p
+            = text_field_tag :search, params[:search]
+            = submit_tag "Search", :name => nil

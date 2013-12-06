@@ -31,9 +31,9 @@ ht:
   hello: Hello world in creole
   login: Identifiez-vous
   subcategories: ! '#!# subcategories'
-  home: ! '#!# home'
-  about: ! '#!# about'
-  contact: ! '#!# contact'
+  home: Byenveni
+  about: sou nou
+  contact: kontak
   fight: ! '#!# fight'
   texts: tèks
   pictures: Foto
@@ -83,18 +83,18 @@ ht:
   signout: ! '#!# signout'
   dashboardhome: ! '#!# dashboardhome'
   published: Pibliye
-  inprogress: ! '#!# inprogress'
-  pending: ! '#!# pending'
-  new: ! '#!# new'
-  rejected: ! '#!# rejected'
+  inprogress: nan pwogrè
+  pending: annatant
+  new: nouvo
+  rejected: rejte
   userdirectory: ! '#!# userdirectory'
-  usermanagement: ! '#!# usermanagement'
+  usermanagement: Jere itilizatè yo
   newtag: ! '#!# newtag'
   backtodashboard: ! '#!# backtodashboard'
   delete: ! '#!# delete'
   deleteuserconfirm: ! '#!# deleteuserconfirm'
   adduser: ! '#!# adduser'
-  manageusers: ! '#!# manageusers'
+  manageusers: Jere itilizatè yo
   english: angle
   creole: kreyòl
   spanish: Panyòl
@@ -124,7 +124,7 @@ ht:
   date_created: ! '#!# date_created'
   actions: ! '#!# actions'
   videos: ! '#!# videos'
-  tags_management: jere Tags
+  tags_management: Jere baliz yo
   donations_title: Donasyon
   contact_thanks: Mèsi pou D 'ou. Nou pral jwenn tounen ba ou pi vit ke posib.
   donation_splash: Nou ap currenlty ap travay sou ki jan yo mete kanpe donasyon. Tanpri
@@ -137,5 +137,5 @@ ht:
   volume: ! '#!# volume'
   newspaper: ! '#!# newspaper'
   chapter: ! '#!# chapter'
-  dashboard: ! '#!# dashboard'
+  dashboard: Tablo pou kontwole
   logout: ! '#!# logout'
