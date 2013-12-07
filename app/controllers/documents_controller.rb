@@ -60,6 +60,18 @@ class DocumentsController < ApplicationController
         @document.subtype_fields[field] = ""
       end
     end
+    document_langs = set_langs
+    # document_langs = []
+    # Item::LANGUAGES.each do |l|
+    #   document_langs.append(@document.send(@langs_sym).build(:lang => l.to_s, :status => 'new'))
+    #   # need to also initialize the plain_text of each lang if we are dealing with a text document
+    #   if params[:type] == "texts"
+    #     document_langs.last.plain_text = ""
+    #   end
+    # end
+  end
+
+  def set_langs
     document_langs = []
     Item::LANGUAGES.each do |l|
       document_langs.append(@document.send(@langs_sym).build(:lang => l.to_s, :status => 'new'))
@@ -68,16 +80,14 @@ class DocumentsController < ApplicationController
         document_langs.last.plain_text = ""
       end
     end
+    return document_langs
   end
 
   def text_choice
   end
 
   def create
-    lang = params[@doc_type_sym][(@langs_sym.to_s + '_attributes').to_sym]
-    (0..3).each do |i|
-      lang[i.to_s][:status] = 'new'
-    end
+    set_new_status
     @document = @doc_type.new(params[@doc_type_sym])
     @return_path = return_to_from_create(@document)
     #respond_to do |format|
@@ -95,6 +105,13 @@ class DocumentsController < ApplicationController
         #format.json { render json: @document.errors, status: :unprocessable_entity }
       end
     #end
+  end
+
+  def set_new_status
+    lang = params[@doc_type_sym][(@langs_sym.to_s + '_attributes').to_sym]
+    (0..3).each do |i|
+      lang[i.to_s][:status] = 'new'
+    end
   end
 
   def return_to_from_create(document)
@@ -154,8 +171,5 @@ class DocumentsController < ApplicationController
   end
 
   def new_document_choice
-  end
-  def set_new
-
   end
 end
