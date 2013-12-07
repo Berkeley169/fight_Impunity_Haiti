@@ -7,7 +7,6 @@ gem 'rails', '3.2.13'
 
 gem 'pg'
 gem 'haml-rails'
-#gem 'recaptcha', :require => "recaptch/rails"
 gem 'autotest'
 gem 'spork'
 gem 'metric_fu'
@@ -27,6 +26,7 @@ gem 'bootstrap-sass'
 gem 'ckeditor_rails'
 gem 'youtube_addy'
 gem 'pg_search'
+gem 'dotenv-rails'
 
 # added for user authentication
 gem 'devise', :git => 'https://github.com/plataformatec/devise.git'
