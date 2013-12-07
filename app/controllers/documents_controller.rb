@@ -159,6 +159,4 @@ class DocumentsController < ApplicationController
 
   def new_document_choice
   end
-  def set_new
-  end
 end
