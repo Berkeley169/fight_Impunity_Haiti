@@ -60,6 +60,18 @@ class DocumentsController < ApplicationController
         @document.subtype_fields[field] = ""
       end
     end
+    document_langs = set_langs
+    # document_langs = []
+    # Item::LANGUAGES.each do |l|
+    #   document_langs.append(@document.send(@langs_sym).build(:lang => l.to_s, :status => 'new'))
+    #   # need to also initialize the plain_text of each lang if we are dealing with a text document
+    #   if params[:type] == "texts"
+    #     document_langs.last.plain_text = ""
+    #   end
+    # end
+  end
+
+  def set_langs
     document_langs = []
     Item::LANGUAGES.each do |l|
       document_langs.append(@document.send(@langs_sym).build(:lang => l.to_s, :status => 'new'))
@@ -68,6 +80,7 @@ class DocumentsController < ApplicationController
         document_langs.last.plain_text = ""
       end
     end
+    return document_langs
   end
 
   def text_choice
