@@ -2,6 +2,7 @@ class DocumentsController < ApplicationController
   before_filter :authenticate_user, :except => [:index, :show, :new, :create, :text_choice, :new_document_choice]
   before_filter :type_setup, :except => [:dashboard_index, :new_document_choice, :index_by_tag]
   before_filter :dashboard_setup, :only => [:dashboard_index]
+  before_filter :sanitize_update, :only => [:update]
 
   def type_setup
     type = {:binaries => Binary, :pictures => Picture, :sounds => Sound, :texts => Text, :videos => Video}
@@ -79,21 +80,14 @@ class DocumentsController < ApplicationController
     end
     @document = @doc_type.new(params[@doc_type_sym])
     @return_path = return_to_from_create(@document)
-    #respond_to do |format|
-      if @document.save
-        redirect_to @return_path, notice:"#{@doc_type_sym.to_s} was successfully created."
-        #format.html { redirect_to @return_path,
-        #              notice: "#{@doc_type_sym.to_s} was successfully created." }
-        #format.json { render json: @document, status: :created, location: @document }
-      else
-        if @doc_type_sym == :text
-          @text_subtype = params[:text][:subtype]
-        end
-        render action: "new"
-        #format.html { render action: "new" }
-        #format.json { render json: @document.errors, status: :unprocessable_entity }
+    if @document.save
+      redirect_to @return_path, notice:"#{@doc_type_sym.to_s} was successfully created."
+    else
+      if @doc_type_sym == :text
+        @text_subtype = params[:text][:subtype]
       end
-    #end
+      render action: "new"
+    end
   end
 
   def return_to_from_create(document)
@@ -114,22 +108,43 @@ class DocumentsController < ApplicationController
 
   def update
     @document = @doc_type.find(params[:id])
-    #respond_to do |format|
-      if @document.update_attributes(params[@doc_type_sym])
-        redirect_to @document, notice: "#{@doc_type_sym.to_s} was successfully updated."
-        #format.html { redirect_to @document, 
-        #              notice: "#{@doc_type_sym.to_s} was successfully updated." }
-        #format.json { head :no_content }
-      else
-        if @doc_type_sym == :text
-          @text_subtype = params[:text][:subtype]
-        end
-        render action: "edit"
-        #format.html { render action: "edit" }
-        #format.json { render json: @document.errors, status: :unprocessable_entity }
+    if @document.update_attributes(params[@doc_type_sym])
+      redirect_to @document, notice: "#{@doc_type_sym.to_s} was successfully updated."
+    else
+      if @doc_type_sym == :text
+        @text_subtype = params[:text][:subtype]
       end
-    #end
+      render action: "edit"
+    end
   end
+
+  def sanitize_update
+    if current_user.role == "Manager"
+      return
+    else
+      lang_attributes = params[@doc_type_sym][(@langs_sym.to_s + '_attributes').to_sym]
+      document = @doc_type.find(params[:id])
+      if document.published? and params[@doc_type_sym].size >= 1 and not lang_attributes
+        flash[:notice] = "Editors cannot change the information of published documents"
+        redirect_to root_path
+        return
+      elsif not lang_attributes
+        return
+      end
+      puts lang_attributes
+      (0..3).each do |i|
+        current_lang = document.get_language(lang_attributes[i.to_s][:lang])
+        if (lang_attributes[i.to_s][:status] == "published" and current_lang.status != "published") or
+           (lang_attributes[i.to_s][:status] != "published" and current_lang.status == "published")
+          flash[:notice] = "Editors cannot publish or unpublish documents"
+          redirect_to method((@doc_type_sym.to_s.pluralize + "_path").to_sym).call
+          return
+        end
+      end
+    end
+  end
+      
+      
 
   def destroy
     @document = @doc_type.find(params[:id])
