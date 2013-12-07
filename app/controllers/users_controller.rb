@@ -40,6 +40,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    # if User.find(params[:id])
     if User.exists?(params[:id])
       user = User.find(params[:id])
       if not_self(user)

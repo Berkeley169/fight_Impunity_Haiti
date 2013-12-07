@@ -1,5 +1,5 @@
 %p
-  %h3= @document.relevant_title_and_description(@document,@relevant_langs)[0]
+  %h3= @document.relevant_title_and_description(@document,relevant_langs)[0]
   .langs
     - @document.send((@document.class.to_s.downcase + "_langs").to_sym).sort.each do |dl|
       - class_name = "img_trigger"

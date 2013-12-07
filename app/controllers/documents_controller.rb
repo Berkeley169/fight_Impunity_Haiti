@@ -2,7 +2,6 @@ class DocumentsController < ApplicationController
   before_filter :authenticate_user, :except => [:index, :show, :new, :create, :text_choice, :new_document_choice]
   before_filter :type_setup, :except => [:dashboard_index, :new_document_choice, :index_by_tag]
   before_filter :dashboard_setup, :only => [:dashboard_index]
-  before_filter :relevant_langs
 
   def type_setup
     type = {:binaries => Binary, :pictures => Picture, :sounds => Sound, :texts => Text, :videos => Video}
@@ -61,6 +60,18 @@ class DocumentsController < ApplicationController
         @document.subtype_fields[field] = ""
       end
     end
+    document_langs = set_langs
+    # document_langs = []
+    # Item::LANGUAGES.each do |l|
+    #   document_langs.append(@document.send(@langs_sym).build(:lang => l.to_s, :status => 'new'))
+    #   # need to also initialize the plain_text of each lang if we are dealing with a text document
+    #   if params[:type] == "texts"
+    #     document_langs.last.plain_text = ""
+    #   end
+    # end
+  end
+
+  def set_langs
     document_langs = []
     Item::LANGUAGES.each do |l|
       document_langs.append(@document.send(@langs_sym).build(:lang => l.to_s, :status => 'new'))
@@ -69,16 +80,14 @@ class DocumentsController < ApplicationController
         document_langs.last.plain_text = ""
       end
     end
+    return document_langs
   end
 
   def text_choice
   end
 
   def create
-    lang = params[@doc_type_sym][(@langs_sym.to_s + '_attributes').to_sym]
-    (0..3).each do |i|
-      lang[i.to_s][:status] = 'new'
-    end
+    set_new_status
     @document = @doc_type.new(params[@doc_type_sym])
     @return_path = return_to_from_create(@document)
     #respond_to do |format|
@@ -96,6 +105,13 @@ class DocumentsController < ApplicationController
         #format.json { render json: @document.errors, status: :unprocessable_entity }
       end
     #end
+  end
+
+  def set_new_status
+    lang = params[@doc_type_sym][(@langs_sym.to_s + '_attributes').to_sym]
+    (0..3).each do |i|
+      lang[i.to_s][:status] = 'new'
+    end
   end
 
   def return_to_from_create(document)
@@ -156,34 +172,4 @@ class DocumentsController < ApplicationController
 
   def new_document_choice
   end
-  def set_new
-
-  end
-
-  def relevant_langs
-    abrvs = ['fr','en','ht','es']
-    langs = ['French','English','Creole','Spanish']
-    user_lang = locale_lang = nil
-    if current_user
-      user_lang = current_user.lang
-    end
-    if session[:locale] != nil
-      abrvs.each_with_index do |locale,i|
-        if locale == session[:locale]
-          locale_lang = langs[i]
-          break
-        end
-      end
-    end
-    if user_lang != nil
-      langs.delete(user_lang)
-      langs.insert(0,user_lang)
-    end
-    if locale_lang != nil
-      langs.delete(locale_lang)
-      langs.insert(0,locale_lang)
-    end
-    @relevant_langs = langs
-  end
-
 end
