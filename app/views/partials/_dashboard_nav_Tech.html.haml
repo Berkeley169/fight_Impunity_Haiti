@@ -1,8 +1,4 @@
-%li.dropdown
-  %a.dropdown-toggle{:href => "#", :role => "button", "data-toggle" => "dropdown", "data-target" => '#'}
-    = t(:dashboard)
-    %b.caret
-  %ul.dropdown-menu{:role => "menu"}
+%ul.nav.nav-pills
     %li= link_to t(:published), dashboard_index_path(:status => "published")
     %li= link_to t(:inprogress), dashboard_index_path(:status => "in_progress")
     %li= link_to t(:pending), dashboard_index_path(:status => "pending")

@@ -9,8 +9,6 @@
     = stylesheet_link_tag "screen"
     = csrf_meta_tag
   %body
-    - if user_signed_in?
-      = render "partials/dashboard_nav_#{current_user.role}"
     = render 'partials/navigation'
     .rule_bl
     .container
