@@ -74,10 +74,7 @@ class DocumentsController < ApplicationController
   end
 
   def create
-    lang = params[@doc_type_sym][(@langs_sym.to_s + '_attributes').to_sym]
-    (0..3).each do |i|
-      lang[i.to_s][:status] = 'new'
-    end
+    set_new_status
     @document = @doc_type.new(params[@doc_type_sym])
     @return_path = return_to_from_create(@document)
     #respond_to do |format|
@@ -95,6 +92,13 @@ class DocumentsController < ApplicationController
         #format.json { render json: @document.errors, status: :unprocessable_entity }
       end
     #end
+  end
+
+  def set_new_status
+    lang = params[@doc_type_sym][(@langs_sym.to_s + '_attributes').to_sym]
+    (0..3).each do |i|
+      lang[i.to_s][:status] = 'new'
+    end
   end
 
   def return_to_from_create(document)
@@ -156,6 +160,5 @@ class DocumentsController < ApplicationController
   def new_document_choice
   end
   def set_new
-
   end
 end
