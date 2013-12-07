@@ -139,3 +139,4 @@ ht:
   chapter: ! '#!# chapter'
   dashboard: Tablo pou kontwole
   logout: ! '#!# logout'
+  error: ! '#!# error'

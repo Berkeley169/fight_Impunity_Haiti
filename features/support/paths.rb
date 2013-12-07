@@ -24,6 +24,7 @@ module NavigationHelpers
     when /^the password page$/ then '/sessions/password'
     when /^the new documents page$/ then '/dashboard/new'
     when /^the published documents path/ then '/dashboard/published'
+    when /^the donate page$/ then '/pages/donate'
 
     # Paths for showing items, lookup on the name field
     when /^the show picture page for "(.*)"$/

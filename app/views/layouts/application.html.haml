@@ -11,9 +11,9 @@
   %body
     = render 'partials/navigation'
     .rule_bl
-    - if user_signed_in?
-      %div#sidebar
-        = render "partials/dashboard_nav_#{current_user.role}"
+    /- if user_signed_in?
+    /  %div#sidebar
+    /    = render "partials/dashboard_nav_#{current_user.role}"
     .container#main_content
       %p= flash[:notice]
       = yield

@@ -4,6 +4,18 @@
 //= require ckeditor-jquery
 //= require_tree .
 
+function toggleLang(lang){
+	var edit_doc = $('#doc_edit_'.concat(lang))[0];
+	if (edit_doc != undefined) {
+		if (edit_doc.style.display != 'none') {
+			edit_doc.style.display = 'none'
+		}
+		else {
+			edit_doc.style.display = 'block'
+		}
+	}
+}
+
 function displayLang(lang){
 	var lang_text = '#display_text_'.concat(lang);
 	var lang_info = '#doc_info_'.concat(lang);
@@ -29,11 +41,29 @@ window.onload = function() {
 	}
 	if ($('.relevant_lang')[0] != undefined) {
 		displayLang($('.relevant_lang')[0].id)
+		displaySection($('.doc_edit'),$('#doc_edit_'.concat($('.relevant_lang')[0].id))[0])
+		$('#'.concat($('.relevant_lang')[0].id))[0].style.background = 'black'
 	}
-	var imgs = $('.img_trigger')
-	for (var j=0; j<imgs.length; j++) {
-		imgs[j].onclick = function() {
+	var trigger_flags = $('.img_trigger')
+	for (var j=0; j<trigger_flags.length; j++) {
+		trigger_flags[j].onclick = function() {
 			displayLang(this.id)
+			for (var i=0; i<trigger_flags.length; i++){
+				trigger_flags[i].style.background = 'none'
+			}
+			this.style.background = 'black'
+		}
+	}
+	var toggle_flags = $('.img_toggle')
+	for (var j=0; j<toggle_flags.length; j++) {
+		toggle_flags[j].onclick = function() {
+			toggleLang(this.id)
+			if (this.style.background == 'black') {
+				this.style.background = 'none'
+			}
+			else {
+				this.style.background = 'black'
+			}
 		}
 	}
 };

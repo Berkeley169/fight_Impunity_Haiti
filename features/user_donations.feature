@@ -10,8 +10,4 @@ Scenario: There is a Donations button on the navbar
 
 Scenario: donations work
   Given I am on the donate page
-  And I fill in "Amount" with "100"
-  And I supply my PayPal information
-  And I press "Donate!"
-  Then I should be on the home page
-  And I should see "Thank you for your donation."
+  Then there should a donate form

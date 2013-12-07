@@ -139,3 +139,4 @@ es:
   chapter: ! '#!# chapter'
   dashboard: Cuadro de control
   logout: ! '#!# logout'
+  error: ! '#!# error'

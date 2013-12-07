@@ -28,7 +28,7 @@ gem 'ckeditor_rails'
 gem 'youtube_addy'
 gem 'pg_search'
 
-gem 'paypal-express'
+gem 'negative_captcha'
 
 # added for user authentication
 gem 'devise', :git => 'https://github.com/plataformatec/devise.git'

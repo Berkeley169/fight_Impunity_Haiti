@@ -17,7 +17,7 @@
 %p
   - @document_langs.sort.each do |dl|
     - if auth_to_view(dl)
-      - if dl.lang == @document.relevant_title_and_description(@document,@relevant_langs)[2]
+      - if dl.lang == @document.relevant_title_and_description(@document,relevant_langs)[2]
         %div{class: "relevant_lang", id: dl.lang}
       %div{id: "doc_info_#{dl.lang}", class: "doc_info"}
         %h3= dl.lang

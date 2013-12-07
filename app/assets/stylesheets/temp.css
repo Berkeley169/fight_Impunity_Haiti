@@ -13,6 +13,10 @@
   height: 40%;
 }
 
+.doc_edit {
+  display: block;
+}
+
 #category_list {
   float: left;
   width: 100%;
@@ -20,6 +24,14 @@
 
 #main_content {
   width: 85%;
+}
+
+.img_trigger:hover {
+ -webkit-transform: scale(1.5,1.5);
+}
+
+.img_toggle:hover {
+ -webkit-transform: scale(1.5,1.5);
 }
 
 .user-menu a {

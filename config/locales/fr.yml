@@ -141,3 +141,4 @@ fr:
   chapter: ! '#!# chapter'
   dashboard: Tableau de bord 
   logout: ! '#!# logout'
+  error: ! '#!# error'

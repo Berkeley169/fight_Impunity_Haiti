@@ -30,41 +30,44 @@
    
 
   = f.fields_for @langs_sym do |dl|
-    - if auth_to_edit_lang(dl.object)
-      %h4= dl.object.lang
-      .field{:id => 'document_lang_' + dl.object.lang.downcase + '_title'}
-        = dl.label t(:title).titleize + ":"
-        = dl.text_field :title
-      = dl.hidden_field :lang
-      - if params[:type] == "texts"
-        .field{:id => 'document_lang_' + dl.object.lang.downcase + '_plain_text'}
-          = dl.label t(:plain_text).titleize + ":"
-          = dl.text_area :plain_text, :class => 'ckeditor'
-          = dl.file_field :txt
-      .field{:id => 'document_lang_' + dl.object.lang.downcase + '_description'}
-        = dl.label t(:description).titleize + ":"
-        = dl.text_field :description, :size => 150
-    - else
-      %h4= dl.object.lang
-      = dl.hidden_field :lang
-      %b= t(:title).titleize + ":"
-      = dl.object.title
-      %br
-      - if params[:type] == "texts"
-        %b= t(:content).titleize + ":"
+    - if dl.object.lang == @document.relevant_title_and_description(@document,relevant_langs)[2]
+      %div{class: "relevant_lang", id: dl.object.lang}
+    %div{id: "doc_edit_#{dl.object.lang}", class: "doc_edit"}
+      - if auth_to_edit_lang(dl.object)
+        %h4= dl.object.lang
+        .field{:id => 'document_lang_' + dl.object.lang.downcase + '_title'}
+          = dl.label t(:title).titleize + ":"
+          = dl.text_field :title
+        = dl.hidden_field :lang
+        - if params[:type] == "texts"
+          .field{:id => 'document_lang_' + dl.object.lang.downcase + '_plain_text'}
+            = dl.label t(:plain_text).titleize + ":"
+            = dl.text_area :plain_text, :class => 'ckeditor'
+            = dl.file_field :txt
+        .field{:id => 'document_lang_' + dl.object.lang.downcase + '_description'}
+          = dl.label t(:description).titleize + ":"
+          = dl.text_field :description, :size => 150
+      - else
+        %h4= dl.object.lang
+        = dl.hidden_field :lang
+        %b= t(:title).titleize + ":"
+        = dl.object.title
         %br
-        = dl.object.plain_text.html_safe
-      %b= t(:description).titleize + ":"
-      %br
-      = dl.object.description
-      %br
-    - if auth_to_edit_status(dl.object)
-      .field{:id => 'document_lang_' + dl.object.lang.downcase + '_status'}
-        = dl.label t(:status)
-        = dl.select :status, Item.status_options(current_user)
-    - else 
-      %b= t(:publication_status) + ":" 
-      %b{:class => dl.object.status}= dl.object.status.humanize.titleize
+        - if params[:type] == "texts"
+          %b= t(:content).titleize + ":"
+          %br
+          = dl.object.plain_text.html_safe
+        %b= t(:description).titleize + ":"
+        %br
+        = dl.object.description
+        %br
+      - if auth_to_edit_status(dl.object)
+        .field{:id => 'document_lang_' + dl.object.lang.downcase + '_status'}
+          = dl.label t(:status)
+          = dl.select :status, Item.status_options(current_user)
+      - else 
+        %b= t(:publication_status) + ":" 
+        %b{:class => dl.object.status}= dl.object.status.humanize.titleize
   %br
 
   .field

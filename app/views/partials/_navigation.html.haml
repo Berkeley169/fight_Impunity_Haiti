@@ -30,10 +30,13 @@
         - unless current_user
           %li= link_to t(:login), new_user_session_path, { :class => 'auth' }
         - else 
-          %li= link_to t(:logout), sessions_logout_path, { :class => 'auth' }
-          %li= link_to t(:editprofile), edit_user_path(:id => current_user.id)
           %li
-            %a= "#{current_user.name}"
+            %a.dropper{:href => '#', :class => 'dropdown-toggle', 'data-toggle' => 'dropdown'}
+              = "#{current_user.name}"
+              %b.caret
+            %ul.dropdown-menu
+              %li= link_to t(:logout), sessions_logout_path, { :class => 'auth' }
+              %li= link_to t(:editprofile), edit_user_path(:id => current_user.id)
         = form_tag search_path, :method => 'get' do
           %p
             = text_field_tag :search, params[:search]
