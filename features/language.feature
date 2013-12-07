@@ -12,7 +12,7 @@ Scenario: Home page in Spanish
 Scenario: Home page in French
 	Given I am on the home page
 	When I click French
-	Then I should see "Identifiez-vous"
+	Then I should see "Se connecter"
 
 Scenario: Home page in Creole
 	Given I am on the home page
@@ -41,9 +41,9 @@ Scenario: When I visit the page again I should still see it in English
 Scenario: When I visit the page again I should still see it in French
 	Given I am on the home page
 	When I click French
-	Then I should see "Identifiez-vous"
+	Then I should see "Se connecter"
 	Given I am on the home page
-	Then I should see "Identifiez-vous"
+	Then I should see "Se connecter"
 
 Scenario: When I visit the page again I should still see it in Creole
 	Given I am on the home page
