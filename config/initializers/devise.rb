@@ -9,8 +9,6 @@ Devise.setup do |config|
   else
     ENV['DEVISE_KEY']
   end
-  # '1242921ba2f83da3b1532847c14a396ce5d0a55701c6696483bd16aee1f3e9b629f561c8ca84c1dad497fc8663af9d47177938a4fc43e3d7d650e7a0944bb740'
-
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
