@@ -8,32 +8,32 @@ es:
     formats:
       default: ! '%Y-%m-%d'
     day_names:
-    - ! '#!# Sunday'
-    - ! '#!# Monday'
-    - ! '#!# Tuesday'
-    - ! '#!# Wednesday'
-    - ! '#!# Thursday'
-    - ! '#!# Friday'
-    - ! '#!# Saturday'
+    - domingo
+    - lunes
+    - martes
+    - miércoles
+    - jueves
+    - viernes
+    - sábado
     month_names:
-    - ! '#!# January'
-    - ! '#!# February'
-    - ! '#!# March'
-    - ! '#!# April'
-    - ! '#!# May'
-    - ! '#!# June'
-    - ! '#!# July'
-    - ! '#!# August'
-    - ! '#!# September'
-    - ! '#!# October'
-    - ! '#!# November'
-    - ! '#!# December'
+    - enero
+    - febrero
+    - marzo
+    - abril
+    - mayo
+    - junio
+    - julio
+    - agosto
+    - septiembre
+    - octubre
+    - noviembre
+    - diciembre
   hello: Hello world in Spanish
   login: iniciar la sesión
   subcategories: ! '#!# subcategories'
-  home: ! '#!# home'
-  about: ! '#!# about'
-  contact: ! '#!# contact'
+  home: Inicio
+  about: Sobre Nosotros
+  contact: contactar
   fight: ! '#!# fight'
   texts: escrito
   pictures: fotos
@@ -83,18 +83,18 @@ es:
   signout: ! '#!# signout'
   dashboardhome: ! '#!# dashboardhome'
   published: publicado
-  inprogress: ! '#!# inprogress'
-  pending: ! '#!# pending'
-  new: ! '#!# new'
-  rejected: ! '#!# rejected'
+  inprogress: en curso
+  pending: pendiente
+  new: nuevo
+  rejected: rechazado
   userdirectory: ! '#!# userdirectory'
-  usermanagement: ! '#!# usermanagement'
+  usermanagement: Manejar Usuarios
   newtag: ! '#!# newtag'
   backtodashboard: ! '#!# backtodashboard'
   delete: ! '#!# delete'
   deleteuserconfirm: ! '#!# deleteuserconfirm'
   adduser: ! '#!# adduser'
-  manageusers: ! '#!# manageusers'
+  manageusers: Manejar Usuarios
   english: Inglés
   creole: criollo
   spanish: español
@@ -123,7 +123,7 @@ es:
   title_and_description: ! '#!# title_and_description'
   date_created: ! '#!# date_created'
   videos: ! '#!# videos'
-  tags_management: ! '#!# tags_management'
+  tags_management: Manejar codigos
   donations_title: Donaciones
   contact_thanks: Gracias por su trabaja. Hablaremos hasta pronto.
   donation_splash: Estamos trabajando currenlty sobre cómo configurar las donaciones.
@@ -137,5 +137,6 @@ es:
   volume: ! '#!# volume'
   newspaper: ! '#!# newspaper'
   chapter: ! '#!# chapter'
-  dashboard: ! '#!# dashboard'
+  dashboard: Cuadro de control
   logout: ! '#!# logout'
+  error: ! '#!# error'

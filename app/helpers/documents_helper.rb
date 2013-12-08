@@ -1,23 +1,20 @@
 module DocumentsHelper
-
-	LANGS = ['French','English','Creole','Spanish'] 
 	# this array encodes language display preferences
 
-	def relevant_title_and_description(item,user)
-		if user != nil
-			item_lang = item.get_language(user.lang)
-			if item_lang.title != nil and item_lang.title.length > 0
-				return [item_lang.title, item_lang.description]
-			end
-		end
-		LANGS.each do |lang|
+	def relevant_title_and_description(item,lang_prefs)
+		lang_prefs.each do |lang|
 			item_lang = item.get_language(lang)
-			if item_lang.status == 'published' or user != nil
-				if item_lang.title != nil and item_lang.title.length > 0
-					return [item_lang.title, item_lang.description]
-				end
+			if item_lang != nil and valid(item_lang)
+				return [item_lang.title,item_lang.description,lang]
 			end
 		end
-		return ['No Title', 'No Description']
+		return ['No Title', 'No Description', nil]
+	end
+
+	def valid(item_lang)
+		if item_lang.title.length > 0
+			return true
+		end
+		return false
 	end
 end

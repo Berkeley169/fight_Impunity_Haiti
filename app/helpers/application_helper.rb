@@ -98,4 +98,30 @@ module ApplicationHelper
                        locale == element
   end
 
+  def relevant_langs
+    abrvs = ['fr','en','ht','es']
+    langs = ['French','English','Creole','Spanish']
+    user_lang = locale_lang = nil
+    if current_user
+      user_lang = current_user.lang
+    end
+    if session[:locale] != nil
+      abrvs.each_with_index do |locale,i|
+        if locale == session[:locale]
+          locale_lang = langs[i]
+          break
+        end
+      end
+    end
+    if user_lang != nil
+      langs.delete(user_lang)
+      langs.insert(0,user_lang)
+    end
+    if locale_lang != nil
+      langs.delete(locale_lang)
+      langs.insert(0,locale_lang)
+    end
+    return langs
+  end
+
 end

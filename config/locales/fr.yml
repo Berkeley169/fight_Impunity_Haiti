@@ -29,15 +29,15 @@ fr:
     - novembre
     - decembre
   hello: Hello world in French
-  login: Identifiez-vous
+  login: Se connecter
   subcategories: ! '#!# subcategories'
-  home: ! '#!# home'
-  about: ! '#!# about'
-  contact: ! '#!# contact'
+  home: Accueil
+  about: à propos de nous
+  contact: Contact
   fight: ! '#!# fight'
   texts: texte
   pictures: photos
-  picture: ! '#!# picture'
+  picture: photo
   video: vidéo
   welcomemessage: ! '#!# welcomemessage'
   audio: son
@@ -72,7 +72,7 @@ fr:
   areyousure: ! '#!# areyousure'
   turnoff: ! '#!# turnoff'
   signup: ! '#!# signup'
-  signin: Connexion
+  signin: Se connecter
   forgotpassword: ! '#!# forgotpassword'
   didntreceiveconfirmation: ! '#!# didntreceiveconfirmation'
   didntreceiveunlock: ! '#!# didntreceiveunlock'
@@ -83,18 +83,18 @@ fr:
   signout: ! '#!# signout'
   dashboardhome: ! '#!# dashboardhome'
   published: publié
-  inprogress: ! '#!# inprogress'
-  pending: ! '#!# pending'
-  new: ! '#!# new'
-  rejected: ! '#!# rejected'
+  inprogress: en cours
+  pending: en attendant
+  new: nouveau
+  rejected: rejeté
   userdirectory: ! '#!# userdirectory'
-  usermanagement: ! '#!# usermanagement'
+  usermanagement: Gérer les utilisateurs
   newtag: ! '#!# newtag'
   backtodashboard: ! '#!# backtodashboard'
   delete: ! '#!# delete'
   deleteuserconfirm: ! '#!# deleteuserconfirm'
   adduser: ! '#!# adduser'
-  manageusers: ! '#!# manageusers'
+  manageusers: Gérer les utilisateurs
   english: Anglais
   creole: créole
   spanish: espagnol
@@ -139,5 +139,6 @@ fr:
   volume: ! '#!# volume'
   newspaper: ! '#!# newspaper'
   chapter: ! '#!# chapter'
-  dashboard: ! '#!# dashboard'
+  dashboard: Tableau de bord 
   logout: ! '#!# logout'
+  error: ! '#!# error'

@@ -114,31 +114,53 @@ When /I submit a manual POST request to create a (.*) (.*) document named "(.*)"
   end
   attrs[(doc_langs.to_s + "_attributes").to_sym] = lang_attrs
   puts attrs
-  post(send(path_helper), type.to_sym => attrs)
+  visit(send(path_helper), type.to_sym => attrs)
 end
 
 Then /the (.*) document named "(.*)" should not exist$/ do |type, name|
   type.constantize.where(:name => name).count.should == 0
 end
 
-When /I submit a manual POST request to edit a (.*) named "(.*)"$/ do |type, name|
+When /I submit a manual POST request to edit the name of a (.*) named "(.*)"$/ do |type, name|
   doc = type.classify.constantize.where(:name => name).first
-  doc.name = doc.name + " EDITTED"
   path_helper = "update_" + type + "_path"
-  put(send(path_helper, :id => doc.id), doc.attributes)
+  page.driver.put(send(path_helper, :id => doc.id), { type.to_sym => {:name => doc.name + "EDITTED"}})
 end
 
 When /I submit a manual POST request to mark a (.*) named "(.*)" as (.*)$/ do |type, name, status|
   doc = type.classify.constantize.where(:name => name).first
   path_helper = "update_" + type + "_path"
   doc_langs_attributes = (type + "_langs_attributes").to_sym
-  put(send(path_helper, :id => doc.id), type.to_sym => { doc_langs_attributes => [
-                            {:id => 1, :status => status},
-                            {:id => 2, :status => status},
-                            {:id => 3, :status => status},
-                            {:id => 4, :status => status}
-                          ]
-                        }
+  lang_ids = []
+  doc.send((type + "_langs").to_sym).each do |lang|
+    lang_ids << lang.id
+  end
+  page.driver.put(send(path_helper, :id => doc.id), { type.to_sym => { doc_langs_attributes => {
+                            "0" => {:id => lang_ids[0], :status => status, :lang => "English"},
+                            "1" => {:id => lang_ids[1], :status => status, :lang => "Spanish"},
+                            "2" => {:id => lang_ids[2], :status => status, :lang => "Creole"},
+                            "3" => {:id => lang_ids[3], :status => status, :lang => "French"},
+                          }
+                        }},
                       )
 end
 
+Then /the (.*) named "(.*)" should be (.*)$/ do |type, name, status|
+  doc = type.classify.constantize.where(:name => name).first
+  doc.send((status + "?").to_sym).should == true
+end
+
+Then /the (.*) named "(.*)" should not be (.*)$/ do |type, name, status|
+  doc = type.classify.constantize.where(:name => name).first
+  doc.send((status + "?").to_sym).should == false
+end
+
+Then /there should be a (.*) named "(.*)"$/ do |type, name|
+  doc = type.classify.constantize.where(:name => name)
+  doc.count.should == 1
+end
+
+Then /there should not be a (.*) name "(.*)"$/ do |type, name|
+  doc = type.classify.constantize.where(:name => name)
+  doc.count.should == 0
+end

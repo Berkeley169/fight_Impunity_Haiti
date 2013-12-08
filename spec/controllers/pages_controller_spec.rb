@@ -2,6 +2,11 @@ require 'spec_helper'
 
 describe PagesController do
 
+  before :each do
+    PagesController.any_instance.stub(:current_user).and_return(nil)
+  end
+
+
   describe "GET 'home'" do
     it "returns http success" do
       get 'home'

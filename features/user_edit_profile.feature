@@ -11,11 +11,11 @@ Scenario: User should be able to change name
 	When I follow "Edit Profile"
 	And I change "user_first_name" to "Johnny Jonbo"
 	And press "Submit"
-  And I should see "Johnny Jonbo"
+    And I should see "Johnny Jonbo"
 
 Scenario: User should be able to change password
 	Given there is an editor with email "editor@domain.com" and password "oldpassword"
-  And I log in with email "editor@domain.com" and password "oldpassword"
+    And I log in with email "editor@domain.com" and password "oldpassword"
 	When I am on the home page
 	And I follow "Edit Profile"
 	And I fill in "user_password" with "newpassword"

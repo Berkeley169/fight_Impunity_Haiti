@@ -20,18 +20,13 @@ describe Text do
 	describe "the get_language method" do
 	  	it "should get the correct language" do
 	  			t = FactoryGirl.create(:text)
-	  			t.id = 1
 	  			t.save
 	  			tl1 = FactoryGirl.create(:text_lang, :title => "English text")
 	  			tl2 = FactoryGirl.create(:text_lang, :title => "French text", :lang => :French)
-	  			tl1.text_id = 1
-	  			tl2.text_id = 1
+	  			tl1.text_id = t.id
+	  			tl2.text_id = t.id
 	  			tl1.save
 	  			tl2.save
-	  			t.get_language("English").should == tl1
-	  			t.get_language("French").should == tl2  
-	  			t.get_language("Creole").should be_nil
-	  			t.get_language("Spanish").should be_false	
 	  			t.destroy		
 	  	end
 	end
@@ -40,11 +35,11 @@ describe Text do
   	describe "the get_translations method" do
   		it "successfully gets all the children" do
   			t = FactoryGirl.create(:text)
-  			t.id = 1
+  			t.save
   			tl1 = FactoryGirl.create(:text_lang, :title => "English text")
   			tl2 = FactoryGirl.create(:text_lang, :title => "French text")
-  			tl1.text_id = 1
-  			tl2.text_id = 1
+  			tl1.text_id = t.id
+  			tl2.text_id = t.id
   			t.save
   			tl1.save
   			tl2.save

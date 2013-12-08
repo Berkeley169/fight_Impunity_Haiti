@@ -1,5 +1,5 @@
 class Notifier < ActionMailer::Base
-  default from: "from@example.com"
+  default from: "FightImpunityMailServer"
 
   def welcome(recipient)
   @account = recipient
@@ -7,11 +7,15 @@ class Notifier < ActionMailer::Base
        bcc: ["dummy@email.com", "Order Watcher <watcher@example.com>"])
   end
 
-  def send_contact_request(sub, name, contact_email, email_body)
+  def send_contact_request(sub, name, contact_email, email_body, p_num)
   	email_with_name = "#{name} <#{contact_email}>"
   	# need to send to the admins of the site
-  	mail = mail(to: "a@b.c",
-  				body: email_body,
+    body = "Name: #{name}<br />
+            Email: #{contact_email}<br />
+            Phone Number: #{p_num}<br />
+            Reason: #{email_body}"
+  	mail = mail(to: "themurph23@yahoo.com",
+  				body: body,
   				content_type: "text/html",
   				subject: "Fight Impunity Haiti: #{sub}")
   end

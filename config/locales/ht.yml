@@ -8,134 +8,134 @@ ht:
     formats:
       default: ! '%Y-%m-%d'
     day_names:
-    - ! '#!# Sunday'
-    - ! '#!# Monday'
-    - ! '#!# Tuesday'
-    - ! '#!# Wednesday'
-    - ! '#!# Thursday'
-    - ! '#!# Friday'
-    - ! '#!# Saturday'
+    - dimanch
+    - lendi
+    - madi
+    - mèkredi
+    - jedi
+    - vandredi
+    - samdi
     month_names:
-    - ! '#!# January'
-    - ! '#!# February'
-    - ! '#!# March'
-    - ! '#!# April'
-    - ! '#!# May'
-    - ! '#!# June'
-    - ! '#!# July'
-    - ! '#!# August'
-    - ! '#!# September'
-    - ! '#!# October'
-    - ! '#!# November'
-    - ! '#!# December'
-  hello: Hello world in creole
-  login: Identifiez-vous
-  subcategories: ! '#!# subcategories'
-  home: ! '#!# home'
-  about: ! '#!# about'
-  contact: ! '#!# contact'
-  fight: ! '#!# fight'
-  texts: tèks
+    - janvye
+    - fevriye
+    - mach
+    - mavril
+    - kapab
+    - jen
+    - jiyè
+    - out
+    - setpanm
+    - oktòb
+    - novanm
+    - desanm
+  hello: Alo Mond
+  login: Konekte
+  subcategories: Subkategori ki
+  home: Lakay
+  about: Sou nou
+  contact: Kontak
+  fight: Goumen Kont Enpinite an Ayiti
+  texts: Tèks
   pictures: Foto
-  picture: ! '#!# picture'
+  picture: Foto
   video: Videyo
-  welcomemessage: ! '#!# welcomemessage'
-  audio: son
+  welcomemessage: Nou se yon gwoup nan aktivis, devlopè, elèv yo, ak pwofesyonèl sousanble ki dedye a batay enpinite pou vyolasyon dwa moun an Ayiti sou dènye syèk la. Kounye a sit sa a se yon travay nan pwogrè. N ap fè yon eLibrary Se konsa, pifò nan travay la kounye a se dèyè sèn nan. Si ou se yon editè oswa manadjè, ou ka ouvri sesyon an pi wo a.
+  audio: Son
   other: Lòt
-  underconstruction: ! '#!# underconstruction'
-  edit: ! '#!# edit'
-  back: ! '#!# back'
-  show: ! '#!# show'
-  destroy: ! '#!# destroy'
-  save: ! '#!# save'
-  download: ! '#!# download'
-  submitadocument: ! '#!# submitadocument'
-  webarticle: ! '#!# webarticle'
-  journalarticle: ! '#!# journalarticle'
-  newspaperarticle: ! '#!# newspaperarticle'
-  bookexcerpt: ! '#!# bookexcerpt'
-  textnew: ! '#!# textnew'
-  picturenew: ! '#!# picturenew'
-  audionew: ! '#!# audionew'
-  videonew: ! '#!# videonew'
-  othernew: ! '#!# othernew'
-  resendconfirmation: ! '#!# resendconfirmation'
-  confirmaccount: ! '#!# confirmaccount'
-  changepassword: ! '#!# changepassword'
-  unlockaccount: ! '#!# unlockaccount'
-  newpassword: ! '#!# newpassword'
-  confirmnewpassword: ! '#!# confirmnewpassword'
-  sendpasswordreset: ! '#!# sendpasswordreset'
+  underconstruction: Dapre Konstriksyon
+  edit: Prepare dokiman
+  back: Tounen
+  show: Montre
+  destroy: Detwi
+  save: Sove
+  download: 'Download: '
+  submitadocument: Voye yon Dokiman
+  webarticle: Atik sou Entènèt
+  journalarticle: Atik nan yon Jounal Akademik
+  newspaperarticle: Atik nan Jounal
+  bookexcerpt: Ekstrè Liv
+  textnew: Dokiman Tèks
+  picturenew: Foto
+  audionew: Dosye Son
+  videonew: Videyo
+  othernew: Lòt (Calcul ètchetra)
+  resendconfirmation: Ranvera enstriksyon konfimasyon
+  confirmaccount: Konfime mont mwen
+  changepassword: Chanje modpas mwen
+  unlockaccount: Degaje kont mwen an
+  newpassword: Nuovo modpas
+  confirmnewpassword: Konfime nouvo modpas
+  sendpasswordreset: Kite m 'modpas enstriksyon reyajiste
   'off': ! '#!# off'
-  update: ! '#!# update'
-  cancelaccount: ! '#!# cancelaccount'
-  areyousure: ! '#!# areyousure'
+  update: Aktyalizasyon
+  cancelaccount: Anile kont mwen
+  areyousure: Èske ou sèten?
   turnoff: ! '#!# turnoff'
-  signup: Login
-  signin: ! '#!# signin'
-  forgotpassword: ! '#!# forgotpassword'
-  didntreceiveconfirmation: ! '#!# didntreceiveconfirmation'
-  didntreceiveunlock: ! '#!# didntreceiveunlock'
-  signinwith: ! '#!# signinwith'
-  resendunlock: ! '#!# resendunlock'
-  loggedinas: ! '#!# loggedinas'
-  editprofile: ! '#!# editprofile'
-  signout: ! '#!# signout'
-  dashboardhome: ! '#!# dashboardhome'
-  published: Pibliye
-  inprogress: ! '#!# inprogress'
-  pending: ! '#!# pending'
-  new: ! '#!# new'
-  rejected: ! '#!# rejected'
-  userdirectory: ! '#!# userdirectory'
-  usermanagement: ! '#!# usermanagement'
-  newtag: ! '#!# newtag'
-  backtodashboard: ! '#!# backtodashboard'
-  delete: ! '#!# delete'
-  deleteuserconfirm: ! '#!# deleteuserconfirm'
-  adduser: ! '#!# adduser'
-  manageusers: ! '#!# manageusers'
+  signup: Enskri
+  signin: Siyen nan
+  forgotpassword: Bliye modpas ou a?
+  didntreceiveconfirmation: Pa t 'resevwa enstriksyon konfimasyon?
+  didntreceiveunlock: Pa t 'resevwa enstriksyon degaje?
+  signinwith: 'Siyen nan ak '
+  resendunlock: Ranvera déblotché enstriksyon
+  loggedinas: 'Louvri sesyon an kòm: '
+  editprofile: Modifye pwofil
+  signout: Siyen soti
+  dashboardhome: Tablodbò lakay
+  published: Deja pibliye
+  inprogress: Nan pwogrè
+  pending: Annatandan
+  new: nuovo
+  rejected: Rejte
+  userdirectory: Anyè Itilizatè
+  usermanagement: Jesyon Itilizatè
+  newtag: nuovo tag
+  backtodashboard: Tounen nan tablodbò
+  delete: Efase
+  deleteuserconfirm: 'Èske ou sèten ou vle efase itilizatè '
+  adduser: Ajoute Itilizatè
+  manageusers: Jere Itilizatè
   english: angle
   creole: kreyòl
-  spanish: Panyòl
+  spanish: panyòl
   french: franse
-  main_category: ! '#!# main_category'
-  type: ! '#!# type'
-  english_description: ! '#!# english_description'
-  french_description: ! '#!# french__description'
-  spanish_description: ! '#!# spanish_description'
-  creole_description: ! '#!# creole_description'
-  name: ! '#!# name'
-  title: ! '#!# title'
-  plain_text: ! '#!# plain_text'
-  description: ! '#!# description'
-  status: ! '#!# status'
-  notes: ! '#!# notes'
-  file: ! '#!# file'
-  click_here_for_download: ! '#!# click_here_for_download'
-  editing: ! '#!# editing'
-  document: ! '#!# document'
-  publication_status: ! '#!# publication_status'
-  select_document_type: ! '#!# select_document_type'
-  select_document_upload_type: ! '#!# select_document_upload_type'
-  listing: ! '#!# listing'
-  type_and_langs_published: ! '#!# type_and_langs_published'
-  title_and_description: ! '#!# title_and_description'
-  date_created: ! '#!# date_created'
-  actions: ! '#!# actions'
-  videos: ! '#!# videos'
-  tags_management: jere Tags
+  main_category: kategori prensipal
+  type: di ki kalite
+  english_description: deskripsyon angle
+  french_description: deskripsyon franse
+  spanish_description: deskripsyon panyòl
+  creole_description: deskripsyon kreyòl
+  name: non
+  title: tit
+  plain_text: tèks plenn
+  description: deskripsyon
+  status: sitiyasyon
+  notes: nòt
+  file: dosye
+  click_here_for_download: Klike Isit la pou Download
+  editing: Koreksyon
+  document: Dokiman
+  publication_status: Sitiyasyon piblikasyon
+  select_document_type: Tanpri chwazi yon kalite dokiman nan lis ki anba
+  select_document_upload_type: Tanpri chwazi yon di ki kalite dokiman yo upload
+  listing: lis
+  type_and_langs_published: Tape ak Lang Pibliye
+  title_and_description: Tit ak Deskripsyon
+  date_created: dat li te kreye
+  actions: aksyon
+  videos: videyo
+  tags_management: Jere baliz yo
   donations_title: Donasyon
   contact_thanks: Mèsi pou D 'ou. Nou pral jwenn tounen ba ou pi vit ke posib.
-  donation_splash: Nou ap currenlty ap travay sou ki jan yo mete kanpe donasyon. Tanpri
-    itilize fòm nan kontak yo ka resevwa an kontak ak nou nan moman an.
-  content: ! '#!# content'
-  date_string: ! '#!# date_string'
-  website: ! '#!# website'
-  url: ! '#!# url'
-  journal: ! '#!# journal'
-  volume: ! '#!# volume'
-  newspaper: ! '#!# newspaper'
-  chapter: ! '#!# chapter'
-  dashboard: ! '#!# dashboard'
-  logout: ! '#!# logout'
+  donation_splash: Nou ap currenlty ap travay sou ki jan yo mete kanpe donasyon. Tanpri itilize fòm nan kontak yo ka resevwa an kontak ak nou nan moman an.
+  content: Kontni
+  date_string: Jou
+  website: sit entènèt
+  url: url
+  journal: jounal akademik
+  volume: volim
+  newspaper: jounal
+  chapter: chapit
+  dashboard: Tablo pou kontwole
+  logout: Dekonekte
+  error: erè

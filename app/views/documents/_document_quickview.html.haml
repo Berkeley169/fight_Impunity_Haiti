@@ -1,7 +1,28 @@
+/ -#
+/ /  .doc_index_partial
+/ /    = image_tag '/assets/text_icon.png'
+/     %h2= document.relevant_title(document,relevant_langs)
+/     %p
+/     = document.date
+/     - document.send((document.class.to_s.downcase + "_langs").to_sym).each do |dl|
+/       - if dl.status == "published"
+/         %p{:class => "published"}= dl.lang
+/       - else
+/         %p{:class => "notpublished"}= dl.lang
+
+
+/     %br
+/     = link_to t(:show), document 
+/     - if current_user
+/       = link_to t(:edit), [:edit, document]
+/     - if @permissions == "Manager"
+/       = link_to t(:destroy), [:destroy, document], :data => { :confirm => t(:areyousure) }
+/     %br
+
 %tr
   %td.type-and-langs{ :align => 'center' }
     .type
-      %img{ :src => "/assets/#{document.class.to_s.downcase}_icon.png", :height => "32", :width => "32"}
+      = image_tag("/assets/#{document.class.to_s.downcase}_icon.gif")
     .langs
       - document.send((document.class.to_s.downcase + "_langs").to_sym).sort.each do |dl|
         - if dl.status == "published"
@@ -9,7 +30,7 @@
         - else
           %img{:src => "/assets/#{dl.lang}-gray-16.png"}
   %td.title-and-description
-    - title_and_description = relevant_title_and_description(document, current_user)
+    - title_and_description = relevant_title_and_description(document, relevant_langs)
     %h3= title_and_description[0]
     %h5= title_and_description[1]
   %td.date{ :align => 'center' }
@@ -21,3 +42,4 @@
       = link_to "#{t(:edit)}", [:edit, document]
     - if @permissions == "Manager"
       = link_to "#{t(:destroy)}", [:destroy, document], :data => { :confirm => "#{t(:areyousure)}" }
+

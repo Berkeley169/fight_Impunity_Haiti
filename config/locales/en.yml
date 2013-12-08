@@ -30,7 +30,7 @@ en:
     - December
   hello: Hello world in English
   login: Login
-  subcategories: subcategories
+  subcategories: Subcategories
   home: Home
   about: About
   contact: Contact
@@ -72,7 +72,7 @@ en:
   unlockaccount: Unlock my account
   newpassword: New password
   confirmnewpassword: Confirm new password
-  sendpasswordreset: Send me reset password instructions
+  sendpasswordreset: Send me password reset instructions
   update: Update
   cancelaccount: Cancel my account
   areyousure: Are you sure?
@@ -98,7 +98,7 @@ en:
   newtag: New Tag
   backtodashboard: Back to Dashboard
   delete: Delete
-  deleteuserconfirm: ! 'Are you user you want to delete user '
+  deleteuserconfirm: ! 'Are you sure you want to delete user '
   adduser: Add User
   manageusers: Manage Users
   created: Created
@@ -128,15 +128,14 @@ en:
   select_document_type: Please select a document type from the list below
   select_document_upload_type: Please select a type of document to upload
   listing: Listing
-  type_and_langs_published: Type and Langs Published
+  type_and_langs_published: Type and Languages Published
   title_and_description: Title and Description
   date_created: Date created
   actions: Actions
   tags_management: Manage Tags
-  donations_title: Donations
+  donations_title: Donate
   contact_thanks: Thank you for your input. We will get back to you as soon as possible.
-  donation_splash: We are currenlty working on how to set up donations. Please use
-    the contact form to get in contact with us at the moment.
+  donation_splash: Follow the link and use a credit card or a paypal account to donate. We appreciate any contribution greatly.
   content: Content
   date_string: Date
   website: website
@@ -146,3 +145,4 @@ en:
   newspaper: newspaper
   chapter: chapter
   logout: Logout
+  error: an error occured

@@ -1,21 +1,22 @@
-.jumbotron
-  %h2= t(:underconstruction)
-  %p= t(:welcomemessage) 
+/ .jumbotron
+/   %h2= t(:underconstruction)
+/   %p= t(:welcomemessage) 
 .container
   .row
     .col-xs-6.col-md-4
-      = image_tag 'text_icon.png'
+      = image_tag 'text_icon.gif'
       %h2= link_to t(:texts), texts_path
     .col-xs-6.col-md-4
-      = image_tag 'photo_icon.png'
+      = image_tag 'picture_icon.gif'
       %h2= link_to t(:pictures), pictures_path
     .col-xs-6.col-md-4
-      = image_tag 'film_icon.png'
+      = image_tag 'video_icon.gif'
       %h2= link_to t(:video), videos_path
     .col-xs-6.col-md-4
-      = image_tag 'audio_icon.png'
+      = image_tag 'sound_icon.gif'
       %h2= link_to t(:audio), sounds_path
     .col-xs-6.col-md-4
+      = image_tag 'binary_icon.gif'
       %h2= link_to t(:other), binaries_path
   .row
     = render :partial => 'tag_home_partial', :collection => @tags, :as => :tag

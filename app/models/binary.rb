@@ -5,7 +5,7 @@ class Binary < ActiveRecord::Base
   include DocumentsHelper
   include PgSearch
   attr_accessible :name, :date, :binary_langs_attributes, :notes, :tags_attributes, :tag_ids,
-                  :new, :in_progress, :pending, :published, :rejected
+                  :new, :in_progress, :pending, :published, :rejected, :bin
   has_many :binary_langs, dependent: :destroy
   belongs_to :item
   accepts_nested_attributes_for :binary_langs
