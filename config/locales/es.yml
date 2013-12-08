@@ -43,10 +43,10 @@ es:
   audio: sonido
   other: otro
   underconstruction: ! '#!# underconstruction'
-  edit: ! '#!# edit'
+  edit: Editar
   back: ! '#!# back'
   show: ! '#!# show'
-  destroy: ! '#!# destroy'
+  destroy: Borrar
   save: ! '#!# save'
   download: ! '#!# download'
   submitadocument: ! '#!# submitadocument'

@@ -43,10 +43,10 @@ fr:
   audio: son
   other: autre
   underconstruction: ! '#!# underconstruction'
-  edit: ! '#!# edit'
+  edit: Éditer
   back: ! '#!# back'
   show: ! '#!# show'
-  destroy: ! '#!# destroy'
+  destroy: Supprimer
   save: ! '#!# save'
   download: ! '#!# download'
   submitadocument: ! '#!# submitadocument'
