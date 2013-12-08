@@ -93,5 +93,18 @@ class ApplicationController < ActionController::Base
     d = [lang.status, lang_attributes[:status]]
     return d.count("published") != 1
   end
+
+  def setup_new_text_fields
+    if not params[:subtype]
+      redirect_to new_text_choice_path
+      return
+    else
+      @text_subtype = params[:subtype]
+      @document.subtype = @subtype
+      Text.send(params[:subtype]).each do |field|
+        @document.subtype_fields[field] = ""
+      end
+    end
+  end
         
 end

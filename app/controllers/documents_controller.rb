@@ -51,15 +51,7 @@ class DocumentsController < ApplicationController
     @permissions = permissions
     @document = @doc_type.new
     if params[:type] == "texts"
-      if params[:subtype] == nil
-        redirect_to new_text_choice_path
-        return
-      end
-      @text_subtype = params[:subtype]
-      @document.subtype = @subtype
-      Text.send(params[:subtype]).each do |field|
-        @document.subtype_fields[field] = ""
-      end
+      setup_new_text_fields
     end
     document_langs = set_langs
   end
