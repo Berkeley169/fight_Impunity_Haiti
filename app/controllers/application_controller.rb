@@ -119,5 +119,19 @@ class ApplicationController < ActionController::Base
     return 
   end
 
+  def set_new_status
+    lang = params[@doc_type_sym][(@langs_sym.to_s + '_attributes').to_sym]
+    (0..3).each do |i|
+      lang[i.to_s][:status] = 'new'
+    end
+  end
+
+  def return_to_from_create(document)
+    if user_signed_in?
+      return document
+    else
+      return method((document.class.to_s.downcase.pluralize + "_path").to_sym).call
+    end
+  end
 
 end
