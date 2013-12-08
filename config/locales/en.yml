@@ -101,9 +101,9 @@ en:
   deleteuserconfirm: ! 'Are you sure you want to delete user '
   adduser: Add User
   manageusers: Manage Users
-  created: Created
+  created: ! '#!# created'
   today: Today
-  yesterday: Yesterday
+  yesterday: ! '#!# yesterday'
   english: English
   creole: Creole
   spanish: Spanish
@@ -135,7 +135,8 @@ en:
   tags_management: Manage Tags
   donations_title: Donate
   contact_thanks: Thank you for your input. We will get back to you as soon as possible.
-  donation_splash: Follow the link and use a credit card or a paypal account to donate. We appreciate any contribution greatly.
+  donation_splash: Follow the link and use a credit card or a paypal account to donate.
+    We appreciate any contribution greatly.
   content: Content
   date_string: Date
   website: website
@@ -146,3 +147,4 @@ en:
   chapter: chapter
   logout: Logout
   error: an error occured
+  search: ! '#!# search'

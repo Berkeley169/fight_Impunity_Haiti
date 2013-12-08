@@ -44,8 +44,8 @@ es:
   other: otro
   underconstruction: ! '#!# underconstruction'
   edit: Editar
-  back: ! '#!# back'
-  show: ! '#!# show'
+  back: Retroceder
+  show: Mostrar
   destroy: Borrar
   save: ! '#!# save'
   download: ! '#!# download'
@@ -79,8 +79,8 @@ es:
   signinwith: ! '#!# signinwith'
   resendunlock: ! '#!# resendunlock'
   loggedinas: ! '#!# loggedinas'
-  editprofile: ! '#!# editprofile'
-  signout: ! '#!# signout'
+  editprofile: editar perfil
+  signout: desconectarte
   dashboardhome: ! '#!# dashboardhome'
   published: publicado
   inprogress: en curso
@@ -118,10 +118,11 @@ es:
   publication_status: ! '#!# publication_status'
   select_document_type: ! '#!# select_document_type'
   select_document_upload_type: ! '#!# select_document_upload_type'
-  listing: ! '#!# listing'
-  type_and_langs_published: ! '#!# type_and_langs_published'
-  title_and_description: ! '#!# title_and_description'
-  date_created: ! '#!# date_created'
+  listing: listado
+  type_and_langs_published: Tipo y lenguas publicados
+  title_and_description: Título y descripción
+  date_created: fecha de creación
+  actions: acciones
   videos: ! '#!# videos'
   tags_management: Manejar codigos
   donations_title: Donaciones
@@ -138,5 +139,8 @@ es:
   newspaper: ! '#!# newspaper'
   chapter: ! '#!# chapter'
   dashboard: Cuadro de control
-  logout: ! '#!# logout'
+  logout: desconectarte
   error: ! '#!# error'
+  search: búsqueda
+  created: creado
+  yesterday: ayer

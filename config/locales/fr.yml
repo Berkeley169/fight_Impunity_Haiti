@@ -44,8 +44,8 @@ fr:
   other: autre
   underconstruction: ! '#!# underconstruction'
   edit: Éditer
-  back: ! '#!# back'
-  show: ! '#!# show'
+  back: Reculer
+  show: Montrer
   destroy: Supprimer
   save: ! '#!# save'
   download: ! '#!# download'
@@ -79,8 +79,8 @@ fr:
   signinwith: ! '#!# signinwith'
   resendunlock: ! '#!# resendunlock'
   loggedinas: ! '#!# loggedinas'
-  editprofile: ! '#!# editprofile'
-  signout: ! '#!# signout'
+  editprofile: modifier le profil
+  signout: se déconnecter
   dashboardhome: ! '#!# dashboardhome'
   published: publié
   inprogress: en cours
@@ -118,11 +118,11 @@ fr:
   publication_status: ! '#!# publication_status'
   select_document_type: ! '#!# select_document_type'
   select_document_upload_type: ! '#!# select_document_upload_type'
-  listing: ! '#!# listing'
-  type_and_langs_published: ! '#!# type_and_langs_published'
-  title_and_description: ! '#!# title_and_description'
-  date_created: ! '#!# date_created'
-  actions: ! '#!# actions'
+  listing: liste
+  type_and_langs_published: Le type et les langues publiés
+  title_and_description: Titre et Description
+  date_created: date de création
+  actions: actes
   videos: ! '#!# videos'
   tags_management: gérer les tags
   donations_title: Dons
@@ -139,6 +139,9 @@ fr:
   volume: ! '#!# volume'
   newspaper: ! '#!# newspaper'
   chapter: ! '#!# chapter'
-  dashboard: Tableau de bord 
-  logout: ! '#!# logout'
+  dashboard: Tableau de bord
+  logout: se déconnecter
   error: ! '#!# error'
+  search: recherche
+  created: établi
+  yesterday: hier
