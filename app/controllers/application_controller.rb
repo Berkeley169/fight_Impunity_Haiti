@@ -66,4 +66,32 @@ class ApplicationController < ActionController::Base
   def render_404
     render :file => "#{Rails.root}/public/404.html", :status => 404, :layout => false
   end
+
+  def assert_valid_meta_data_edit(document, param_attributes)
+    if document.published? and params[@doc_type_sym].size == 1 and not param_attributes
+      flash[:notice] = "Editors cannot change the information of published documents"
+      redirect_to root_path
+      return false
+    else
+      return true
+    end
+  end
+
+  def assert_valid_lang_status_edit(document, param_attributes)
+    (0..3).each do |i|
+      lang_attributes = param_attributes[i.to_s]
+      current_lang = document.get_language(lang_attributes[:lang])
+      if not valid_status_edit(current_lang, lang_attributes)
+        flash[:notice] = "Editors cannot publish or unpublish documents"
+        redirect_to root_path
+        return
+      end
+    end
+  end
+
+  def valid_status_edit(lang, lang_attributes)
+    d = [lang.status, lang_attributes[:status]]
+    return d.count("published") != 1
+  end
+        
 end

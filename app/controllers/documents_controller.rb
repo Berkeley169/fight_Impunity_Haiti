@@ -62,14 +62,6 @@ class DocumentsController < ApplicationController
       end
     end
     document_langs = set_langs
-    # document_langs = []
-    # Item::LANGUAGES.each do |l|
-    #   document_langs.append(@document.send(@langs_sym).build(:lang => l.to_s, :status => 'new'))
-    #   # need to also initialize the plain_text of each lang if we are dealing with a text document
-    #   if params[:type] == "texts"
-    #     document_langs.last.plain_text = ""
-    #   end
-    # end
   end
 
   def set_langs
@@ -142,36 +134,20 @@ class DocumentsController < ApplicationController
     else
       lang_attributes = params[@doc_type_sym][(@langs_sym.to_s + '_attributes').to_sym]
       document = @doc_type.find(params[:id])
-      if document.published? and params[@doc_type_sym].size >= 1 and not lang_attributes
-        flash[:notice] = "Editors cannot change the information of published documents"
-        redirect_to root_path
+      if not assert_valid_meta_data_edit(document, lang_attributes)
         return
       elsif not lang_attributes
         return
-      end
-      puts lang_attributes
-      (0..3).each do |i|
-        current_lang = document.get_language(lang_attributes[i.to_s][:lang])
-        if (lang_attributes[i.to_s][:status] == "published" and current_lang.status != "published") or
-           (lang_attributes[i.to_s][:status] != "published" and current_lang.status == "published")
-          flash[:notice] = "Editors cannot publish or unpublish documents"
-          redirect_to method((@doc_type_sym.to_s.pluralize + "_path").to_sym).call
-          return
-        end
+      else
+        assert_valid_lang_status_edit(document, lang_attributes)
       end
     end
   end
-      
-      
 
   def destroy
     @document = @doc_type.find(params[:id])
     @document.destroy
     redirect_to :controller => "documents", :action => "index", :type => params[:type]
-    #respond_to do |format|
-    #  format.html { redirect_to :controller => "documents", :action => "index", :type => params[:type] } 
-    #  format.json { head :no_content }
-    #end
   end
 
 
