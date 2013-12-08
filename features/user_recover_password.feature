@@ -13,11 +13,11 @@ Background: User tries to recover password
 
 Scenario: User should be able to recover password
 	When I fill in "user_email" with "manager@gmail.com"
-	And press "Send me reset password instructions"
+	And press "Send me password reset instructions"
 	Then I should see "You will receive an email with instructions about how to reset your password in a few minutes."
 
 Scenario: User should be able to recover password
 	When I fill in "user_email" with "dummy@domain.com"
-	And press "Send me reset password instructions"
+	And press "Send me password reset instructions"
 	Then I should be on the password page
 	And I should see "Email not found"

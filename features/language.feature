@@ -17,7 +17,7 @@ Scenario: Home page in French
 Scenario: Home page in Creole
 	Given I am on the home page
 	When I click Creole
-	Then I should see "Identifiez-vous"
+	Then I should see "Konekte"
 
 Scenario: Home page in English
 	Given I am on the home page
@@ -48,9 +48,9 @@ Scenario: When I visit the page again I should still see it in French
 Scenario: When I visit the page again I should still see it in Creole
 	Given I am on the home page
 	When I click Creole
-	Then I should see "Identifiez-vous"
+	Then I should see "Konekte"
 	Given I am on the home page
-	Then I should see "Identifiez-vous"
+	Then I should see "Konekte"
 
 Scenario: When I visit the texts page and set language to English, I should see it in English
 	Given I am on the texts page
