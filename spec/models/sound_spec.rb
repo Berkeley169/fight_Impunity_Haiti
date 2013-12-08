@@ -71,6 +71,5 @@ describe Sound do
   end
 
   it {should validate_presence_of :snd}
-  it {should validate_presence_of :name}
 
 end

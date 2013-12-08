@@ -11,7 +11,7 @@ class Video < ActiveRecord::Base
   belongs_to :item
   has_and_belongs_to_many :tags
   accepts_nested_attributes_for :video_langs
-  validates :name,:vid, presence: true
+  validates :vid, presence: true
   validate :valid_youtube_link
   after_validation :set_statuses
   multisearchable :against => [:name]

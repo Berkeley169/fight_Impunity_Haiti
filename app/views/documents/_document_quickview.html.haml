@@ -1,7 +1,7 @@
 %tr
   %td.type-and-langs{ :align => 'center' }
     .type
-      %img{ :src => '/assets/text_icon.png', :height => "32", :width => "32"}
+      %img{ :src => "/assets/#{document.class.to_s.downcase}_icon.png", :height => "32", :width => "32"}
     .langs
       - document.send((document.class.to_s.downcase + "_langs").to_sym).sort.each do |dl|
         - if dl.status == "published"

@@ -13,8 +13,9 @@ Scenario: user is prompted to pick a text type
   And I should see "Web"
 
 Scenario: properly classify the documents
-  Given I am on the new text page for text type "web"
-  And I fill in "Name" with "TestWebText"
+  Given I am signed in as an editor
+  And I am on the new text page for text type "web"
   And I fill in "text_subtype_fields_website" with "CNN.com"
   And I press "Save"
-  Then text "TestWebText" should be of type "web"
+  Then I should see "Website"
+  And I should see "Url"

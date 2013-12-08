@@ -11,7 +11,6 @@ class Sound < ActiveRecord::Base
   accepts_nested_attributes_for :sound_langs
   has_attached_file :snd
   belongs_to :item
-  validates :name, :presence => true
   validates_attachment :snd, :presence => true,
             :content_type => {:content_type => ['audio/mpeg3', 'audio/mpeg', 'audio/mp3']}
   after_validation :set_statuses

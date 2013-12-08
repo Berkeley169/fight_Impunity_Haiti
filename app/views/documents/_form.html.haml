@@ -8,10 +8,6 @@
 
   - if auth_to_edit_meta(@document)
     .field
-      = f.label t(:name)
-      = f.text_field :name
-
-    .field
       = f.label t(:date_string)
       = f.date_select :date, start_year: 1850, end_year: Date.today.year
     = render params[:type].singularize + '_form', :f => f

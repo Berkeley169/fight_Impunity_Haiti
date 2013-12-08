@@ -73,5 +73,4 @@ describe Picture do
   end
 
   it {should validate_presence_of :pic}
-  it {should validate_presence_of :name}
 end

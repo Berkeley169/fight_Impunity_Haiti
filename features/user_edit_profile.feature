@@ -23,7 +23,7 @@ Scenario: User should be able to change password
 	And I press "Submit"
 	And I am not signed in
 	And I log in with email "editor@domain.com" and password "newpassword"
-	Then I should see "Dashboard"
+	Then I should see "Logout"
 
 Scenario: User should be able to change password
 	Given that I am signed in as an editor
