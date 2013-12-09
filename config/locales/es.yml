@@ -127,9 +127,7 @@ es:
   tags_management: Manejar codigos
   donations_title: Donaciones
   contact_thanks: Gracias por su trabaja. Hablaremos hasta pronto.
-  donation_splash: Estamos trabajando currenlty sobre cómo configurar las donaciones.
-    Utilice el formulario de contacto para ponerse en contacto con nosotros en este
-    momento.
+  donation_splash: Estamos trabajando currenlty sobre cómo configurar las donaciones.  Utilice el formulario de contacto para ponerse en contacto con nosotros en este momento.
   content: ! '#!# content'
   date_string: ! '#!# date_string'
   website: ! '#!# website'
