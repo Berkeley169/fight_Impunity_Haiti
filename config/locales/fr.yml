@@ -34,6 +34,7 @@ fr:
   home: Accueil
   about: à Propos de Nous
   contact: Contact
+<<<<<<< HEAD
   fight: Lutter Contre l'Impunité en Haïti
   texts: Texte
   pictures: Photos
@@ -83,18 +84,18 @@ fr:
   signinwith: ! '#!# signinwith'
   resendunlock: ! '#!# resendunlock'
   loggedinas: ! '#!# loggedinas'
-  editprofile: ! '#!# editprofile'
-  signout: ! '#!# signout'
-  dashboardhome: ! '#!# dashboardhome'
+  editprofile: modifier le profil
+  signout: se déconnecter
+  dashboardhome: Tableau de bord
   published: publié
   inprogress: en cours
   pending: en attendant
   new: nouveau
   rejected: rejeté
-  userdirectory: ! '#!# userdirectory'
+  userdirectory: liste des utilisateurs
   usermanagement: Gérer les utilisateurs
-  newtag: ! '#!# newtag'
-  backtodashboard: ! '#!# backtodashboard'
+  newtag: nouveau tag
+  backtodashboard: retour à Tableau de bord
   delete: ! '#!# delete'
   deleteuserconfirm: ! '#!# deleteuserconfirm'
   adduser: ! '#!# adduser'
@@ -104,7 +105,7 @@ fr:
   spanish: espagnol
   french: français
   main_category: ! '#!# main_category'
-  type: ! '#!# type'
+  type: type
   english_description: ! '#!# english_description'
   french_description: ! '#!# french__description'
   spanish_description: ! '#!# spanish_description'
@@ -122,11 +123,11 @@ fr:
   publication_status: ! '#!# publication_status'
   select_document_type: ! '#!# select_document_type'
   select_document_upload_type: ! '#!# select_document_upload_type'
-  listing: ! '#!# listing'
-  type_and_langs_published: ! '#!# type_and_langs_published'
-  title_and_description: ! '#!# title_and_description'
-  date_created: ! '#!# date_created'
-  actions: ! '#!# actions'
+  listing: liste
+  type_and_langs_published: Le type et les langues publiés
+  title_and_description: Titre et Description
+  date_created: date de création
+  actions: actes
   videos: ! '#!# videos'
   tags_management: gérer les tags
   donations_title: Dons
@@ -143,6 +144,11 @@ fr:
   volume: ! '#!# volume'
   newspaper: ! '#!# newspaper'
   chapter: ! '#!# chapter'
-  dashboard: Tableau de bord 
-  logout: ! '#!# logout'
+  dashboard: Tableau de bord
+  logout: se déconnecter
   error: ! '#!# error'
+  search: recherche
+  created: établi
+  yesterday: hier
+  tag: Tag
+  tags: Tags
