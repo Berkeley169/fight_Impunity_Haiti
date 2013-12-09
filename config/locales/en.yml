@@ -120,11 +120,11 @@ en:
   description: description
   status: status
   notes: notes
-  file: ! '#!# file'
+  file: 'file'
   click_here_for_download: Click here for Download
   editing: Editing
   document: Document
-  publication_status: ! '#!# publication_status'
+  publication_status: 'publication status'
   select_document_type: Please select a document type from the list below
   select_document_upload_type: Please select a type of document to upload
   listing: Listing
