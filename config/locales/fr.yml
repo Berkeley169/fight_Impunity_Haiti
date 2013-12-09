@@ -89,7 +89,7 @@ fr:
   rejected: rejeté
   userdirectory: ! '#!# userdirectory'
   usermanagement: Gérer les utilisateurs
-  newtag: ! '#!# newtag'
+  newtag: nouveau tag
   backtodashboard: ! '#!# backtodashboard'
   delete: ! '#!# delete'
   deleteuserconfirm: ! '#!# deleteuserconfirm'
@@ -100,7 +100,7 @@ fr:
   spanish: espagnol
   french: français
   main_category: ! '#!# main_category'
-  type: ! '#!# type'
+  type: type
   english_description: ! '#!# english_description'
   french_description: ! '#!# french__description'
   spanish_description: ! '#!# spanish_description'
@@ -146,3 +146,4 @@ fr:
   created: établi
   yesterday: hier
   tag: Tag
+  tags: Tags

@@ -89,7 +89,7 @@ es:
   rejected: rechazado
   userdirectory: ! '#!# userdirectory'
   usermanagement: Manejar Usuarios
-  newtag: ! '#!# newtag'
+  newtag: nuevo codigo
   backtodashboard: ! '#!# backtodashboard'
   delete: ! '#!# delete'
   deleteuserconfirm: ! '#!# deleteuserconfirm'
@@ -100,7 +100,7 @@ es:
   spanish: español
   french: francés
   main_category: ! '#!# main_category'
-  type: ! '#!# type'
+  type: tipo
   english_description: ! '#!# english_description'
   french_description: ! '#!# french__description'
   spanish_description: ! '#!# spanish_description'
@@ -145,3 +145,4 @@ es:
   created: creado
   yesterday: ayer
   tag: Codigo
+  tags: Codigo
