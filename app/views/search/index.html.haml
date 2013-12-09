@@ -1,5 +1,21 @@
-%h1 Search results
+%h2= "Search results for \"#{params[:search]}\""
+%h4= "#{@results.size} matching documents found"
+.content
+  %table.doc-list
+    %thead  
+      %tr
+        %td.type-and-langs{ :align => 'center' }
+          = t(:type_and_langs_published)
+        %td.title-and-description{ :align => 'center' }
+          = t(:title_and_description)
+        %td.date{ :align => 'center' }
+          = t(:date_created)
+        %td.space
+        %td.actions{ :align => 'center' }
+          = t(:actions)
+    %tbody
+      - @results.each do |doc|
+        = render 'documents/document_quickview', :document => doc
+%br
 
-- @results.each do |result|
-  = render :partial => result.class.to_s.downcase, :locals => { :obj => result }
-  %br
+= link_to t(:submitadocument), new_document_choice_path
