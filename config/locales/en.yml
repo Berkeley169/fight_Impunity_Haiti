@@ -6,7 +6,7 @@ en:
     - :day
     - :year
     formats:
-      default: '%Y-%m-%d'
+      default: ! '%Y-%m-%d'
     day_names:
     - Sunday
     - Monday
@@ -55,7 +55,7 @@ en:
   show: Show
   destroy: Destroy
   save: Save
-  download: 'Download: '
+  download: ! 'Download: '
   submitadocument: Submit a Document
   webarticle: Web Article
   journalarticle: Journal Article
@@ -81,9 +81,9 @@ en:
   forgotpassword: Forgot your password?
   didntreceiveconfirmation: Didn't receive confirmation instructions?
   didntreceiveunlock: Didn't receive unlock instructions?
-  signinwith: 'Sign in with '
+  signinwith: ! 'Sign in with '
   resendunlock: Resend unlock instructions
-  loggedinas: 'Logged in as: '
+  loggedinas: ! 'Logged in as: '
   editprofile: Edit Profile
   signout: Sign out
   dashboard: Dashboard
@@ -98,12 +98,12 @@ en:
   newtag: New Tag
   backtodashboard: Back to Dashboard
   delete: Delete
-  deleteuserconfirm: 'Are you sure you want to delete user '
+  deleteuserconfirm: ! 'Are you sure you want to delete user '
   adduser: Add User
   manageusers: Manage Users
-  created: 'created'
+  created: created
   today: Today
-  yesterday: 'yesterday'
+  yesterday: yesterday
   english: English
   creole: Creole
   spanish: Spanish
@@ -147,4 +147,5 @@ en:
   chapter: chapter
   logout: Logout
   error: an error occured
-  search: 'Search'
+  search: Search
+  tag: Tag

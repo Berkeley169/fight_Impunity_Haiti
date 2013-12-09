@@ -15,7 +15,7 @@
           = t(:actions)
     %tbody
       - @results.each do |doc|
-        = render 'documents/document_quickview', :document => doc
+        = render "#{doc.class.to_s.downcase}", :obj => doc
 %br
 
 = link_to t(:submitadocument), new_document_choice_path
