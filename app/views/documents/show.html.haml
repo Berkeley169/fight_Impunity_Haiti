@@ -33,7 +33,7 @@
           = dl.description
 - if user_signed_in?  
   %p
-    %b= t(:notes) + ":"
+    %b= t(:notes).titleize + ":"
     %br
     = @document.notes
 
