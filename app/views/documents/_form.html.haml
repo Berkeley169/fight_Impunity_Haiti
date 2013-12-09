@@ -75,9 +75,9 @@
               = dl.label t(:status)
               = dl.select :status, Item.status_options(current_user)
           - else 
-            %b= t(:publication_status) + ":" 
-            %b{:class => dl.object.status}= dl.object.status.humanize.titleize
-
+            - if user_signed_in?
+              %b= t(:publication_status) + ":" 
+              %b{:class => dl.object.status}= dl.object.status.humanize.titleize
       - else
         .tab-pane{ :id => "#{dl.object.lang}_tab"}
           - if auth_to_edit_lang(dl.object)
@@ -113,16 +113,23 @@
               = dl.label t(:status)
               = dl.select :status, Item.status_options(current_user)
           - else 
+<<<<<<< HEAD
             %b= t(:publication_status) + ":" 
             %b{:class => dl.object.status}= dl.object.status.humanize.titleize
+=======
+            - if user_signed_in?
+              %b= t(:publication_status) + ":" 
+              %b{:class => dl.object.status}= dl.object.status.humanize.titleize
+>>>>>>> e3a24a60b3fc9aa1ee6a200eec9b1ad13fb31dcd
   %br
 
   .field
     = f.association :tags, as: :check_boxes, label_method: :english
 
-  .field
-    = f.label t(:notes)
-    = f.text_field :notes, :rows => 10
+  - if user_signed_in?
+    .field
+      = f.label t(:notes)
+      = f.text_field :notes, :rows => 10
 
   .actions
     = f.submit t(:save)
