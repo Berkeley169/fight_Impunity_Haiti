@@ -9,7 +9,7 @@
   %ul.nav.nav-tabs
     - @document_langs.sort.each do |dl|
       - if auth_to_view(dl)
-        %li{:class => "#{'active' if dl.lang == title_desc[2]}"}
+        %li{:class => "#{'active' if dl.lang == 'English'}"}
           %a{ :href => "##{dl.lang}_tab", "data-toggle" => 'tab' }= dl.lang
 
   .tab-content#langTabs
