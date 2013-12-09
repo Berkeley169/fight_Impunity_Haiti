@@ -32,46 +32,46 @@ fr:
   login: Se connecter
   subcategories: sous-catégories
   home: Accueil
-  about: à propos de nous
+  about: à Propos de Nous
   contact: Contact
-  fight: ! '#!# fight'
-  texts: texte
-  pictures: photos
-  picture: photo
-  video: vidéo
-  welcomemessage: ! '#!# welcomemessage'
-  audio: son
-  other: autre
-  underconstruction: ! '#!# underconstruction'
+  fight: Lutter Contre l'Impunité en Haïti
+  texts: Texte
+  pictures: Photos
+  picture: Photo
+  video: Vidéo
+  welcomemessage: Nous sommes un groupe de militants, les développeurs, les étudiants et les professionnels semblables qui se consacrent à la lutte contre l'impunité pour les violations des droits de l'homme en Haïti au cours du siècle dernier. Actuellement, ce site est un travail en cours. Nous faisons une bibliothèque en ligne donc la plupart du travail est actuellement dans les coulisses. Si vous êtes un éditeur ou gestionnaire, vous pouvez vous connecter ci-dessus.
+  audio: Son
+  other: Autre
+  underconstruction: En construction
   edit: Éditer
-  back: Reculer
+  back: Retour
   show: Montrer
-  destroy: Supprimer
-  save: conserver
-  download: télécharger
-  submitadocument: présenter un document
-  webarticle: article web
-  journalarticle: article de revue
-  newspaperarticle: article de journal
-  bookexcerpt: extrait de livre
-  textnew: nouveau texte
-  picturenew: nouveau photo
-  audionew: nouveau son
-  videonew: nouveau vidéo
-  othernew: nouveau autre
-  resendconfirmation: ! '#!# resendconfirmation'
-  confirmaccount: ! '#!# confirmaccount'
-  changepassword: ! '#!# changepassword'
-  unlockaccount: ! '#!# unlockaccount'
-  newpassword: nouveau mot de passe
-  confirmnewpassword: confirmer nouveau mot de passe
-  sendpasswordreset: ! '#!# sendpasswordreset'
+  destroy: Détruire
+  save: Sauver
+  download: Télécharger
+  submitadocument: Présenter un Document
+  webarticle: Article en Ligne
+  journalarticle: Article de Revue
+  newspaperarticle: Article de Presse
+  bookexcerpt: Extrait du Livre
+  textnew: Document de Texte
+  picturenew: Image
+  audionew: Fichier Audio
+  videonew: Vidéo
+  othernew: Autres (tableur etc)
+  resendconfirmation: Renvoyer les instructions de confirmation
+  confirmaccount: Confirmer mon compte
+  changepassword: Changer mon mot de passe
+  unlockaccount: Débloquer mon compte
+  newpassword: Nouveau mot de passe
+  confirmnewpassword: Confirmer nouveau mot de passe
+  sendpasswordreset: Envoyez-moi les instructions de réinitialisation de mot de passe
   'off': ! '#!# off'
-  update: mettre à jour
-  cancelaccount: ! '#!# cancelaccount'
-  areyousure: ! '#!# areyousure'
+  update: Mettre à jour
+  cancelaccount: Annuler mon compte
+  areyousure: Etes-vous sûr?
   turnoff: ! '#!# turnoff'
-  signup: ! '#!# signup'
+  signup: Signer
   signin: Se connecter
   forgotpassword: ! '#!# forgotpassword'
   didntreceiveconfirmation: ! '#!# didntreceiveconfirmation'
@@ -126,11 +126,8 @@ fr:
   videos: ! '#!# videos'
   tags_management: gérer les tags
   donations_title: Dons
-  contact_thanks: Merci pour votre contribution. Nous reviendrons vers vous dès que
-    possible.
-  donation_splash: Nous travaillons sur currenlty comment mettre en place les dons.
-    S'il vous plaît utilisez le formulaire de contact pour entrer en contact avec
-    nous en ce moment.
+  contact_thanks: Merci pour votre contribution. Nous reviendrons vers vous dès que possible.
+  donation_splash: Nous travaillons sur currenlty comment mettre en place les dons.  S'il vous plaît utilisez le formulaire de contact pour entrer en contact avec nous en ce moment.
   content: ! '#!# content'
   date_string: ! '#!# date_string'
   website: ! '#!# website'

@@ -1,11 +1,4 @@
 %h1= t(:editing) + " #{@doc_type_sym.to_s.titleize} " + t(:document)
-.langs
-- @document.send((@document.class.to_s.downcase + "_langs").to_sym).sort.each do |dl|
-  - class_name = "img_toggle"
-  - if dl.status == "published"
-    %img{:src => "/assets/#{dl.lang}-16.png", :height => "16", :width => "16", class: class_name, id: dl.lang}
-  - else
-    %img{:src => "/assets/#{dl.lang}-gray-16.png", class: class_name, id: dl.lang}
 
 = render 'form'
 

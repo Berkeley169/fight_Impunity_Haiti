@@ -1,5 +1,6 @@
-= link_to t(:edit), [:edit, document]
-\|
+- if user_signed_in?
+  = link_to t(:edit), [:edit, document]
+  \|
 /- if params[:status] and user_signed_in?
 /  = link_to 'Back', dashboard_index_path(:status => params[:status])
 /- else
