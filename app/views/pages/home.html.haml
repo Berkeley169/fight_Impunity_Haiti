@@ -3,19 +3,19 @@
 /   %p= t(:welcomemessage) 
 .container
   .row
-    .col-xs-6.col-md-4
+    .pull-left.home-icon
       = image_tag 'text_icon.gif'
       %h2= link_to t(:texts), texts_path
-    .col-xs-6.col-md-4
+    .pull-left.home-icon
       = image_tag 'picture_icon.gif'
       %h2= link_to t(:pictures), pictures_path
-    .col-xs-6.col-md-4
+    .pull-left.home-icon
       = image_tag 'video_icon.gif'
       %h2= link_to t(:video), videos_path
-    .col-xs-6.col-md-4
+    .pull-left.home-icon
       = image_tag 'sound_icon.gif'
       %h2= link_to t(:audio), sounds_path
-    .col-xs-6.col-md-4
+    .pull-left.home-icon
       = image_tag 'binary_icon.gif'
       %h2= link_to t(:other), binaries_path
   .row

@@ -1,0 +1,31 @@
+.btn-group-vertical.side-nav
+  - @navtags.each do |tag|
+    - if !tag.children.empty?
+      .btn-group.side-nav
+        %a.btn.btn-primary.dropdown-toggle{ :href => index_by_tag_path(:tagid => tag.id), "data-toggle" => 'dropdown' }
+          = tag.send(locale_to_word)
+          %span.caret
+        %ul.dropdown-menu
+          %li
+            %a{ :href => index_by_tag_path(:tagid => tag.id) }
+              = tag.send(locale_to_word)
+          %li.divider{ :role => 'presentation'}
+          %li.dropdown-header{ :role => 'presentation'}
+            = t(:subcategories)
+          - tag.children.each do |t|
+            %li
+              %a{ :href => index_by_tag_path(:tagid => t.id) }
+                = t.send(locale_to_word)
+    -else 
+      %a.btn.btn-primary{ :href => index_by_tag_path(:tagid => tag.id) }
+        = tag.send(locale_to_word)
+  %a.btn.btn-primary{ :href => texts_path }
+    =t(:texts)
+  %a.btn.btn-primary{ :href => pictures_path }
+    =t(:pictures)
+  %a.btn.btn-primary{ :href => videos_path }
+    =t(:video)
+  %a.btn.btn-primary{ :href => sounds_path }
+    =t(:audio)
+  %a.btn.btn-primary{ :href => binaries_path }
+    =t(:other)

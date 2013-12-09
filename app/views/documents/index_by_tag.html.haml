@@ -1,11 +1,5 @@
 .content
   %h1=@tag.send(locale_to_word)
-  -if @tag.cat == 'main'
-    .tag_sidebar
-      %h3=t(:subcategories)
-      .btn-group-vertical
-        = render :partial => 'tag_button', :collection => @tags, :as => :t
-
   %table.doc-list
     %thead  
       %tr

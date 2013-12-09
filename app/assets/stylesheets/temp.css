@@ -22,10 +22,6 @@
   width: 100%;
 }
 
-#main_content {
-  width: 85%;
-}
-
 .img_trigger:hover {
  -webkit-transform: scale(1.5,1.5);
 }
