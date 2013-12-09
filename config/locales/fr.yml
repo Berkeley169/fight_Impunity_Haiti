@@ -30,7 +30,7 @@ fr:
     - decembre
   hello: Hello world in French
   login: Se connecter
-  subcategories: ! '#!# subcategories'
+  subcategories: sous-catégories
   home: Accueil
   about: à propos de nous
   contact: Contact
@@ -47,27 +47,27 @@ fr:
   back: Reculer
   show: Montrer
   destroy: Supprimer
-  save: ! '#!# save'
-  download: ! '#!# download'
-  submitadocument: ! '#!# submitadocument'
-  webarticle: ! '#!# webarticle'
-  journalarticle: ! '#!# journalarticle'
-  newspaperarticle: ! '#!# newspaperarticle'
-  bookexcerpt: ! '#!# bookexcerpt'
-  textnew: ! '#!# textnew'
-  picturenew: ! '#!# picturenew'
-  audionew: ! '#!# audionew'
-  videonew: ! '#!# videonew'
-  othernew: ! '#!# othernew'
+  save: conserver
+  download: télécharger
+  submitadocument: présenter un document
+  webarticle: article web
+  journalarticle: article de revue
+  newspaperarticle: article de journal
+  bookexcerpt: extrait de livre
+  textnew: nouveau texte
+  picturenew: nouveau photo
+  audionew: nouveau son
+  videonew: nouveau vidéo
+  othernew: nouveau autre
   resendconfirmation: ! '#!# resendconfirmation'
   confirmaccount: ! '#!# confirmaccount'
   changepassword: ! '#!# changepassword'
   unlockaccount: ! '#!# unlockaccount'
-  newpassword: ! '#!# newpassword'
-  confirmnewpassword: ! '#!# confirmnewpassword'
+  newpassword: nouveau mot de passe
+  confirmnewpassword: confirmer nouveau mot de passe
   sendpasswordreset: ! '#!# sendpasswordreset'
   'off': ! '#!# off'
-  update: ! '#!# update'
+  update: mettre à jour
   cancelaccount: ! '#!# cancelaccount'
   areyousure: ! '#!# areyousure'
   turnoff: ! '#!# turnoff'
@@ -81,16 +81,16 @@ fr:
   loggedinas: ! '#!# loggedinas'
   editprofile: modifier le profil
   signout: se déconnecter
-  dashboardhome: ! '#!# dashboardhome'
+  dashboardhome: Tableau de bord
   published: publié
   inprogress: en cours
   pending: en attendant
   new: nouveau
   rejected: rejeté
-  userdirectory: ! '#!# userdirectory'
+  userdirectory: liste des utilisateurs
   usermanagement: Gérer les utilisateurs
   newtag: nouveau tag
-  backtodashboard: ! '#!# backtodashboard'
+  backtodashboard: retour à Tableau de bord
   delete: ! '#!# delete'
   deleteuserconfirm: ! '#!# deleteuserconfirm'
   adduser: ! '#!# adduser'
