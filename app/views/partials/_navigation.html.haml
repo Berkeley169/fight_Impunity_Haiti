@@ -16,8 +16,6 @@
         %li= link_to t(:contact), {:controller => '/pages', :action => 'contact'}
         %li= link_to t(:donations_title), {:controller => '/pages', :action => 'donate'}
         //%li= link_to t(:dashboard), dashboard_index_path
-        //- if user_signed_in?
-        //= render "partials/dashboard_nav_#{current_user.role}"
         %li.languages.dropdown
           %a.dropper{:href => '#', :class => 'dropdown-toggle', 'data-toggle' => 'dropdown'} 
             %img{:src => "/assets/#{locale_to_word.capitalize}-32.png"}
@@ -30,14 +28,20 @@
         - unless current_user
           %li= link_to t(:login), new_user_session_path, { :class => 'auth' }
         - else 
-          %li
-            %a.dropper{:href => '#', :class => 'dropdown-toggle', 'data-toggle' => 'dropdown'}
-              = "#{current_user.name}"
-              %b.caret
-            %ul.dropdown-menu
-              %li= link_to t(:logout), sessions_logout_path, { :class => 'auth' }
-              %li= link_to t(:editprofile), edit_user_path(:id => current_user.id)
-        = form_tag search_path, :method => 'get' do
-          %p
-            = text_field_tag :search, params[:search]
-            = submit_tag "Search", :name => nil
+          %li= link_to t(:logout), sessions_logout_path, { :class => 'auth' }
+    - if user_signed_in?
+      = render "partials/dashboard_nav_#{current_user.role}"
+    / =======
+    /           %li
+    /             %a.dropper{:href => '#', :class => 'dropdown-toggle', 'data-toggle' => 'dropdown'}
+    /               = "#{current_user.name}"
+    /               %b.caret
+    /             %ul.dropdown-menu
+    /               %li= link_to t(:logout), sessions_logout_path, { :class => 'auth' }
+    /               %li= link_to t(:editprofile), edit_user_path(:id => current_user.id)
+    .pull-right
+      = form_tag search_path, :method => 'get' do
+        %p
+          = text_field_tag :search, params[:search]
+          = submit_tag t(:search), :name => nil
+    / >>>>>>> master

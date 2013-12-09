@@ -12,4 +12,4 @@ Scenario: simple tag on the home page
 	When I click English
 	Then I should see "EnTag"
 	When I follow "EnTag"
-	Then I should see "subcategories"
+	Then I should see "Subcategories"

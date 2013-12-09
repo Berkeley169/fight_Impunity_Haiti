@@ -1,1 +1,17 @@
-%h2=link_to obj.send(locale_to_word), index_by_tag_path(:tagid => obj.id)
+%tr
+  %td.type-and-langs{ :align => 'center' }
+    .type
+      %h3=t(:tag)
+    .langs
+      %img{:src => "/assets/English-16.png", :height => "16", :width => "16"}
+      %img{:src => "/assets/French-16.png", :height => "16", :width => "16"}
+      %img{:src => "/assets/Creole-16.png", :height => "16", :width => "16"}
+      %img{:src => "/assets/Spanish-16.png", :height => "16", :width => "16"}
+  %td.title-and-description
+    %h3=obj.send(locale_to_word)
+    %h5=obj.send("#{locale_to_word.to_s}_description".to_sym)
+  %td.date{ :align => 'center' }
+    %p="#{t(:created)} #{pretty_date(obj.updated_at)}"
+  %td.space
+  %td.actions{ :align => 'center' }
+    = link_to "#{t(:show)}", index_by_tag_path(:tagid => obj.id)

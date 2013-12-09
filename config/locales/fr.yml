@@ -34,17 +34,12 @@ fr:
   home: Accueil
   about: à Propos de Nous
   contact: Contact
-<<<<<<< HEAD
   fight: Lutter Contre l'Impunité en Haïti
   texts: Texte
   pictures: Photos
   picture: Photo
   video: Vidéo
-  welcomemessage: Nous sommes un groupe de militants, les développeurs, les étudiants et les professionnels
-     semblables qui se consacrent à la lutte contre l'impunité pour les violations des droits de l'homme en Haïti
-     au cours du siècle dernier. Actuellement, ce site est un travail en cours. Nous faisons
-     une bibliothèque en ligne donc la plupart du travail est actuellement dans les coulisses. Si vous êtes un
-     éditeur ou gestionnaire, vous pouvez vous connecter ci-dessus.
+  welcomemessage: Nous sommes un groupe de militants, les développeurs, les étudiants et les professionnels semblables qui se consacrent à la lutte contre l'impunité pour les violations des droits de l'homme en Haïti au cours du siècle dernier. Actuellement, ce site est un travail en cours. Nous faisons une bibliothèque en ligne donc la plupart du travail est actuellement dans les coulisses. Si vous êtes un éditeur ou gestionnaire, vous pouvez vous connecter ci-dessus.
   audio: Son
   other: Autre
   underconstruction: En construction
@@ -131,11 +126,8 @@ fr:
   videos: ! '#!# videos'
   tags_management: gérer les tags
   donations_title: Dons
-  contact_thanks: Merci pour votre contribution. Nous reviendrons vers vous dès que
-    possible.
-  donation_splash: Nous travaillons sur currenlty comment mettre en place les dons.
-    S'il vous plaît utilisez le formulaire de contact pour entrer en contact avec
-    nous en ce moment.
+  contact_thanks: Merci pour votre contribution. Nous reviendrons vers vous dès que possible.
+  donation_splash: Nous travaillons sur currenlty comment mettre en place les dons.  S'il vous plaît utilisez le formulaire de contact pour entrer en contact avec nous en ce moment.
   content: ! '#!# content'
   date_string: ! '#!# date_string'
   website: ! '#!# website'

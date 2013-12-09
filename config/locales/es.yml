@@ -43,10 +43,10 @@ es:
   audio: sonido
   other: otro
   underconstruction: ! '#!# underconstruction'
-  edit: ! '#!# edit'
-  back: ! '#!# back'
-  show: ! '#!# show'
-  destroy: ! '#!# destroy'
+  edit: Editar
+  back: Retroceder
+  show: Mostrar
+  destroy: Borrar
   save: ! '#!# save'
   download: ! '#!# download'
   submitadocument: ! '#!# submitadocument'
@@ -79,8 +79,8 @@ es:
   signinwith: ! '#!# signinwith'
   resendunlock: ! '#!# resendunlock'
   loggedinas: ! '#!# loggedinas'
-  editprofile: ! '#!# editprofile'
-  signout: ! '#!# signout'
+  editprofile: editar perfil
+  signout: desconectarte
   dashboardhome: ! '#!# dashboardhome'
   published: publicado
   inprogress: en curso
@@ -89,7 +89,7 @@ es:
   rejected: rechazado
   userdirectory: ! '#!# userdirectory'
   usermanagement: Manejar Usuarios
-  newtag: ! '#!# newtag'
+  newtag: nuevo codigo
   backtodashboard: ! '#!# backtodashboard'
   delete: ! '#!# delete'
   deleteuserconfirm: ! '#!# deleteuserconfirm'
@@ -100,7 +100,7 @@ es:
   spanish: español
   french: francés
   main_category: ! '#!# main_category'
-  type: ! '#!# type'
+  type: tipo
   english_description: ! '#!# english_description'
   french_description: ! '#!# french__description'
   spanish_description: ! '#!# spanish_description'
@@ -118,17 +118,16 @@ es:
   publication_status: ! '#!# publication_status'
   select_document_type: ! '#!# select_document_type'
   select_document_upload_type: ! '#!# select_document_upload_type'
-  listing: ! '#!# listing'
-  type_and_langs_published: ! '#!# type_and_langs_published'
-  title_and_description: ! '#!# title_and_description'
-  date_created: ! '#!# date_created'
+  listing: listado
+  type_and_langs_published: Tipo y lenguas publicados
+  title_and_description: Título y descripción
+  date_created: fecha de creación
+  actions: acciones
   videos: ! '#!# videos'
   tags_management: Manejar codigos
   donations_title: Donaciones
   contact_thanks: Gracias por su trabaja. Hablaremos hasta pronto.
-  donation_splash: Estamos trabajando currenlty sobre cómo configurar las donaciones.
-    Utilice el formulario de contacto para ponerse en contacto con nosotros en este
-    momento.
+  donation_splash: Estamos trabajando currenlty sobre cómo configurar las donaciones.  Utilice el formulario de contacto para ponerse en contacto con nosotros en este momento.
   content: ! '#!# content'
   date_string: ! '#!# date_string'
   website: ! '#!# website'
@@ -138,5 +137,10 @@ es:
   newspaper: ! '#!# newspaper'
   chapter: ! '#!# chapter'
   dashboard: Cuadro de control
-  logout: ! '#!# logout'
+  logout: desconectarte
   error: ! '#!# error'
+  search: búsqueda
+  created: creado
+  yesterday: ayer
+  tag: Codigo
+  tags: Codigo

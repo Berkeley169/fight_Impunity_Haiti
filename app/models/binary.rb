@@ -11,7 +11,6 @@ class Binary < ActiveRecord::Base
   accepts_nested_attributes_for :binary_langs
   has_attached_file :bin
   has_and_belongs_to_many :tags
-  validates :name, presence: true
   has_and_belongs_to_many :tags
   after_validation :set_statuses
   multisearchable :against => [:name]

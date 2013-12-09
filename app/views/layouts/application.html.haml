@@ -17,5 +17,6 @@
     .container#main_content
       %p= flash[:notice]
       = yield
+    %footer
     = javascript_include_tag "application"
     = render :partial => "layouts/analytics"

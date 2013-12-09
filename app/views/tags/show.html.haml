@@ -1,11 +1,19 @@
 %p#notice= notice
 
 %p
-  %b English:
+  %b="#{t(:english).capitalize}:"
   = @tag.english
-  %b French:
+  %br
+  %b="#{t(:french).capitalize}:"
   = @tag.french
-  %b Type:
+  %br
+  %b="#{t(:creole).capitalize}:"
+  = @tag.creole
+  %br
+  %b="#{t(:spanish).capitalize}:"
+  = @tag.spanish
+  %br
+  %b="#{t(:type).capitalize}:"
   = @tag.cat
 
 

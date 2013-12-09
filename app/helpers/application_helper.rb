@@ -28,7 +28,7 @@ module ApplicationHelper
       return true
     end
     if current_user.role == "Editor"
-      return document_lang.status == "in_progress"
+      return (document_lang.status == "in_progress" or controller.action_name == "new")
     end
     return false
   end

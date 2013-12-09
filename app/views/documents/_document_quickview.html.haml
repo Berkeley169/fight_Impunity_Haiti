@@ -40,6 +40,6 @@
     = link_to "#{t(:show)}", document 
     - if current_user
       = link_to "#{t(:edit)}", [:edit, document]
-    - if @permissions == "Manager"
-      = link_to "#{t(:destroy)}", [:destroy, document], :data => { :confirm => "#{t(:areyousure)}" }
+      - if  current_user.role == "Manager"
+        = link_to "#{t(:destroy)}", [:destroy, document], :data => { :confirm => "#{t(:areyousure)}" }
 
