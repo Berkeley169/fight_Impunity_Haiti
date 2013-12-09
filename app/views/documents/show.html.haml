@@ -1,36 +1,46 @@
 %p
-  %h3= @document.relevant_title_and_description(@document,relevant_langs)[0]
-  .langs
-    - @document.send((@document.class.to_s.downcase + "_langs").to_sym).sort.each do |dl|
-      - class_name = "img_trigger"
-      - if dl.status == "published"
-        %img{:src => "/assets/#{dl.lang}-16.png", :height => "16", :width => "16", class: class_name, id: dl.lang}
-      - else
-        %img{:src => "/assets/#{dl.lang}-gray-16.png", class: class_name, id: dl.lang}
-  %br
   %b= t(:date_string) + ":"
   = @document.date
-
-%p 
+  %br
   = render 'show_' + @doc_type_sym.to_s, :document => @document
 
-%p
-  - @document_langs.sort.each do |dl|
-    - if auth_to_view(dl)
-      - if dl.lang == @document.relevant_title_and_description(@document,relevant_langs)[2]
-        %div{class: "relevant_lang", id: dl.lang}
-      %div{id: "doc_info_#{dl.lang}", class: "doc_info"}
-        %h3= dl.lang
-        - if user_signed_in?
-          %b Publication status: 
-          %b{:class => dl.status}= dl.status.humanize.titleize
-        %p
-          %b Title:
-          = dl.title
-          %br
-          %b Description:
-          %br
-          = dl.description
+
+  - title_desc = @document.relevant_title_and_description(@document, relevant_langs)
+  %ul.nav.nav-tabs
+    - @document_langs.sort.each do |dl|
+      - if auth_to_view(dl)
+        %li{:class => "#{'active' if dl.lang == title_desc[2]}"}
+          %a{ :href => "##{dl.lang}_tab", "data-toggle" => 'tab' }= dl.lang
+
+  .tab-content#langTabs
+    - @document_langs.sort.each do |dl|
+      .tab-pane{:class => "#{'active' if dl.lang == title_desc[2]}", :id => "#{dl.lang}_tab"}
+        - if auth_to_view(dl)
+          - if dl.lang == @document.relevant_title_and_description(@document,relevant_langs)[2]
+            %div{class: "relevant_lang", id: dl.lang}
+          /show the text document here, dont render it in a partial
+          %div
+            - if @doc_type.to_s == "Text"
+              %p 
+                = dl.plain_text.html_safe
+              %hr
+              - if dl.txt.url != '/txts/original/missing.png'
+                %b= t(:file).titleize 
+                = link_to t(:click_here_for_download), dl.txt.url
+            %p
+              - if user_signed_in?
+                %b= t(:publication_status).titleize 
+                %b{:class => dl.status}= dl.status.humanize.titleize
+              %p
+                %b Title:
+                = dl.title
+                %br
+                %b Description:
+                %br
+                = dl.description
+        - else
+          %p
+            This translation is not yet published
 - if user_signed_in?  
   %p
     %b= t(:notes).titleize + ":"

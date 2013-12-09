@@ -115,11 +115,11 @@ ht:
   description: deskripsyon
   status: sitiyasyon
   notes: nòt
-  file: dosye
+  file: ! '#!# file'
   click_here_for_download: Klike Isit la pou Download
   editing: Koreksyon
   document: Dokiman
-  publication_status: Sitiyasyon piblikasyon
+  publication_status: ! '#!# publication_status'
   select_document_type: Tanpri chwazi yon kalite dokiman nan lis ki anba
   select_document_upload_type: Tanpri chwazi yon di ki kalite dokiman yo upload
   listing: lis
