@@ -66,4 +66,72 @@ class ApplicationController < ActionController::Base
   def render_404
     render :file => "#{Rails.root}/public/404.html", :status => 404, :layout => false
   end
+
+  def assert_valid_meta_data_edit(document, param_attributes)
+    if document.published? and params[@doc_type_sym].size == 1 and not param_attributes
+      flash[:notice] = "Editors cannot change the information of published documents"
+      redirect_to root_path
+      return false
+    else
+      return true
+    end
+  end
+
+  def assert_valid_lang_status_edit(document, param_attributes)
+    (0..3).each do |i|
+      lang_attributes = param_attributes[i.to_s]
+      current_lang = document.get_language(lang_attributes[:lang])
+      if not valid_status_edit(current_lang, lang_attributes)
+        flash[:notice] = "Editors cannot publish or unpublish documents"
+        redirect_to root_path
+        return
+      end
+    end
+  end
+
+  def valid_status_edit(lang, lang_attributes)
+    d = [lang.status, lang_attributes[:status]]
+    return d.count("published") != 1
+  end
+
+  def setup_new_text_fields
+    if not params[:subtype]
+      redirect_to new_text_choice_path
+      return
+    else
+      @text_subtype = params[:subtype]
+      @document.subtype = @subtype
+      Text.send(params[:subtype]).each do |field|
+        @document.subtype_fields[field] = ""
+      end
+    end
+  end
+
+  def set_langs
+    document_langs = []
+    Item::LANGUAGES.each do |l|
+      document_langs.append(@document.send(@langs_sym).build(:lang => l.to_s, :status => 'new'))
+      # need to also initialize the plain_text of each lang if we are dealing with a text document
+      if params[:type] == "texts"
+        document_langs.last.plain_text = ""
+      end
+    end
+    return 
+  end
+
+  def set_new_status
+    lang = params[@doc_type_sym][(@langs_sym.to_s + '_attributes').to_sym]
+    (0..3).each do |i|
+      lang[i.to_s][:status] = 'new'
+    end
+  end
+
+  def return_to_from_create(document)
+    if user_signed_in?
+      return document
+    else
+      return method((document.class.to_s.downcase.pluralize + "_path").to_sym).call
+    end
+  end
+
 end
