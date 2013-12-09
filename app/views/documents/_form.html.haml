@@ -24,24 +24,24 @@
     - else
       = render 'show_' + @doc_type_sym.to_s, :document => @document
    
-  %ul#langTabs.nav.nav-tabs
+  %ul.nav.nav-tabs#language
     %li.active
-      %a{ :href => '#English', 'data-toggle' => 'tab' }
+      %a{ :href => '#English_tab', "data-toggle" => 'tab' }
         English
     %li
-      %a{ :href => '#Spanish', 'data-toggle' => 'tab' }
+      %a{ :href => '#Spanish_tab', 'data-toggle' => 'tab' }
         Spanish
     %li
-      %a{ :href => '#French', 'data-toggle' => 'tab' }
+      %a{ :href => '#French_tab', 'data-toggle' => 'tab' }
         French
     %li
-      %a{ :href => '#Creole', 'data-toggle' => 'tab' }
+      %a{ :href => '#Creole_tab', 'data-toggle' => 'tab' }
         Creole
 
-  .tab-content
+  .tab-content#langTabs
     = f.fields_for @langs_sym do |dl|
       - if dl.object.lang == "English"
-        .tab-pane.active{ :id => "#{dl.object.lang}"}
+        .tab-pane.active{ :id => "#{dl.object.lang}_tab"}
           - if auth_to_edit_lang(dl.object)
             %h4= dl.object.lang
             .field{:id => 'document_lang_' + dl.object.lang.downcase + '_title'}
@@ -79,7 +79,7 @@
             %b{:class => dl.object.status}= dl.object.status.humanize.titleize
 
       - else
-        .tab-pane{ :id => "#{dl.object.lang}"}
+        .tab-pane{ :id => "#{dl.object.lang}_tab"}
           - if auth_to_edit_lang(dl.object)
             %h4= dl.object.lang
             .field{:id => 'document_lang_' + dl.object.lang.downcase + '_title'}
