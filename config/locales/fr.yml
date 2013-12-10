@@ -78,12 +78,12 @@ fr:
   turnoff: ! '#!# turnoff'
   signup: Signer
   signin: Se connecter
-  forgotpassword: ! '#!# forgotpassword'
-  didntreceiveconfirmation: ! '#!# didntreceiveconfirmation'
-  didntreceiveunlock: ! '#!# didntreceiveunlock'
-  signinwith: ! '#!# signinwith'
-  resendunlock: ! '#!# resendunlock'
-  loggedinas: ! '#!# loggedinas'
+  forgotpassword: Mot de passe oublié?
+  didntreceiveconfirmation: Vous n'avez pas reçu les instructions de confirmation?
+  didntreceiveunlock: Vous n'avez pas reçu les instructions de déverrouillage?
+  signinwith: 'Se connecter avec '
+  resendunlock: Renvoyez déverrouiller instructions
+  loggedinas: 'Connecté en tant que: '
   editprofile: modifier le profil
   signout: se déconnecter
   dashboardhome: Tableau de bord
@@ -97,7 +97,7 @@ fr:
   newtag: nouveau tag
   backtodashboard: retour à Tableau de bord
   delete: effacer
-  deleteuserconfirm: ! '#!# deleteuserconfirm'
+  deleteuserconfirm: "Etes-vous sûr de vouloir supprimer l'utilisateur "
   adduser: ajouter l'utilisateur
   manageusers: Gérer les utilisateurs
   english: Anglais
@@ -110,19 +110,19 @@ fr:
   french_description: Description français
   spanish_description: Description espagnol
   creole_description: Description créole
-  name: Nom
-  title: ! '#!# title'
-  plain_text: ! '#!# plain_text'
-  description: ! '#!# description'
-  status: ! '#!# status'
-  notes: ! '#!# notes'
-  file: ! '#!# file'
-  click_here_for_download: ! '#!# click_here_for_download'
-  editing: ! '#!# editing'
-  document: ! '#!# document'
-  publication_status: ! '#!# publication_status'
-  select_document_type: ! '#!# select_document_type'
-  select_document_upload_type: ! '#!# select_document_upload_type'
+  name: nom
+  title: titre
+  plain_text: texte brut
+  description: description
+  status: statut
+  notes: notes
+  file: dossier
+  click_here_for_download: Cliquez ici pour télécharger
+  editing: Rédaction
+  document: Document
+  publication_status: statut de publication
+  select_document_type: S'il vous plaît sélectionner un type de document dans la liste ci-dessous
+  select_document_upload_type: S'il vous plaît sélectionner un type de document à télécharger
   listing: liste
   type_and_langs_published: Le type et les langues publiés
   title_and_description: Titre et Description
