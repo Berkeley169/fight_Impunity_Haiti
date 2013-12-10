@@ -2,16 +2,16 @@
 = form_tag({:action => 'email'}, method: "post") do
   = raw negative_captcha(@captcha)
   .contact_us
-    = negative_label_tag(@captcha, :name, "#{t(:name)}:")
+    = negative_label_tag(@captcha, :name, "#{t(:name).capitalize}:")
     = negative_text_field_tag(@captcha, :name)
-    = negative_label_tag(@captcha, :phone_number, "#{t(:phone_number)}:")
+    = negative_label_tag(@captcha, :phone_number, "#{t(:phone_number).capitalize}:")
     = negative_text_field_tag(@captcha, :phone_number)
-    = negative_label_tag(@captcha, :subject, "#{t(:subject)}:")
+    = negative_label_tag(@captcha, :subject, "#{t(:subject).capitalize}:")
     = select_tag(:option, options_for_select(["Bug", "Comment", "Question"], selected: :option ))
-    = negative_label_tag(@captcha, :email, "#{t(:email)}:")
+    = negative_label_tag(@captcha, :email, "#{t(:email).capitalize}:")
     = negative_text_field_tag(@captcha, :email)
-    = negative_label_tag(@captcha, :reason, "#{t(:reason)}:")
+    = negative_label_tag(@captcha, :reason, "#{t(:reason).capitalize}:")
     = negative_text_area_tag(@captcha, :reason)
     %br
     %br
-    = submit_tag "#{t(:submit)}"
+    = submit_tag "#{t(:submit).capitalize}"
