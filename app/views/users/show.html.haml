@@ -1,11 +1,11 @@
-%h1= "User information for #{@user.first_name} #{@user.last_name}"
+%h1= "#{t(:user_information_for)} #{@user.first_name} #{@user.last_name}"
 
 %p
-  %b Email: 
+  %b="#{t(:email)}:"
   = @user.email
 %p
-  %b Role: 
+  %b="#{t(:role)}:" 
   = @user.role
 %p
-  %b Language: 
+  %b="#{t(:language)}:"
   = @user.lang

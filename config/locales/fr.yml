@@ -98,7 +98,7 @@ fr:
   backtodashboard: retour à Tableau de bord
   delete: effacer
   deleteuserconfirm: ! '#!# deleteuserconfirm'
-  adduser: ! '#!# adduser'
+  adduser: ajouter l'utilisateur
   manageusers: Gérer les utilisateurs
   english: Anglais
   creole: créole
@@ -110,7 +110,7 @@ fr:
   french_description: Description français
   spanish_description: Description espagnol
   creole_description: Description créole
-  name: nom
+  name: Nom
   title: ! '#!# title'
   plain_text: ! '#!# plain_text'
   description: ! '#!# description'
@@ -152,7 +152,7 @@ fr:
   yesterday: hier
   tag: Tag
   tags: Tags
-  email: email
+  email: Email
   phone_number: numéro de téléphone
   subject: sujet
   reason: raison
@@ -164,3 +164,6 @@ fr:
   tech: technicien
   password: mot de passe
   password_confirmation: confirmation de mot de passe
+  role: Rôle
+  language: Langue
+  user_information_for: Informations de l'utilisateur pour

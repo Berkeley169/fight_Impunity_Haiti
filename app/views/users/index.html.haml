@@ -2,15 +2,14 @@
 
 %div#panel
   - if current_user.role == "Manager"
-    = button_to t(:adduser), new_user_path, :id => :add_user_button, :class => "btn btn-small", :method => 'get'
+    .pull-right
+      = button_to t(:adduser), new_user_path, :id => :add_user_button, :class => "btn btn-large", :method => 'get'
   %br
   %table.table-striped.table
     %tr
-      %th Name
-      %th Role
-      %th Primary Language
-      %th Date Added
-      %th Last Modified
+      %th=t(:name)
+      %th=t(:role)
+      %th=t(:language)
       %th
       - if current_user.role == "Manager"
         %th
@@ -20,8 +19,6 @@
         %td= user.name
         %td= user.role
         %td= user.lang
-        %td= user.created_at.to_s(:db)
-        %td= user.updated_at.to_s(:db)
         %td= link_to t(:show), user_path(user.id)
         - if current_user.role == "Manager"
           %td= link_to t(:edit), edit_user_path(user.id)

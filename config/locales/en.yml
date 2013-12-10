@@ -155,10 +155,13 @@ en:
   subject: subject
   reason: reason
   submit: submit
-  first_name: 'first name'
-  last_name: 'last name'
-  editor: 'editor'
-  manager: 'manager'
-  tech: 'tech'
-  password: 'password'
-  password_confirmation: 'password confirmation'
+  first_name: first name
+  last_name: last name
+  editor: editor
+  manager: manager
+  tech: tech
+  password: password
+  password_confirmation: password confirmation
+  role: Role
+  language: Language
+  user_information_for: User information for

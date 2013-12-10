@@ -161,3 +161,6 @@ ht:
   tech: teknisyen
   password: modpas
   password_confirmation: konfimasyon modpas
+  role: Wòl
+  language: Lang
+  user_information_for: Enfòmasyon sou manm nan pou

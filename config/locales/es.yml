@@ -93,7 +93,7 @@ es:
   backtodashboard: ! '#!# backtodashboard'
   delete: borrar
   deleteuserconfirm: ! '#!# deleteuserconfirm'
-  adduser: ! '#!# adduser'
+  adduser: agregar usuario
   manageusers: Manejar Usuarios
   english: Inglés
   creole: criollo
@@ -157,3 +157,6 @@ es:
   tech: técnico
   password: contraseña
   password_confirmation: confirmación de la contraseña
+  role: Oficio
+  language: Lengua
+  user_information_for: La información del usuario para
