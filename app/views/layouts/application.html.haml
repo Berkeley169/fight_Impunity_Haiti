@@ -18,7 +18,8 @@
       .col-md-2
         = render :partial => "partials/side_nav"
       .col-md-10
-        %p= flash[:notice]
+        - if flash[:notice]
+          %p.well= flash[:notice]
         = yield
     %footer
     = javascript_include_tag "application"
