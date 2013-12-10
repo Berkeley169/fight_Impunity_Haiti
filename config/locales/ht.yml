@@ -154,3 +154,10 @@ ht:
   subject: sijè
   reason: rezon ki fè
   submit: soumèt
+  first_name: premye non
+  last_name: non dènye
+  editor: editè
+  manager: manadjè
+  tech: teknisyen
+  password: modpas
+  password_confirmation: konfimasyon modpas

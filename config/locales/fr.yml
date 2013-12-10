@@ -96,7 +96,7 @@ fr:
   usermanagement: Gérer les utilisateurs
   newtag: nouveau tag
   backtodashboard: retour à Tableau de bord
-  delete: ! '#!# delete'
+  delete: effacer
   deleteuserconfirm: ! '#!# deleteuserconfirm'
   adduser: ! '#!# adduser'
   manageusers: Gérer les utilisateurs
@@ -157,3 +157,10 @@ fr:
   subject: sujet
   reason: raison
   submit: soumettre
+  first_name: prénom
+  last_name: nom de famille
+  editor: éditeur
+  manager: directeur
+  tech: technicien
+  password: mot de passe
+  password_confirmation: confirmation de mot de passe

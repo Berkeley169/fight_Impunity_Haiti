@@ -155,3 +155,10 @@ en:
   subject: subject
   reason: reason
   submit: submit
+  first_name: ! '#!# first_name'
+  last_name: ! '#!# last_name'
+  editor: ! '#!# editor'
+  manager: ! '#!# manager'
+  tech: ! '#!# tech'
+  password: ! '#!# password'
+  password_confirmation: ! '#!# password_confirmation'

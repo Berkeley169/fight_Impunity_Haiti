@@ -91,7 +91,7 @@ es:
   usermanagement: Manejar Usuarios
   newtag: nuevo codigo
   backtodashboard: ! '#!# backtodashboard'
-  delete: ! '#!# delete'
+  delete: borrar
   deleteuserconfirm: ! '#!# deleteuserconfirm'
   adduser: ! '#!# adduser'
   manageusers: Manejar Usuarios
@@ -150,3 +150,10 @@ es:
   subject: tema
   reason: razón
   submit: presentar
+  first_name: nombre de pila
+  last_name: apellido
+  editor: editor
+  manager: gerente
+  tech: técnico
+  password: contraseña
+  password_confirmation: confirmación de la contraseña
