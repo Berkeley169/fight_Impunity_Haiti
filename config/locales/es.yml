@@ -30,116 +30,119 @@ es:
     - diciembre
   hello: Hello world in Spanish
   login: iniciar la sesión
-  subcategories: ! '#!# subcategories'
+  subcategories: Subcategorías
   home: Inicio
   about: Sobre Nosotros
   contact: contactar
-  fight: ! '#!# fight'
-  texts: escrito
-  pictures: fotos
-  picture: ! '#!# picture'
-  video: vídeo
-  welcomemessage: ! '#!# welcomemessage'
-  audio: sonido
-  other: otro
-  underconstruction: ! '#!# underconstruction'
+  fight: Luchar contra la impunidad en Haití
+  texts: Escrito
+  pictures: Fotos
+  picture: Foto
+  video: Vídeo
+  welcomemessage: Somos un grupo de activistas, desarrolladores, estudiantes y profesionales
+     igual que se dedican a la lucha contra la impunidad de las violaciónes de los derechos humanos en Haití
+     durante el último siglo. Actualmente este sitio es un trabajo en progreso. Estamos haciendo
+     una biblioteca electrónica así que la mayoría de los trabajos que actualmente se encuentra detrás de las escenas. Si usted es un
+     editor o administrador, puede iniciar sesión en el anterior.
+  audio: Sonido
+  other: Otro
+  underconstruction: Bajo construcción
   edit: Editar
   back: Retroceder
   show: Mostrar
   destroy: Borrar
-  save: ! '#!# save'
-  download: ! '#!# download'
-  submitadocument: presentar un documento
-  webarticle: ! '#!# webarticle'
-  journalarticle: ! '#!# journalarticle'
-  newspaperarticle: ! '#!# newspaperarticle'
-  bookexcerpt: ! '#!# bookexcerpt'
-  textnew: ! '#!# textnew'
-  picturenew: ! '#!# picturenew'
-  audionew: ! '#!# audionew'
-  videonew: ! '#!# videonew'
-  othernew: ! '#!# othernew'
-  resendconfirmation: ! '#!# resendconfirmation'
-  confirmaccount: ! '#!# confirmaccount'
-  changepassword: ! '#!# changepassword'
-  unlockaccount: ! '#!# unlockaccount'
-  newpassword: ! '#!# newpassword'
-  confirmnewpassword: ! '#!# confirmnewpassword'
-  sendpasswordreset: ! '#!# sendpasswordreset'
+  save: Guardar
+  download: 'Descargar: '
+  submitadocument: Presentar un Documento
+  webarticle: Artículo en Línea
+  journalarticle: Artículo de Revista
+  newspaperarticle: Artículo de Periódico
+  bookexcerpt: Extracto del Libro
+  textnew: Documento Texto
+  picturenew: Imagen
+  audionew: Archivo de Audio
+  videonew: Vídeo
+  othernew: Otros (Hoja de Cálculo Etcétera)
+  resendconfirmation: Vuelva a enviar instrucciones de confirmación
+  confirmaccount: Confirmar mi cuenta
+  changepassword: Cambiar mi contraseña
+  unlockaccount: Desbloquear mi cuenta
+  newpassword: Nueva contraseña
+  confirmnewpassword: Confirmar nueva contraseña
+  sendpasswordreset: Reciba instrucciones de restablecimiento de contraseña
   'off': ! '#!# off'
-  update: ! '#!# update'
-  cancelaccount: ! '#!# cancelaccount'
-  areyousure: ! '#!# areyousure'
-  turnoff: ! '#!# turnoff'
-  signup: ! '#!# signup'
-  signin: login
-  forgotpassword: ! '#!# forgotpassword'
-  didntreceiveconfirmation: ! '#!# didntreceiveconfirmation'
-  didntreceiveunlock: ! '#!# didntreceiveunlock'
-  signinwith: ! '#!# signinwith'
-  resendunlock: ! '#!# resendunlock'
-  loggedinas: ! '#!# loggedinas'
+  update: Actualizar
+  cancelaccount: Cancelar mi cuenta
+  areyousure: ¿Está seguro?
+  signup: Regístrate
+  signin: Entrar
+  forgotpassword: ¿Olvidaste tu contraseña?
+  didntreceiveconfirmation: no recibió instrucciones de confirmación?
+  didntreceiveunlock: No recibió instrucciones de desbloqueo?
+  signinwith: ! 'Iniciar sesión con '
+  resendunlock: Reenviar desbloquear instrucciones
+  loggedinas: ! 'Conectado como: '
   editprofile: editar perfil
   signout: desconectarte
-  dashboardhome: ! '#!# dashboardhome'
+  dashboardhome: Cuadro de Control
   published: publicado
   inprogress: en curso
   pending: pendiente
   new: nuevo
   rejected: rechazado
-  userdirectory: ! '#!# userdirectory'
+  userdirectory: Directorio de Usuario
   usermanagement: Manejar Usuarios
   newtag: nuevo codigo
-  backtodashboard: ! '#!# backtodashboard'
+  backtodashboard: Volver al Cuadro de Control
   delete: borrar
-  deleteuserconfirm: ! '#!# deleteuserconfirm'
+  deleteuserconfirm: ! '¿Está seguro que desea eliminar el usuario '
   adduser: agregar usuario
   manageusers: Manejar Usuarios
   english: Inglés
   creole: criollo
   spanish: español
   french: francés
-  main_category: ! '#!# main_category'
+  main_category: categoría principal
   type: tipo
-  english_description: ! '#!# english_description'
-  french_description: ! '#!# french__description'
-  spanish_description: ! '#!# spanish_description'
-  creole_description: ! '#!# creole_description'
+  english_description: Descripción inglés
+  french_description: Descripción francés
+  spanish_description: Descripción español 
+  creole_description: Descripción criollo
   name: nombre
-  title: ! '#!# title'
-  plain_text: ! '#!# plain_text'
-  description: ! '#!# description'
-  status: ! '#!# status'
-  notes: ! '#!# notes'
-  file: ! '#!# file'
-  click_here_for_download: ! '#!# click_here_for_download'
-  editing: ! '#!# editing'
-  document: ! '#!# document'
-  publication_status: ! '#!# publication_status'
-  select_document_type: ! '#!# select_document_type'
-  select_document_upload_type: ! '#!# select_document_upload_type'
+  title: título
+  plain_text: texto plano
+  description: descripción
+  status: estado
+  notes: notas
+  file: expediente
+  click_here_for_download: Haga clic aquí para Descargar
+  editing: Editando
+  document: Documento
+  publication_status: Estado de la Publicación
+  select_document_type: Por favor seleccione un tipo de documento de la siguiente lista
+  select_document_upload_type: Por favor seleccione un tipo de documento para cargar
   listing: listado
   type_and_langs_published: Tipo y lenguas publicados
   title_and_description: Título y descripción
   date_created: fecha de creación
   actions: acciones
-  videos: ! '#!# videos'
+  videos: videos
   tags_management: Manejar codigos
   donations_title: Donaciones
   contact_thanks: Gracias por su trabaja. Hablaremos hasta pronto.
   donation_splash: Estamos trabajando currenlty sobre cómo configurar las donaciones.  Utilice
     el formulario de contacto para ponerse en contacto con nosotros en este momento.
-  content: ! '#!# content'
-  date_string: ! '#!# date_string'
-  website: ! '#!# website'
-  url: ! '#!# url'
-  journal: ! '#!# journal'
-  volume: ! '#!# volume'
-  newspaper: ! '#!# newspaper'
-  chapter: ! '#!# chapter'
+  content: Contenido
+  date_string: Fecha
+  website: witio web
+  url: url
+  journal: revista
+  volume: volumen
+  newspaper: periódico
+  chapter: capítulo
   dashboard: Cuadro de control
   logout: desconectarte
-  error: ! '#!# error'
+  error: error
   search: búsqueda
   created: creado
   yesterday: ayer

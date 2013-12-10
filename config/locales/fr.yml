@@ -53,7 +53,7 @@ fr:
   show: Montrer
   destroy: Détruire
   save: Sauver
-  download: Télécharger
+  download: 'Télécharger: '
   submitadocument: Présenter un Document
   webarticle: Article en Ligne
   journalarticle: Article de Revue
