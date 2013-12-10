@@ -39,11 +39,7 @@ ht:
   pictures: Foto
   picture: Foto
   video: Videyo
-  welcomemessage: Nou se yon gwoup nan aktivis, devlopè, elèv yo, ak pwofesyonèl sousanble
-    ki dedye a batay enpinite pou vyolasyon dwa moun an Ayiti sou dènye syèk la. Kounye
-    a sit sa a se yon travay nan pwogrè. N ap fè yon eLibrary Se konsa, pifò nan travay
-    la kounye a se dèyè sèn nan. Si ou se yon editè oswa manadjè, ou ka ouvri sesyon
-    an pi wo a.
+  welcomemessage: Nou se yon gwoup nan aktivis, devlopè, elèv yo, ak pwofesyonèl sousanble ki dedye a batay enpinite pou vyolasyon dwa moun an Ayiti sou dènye syèk la. Kounye a sit sa a se yon travay nan pwogrè. N ap fè yon eLibrary Se konsa, pifò nan travay la kounye a se dèyè sèn nan. Si ou se yon editè oswa manadjè, ou ka ouvri sesyon an pi wo a.
   audio: Son
   other: Lòt
   underconstruction: Dapre Konstriksyon
@@ -131,8 +127,7 @@ ht:
   tags_management: Jere baliz yo
   donations_title: Donasyon
   contact_thanks: Mèsi pou D 'ou. Nou pral jwenn tounen ba ou pi vit ke posib.
-  donation_splash: Nou ap currenlty ap travay sou ki jan yo mete kanpe donasyon. Tanpri
-    itilize fòm nan kontak yo ka resevwa an kontak ak nou nan moman an.
+  donation_splash: Nou ap currenlty ap travay sou ki jan yo mete kanpe donasyon. Tanpri itilize fòm nan kontak yo ka resevwa an kontak ak nou nan moman an.
   content: Kontni
   date_string: Jou
   website: sit entènèt

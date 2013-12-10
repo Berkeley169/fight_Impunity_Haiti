@@ -39,11 +39,7 @@ es:
   pictures: Fotos
   picture: Foto
   video: Vídeo
-  welcomemessage: Somos un grupo de activistas, desarrolladores, estudiantes y profesionales
-     igual que se dedican a la lucha contra la impunidad de las violaciónes de los derechos humanos en Haití
-     durante el último siglo. Actualmente este sitio es un trabajo en progreso. Estamos haciendo
-     una biblioteca electrónica así que la mayoría de los trabajos que actualmente se encuentra detrás de las escenas. Si usted es un
-     editor o administrador, puede iniciar sesión en el anterior.
+  welcomemessage: Somos un grupo de activistas, desarrolladores, estudiantes y profesionales igual que se dedican a la lucha contra la impunidad de las violaciónes de los derechos humanos en Haití durante el último siglo. Actualmente este sitio es un trabajo en progreso. Estamos haciendo una biblioteca electrónica así que la mayoría de los trabajos que actualmente se encuentra detrás de las escenas. Si usted es un editor o administrador, puede iniciar sesión en el anterior.
   audio: Sonido
   other: Otro
   underconstruction: Bajo construcción
@@ -130,8 +126,7 @@ es:
   tags_management: Manejar codigos
   donations_title: Donaciones
   contact_thanks: Gracias por su trabaja. Hablaremos hasta pronto.
-  donation_splash: Estamos trabajando currenlty sobre cómo configurar las donaciones.  Utilice
-    el formulario de contacto para ponerse en contacto con nosotros en este momento.
+  donation_splash: Estamos trabajando currenlty sobre cómo configurar las donaciones.  Utilice el formulario de contacto para ponerse en contacto con nosotros en este momento.
   content: Contenido
   date_string: Fecha
   website: witio web
