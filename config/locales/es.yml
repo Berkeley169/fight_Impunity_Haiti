@@ -49,7 +49,7 @@ es:
   destroy: Borrar
   save: ! '#!# save'
   download: ! '#!# download'
-  submitadocument: ! '#!# submitadocument'
+  submitadocument: presentar un documento
   webarticle: ! '#!# webarticle'
   journalarticle: ! '#!# journalarticle'
   newspaperarticle: ! '#!# newspaperarticle'

@@ -104,12 +104,12 @@ fr:
   creole: créole
   spanish: espagnol
   french: français
-  main_category: ! '#!# main_category'
+  main_category: catégorie principale
   type: type
-  english_description: ! '#!# english_description'
-  french_description: ! '#!# french__description'
-  spanish_description: ! '#!# spanish_description'
-  creole_description: ! '#!# creole_description'
+  english_description: Description anglais
+  french_description: Description français
+  spanish_description: Description espagnol
+  creole_description: Description créole
   name: nom
   title: ! '#!# title'
   plain_text: ! '#!# plain_text'
@@ -128,7 +128,7 @@ fr:
   title_and_description: Titre et Description
   date_created: date de création
   actions: actes
-  videos: ! '#!# videos'
+  videos: vidéos
   tags_management: gérer les tags
   donations_title: Dons
   contact_thanks: Merci pour votre contribution. Nous reviendrons vers vous dès que
@@ -136,17 +136,17 @@ fr:
   donation_splash: Nous travaillons sur currenlty comment mettre en place les dons.  S'il
     vous plaît utilisez le formulaire de contact pour entrer en contact avec nous
     en ce moment.
-  content: ! '#!# content'
-  date_string: ! '#!# date_string'
-  website: ! '#!# website'
-  url: ! '#!# url'
-  journal: ! '#!# journal'
-  volume: ! '#!# volume'
-  newspaper: ! '#!# newspaper'
-  chapter: ! '#!# chapter'
+  content: teneur
+  date_string: date
+  website: site web
+  url: url
+  journal: revue
+  volume: volume
+  newspaper: journal
+  chapter: chapitre
   dashboard: Tableau de bord
   logout: se déconnecter
-  error: ! '#!# error'
+  error: erreur
   search: recherche
   created: établi
   yesterday: hier
