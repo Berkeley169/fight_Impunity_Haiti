@@ -1,25 +1,28 @@
 = simple_form_for @user do |f|
   .field
-    = f.label t(:first_name)
+    = f.label t(:first_name).titleize
     = f.text_field :first_name
   .field
-    = f.label t(:last_name)
+    = f.label t(:last_name).titleize
     = f.text_field :last_name
   .field
-    = f.label t(:email)
+    = f.label t(:email).titleize
     = f.text_field :email
   -if @editing_self or @new_user
     .field
-      = f.label t(:password)
+      = f.label t(:password).titleize
       = f.password_field :password
     .field
-      = f.label t(:password_confirmation)
+      = f.label t(:password_confirmation).titleize
       = f.password_field :password_confirmation
   -if not @editing_self
     .field
-      = f.collection_radio_buttons :role, [["Manager", t(:manager)], ["Editor", t(:editor)], ["Tech", t(:tech)]], :first, :last
+      = f.collection_radio_buttons :role, [["Manager", t(:manager).titleize], 
+                                           ["Editor", t(:editor).titleize], 
+                                           ["Tech", t(:tech).titleize]], :first, :last,
+                                           :style => 'display:inline-block'
   .field
     = f.collection_radio_buttons :lang, [["English", t(:english)], ["French", t(:french)], ["Creole", t(:creole)], ["Spanish", t(:spanish)]], :first, :last
   .actions
-    = f.submit t(:submit)
+    = f.submit t(:submit).titleize
 

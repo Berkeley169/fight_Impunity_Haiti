@@ -17,8 +17,8 @@ Scenario: see the about page
 Scenario: see the contact page
 	Then I should see "Contact"
 	When I follow "Contact"
-	Then I should see "Contact Information"
-	And I should see "Administrator"
+	Then I should see "Contact"
+	And I should see "Reason"
  
 Scenario: submit a request to be contacted
   When I follow "Contact"
