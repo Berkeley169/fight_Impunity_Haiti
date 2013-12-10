@@ -11,5 +11,5 @@ Scenario: simple tag on the home page
 	Given I am on the home page
 	When I click English
 	Then I should see "EnTag"
-	When I follow "EnTag" within "ul"
-	Then I should see "Subcategories"
+	When I follow "EnTag" within "ul.dropdown-menu"
+	Then I should see "EnTag"

@@ -1,46 +1,17 @@
 /= select_tag(:option, options_for_select([["Bug", 1], ["Comment", 2], ["Question", 3]], selected: :option ))
 = form_tag({:action => 'email'}, method: "post") do
   = raw negative_captcha(@captcha)
-  %ul.contact_us
-    %li
-      = negative_label_tag(@captcha, :name, 'Name:')
-      = negative_text_field_tag(@captcha, :name)
-    %li
-      = negative_label_tag(@captcha, :phone_number, 'Phone Number:')
-      = negative_text_field_tag(@captcha, :phone_number)
-    %li
-      = negative_label_tag(@captcha, :subject, 'Subject')
-      = select_tag(:option, options_for_select(["Bug", "Comment", "Question"], selected: :option ))
-    %li
-      = negative_label_tag(@captcha, :email, 'Email:')
-      = negative_text_field_tag(@captcha, :email)
-    %li
-      = negative_label_tag(@captcha, :reason, 'Reason:')
-      = negative_text_area_tag(@captcha, :reason)
-    %li
-      = submit_tag "Submit"
-
-/= form_tag({:action => 'email'}, method: "post") do
-
-/	.field
-/		= label_tag :name
-/		= text_field_tag :name
-/
-/	.field
-/		= label_tag :phone_number
-/		= text_field_tag :phone_number
-/
-/	.field
-/		= label_tag :subject
-/		= select_tag(:option, options_for_select(["Bug", "Comment", "Question"], selected: :option ))
-/
-/	.field
-/		= label_tag :email
-/		= text_field_tag :email
-/
-/	.field
-/		= label_tag :reason
-/		= text_area_tag :reason
-/
-/	%br
-/	= submit_tag "Submit"
+  .contact_us
+    = negative_label_tag(@captcha, :name, "#{t(:name)}:")
+    = negative_text_field_tag(@captcha, :name)
+    = negative_label_tag(@captcha, :phone_number, "#{t(:phone_number)}:")
+    = negative_text_field_tag(@captcha, :phone_number)
+    = negative_label_tag(@captcha, :subject, "#{t(:subject)}:")
+    = select_tag(:option, options_for_select(["Bug", "Comment", "Question"], selected: :option ))
+    = negative_label_tag(@captcha, :email, "#{t(:email)}:")
+    = negative_text_field_tag(@captcha, :email)
+    = negative_label_tag(@captcha, :reason, "#{t(:reason)}:")
+    = negative_text_area_tag(@captcha, :reason)
+    %br
+    %br
+    = submit_tag "#{t(:submit)}"
