@@ -2,7 +2,7 @@
   %p.alert-danger= flash[:alert]
 %h1=t(:tags)
 
-%table
+%table.table.table-striped
   %tr
     %th= t(:english)
     %th= t(:french)
@@ -23,5 +23,3 @@
 %br
 
 = link_to t(:newtag), new_tag_path
-%br
-= link_to t(:dashboard), dashboard_path
