@@ -27,6 +27,7 @@ gem 'ckeditor_rails'
 gem 'youtube_addy'
 gem 'pg_search'
 gem 'dotenv-rails'
+gem 'aws-sdk'
 
 gem 'negative_captcha'
 
