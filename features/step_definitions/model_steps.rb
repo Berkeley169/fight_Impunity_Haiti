@@ -164,3 +164,12 @@ Then /there should not be a (.*) name "(.*)"$/ do |type, name|
   doc = type.classify.constantize.where(:name => name)
   doc.count.should == 0
 end
+
+## TAG A DOCUMENT
+Given /the (.*) named "(.*)" is assigned the tag named "(.*)"$/ do |type, doc_name, tag_name|
+  doc = type.classify.constantize.where(:name => doc_name).first
+  tag = Tag.where(:english => tag_name).first
+  doc.tags = [tag]
+  doc.save
+end
+

@@ -29,6 +29,9 @@ class DocumentsController < ApplicationController
       @tag = Tag.find_by_id(params[:tagid])
       @documents = []
       @documents = @tag.texts + @tag.pictures + @tag.videos + @tag.sounds + @tag.binaries
+      if not user_signed_in?
+        @documents = @documents.select { |doc| doc.published }
+      end
       @tags = @tag.children
     else
       not_found

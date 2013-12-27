@@ -95,6 +95,10 @@ module NavigationHelpers
     when /^the video index page$/
       videos_path
 
+    when /^the tag index page for "(.*)"$/
+      tag = Tag.where(:english => $1).first
+      index_by_tag_path(:tagid => tag.id)
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
