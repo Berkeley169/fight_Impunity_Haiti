@@ -18,5 +18,5 @@
     .pull-left.home-icon
       = image_tag 'binary_icon.gif'
       %h2= link_to t(:other), binaries_path
-  .row
-    = render :partial => 'tag_home_partial', :collection => @tags, :as => :tag
+  / .row
+  /   = render :partial => 'tag_home_partial', :collection => @tags, :as => :tag
