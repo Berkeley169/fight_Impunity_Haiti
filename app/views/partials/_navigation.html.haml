@@ -5,10 +5,10 @@
         %span.sr-only Toggle Navigation
         %span.icon-bar
         %span.icon-bar
-        %span.icon-bar
-      .navbar-brand
-        %strong= t :fightimpunity
-        = t :inhaiti
+        /%span.icon-bar
+      /.navbar-brand
+      .pull-left
+        %img{:src => "/assets/Logo#{locale_to_word.capitalize}.png", :style =>"width:150px;"}
     %nav.collapse.navbar-collapse
       %ul.nav.navbar-nav.navbar-right
         %li= link_to t(:home), '/'
@@ -29,6 +29,14 @@
           %li= link_to t(:login), new_user_session_path, { :class => 'auth' }
         - else 
           %li= link_to t(:logout), sessions_logout_path, { :class => 'auth' }
+      %br
+      %br
+      %br
+      .pull-right
+        = form_tag search_path, :method => 'get' do
+          %p
+            = text_field_tag :search, params[:search]
+            = submit_tag t(:search), :name => nil
     - if user_signed_in?
       = render "partials/dashboard_nav_#{current_user.role}"
     / =======
@@ -39,9 +47,5 @@
     /             %ul.dropdown-menu
     /               %li= link_to t(:logout), sessions_logout_path, { :class => 'auth' }
     /               %li= link_to t(:editprofile), edit_user_path(:id => current_user.id)
-    .pull-right
-      = form_tag search_path, :method => 'get' do
-        %p
-          = text_field_tag :search, params[:search]
-          = submit_tag t(:search), :name => nil
+    
     / >>>>>>> master
