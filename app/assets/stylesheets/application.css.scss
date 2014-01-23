@@ -3,7 +3,9 @@
 
 @import "bootstrap";
 body{
-    background: url('/assets/background.jpg') no-repeat center center fixed;
+    background: url('/assets/background.jpg') center;
+    background-attachment:fixed;
+    background-size: contain;
     }
 .container{
 	background: #fff;
