@@ -2,7 +2,12 @@
 //= require_tree .
 
 @import "bootstrap";
-
+body{
+    background: url('/assets/background.jpg') no-repeat center center fixed;
+    }
+.container{
+	background: #fff;
+}
 .new{ color: red; }
 .in_progress{ color: red; }
 .pending{ color: red; }
