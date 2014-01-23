@@ -1,6 +1,7 @@
 .content
   %h1=@tag.send(locale_to_word)
-  %p=@tag.send((locale_to_word.to_s + "_description").to_sym).html_safe
+  - if not @tag.send((locale_to_word.to_s + "_description").to_sym).nil?
+    %p=@tag.send((locale_to_word.to_s + "_description").to_sym).html_safe
   %table.doc-list
     %thead  
       %tr
