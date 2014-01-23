@@ -11,10 +11,8 @@
   %body
     = render 'partials/navigation'
     .rule_bl
-    /- if user_signed_in?
-    /  %div#sidebar
-    /    = render "partials/dashboard_nav_#{current_user.role}"
     .container#main_content
+
       .col-md-2
         = render :partial => "partials/side_nav"
       .col-md-10
@@ -22,5 +20,6 @@
           %p.well= flash[:notice]
         = yield
     %footer
+    = image_tag 'background.jpg', :style => "max-width:100%;max-heigth:100%;"
     = javascript_include_tag "application"
     = render :partial => "layouts/analytics"
