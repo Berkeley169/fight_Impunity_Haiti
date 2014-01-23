@@ -19,16 +19,16 @@
     = f.text_field :spanish
   .field
     = f.label t(:english_description)
-    = f.text_area :english_description
+    = f.text_area :english_description, :class => 'ckeditor' 
   .field
     = f.label t(:french_description)
-    = f.text_area :french_description
+    = f.text_area :french_description, :class => 'ckeditor' 
   .field
     = f.label t(:creole_description)
-    = f.text_area :creole_description
+    = f.text_area :creole_description, :class => 'ckeditor' 
   .field
     = f.label t(:spanish_description)
-    = f.text_area :spanish_description
+    = f.text_area :spanish_description, :class => 'ckeditor' 
   .field
     = f.label t(:type)
     = f.select :cat, options_for_select([["Main Category", "main"], ["Subcategory", "sub"], ["Miscellaneous", "misc"]])
