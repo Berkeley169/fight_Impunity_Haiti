@@ -32,7 +32,7 @@ fr:
   login: Se connecter
   subcategories: sous-catégories
   home: Accueil
-  about: à Propos de Nous
+  about: À propos du projet
   contact: Contact
   fight: Lutter Contre l'Impunité en Haïti
   texts: Texte
@@ -84,7 +84,7 @@ fr:
   dashboardhome: Tableau de bord
   published: publié
   inprogress: en cours
-  pending: en attendant
+  pending: En attente
   new: nouveau
   rejected: rejeté
   userdirectory: liste des utilisateurs

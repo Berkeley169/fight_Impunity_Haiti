@@ -31,8 +31,8 @@ ht:
   hello: Alo Mond
   login: Konekte
   subcategories: Subkategori ki
-  home: Lakay
-  about: Sou nou
+  home: Antre
+  about: Kisa pwojè a ye
   contact: Kontak
   fight: Goumen Kont Enpinite an Ayiti
   texts: Tèks
@@ -84,8 +84,8 @@ ht:
   dashboardhome: Tablodbò lakay
   published: Deja pibliye
   inprogress: Nan pwogrè
-  pending: Annatandan
-  new: nuovo
+  pending: Pare pou pibliye
+  new: Nouvo
   rejected: Rejte
   userdirectory: Anyè Itilizatè
   usermanagement: Jesyon Itilizatè
