@@ -14,7 +14,7 @@ class Notifier < ActionMailer::Base
             Email: #{contact_email}<br />
             Phone Number: #{p_num}<br />
             Reason: #{email_body}"
-  	mail = mail(to: "themurph23@yahoo.com",
+  	mail = mail(to: "natesholland@gmail.com",
   				body: body,
   				content_type: "text/html",
   				subject: "Fight Impunity Haiti: #{sub}")

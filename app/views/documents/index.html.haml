@@ -16,6 +16,7 @@
           = t(:actions)
     %tbody
       = render :partial => 'document_quickview', :collection => @documents, :as => :document
+      / = will_paginate @documents, :page_links => false, :previous_label => "Prev", :next_label => "Next"
 %br
 
 = link_to t(:submitadocument), new_document_choice_path
