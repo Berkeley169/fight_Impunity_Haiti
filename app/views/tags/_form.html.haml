@@ -36,5 +36,9 @@
     = f.label t(:main_category)
     = f.select("parent_id", Tag.where(:cat => "main").collect {|p| [ p.send(locale_to_word), p.id ] }, { include_blank: true })
 
+  .field
+    = f.label t(:order)
+    = f.number_field :ordering
+
   .actions
     = f.submit t(:save)

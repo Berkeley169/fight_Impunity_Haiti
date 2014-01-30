@@ -39,7 +39,12 @@ fr:
   pictures: Photos
   picture: Photo
   video: Vidéo
-  welcomemessage: Nous sommes un groupe de militants, les développeurs, les étudiants et les professionnels semblables qui se consacrent à la lutte contre l'impunité pour les violations des droits de l'homme en Haïti au cours du siècle dernier.  Actuellement, ce site est un travail en cours. Nous faisons une bibliothèque en ligne donc la plupart du travail est actuellement dans les coulisses. Si vous êtes un éditeur ou gestionnaire, vous pouvez vous connecter ci-dessus.
+  welcomemessage: Nous sommes un groupe de militants, les développeurs, les étudiants
+    et les professionnels semblables qui se consacrent à la lutte contre l'impunité
+    pour les violations des droits de l'homme en Haïti au cours du siècle dernier.  Actuellement,
+    ce site est un travail en cours. Nous faisons une bibliothèque en ligne donc la
+    plupart du travail est actuellement dans les coulisses. Si vous êtes un éditeur
+    ou gestionnaire, vous pouvez vous connecter ci-dessus.
   audio: Son
   other: Autre
   underconstruction: En construction
@@ -48,7 +53,7 @@ fr:
   show: Montrer
   destroy: Détruire
   save: Sauver
-  download: 'Télécharger: '
+  download: ! 'Télécharger: '
   submitadocument: Soumettre un document
   webarticle: Article en Ligne
   journalarticle: Article de Revue
@@ -76,9 +81,9 @@ fr:
   forgotpassword: Mot de passe oublié?
   didntreceiveconfirmation: Vous n'avez pas reçu les instructions de confirmation?
   didntreceiveunlock: Vous n'avez pas reçu les instructions de déverrouillage?
-  signinwith: 'Se connecter avec '
+  signinwith: ! 'Se connecter avec '
   resendunlock: Renvoyez déverrouiller instructions
-  loggedinas: 'Connecté en tant que: '
+  loggedinas: ! 'Connecté en tant que: '
   editprofile: modifier le profil
   signout: se déconnecter
   dashboardhome: Tableau de bord
@@ -92,7 +97,7 @@ fr:
   newtag: nouveau tag
   backtodashboard: retour à Tableau de bord
   delete: effacer
-  deleteuserconfirm: "Etes-vous sûr de vouloir supprimer l'utilisateur "
+  deleteuserconfirm: ! 'Etes-vous sûr de vouloir supprimer l''utilisateur '
   adduser: ajouter l'utilisateur
   manageusers: Gérer les utilisateurs
   english: Anglais
@@ -116,8 +121,10 @@ fr:
   editing: Rédaction
   document: Document
   publication_status: statut de publication
-  select_document_type: S'il vous plaît sélectionner un type de document dans la liste ci-dessous
-  select_document_upload_type: S'il vous plaît sélectionner un type de document à télécharger
+  select_document_type: S'il vous plaît sélectionner un type de document dans la liste
+    ci-dessous
+  select_document_upload_type: S'il vous plaît sélectionner un type de document à
+    télécharger
   listing: liste
   type_and_langs_published: Le type et les langues publiés
   title_and_description: Titre et Description
@@ -126,8 +133,11 @@ fr:
   videos: vidéos
   tags_management: gérer les tags
   donations_title: Dons
-  contact_thanks: Merci pour votre contribution. Nous reviendrons vers vous dès que possible.
-  donation_splash: Nous travaillons sur currenlty comment mettre en place les dons.  S'il vous plaît utilisez le formulaire de contact pour entrer en contact avec nous en ce moment.
+  contact_thanks: Merci pour votre contribution. Nous reviendrons vers vous dès que
+    possible.
+  donation_splash: Nous travaillons sur currenlty comment mettre en place les dons.  S'il
+    vous plaît utilisez le formulaire de contact pour entrer en contact avec nous
+    en ce moment.
   content: teneur
   date_string: date
   website: site web
@@ -159,3 +169,4 @@ fr:
   role: Rôle
   language: Langue
   user_information_for: Informations de l'utilisateur pour
+  order: ordre

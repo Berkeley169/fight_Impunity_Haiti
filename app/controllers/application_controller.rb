@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   end
 
   def get_tags
-    @navtags = Tag.where(:cat => 'main')
+    @navtags = Tag.where(:cat => 'main').order("ordering ASC")
   end
 
   def authenticate_user

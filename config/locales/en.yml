@@ -42,7 +42,11 @@ en:
   picture: Picture
   video: Video
   videos: videos
-  welcomemessage: We are a group of activists, developers, students, and professionals alike who are dedicated to fighting impunity for human rights violations in Haiti over the last century.  Currently this site is a work in progress.  We are making an eLibrary so most of the work currently is behind the scenes.  If you are an editor or manager, you can log in above.
+  welcomemessage: We are a group of activists, developers, students, and professionals
+    alike who are dedicated to fighting impunity for human rights violations in Haiti
+    over the last century.  Currently this site is a work in progress.  We are making
+    an eLibrary so most of the work currently is behind the scenes.  If you are an
+    editor or manager, you can log in above.
   audio: Audio
   other: Other
   underconstruction: Under Construction
@@ -131,7 +135,8 @@ en:
   tags_management: Manage Tags
   donations_title: Donate
   contact_thanks: Thank you for your input. We will get back to you as soon as possible.
-  donation_splash: Follow the link and use a credit card or a paypal account to donate.  We appreciate any contribution greatly.
+  donation_splash: Follow the link and use a credit card or a paypal account to donate.  We
+    appreciate any contribution greatly.
   content: Content
   date_string: Date
   website: website
@@ -160,3 +165,4 @@ en:
   role: Role
   language: Language
   user_information_for: User information for
+  order: Order

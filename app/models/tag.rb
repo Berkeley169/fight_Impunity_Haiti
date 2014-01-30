@@ -6,7 +6,7 @@ class Tag < ActiveRecord::Base
   include PgSearch
   attr_accessible :creole, :english, :french, :spanish, :cat,
       :english_description, :french_description, :spanish_description,
-      :creole_description, :parent_id
+      :creole_description, :parent_id, :ordering
   has_and_belongs_to_many :pictures 
   has_and_belongs_to_many :videos
   has_and_belongs_to_many  :binaries
