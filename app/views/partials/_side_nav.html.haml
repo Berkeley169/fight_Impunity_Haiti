@@ -13,9 +13,10 @@
           %li.dropdown-header{ :role => 'presentation'}
             = t(:subcategories)
           - tag.children.each do |t|
-            %li
-              %a{ :href => index_by_tag_path(:tagid => t.id) }
-                = t.send(locale_to_word)
+            - if t.cat != 'misc'
+              %li
+                %a{ :href => index_by_tag_path(:tagid => t.id) }
+                  = t.send(locale_to_word)
     -else 
       %a.btn.btn-primary{ :href => index_by_tag_path(:tagid => tag.id) }
         = tag.send(locale_to_word)
