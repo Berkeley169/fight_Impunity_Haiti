@@ -1,6 +1,6 @@
 Fight Impunity in Haiti
 ==================
-The initial project is now done!
+[![Build Status](https://travis-ci.org/Berkeley169/fight_Impunity_Haiti.png?branch=master)](https://travis-ci.org/Berkeley169/fight_Impunity_Haiti)
 
 Berkeley CS 169 project working with a non-profit group to fight impunity in Haiti.
 
