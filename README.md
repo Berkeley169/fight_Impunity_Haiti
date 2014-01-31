@@ -1,6 +1,5 @@
 Fight Impunity in Haiti
 ==================
-The initial project is now done!
 
 Berkeley CS 169 project working with a non-profit group to fight impunity in Haiti.
 
