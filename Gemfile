@@ -29,6 +29,7 @@ gem 'pg_search'
 gem 'dotenv-rails'
 gem 'aws-sdk'
 gem 'will_paginate'
+gem 'easy_youtube'
 
 gem 'negative_captcha'
 
