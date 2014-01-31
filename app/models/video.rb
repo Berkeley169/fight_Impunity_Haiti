@@ -21,7 +21,7 @@ class Video < ActiveRecord::Base
     end
 
   def valid_youtube_link
-    video_id = YouTubeAddy.extract_video_id(self.vid)
+    video_id = EasyYouTube.extract_video_id(self.vid)
     response = Net::HTTP.get("gdata.youtube.com", "/feeds/api/videos/#{video_id}")
     if video_id.nil?
       errors.add(:base, I18n.translate(:youtube_link_error))
