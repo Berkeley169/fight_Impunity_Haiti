@@ -40,4 +40,24 @@ module Status
     self.new? and not self.in_progress? and not self.pending? and not self.published? and not self.rejected?
   end
 
+  def published_documents
+    where(:published => true)
+  end
+
+  def self.new_documents
+    where(:new => true)
+  end
+
+  def pending_documents
+
+  end
+
+  def in_progress_documents
+
+  end
+
+  def rejected_documents
+
+  end
+
 end

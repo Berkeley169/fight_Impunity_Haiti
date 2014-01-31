@@ -1,8 +1,11 @@
+require 'will_paginate/array'
 class DocumentsController < ApplicationController
   before_filter :authenticate_user, :except => [:index, :index_by_tag, :show, :new, :create, :text_choice, :new_document_choice]
   before_filter :type_setup, :except => [:dashboard_index, :new_document_choice, :index_by_tag]
   before_filter :dashboard_setup, :only => [:dashboard_index]
   before_filter :sanitize_update, :only => [:update]
+
+  PER_PAGE = 10
 
   def type_setup
     type = {:binaries => Binary, :pictures => Picture, :sounds => Sound, :texts => Text, :videos => Video}
@@ -17,9 +20,9 @@ class DocumentsController < ApplicationController
 
   def index
     if current_user == nil
-      @documents = @doc_type.where(:published => true)
+      @documents = @doc_type.where(:published => true).paginate(page: params[:page], per_page: PER_PAGE)
     else
-      @documents = @doc_type.all
+      @documents = @doc_type.paginate(page: params[:page], per_page: PER_PAGE)
     end
     @permissions = permissions
   end
@@ -32,6 +35,7 @@ class DocumentsController < ApplicationController
       if not user_signed_in?
         @documents = @documents.select { |doc| doc.published }
       end
+      @documents = @documents.paginate(page: params[:page], per_page: PER_PAGE)
       @tags = @tag.children
     else
       not_found
@@ -124,11 +128,14 @@ class DocumentsController < ApplicationController
     if params[:status] == 'all'
       @documents = types.map { |type| type.all }.reduce(:+)
     else
-      @documents = types.map { |type| type.where(params[:status].to_sym => true) }.reduce(:+)
+      @documents = types.map { |type| type.send("#{params[:status]}_documents".to_sym) }.reduce(:+)
     end 
+    @documents = @documents.paginate(page: params[:page], per_page: PER_PAGE)
     render 'index'
   end
 
   def new_document_choice
   end
+
+
 end

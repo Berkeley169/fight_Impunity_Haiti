@@ -26,5 +26,25 @@ class Picture < ActiveRecord::Base
 	def get_language(lang)
 	    self.picture_langs.where(:lang => lang).first || nil
 	end
+
+  def self.published_documents
+    where(:published => true)
+  end
+
+  def self.new_documents
+    where(:new => true)
+  end
+
+  def self.pending_documents
+    where(:pending => true)
+  end
+
+  def self.in_progress_documents
+    where(:in_progress => true)
+  end
+
+  def self.rejected_documents
+    where(:rejected => true)
+  end
 end
 

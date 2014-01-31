@@ -16,5 +16,5 @@
           = t(:actions)
     %tbody
       = render :partial => 'document_quickview', :collection => @documents, :as => :document
-
+  = will_paginate @documents, :page_links => true, :previous_label => "Prev", :next_label => "Next"
 %br
