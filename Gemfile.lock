@@ -203,6 +203,7 @@ GEM
     negative_captcha (0.3.3)
       actionpack
       activesupport
+    newrelic_rpm (3.6.0.83)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
     oauth (0.4.7)
@@ -387,6 +388,7 @@ DEPENDENCIES
   mail
   metric_fu
   negative_captcha
+  newrelic_rpm
   nokogiri
   omniauth
   omniauth-twitter

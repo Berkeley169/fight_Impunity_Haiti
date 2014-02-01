@@ -29,6 +29,7 @@ gem 'dotenv-rails'
 gem 'aws-sdk'
 gem 'will_paginate'
 gem 'easy_youtube'
+gem 'newrelic_rpm'
 
 gem 'negative_captcha'
 
