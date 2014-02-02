@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
 
   before_filter :setup_negative_captcha, :only => [:contact, :email]
-  before_filter :authenticate_manager, :only => [:index, :edit]
+  before_filter :authenticate_manager, :only => [:index, :edit, :show, :destroy, :new, :create, :update]
 
   def home
   	@tags = Tag.where(:cat => 'main')
