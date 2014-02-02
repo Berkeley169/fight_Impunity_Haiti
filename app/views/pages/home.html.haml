@@ -18,7 +18,7 @@
     = image_tag 'binary_icon.gif'
     %h2= link_to t(:other), binaries_path
 
-- if @home.nil?
+- if @page.nil?
   %h2.text-center Onè respè ! Bienvenue ! Welcome ! ¡ Bienvenido!
   %p{:style => "text-indent:5%;"} Sit pwojè Ayiti nan batay kont enpinite nan kouti. Men ou kapab konsilte dokiman ki deja disponib yo. Nap travay pou nou konplete tout ribrik yo.
   %p{:style => "text-indent:5%;"} Le site Haïti lutte contre l'impunité est en construction. Vous pouvez consulter les documents déjà enregistrés. Nous travaillons à compléter toutes les rubriques.
@@ -30,4 +30,4 @@
   %p.text-info.text-center.small Dat lansman, 7 Fevriye 2014 - Mise en ligne le 7 février 2014 
   %p.text-info.text-center.small Launched on February 7th, 2014 - Última vez en línea 07 de febrero 2014
 - else
-  @home.send(locale_to_word).html_safe
+  =@page.send(locale_to_word).html_safe
