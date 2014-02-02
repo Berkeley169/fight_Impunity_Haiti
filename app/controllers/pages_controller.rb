@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
 
   before_filter :setup_negative_captcha, :only => [:contact, :email]
+  before_filter :authenticate_manager, :only => [:index, :edit]
 
   def home
   	@tags = Tag.where(:cat => 'main')
@@ -28,6 +29,66 @@ class PagesController < ApplicationController
 
   def donate
   end
+
+  def index
+    @pages = Page.all
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @pages }
+    end
+  end
+
+  def edit
+      @page = Page.find(params[:id])
+  end
+
+  def new
+      @page = Page.new
+      respond_to do |format|
+        format.html # new.html.erb
+        format.json { render json: @page }
+      end
+  end
+
+  def show
+    @page = Page.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @page }
+    end
+  end
+
+  def update
+    @page = Page.find(params[:id])
+      if @page.update_attributes(params[:page])
+        redirect_to @page, notice: 'Page was successfully updated.'
+      else
+        render action: "edit"
+      end
+  end
+
+  def create
+    @page = Page.new(params[:page])
+    #respond_to do |format|
+      if @page.save
+        redirect_to @page, notice: 'Page was successfully created.'
+      else
+        render action: "new"
+      end
+  end
+
+  def destroy
+    @page = Page.find(params[:id])
+    @page.destroy
+
+    respond_to do |format|
+      format.html { redirect_to pages_path }
+      format.json { head :no_content }
+    end
+
+  end
+
 
   private
     def setup_negative_captcha

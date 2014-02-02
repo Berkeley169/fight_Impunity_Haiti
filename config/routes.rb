@@ -2,6 +2,7 @@ FightImpunityHaiti::Application.routes.draw do
 
   resources :tags
   resources :users
+  resources :pages
 
 
   devise_for :users, :path => 'sessions'

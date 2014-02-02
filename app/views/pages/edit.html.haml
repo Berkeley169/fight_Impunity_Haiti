@@ -1,0 +1,7 @@
+%h1= @page.title
+
+= render 'form'
+
+= link_to t(:show), @page
+\|
+= link_to t(:back), tags_path

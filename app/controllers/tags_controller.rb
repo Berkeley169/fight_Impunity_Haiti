@@ -26,12 +26,6 @@ class TagsController < ApplicationController
   # GET /tags/new.json
   def new
       @tag = Tag.new
-      mains = Tag.where(:cat => "main")
-      @main_categories = []
-      mains.each do |m|
-        @main_categories << [m.english, m.id]
-      end
-      # @main_categories << ["",nil]
       respond_to do |format|
         format.html # new.html.erb
         format.json { render json: @tag }
@@ -41,12 +35,6 @@ class TagsController < ApplicationController
   # GET /tags/1/edit
   def edit
       @tag = Tag.find(params[:id])
-      mains = Tag.where(:cat => "main")
-      @main_categories = []
-      mains.each do |m|
-        @main_categories << [m.english, m.id]
-      end
-      # @main_categories << ["",nil]
   end
 
   # POST /tags
@@ -56,32 +44,20 @@ class TagsController < ApplicationController
     #respond_to do |format|
       if @tag.save
         redirect_to @tag, notice: 'Tag was successfully created.'
-        #format.html { redirect_to @tag, notice: 'Tag was successfully created.' }
-        #format.json { render json: @tag, status: :created, location: @tag }
       else
         render action: "new"
-        #format.html { render action: "new" }
-        #format.json { render json: @tag.errors, status: :unprocessable_entity }
       end
-    #end
   end
 
   # PUT /tags/1
   # PUT /tags/1.json
   def update
     @tag = Tag.find(params[:id])
-
-    #respond_to do |format|
       if @tag.update_attributes(params[:tag])
         redirect_to @tag, notice: 'Tag was successfully updated.'
-        #format.html { redirect_to @tag, notice: 'Tag was successfully updated.' }
-        #format.json { head :no_content }
       else
         render action: "edit"
-        #format.html { render action: "edit" }
-        #format.json { render json: @tag.errors, status: :unprocessable_entity }
       end
-    #end
   end
 
   # DELETE /tags/1

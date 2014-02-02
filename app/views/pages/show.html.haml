@@ -1,0 +1,13 @@
+%h1= @page.title.html_safe
+
+%p=@page.english.html_safe
+
+%p=@page.french.html_safe
+
+%p=@page.creole.html_safe
+
+%p=@page.spanish.html_safe
+
+= link_to t(:edit), edit_page_path(@page)
+\|
+= link_to t(:back), pages_path
