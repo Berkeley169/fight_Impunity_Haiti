@@ -5,6 +5,7 @@ class PagesController < ApplicationController
 
   def home
   	@tags = Tag.where(:cat => 'main')
+    @page = Page.where(:title => 'Home').first
   end
 
   def contact
