@@ -12,7 +12,7 @@
           %li.divider{ :role => 'presentation'}
           %li.dropdown-header{ :role => 'presentation'}
             = t(:subcategories)
-          - tag.children.each do |t|
+          - tag.children.order('ordering ASC').each do |t|
             - if t.cat != 'misc'
               %li
                 %a{ :href => index_by_tag_path(:tagid => t.id) }
