@@ -2,8 +2,13 @@ FightImpunityHaiti::Application.routes.draw do
 
   resources :tags
   resources :users
-  resources :pages
-
+  # get '/pages/id/:id' => 'pages#show', :as => :page
+  # get '/pages' => 'pages#index', :as => :pages
+  # get '/pages/:id/edit' => 'pages#edit', :as => :edit_page
+  # get '/pages/new' => 'pages#new', :as => :new_page
+  # get '/pages/:id/delete' => 'pages#destroy', :as => :destroy_page
+  # post '/pages' => 'pages#create', :as => :create_page
+  # put '/pages/:id' => 'pages#update', :as => :update_page
 
   devise_for :users, :path => 'sessions'
   devise_scope :user do
@@ -14,6 +19,8 @@ FightImpunityHaiti::Application.routes.draw do
   match 'pages/about' => 'pages#about'
   match 'dashboard' => 'dashboard#index'
   match 'pages/donate' => 'pages#donate'
+
+  resources :pages
 
   get   '/pictures', :to => 'documents#index', :as => :pictures, :type => "pictures"
   get '/pictures/new' => 'documents#new', :as => :new_picture, :type => "pictures"

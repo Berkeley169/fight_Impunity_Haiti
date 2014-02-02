@@ -25,6 +25,7 @@ class PagesController < ApplicationController
   end
 
   def about
+    @page = Page.where(:title => "About").first
   end
 
   def donate
@@ -52,7 +53,6 @@ class PagesController < ApplicationController
 
   def show
     @page = Page.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @page }

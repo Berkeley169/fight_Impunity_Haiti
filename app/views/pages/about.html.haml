@@ -1,2 +1,5 @@
-%h1 Fighting Impunity in Haiti
-%p This page will contain information about the cause and details of the project
+%h1= t(:fight)
+- if @page
+  =@page.send(locale_to_word).html_safe
+- else
+  %p This page will contain information about the cause and details of the project

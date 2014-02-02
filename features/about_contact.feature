@@ -12,7 +12,7 @@ Background: you are on the home page
 Scenario: see the about page
 	Then I should see "About"
 	When I follow "About"
-	Then I should see "Fighting Impunity in Haiti"
+	Then I should see "Fight Impunity in Haiti"
 
 Scenario: see the contact page
 	Then I should see "Contact"
