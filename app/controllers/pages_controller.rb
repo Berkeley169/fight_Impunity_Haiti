@@ -30,6 +30,7 @@ class PagesController < ApplicationController
   end
 
   def donate
+    @page = Page.where(:title => 'Donate').first
   end
 
   def index
