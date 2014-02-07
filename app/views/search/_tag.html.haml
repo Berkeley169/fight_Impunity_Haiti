@@ -9,7 +9,7 @@
       %img{:src => "/assets/Spanish-16.png", :height => "16", :width => "16"}
   %td.title-and-description
     %h3=obj.send(locale_to_word)
-    %h5=obj.send("#{locale_to_word.to_s}_description".to_sym)
+    %h5=obj.send("#{locale_to_word.to_s}_description".to_sym).html_safe
   %td.date{ :align => 'center' }
     %p="#{t(:created)} #{pretty_date(obj.updated_at)}"
   %td.space
