@@ -6,6 +6,7 @@ Feature: add non-public editor notes to a picture
 
 
 Background: picture(s) in database
+  When I click English
   Given there is a picture named "TestPic"
 
 Scenario: make sure the field is present

@@ -5,6 +5,7 @@ Feature: basic document flow should work
 	I want to be able to create documents and have them published
 
 Scenario: allow editor to create document and send it to new
+	When I click English
 	Given that I am signed in as an editor
 	And  then there is a picture named "foobar"
 	And I am on the new documents page

@@ -6,6 +6,7 @@ Feature: add non-public editor notes to a sound
 
 
 Background: sound in database
+  When I click English
   Given there is a sound named "TestSound"
 
 Scenario: make sure the field is present

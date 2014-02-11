@@ -5,6 +5,7 @@ Feature: editting texts prompts for the right subtype fields
   So I can insert/change the proper attributes about a document
 
 Background:
+  When I click English
   Given there is a web article text named "TestWebText"
   And there is a newspaper article text named "TestNewsText"
   And there is a journal article text named "TestJournalText"

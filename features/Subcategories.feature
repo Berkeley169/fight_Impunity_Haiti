@@ -5,6 +5,8 @@ Feature: Tags showing on main page
 	So I can easily navigate the site
 
 Background: a tag exists
+	Given I am on the home page
+	When I click English
 	Given there is a tag with En: "EnTag" Fr: "FrTag" Cr: "CrTag" Sp: "SpTag"
 	And I am signed in as a manager
 Scenario: simple tag on the home page

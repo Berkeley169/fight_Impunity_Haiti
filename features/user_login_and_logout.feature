@@ -5,11 +5,14 @@ Feature: Login as a user
   I want to be able to login with secure credentials
 
 Background:
+  Given I am on the home page
+  When I click English
   Given there is an editor with email "bob@bomb.com" and password "hunter222"
 
 Scenario: allow users to login
   Given I am not signed in
-  When  I go to the login page 
+  When  I go to the login page
+  When I click English 
   And   I log in with email "bob@bomb.com" and password "hunter222"
   Then  I should be on the home page
 
@@ -22,11 +25,13 @@ Scenario: allows users to logout
 Scenario: logging in as a non-existent user causes failure
   Given I am not signed in
   When  I go to the login page
+  When I click English
   And   I log in with email "roger@regret.net" and password "hunter2"
   Then  I should be on the login page
 
 Scenario: an incorrect password causes failure
   Given I am not signed in
   When  I go to the login page
+  When I click English
   And   I log in with email "bob@bomb.com" and password "hunter3"
   Then  I should be on the login page

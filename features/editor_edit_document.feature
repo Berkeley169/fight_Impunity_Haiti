@@ -5,6 +5,7 @@ Feature: Edit document as editor
   I want to be able to edit documents
 
 Background: 
+  When I click English
   Given there is a text named "TestText"
 
 Scenario: disallow public from editing documents

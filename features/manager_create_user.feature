@@ -4,6 +4,9 @@ Feature: Create new users as manager
   So that we can have more editors and contributors
   I want to be able to make new user profiles
 
+Background: set language to english
+  When I click English
+
 Scenario: disallow public from accessing user create page
   Given I am not signed in
   When  I go to the user create page

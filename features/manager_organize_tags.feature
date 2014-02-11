@@ -5,6 +5,7 @@ Feature: Manage tags and categorization
   So that editors and uploaders can better categorize their content
 
 Background:
+  When I click English
   Given there is a tag named "TestTag"
 
 Scenario: allow manager to view the tag page

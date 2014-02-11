@@ -8,4 +8,5 @@ Background: you are on the home page
 	Given I am on the home page
 
 Scenario: see the home page
+	When I click English
 	Then I should see "Login"

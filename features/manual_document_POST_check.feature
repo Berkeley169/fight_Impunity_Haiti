@@ -6,6 +6,7 @@ Feature:
 
 
 Scenario: public users cannot edit existing documents via manual HTTP POST requests
+  When I click English
   Given I am not signed in
   And there is a video named "TestVideo"
   When I submit a manual POST request to edit the name of a video named "TestVideo"

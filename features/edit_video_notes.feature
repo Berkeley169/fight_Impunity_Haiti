@@ -5,6 +5,7 @@ Feature: add non-public editor notes to a video
   So that I can take personal note of needed information, and share it with other editors/managers
 
 Background: video(s) in database
+  When I click English
   Given there is a video named "TestVideo"
 
 Scenario: make sure the field is present

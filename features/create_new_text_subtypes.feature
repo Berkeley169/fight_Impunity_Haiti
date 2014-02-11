@@ -4,6 +4,9 @@ Feature: support choosing what type of text to create
   I want uploaders to specify what type of text they are uploading
   So that the eLibrary's metadata can be more organized and complete
 
+Background: you want English
+  When I click English
+
 Scenario: user is prompted to pick a text type
   When I go to the new text page
   Then I should see "Please select a document type from the list below:"

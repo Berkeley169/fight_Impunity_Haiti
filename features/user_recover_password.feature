@@ -5,11 +5,13 @@ I want to be able to retrieve my password
 So I can still log on if I forget it
 
 Background: User tries to recover password
+	Given I am on the home page
+	When I click English
 	Given I am signed in as a manager
 	Then I am not signed in
 	And I am on the login page
-	And I follow "Forgot your password?"
 	When I click English
+	And I follow "Forgot your password?"
 	Then I should be on the password recovery page
 
 Scenario: User should be able to recover password

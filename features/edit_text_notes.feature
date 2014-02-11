@@ -6,6 +6,7 @@ Feature: add non-public editor notes to a document
 
 
 Background: text in database
+  When I click English
   Given there is a text named "TestText"
 
 Scenario: make sure the field is present

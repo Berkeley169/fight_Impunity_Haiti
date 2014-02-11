@@ -6,6 +6,7 @@ Feature: add non-public editor notes to a document
 
 
 Background: binary(s) in database
+  When I click English
   Given there is a binary named "TestBinary"
 
 Scenario: make sure the notes field is present
