@@ -20,9 +20,9 @@ class DocumentsController < ApplicationController
 
   def index
     if current_user == nil
-      @documents = @doc_type.where(:published => true).paginate(page: params[:page], per_page: PER_PAGE)
+      @documents = @doc_type.where(:published => true).paginate(page: params[:page], per_page: PER_PAGE).order('created_at DESC')
     else
-      @documents = @doc_type.paginate(page: params[:page], per_page: PER_PAGE)
+      @documents = @doc_type.paginate(page: params[:page], per_page: PER_PAGE).order('created_at DESC')
     end
     @permissions = permissions
   end
