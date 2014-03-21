@@ -91,6 +91,8 @@ class PagesController < ApplicationController
 
   end
 
+  def library
+  end
 
   private
     def setup_negative_captcha

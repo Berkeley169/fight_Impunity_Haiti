@@ -20,15 +20,8 @@
     -else 
       %a.btn.btn-primary{ :href => index_by_tag_path(:tagid => tag.id) }
         = tag.send(locale_to_word)
-  %a.btn.btn-primary{ :href => texts_path }
-    =t(:texts)
-  %a.btn.btn-primary{ :href => pictures_path }
-    =t(:pictures)
-  %a.btn.btn-primary{ :href => videos_path }
-    =t(:video)
-  %a.btn.btn-primary{ :href => sounds_path }
-    =t(:audio)
-  %a.btn.btn-primary{ :href => binaries_path }
-    =t(:other)
+
+  %a.btn.btn-primary{ :href => '/pages/library' }
+    =t(:library)
   %a.btn.btn-primary{ :href => new_document_choice_path}
     =t(:submitadocument)

@@ -19,6 +19,7 @@ FightImpunityHaiti::Application.routes.draw do
   match 'pages/about' => 'pages#about'
   match 'dashboard' => 'dashboard#index'
   match 'pages/donate' => 'pages#donate'
+  match 'pages/library' => 'pages#library'
 
   resources :pages
 

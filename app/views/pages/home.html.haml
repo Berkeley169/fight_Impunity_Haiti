@@ -1,22 +1,6 @@
 / .jumbotron
 /   %h2= t(:underconstruction)
 /   %p= t(:welcomemessage) 
-.row
-  .pull-left.home-icon
-    = image_tag 'text_icon.gif'
-    %h2= link_to t(:texts), texts_path
-  .pull-left.home-icon
-    = image_tag 'picture_icon.gif'
-    %h2= link_to t(:pictures), pictures_path
-  .pull-left.home-icon
-    = image_tag 'video_icon.gif'
-    %h2= link_to t(:video), videos_path
-  .pull-left.home-icon
-    = image_tag 'sound_icon.gif'
-    %h2= link_to t(:audio), sounds_path
-  .pull-left.home-icon
-    = image_tag 'binary_icon.gif'
-    %h2= link_to t(:other), binaries_path
 
 - if @page.nil?
   %h2.text-center Onè respè ! Bienvenue ! Welcome ! ¡ Bienvenido!
