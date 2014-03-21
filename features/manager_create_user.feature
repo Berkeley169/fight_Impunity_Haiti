@@ -5,6 +5,7 @@ Feature: Create new users as manager
   I want to be able to make new user profiles
 
 Background: set language to english
+  Given I am on the home page
   When I click English
 
 Scenario: disallow public from accessing user create page

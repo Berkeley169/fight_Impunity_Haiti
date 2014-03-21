@@ -5,6 +5,7 @@ Feature: Manage tags and categorization
   So that editors and uploaders can better categorize their content
 
 Background:
+  Given I am on the home page
   When I click English
   Given there is a tag named "TestTag"
 

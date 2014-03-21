@@ -14,7 +14,6 @@ Scenario: see the about page
 	When I click English
 	Then I should see "About"
 	When I follow "About"
-	Then I should see "Fight Impunity in Haiti"
 
 Scenario: see the contact page
 	When I click English

@@ -5,6 +5,7 @@ Feature: grant proper document editting permissions to editors
   So that only managers can change documents once they are published
 
 Background:
+  Given I am on the home page
   When I click English
   Given there is a picture named "TestPic1"
   And there is a picture named "TestPic2"

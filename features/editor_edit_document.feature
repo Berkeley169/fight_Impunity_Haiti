@@ -5,6 +5,7 @@ Feature: Edit document as editor
   I want to be able to edit documents
 
 Background: 
+  Given I am on the home page
   When I click English
   Given there is a text named "TestText"
 

@@ -6,6 +6,7 @@ Feature: add non-public editor notes to a sound
 
 
 Background: sound in database
+  Given I am on the home page
   When I click English
   Given there is a sound named "TestSound"
 

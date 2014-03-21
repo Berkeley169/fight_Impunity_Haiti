@@ -5,6 +5,7 @@ Feature: Public can only view published translations
   So that I can complete my translation work and only make it public once a manager deems it satisfactory
 
 Background:
+  Given I am on the home page
   When I click English
   Given there is a picture named "TestPic1"
   And there is a picture named "TestPic2"

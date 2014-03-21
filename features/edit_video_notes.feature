@@ -5,6 +5,7 @@ Feature: add non-public editor notes to a video
   So that I can take personal note of needed information, and share it with other editors/managers
 
 Background: video(s) in database
+  Given I am on the home page
   When I click English
   Given there is a video named "TestVideo"
 

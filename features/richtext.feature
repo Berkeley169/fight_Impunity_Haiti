@@ -6,6 +6,8 @@ Feature: add a rich text-editor to edit/manage content
 
 
 Background: text in database
+  Given I am on the home page
+  When I click English
   Given there is a text named "TestText"
 
 Scenario: make sure a textarea is present

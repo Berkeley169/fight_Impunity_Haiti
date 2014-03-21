@@ -13,6 +13,8 @@ Feature: Allow different types of text uploads to have specific fields
 # TL;DR this set of tests may need to change as the upload requirements
 # for different types of texts are solidified
 Background:
+  Given I am on the home page
+  When I click English
   Given there is a web article text named "TextWebText"
   And there is a journal article text named "TestJournalText"
   And there is a book excerpt text named "TestBookText"

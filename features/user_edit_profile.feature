@@ -4,6 +4,10 @@ As a user
 I want to be able to update my profile
 In case I make an error, or want to change my password
 
+Background:
+	Given I am on the home page
+	When I click English
+
 Scenario: User should be able to change name
 	Given I am on the home page
 	When I click English
@@ -25,6 +29,7 @@ Scenario: User should be able to change password
 	And I fill in "user_password_confirmation" with "newpassword"
 	And I press "Submit"
 	And I am not signed in
+	When I click English
 	And I log in with email "editor@domain.com" and password "newpassword"
 	Then I should see "Logout"
 

@@ -4,9 +4,11 @@ Feature:
   I want users to have to go through the proper form to upload documents
   So that the document flow for submissions is followed without being subverted
 
+Background:
+  Given I am on the home page
+  When I click English
 
 Scenario: public users cannot edit existing documents via manual HTTP POST requests
-  When I click English
   Given I am not signed in
   And there is a video named "TestVideo"
   When I submit a manual POST request to edit the name of a video named "TestVideo"

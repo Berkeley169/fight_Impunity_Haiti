@@ -6,6 +6,7 @@ Feature: add non-public editor notes to a document
 
 
 Background: text in database
+  Given I am on the home page
   When I click English
   Given there is a text named "TestText"
 

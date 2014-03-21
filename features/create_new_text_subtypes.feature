@@ -5,6 +5,7 @@ Feature: support choosing what type of text to create
   So that the eLibrary's metadata can be more organized and complete
 
 Background: you want English
+  Given I am on the home page
   When I click English
 
 Scenario: user is prompted to pick a text type

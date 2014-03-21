@@ -6,6 +6,8 @@ Feature: search basics
 
 
 Background: Document and Tag exist
+  Given I am on the home page
+  When I click English
   Given I am signed in as a manager
   And I am on the home page
   Given there is a text named "TestText"

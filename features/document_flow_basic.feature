@@ -4,6 +4,10 @@ Feature: basic document flow should work
 	So that I may populate the e-library
 	I want to be able to create documents and have them published
 
+Background:
+	Given I am on the home page
+	When I click English
+
 Scenario: allow editor to create document and send it to new
 	When I click English
 	Given that I am signed in as an editor
